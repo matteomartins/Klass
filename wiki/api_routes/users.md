@@ -1,6 +1,6 @@
 [Voltar](menu.md)
 
-# User Routes
+# Rotas do Usuário
 
 ## Criar um usuário
 
