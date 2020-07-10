@@ -1,6 +1,6 @@
 [Voltar](menu.md)
 
-# Rotas do Dasboard
+# Rotas do Dashboard
 
 ## Informações gerais da Dashboard <a name="dashboard"></a>
 

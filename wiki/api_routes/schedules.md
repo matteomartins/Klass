@@ -1,6 +1,6 @@
 [Voltar](menu.md)
 
-# Rotas do Relaório
+# Rotas de Horários
 
 ## Criar um horário <a name="create_schedule"></a>
 

@@ -1,6 +1,6 @@
 [Voltar](menu.md)
 
-# Rotas do Relaório
+# Rotas do Relatório
 
 ## Criar um Relatório escolar <a name="create_school_report"></a>
 

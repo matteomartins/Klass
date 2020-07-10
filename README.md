@@ -1,10 +1,4 @@
 # Klass
 Projeto de TCC
 
-## djasdas
-
-### sadjasiod
-
-| Alo | Bom Dia |
-|-----|---------|
-| asdsa | sdadsa |
+[Rotas API](wiki/api_routes/menu.md)
