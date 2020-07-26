@@ -1,0 +1,25 @@
+.social-media {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    
+    margin: 6px;
+}
+
+.social-media .circle {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 42px;
+    width: 42px;
+    border-radius: 25px;
+    border: 2px solid;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.social-media .circle .icon  {
+    margin: 0;
+    font-size: 28px;
+}

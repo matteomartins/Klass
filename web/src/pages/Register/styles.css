@@ -1,0 +1,126 @@
+.register-container {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.register-container .presentation-container {
+    width: 55%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.register-container .presentation-container h1 {
+    margin: 35px 25px 65px 25px;
+    font-size: 42px;
+    font-weight: 500;
+    width: 50%;
+    text-align: center;
+}
+
+.register-container .presentation-container p {
+    color: #aaaaaa;
+    font-size: 18px;
+    margin-bottom: 3px;
+    text-align: center;
+}
+
+.register-container .presentation-container a {
+    margin: 25px 0;
+}
+
+.register-container .presentation-container #register-link {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    display: none;
+}
+
+.register-container .form-container {
+    background: #e5e5e5;
+    border-radius: 34px 0 0 34px;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+    height: 100vh;
+    width: 45%;
+    padding: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.register-container .form-container h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-weight: 900;
+    text-align: center;
+    color: #333;
+}
+
+.register-container .form-container .user-icon {
+    height: 140px;
+    width: 140px;
+    background-color: #09426D;
+    border-radius: 150px;
+    box-shadow: 0px 5px 20px rgba(38, 39, 56, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.register-container .form-container .input {
+    width: 320px;
+    height: 50px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 3px solid #1D3543;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-container .form-container .input input {
+    background: none;
+    flex: 1;
+    border: none;
+    padding: 0 10px;
+    color: #555;
+    font: 400 18px Roboto, sans-serif;
+}
+
+.register-container .form-container button {
+    margin-top: 25px;
+}
+
+@media(max-width: 850px) {
+
+    .register-container {
+        height: 200vh;
+        flex-direction: column;
+    }
+    .register-container .presentation-container {
+        height: 100vh;
+    }
+    .register-container .presentation-container h1 {
+        font-size: 38px;
+        width: 100%;
+    }
+    .register-container .form-container {
+        width: 100%;
+        border-radius: 34px 34px 0 0;
+    }
+    .register-container .form-container .input {
+        width: 290px;
+    }
+    .register-container .presentation-container #register-link {
+        display: block;
+    }
+    
+}
