@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 import './styles.css';
-import { KaUser, KaUserOutline, KaMail, KaPassword } from '../../assets/icons/ka';
+import { KaUser, KaUserOutline, KaMail, KaPassword } from '../../assets/icons';
 import SocialMedias from '../../components/SocialMedias';
 
 import Icon from '../../assets/icon.png';

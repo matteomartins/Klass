@@ -1,5 +1,5 @@
 import React from 'react';
-import { KaGoogle } from '../../assets/icons/ka';
+import { KaGoogle } from '../../assets/icons';
 
 import './styles.css';
 

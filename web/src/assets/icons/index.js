@@ -1,4 +1,4 @@
-var GenIcon = require('../lib').GenIcon;
+var GenIcon = require('./lib/esm').GenIcon;
 module.exports.KaUser = function (props) {
   return GenIcon({"tag":"svg","attr":{"viewBox":"0 0 25 24","fill": "none"},"child":[{"tag":"path","attr":{"d":"M23.8292 23.4194C23.8292 17.3443 18.825 12.4194 12.652 12.4194C6.47895 12.4194 1.47473 17.3443 1.47473 23.4194 M17.9617 6.20968C17.9617 9.07189 15.5996 11.4194 12.652 11.4194C9.70434 11.4194 7.34222 9.07189 7.34222 6.20968C7.34222 3.34746 9.70434 1 12.652 1C15.5996 1 17.9617 3.34746 17.9617 6.20968Z", "stroke-width":"2"}}]})(props);
 };
@@ -35,6 +35,10 @@ module.exports.KaMenu = function (props) {
   return GenIcon({"tag":"svg","attr":{"viewBox":"0 0 66 49","fill": "none"},"child":[{"tag":"line","attr":{"y1":"4", "x2":"65.5", "y2": "4", "stroke-width": "4"}},{"tag":"line","attr":{"y1":"24", "x2":"65.5", "y2": "24", "stroke-width": "4"}},{"tag":"line","attr":{"y1":"44", "x2":"65.5", "y2": "44", "stroke-width": "4"}},]})(props);
 };
 module.exports.KaMenu.displayName = "KaMenu";
+module.exports.KaArrow = function (props) {
+  return GenIcon({"tag":"svg","attr":{"viewBox":"0 0 20 38"},"child":[{"tag":"path", "attr": {"d":"M0.707107 19.7071C0.316582 19.3166 0.316583 18.6834 0.707107 18.2929L18.2929 0.707103C18.9229 0.0771384 20 0.523308 20 1.41421V2.75L3.66667 19L20 35.3636V36.5858C20 37.4767 18.9229 37.9229 18.2929 37.2929L0.707107 19.7071Z"}}]})(props);
+};
+module.exports.KaArrow.displayName = "KaArrow";
 module.exports.KaExcel = function (props) {
   return GenIcon({"tag":"svg","attr":{"viewBox":"0 0 50 50","fill": "none"},"child":[{"tag":"rect","attr":{"y": "16.4805", "width": "21.3264", "height": "22.2313", "rx": "1", "fill": "#1E6F42"}},{"tag":"path", "attr": {"d":"M36.5446 2.18548L36.2507 1.88599H35.831H14.1865C12.5297 1.88599 11.1865 3.22913 11.1865 4.88598V44.8117C11.1865 46.4686 12.5297 47.8117 14.1865 47.8117H42.1761C43.8329 47.8117 45.1761 46.4686 45.1761 44.8117V11.3877V10.979L44.8897 10.6872L36.5446 2.18548Z", "stroke": "#1E6F42", "stroke-width":"2"}},{"tag":"path", "attr": {"d":"M33.8135 1H36.5735L46 10.6063V13.0554H34.8135C34.2612 13.0554 33.8135 12.6077 33.8135 12.0554V1Z", "fill": "#2B734B"}},{"tag":"path", "attr": {"d":"M10.9213 26.0203L11.9672 23.8933H13.7294L11.9408 27.0662L13.7777 30.2917H11.9979L10.9213 28.1252L9.8446 30.2917H8.06921L9.90173 27.0662L8.11755 23.8933H9.87536L10.9213 26.0203Z", "fill": "#FFFFFF"}}]})(props);
 };
