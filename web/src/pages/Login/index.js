@@ -27,6 +27,7 @@ export default function Login() {
                             <input type="password" placeholder="Senha" />
                             <KaPassword size={18} color="#1D3543" className="mr-3" />
                         </div>
+                        <input type="select" />
                         <button className="button bg-dark" type="submit">Cadastre-se</button>
                     </form>
                     <SocialMedias color="#AAAAAA" />
