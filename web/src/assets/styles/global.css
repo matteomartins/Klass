@@ -20,7 +20,7 @@ img {
 
 body {
     font: 400 14px Roboto, sans-serif;
-    background-image: url(assets/background.jpg);
+    background-image: url(../images/background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     color: #fff;

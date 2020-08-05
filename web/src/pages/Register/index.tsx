@@ -5,7 +5,7 @@ import './styles.css';
 import { KaUser, KaUserOutline, KaMail, KaPassword } from '../../assets/icons';
 import SocialMedias from '../../components/SocialMedias';
 
-import Icon from '../../assets/icon.png';
+import Icon from '../../assets/images/icon.png';
 
 export default function Register() {
     return (
@@ -25,11 +25,11 @@ export default function Register() {
                 </div>
                 <SocialMedias color="#1D3543" />
                 <div className="input">
-                    <input type="text" placeholder="Nome" maxLength="35" />
+                    <input type="text" placeholder="Nome" maxLength={35} />
                     <KaUserOutline size={18} color="#1D3543" className="mr-3" />
                 </div>
                 <div className="input">
-                    <input type="email" placeholder="Email" maxLength="35" />
+                    <input type="email" placeholder="Email" maxLength={35} />
                     <KaMail size={18} color="#1D3543" className="mr-3" />
                 </div>
                 <div className="input">
