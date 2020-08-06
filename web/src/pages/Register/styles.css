@@ -16,39 +16,42 @@
     flex-direction: column;
 }
 
+.register-container .presentation-container > img {
+    height: 11rem;
+}
+
 .register-container .presentation-container h1 {
-    margin: 35px 25px 65px 25px;
-    font-size: 42px;
+    margin: 3.5rem 0 4.5rem 0;
+    font-size: 4.2rem;
     font-weight: 500;
-    width: 50%;
+    width: 390px;
     text-align: center;
 }
 
 .register-container .presentation-container p {
-    color: #aaaaaa;
-    font-size: 18px;
-    margin-bottom: 3px;
+    color: var(--color-text-primary-opacity);
+    font-size: 1.8rem;
+    margin-bottom: 0.3rem;
     text-align: center;
 }
 
 .register-container .presentation-container a {
-    margin: 25px 0;
+    margin: 2.5rem 0;
 }
 
 .register-container .presentation-container #register-link {
     text-decoration: none;
-    color: white;
-    font-size: 16px;
+    color: var(--color-text-primary);
+    font-size: 1.6rem;
     display: none;
 }
 
 .register-container .form-container {
-    background: #e5e5e5;
+    background: var(--color-background);
     border-radius: 34px 0 0 34px;
     box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
     height: 100vh;
     width: 45%;
-    padding: 15px;
 
     display: flex;
     align-items: center;
@@ -57,17 +60,17 @@
 }
 
 .register-container .form-container h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
+    font-size: 3.4rem;
+    margin-bottom: 0.5em;
     font-weight: 900;
     text-align: center;
-    color: #333;
+    color: var(--color-text-secondary);
 }
 
 .register-container .form-container .user-icon {
-    height: 140px;
-    width: 140px;
-    background-color: #09426D;
+    height: 14rem;
+    width: 14rem;
+    background-color: var(--color-secondary);
     border-radius: 150px;
 }
 
@@ -79,10 +82,10 @@
     }
     .register-container .presentation-container {
         height: 100vh;
+        width: 100vw;
     }
     .register-container .presentation-container h1 {
-        font-size: 38px;
-        width: 100%;
+        width: 90%;
     }
     .register-container .form-container {
         width: 100%;
@@ -93,6 +96,10 @@
     }
     .register-container .presentation-container #register-link {
         display: block;
+        margin-bottom: 5rem;
     }
-    
+    .register-container .form-container button {
+        margin-bottom: 5rem;
+    }
+
 }

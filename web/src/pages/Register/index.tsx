@@ -5,7 +5,9 @@ import './styles.css';
 import { KaUser, KaUserOutline, KaMail, KaPassword } from '../../assets/icons';
 import SocialMedias from '../../components/SocialMedias';
 
-import Icon from '../../assets/images/icon.png';
+import Icon from '../../assets/images/icon-light.svg';
+import Input from '../../components/Input';
+import Checkbox from '../../components/Checkbox';
 
 export default function Register() {
     return (
@@ -21,21 +23,13 @@ export default function Register() {
             <form className="form-container" id="register">
                 <h1>Crie sua conta</h1>
                 <div className="user-icon">
-                    <KaUser size={70} color="#fff"/>
+                    <KaUser size={70} color="var(--color-text-primary)"/>
                 </div>
-                <SocialMedias color="#1D3543" />
-                <div className="input">
-                    <input type="text" placeholder="Nome" maxLength={35} />
-                    <KaUserOutline size={18} color="#1D3543" className="mr-3" />
-                </div>
-                <div className="input">
-                    <input type="email" placeholder="Email" maxLength={35} />
-                    <KaMail size={18} color="#1D3543" className="mr-3" />
-                </div>
-                <div className="input">
-                    <input type="password" placeholder="Senha" />
-                    <KaPassword size={18} color="#1D3543" className="mr-3" />
-                </div>
+                <SocialMedias color="var(--color-border-primary)" />
+                <Input color="var(--color-border-primary)" label="Nome" type="text" maxLength={45} Icon={KaUserOutline} />
+                <Input color="var(--color-border-primary)" label="Email" type="email" maxLength={45} Icon={KaMail} />
+                <Input color="var(--color-border-primary)" label="Senha" type="password" maxLength={50} Icon={KaPassword} />
+                <Checkbox name="remember" label="Lembre de mim" />
                 <button className="button bg-dark" type="submit">Cadastre-se</button>
             </form>
         </div>
