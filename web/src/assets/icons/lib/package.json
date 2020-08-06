@@ -1,0 +1,4 @@
+{
+  "main": "./esm/index.js",
+  "module": "./esm/index.js"
+}
