@@ -24,10 +24,9 @@
 }
 
 .input-checkbox label {
-    background: none;
     flex: 1;
-    border: none;
-    margin: 0 10px;
+    margin: 0 1rem;
     color: var(--color-text-secondary);
     font: 400 1.6rem Roboto;
+    cursor: pointer;
 }

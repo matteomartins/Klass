@@ -1,14 +1,13 @@
-
 import React, { InputHTMLAttributes } from 'react';
 
 import './styles.css';
 
-interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
+interface CheckboxPros extends InputHTMLAttributes<HTMLInputElement> {
     label: string;
     name: string;
 }
 
-const Checkbox: React.FC<CheckboxProps> = ({ name, label, ...rest}) => {
+const Checkbox: React.FC<CheckboxPros> = ({label, name, ...rest}) => {
     return (
         <div className="input-checkbox">
             <input type="checkbox" id={name} {...rest} />
