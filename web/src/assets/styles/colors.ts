@@ -6,7 +6,7 @@ export const lightTheme = [
     {name: "--color-secondary-darker", value: "#00325D"},
     {name: "--color-border-primary", value: "#1D3543"},
     {name: "--color-text-primary", value: "#FFFFFF"},
-    {name: "--color-text-primary-opacity", value: "#E5E5E5"},
+    {name: "--color-text-primary-opacity", value: "#CCCCCC"},
     {name: "--color-text-secondary", value: "#333333"},
     {name: "--color-text-secondary-opacity", value: "#686868"},
 ];

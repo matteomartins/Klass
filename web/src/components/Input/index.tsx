@@ -1,20 +1,18 @@
 import React, { InputHTMLAttributes } from 'react';
 
+import './styles.css';
 import { IconType } from '../../assets/icons/lib/esm';
 
-import './styles.css';
-
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+interface InputPros extends InputHTMLAttributes<HTMLInputElement> {
     label: string;
-    color: string;
     Icon: IconType;
 }
 
-const Input: React.FC<InputProps> = ({name, label, color, Icon, ...rest}) => {
+const Input: React.FC<InputPros> = ({label, Icon, ...rest}) => {
     return (
         <div className="input">
-            <input placeholder={label} {...rest} />
-            <Icon size={18} color={color} className="mr-3" />
+            <input type="text" placeholder={label} {...rest} />
+            <Icon size={18} color="var(--color-border-primary)" className="mr-3" />
         </div>
     )
 }
