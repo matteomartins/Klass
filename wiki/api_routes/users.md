@@ -41,6 +41,7 @@ _______________________________________________________________
 ## Selecionar um Usuário <a name="get_user"></a>
 
 Selecionando um usuário com e recebendo suas informações.
+
     GET /users 
 
     REQUIRED authentication
@@ -69,6 +70,7 @@ _______________________________________________________________
 ## Editar um Usuário <a name="edit_user"></a>
 
 Editando um usuário com determinadas propriedades.
+
     PUT /users
 
     REQUIRED authentication
@@ -104,6 +106,7 @@ json: {
 ## Deletar um Usuário <a name="delete_user"></a>
 
 Removendo um determinado usuário
+
     DELETE /users
 
     REQUIRED authentication
@@ -121,7 +124,8 @@ Removendo um determinado usuário
 ## Criar uma Sessão <a name="create_session"></a>
 
 Criando uma sessão que autoriza um usuário.
-POST /sessions
+
+    POST /sessions
 
 ### Parâmetros
 
