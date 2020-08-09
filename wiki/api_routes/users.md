@@ -30,7 +30,7 @@ json: {
 ### Resposta
 
 ```json
-Status: 201 CREATED
+Status: 200 OK
 _______________________________________________________________
 
 {
@@ -41,17 +41,8 @@ _______________________________________________________________
 ## Selecionar um Usuário <a name="get_user"></a>
 
 Selecionando um usuário com e recebendo suas informações.
-    GET /users
-
-### Parâmetros
-
-| Nome       | Tipo   | Descrição          |
-| ---------- | ------ | ------------------ |
-| name       | string | Nome do usuário    |
-| email      | string | Email do usuário   |
-| password   | string | Senha do usuário   |
-| birth_date | date   | Data de nascimento FORMATO DD/MM/YYYY |
-| icon       | image  | Foto de perfil do usuário |
+    GET /users 
+    REQUIRED authentication
 
 ### Exemplo
 
@@ -59,13 +50,10 @@ Selecionando um usuário com e recebendo suas informações.
 rote: /users
 ```
 
-## Editar um Usuário <a name="edit_user"></a>
-
-Editando um usuário com determinadas propriedades.
-    PUT /users
+### Resposta
 
 ```json
-Status: 201 CREATED
+Status: 200 OK
 _______________________________________________________________
 
 {
@@ -76,6 +64,13 @@ _______________________________________________________________
     "icon": "foto.jpg"
 }
 ```
+
+## Editar um Usuário <a name="edit_user"></a>
+
+Editando um usuário com determinadas propriedades.
+    PUT /users
+    REQUIRED authentication
+    
 
 ### Parâmetros
 
