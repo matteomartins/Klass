@@ -8,8 +8,9 @@ Aqui estão listadas todas as rotas da API da aplicação
 1.  Usuário
 
     1. [Criar um Usuário](users.md#create_user)
-    2. [Editar um Usuário](users.md#edit_user)
-    3. [Deletar um usuário](users.md#delete_user)
+    2. [Selecionar um Usuário](users.md#get_user)
+    3. [Editar um Usuário](users.md#edit_user)
+    4. [Deletar um usuário](users.md#delete_user)
 
 2.  Sessão
 

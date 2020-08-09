@@ -15,6 +15,7 @@ POST /schools
 | school_desc | string | Descrição da escola      |
 | school_year | int    | Período letivo           |
 | icon_school | image  | Foto de perfil da Escola |
+| turns | array of [turns](types.md#type_turn) | Turno  |
 
 ### Exemplo
 

@@ -11,15 +11,8 @@ POST /turns
 
 | Nome           | Tipo   | Descrição              |
 | -------------- | ------ | ---------------------- |
-| turn_name      | string | Nome do turno          |
-| turn_period    | string | período do turno       |
-| turn_sunday    | bit    | turno de domingo       |
-| turn_monday    | bit    | turno de segunda-feira |
-| turn_tuesday   | bit    | turno de terça-feira   |
-| turn_wednesday | bit    | turno de quarta-feira  |
-| turn_thursday  | bit    | turno de quinta-feira  |
-| turn_friday    | bit    | turno de sexta-feira   |
-| turn_saturday  | bit    | turno de sábado        |
+| turns | array of [turns](types.md#type_turn) | Turno  |
+
 
 ### Exemplo
 
