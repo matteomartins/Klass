@@ -11,21 +11,20 @@ POST /schools
 
 | Nome        | Tipo   | Descrição                |
 | ----------- | ------ | ------------------------ |
-| school_name | string | Nome da escola           |
-| school_desc | string | Descrição da escola      |
-| school_year | int    | Período letivo           |
-| icon_school | image  | Foto de perfil da Escola |
-| turns | array of [turns](types.md#type_turn) | Turno  |
+| name        | string | Nome da escola           |
+| description | string | Descrição da escola      |
+| type        | string | Tipo da escola           |
+| icon        | image  | Foto de perfil da Escola |
 
 ### Exemplo
 
 ```json
 rote: /schools
 json: {
-	"school_name": "ETEC de Taboão da Serra",
-	"school_desc": "**que que é pra por aqui?**",
-	"school_year": 2,
-	"icon_school": "icon.png"
+	"name": "ETEC de Taboão da Serra",
+	"description": "Uma escola técnica da rede Centro Paula Souza",
+	"type": "ensino medio e tecnico",
+	"icon": "icon.png"
 }
 ```
 
@@ -57,9 +56,16 @@ GET /schools
 Status: 200 OK
 _______________________________________________________________
 
-{
-    "schools": [{"id_school":1,"school_name": "ETEC de Taboão da Serra","school_desc": "**que que é pra por aqui?**","school_year": 2,"icon_school": "icon.png"},{"id_school":2,"school_name": "ETEC de Embu das Artes","school_desc": "**que que é pra por aqui?**","school_year": 2,"icon_school": "icon2.png"}]
-}
+[
+	{
+		"id": 5,
+		"name": "ETEC de Taboão da Serra",
+		"description": "Uma escola técnica da rede Centro Paula Souza",
+		"type": "ensino medio e tecnico",
+		"icon": "icon.png"
+	},
+	...
+]
 ```
 
 ## Selecionar uma Escola <a name="select_school"></a>
@@ -81,7 +87,7 @@ _______________________________________________________________
 
 {
 	"school_name": "ETEC de Taboão da Serra",
-	"school_desc": "**que que é pra por aqui?**",
+	"school_desc": "Uma escola técnica da rede Centro Paula Souza",
 	"school_year": 2,
 	"icon_school": "icon.png"
 }
@@ -96,10 +102,10 @@ PUT /schools/:id_school
 
 | Nome        | Tipo   | Descrição                |
 | ----------- | ------ | ------------------------ |
-| school_name | string | Nome da escola           |
-| school_desc | string | Descrição da escola      |
-| school_year | int    | Período letivo           |
-| icon_school | image  | Foto de perfil da Escola |
+| name        | string | Nome da escola           |
+| description | string | Descrição da escola      |
+| type        | string | Tipo da escola           |
+| icon        | image  | Foto de perfil da Escola |
 
 ### Exemplo
 
