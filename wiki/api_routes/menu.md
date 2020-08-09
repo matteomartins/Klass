@@ -39,6 +39,8 @@ Aqui estão listadas todas as rotas da API da aplicação
     4. [Editar um curso](course.md#edit_course)
     5. [Deletar um curso](course.md#delete_course)
 
+---
+
 6.  Turma
 
     1. [Criar uma Turma](classes.md#create_class)
@@ -49,7 +51,7 @@ Aqui estão listadas todas as rotas da API da aplicação
 
 7.  Matérias
 
-    1. [Criar uma matéria](subjects.md#create_subject) Adicionar limitações
+    1. [Criar uma matéria](subjects.md#create_subject)
     1. [Selecionar todas as matérias](subjects.md#select_subjects)
     1. [Selecionar uma matéria](subjects.md#select_subject)
     1. [Editar uma matéria](subjects.md#edit_subject)
