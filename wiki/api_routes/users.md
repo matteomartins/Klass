@@ -43,7 +43,6 @@ _______________________________________________________________
 Selecionando um usuário com e recebendo suas informações.
 
     GET /users 
-
     REQUIRED authentication
 
 ### Exemplo
@@ -72,7 +71,6 @@ _______________________________________________________________
 Editando um usuário com determinadas propriedades.
 
     PUT /users
-
     REQUIRED authentication
     
 
@@ -108,7 +106,6 @@ json: {
 Removendo um determinado usuário
 
     DELETE /users
-
     REQUIRED authentication
 
 ### Exemplo
