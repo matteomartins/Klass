@@ -21,10 +21,10 @@ POST /schools
 ```json
 rote: /schools
 json: {
-"name": "ETEC de Taboão da Serra",
-"description": "Uma escola técnica da rede Centro Paula Souza",
-"type": "ensino medio e tecnico",
-"icon": "icon.png"
+	"name": "ETEC de Taboão da Serra",
+	"description": "Uma escola técnica da rede Centro Paula Souza",
+	"type": "ensino medio e tecnico",
+	"icon": "icon.png"
 }
 ```
 
@@ -56,11 +56,11 @@ _______________________________________________________________
 
 [
 {
-"id": 5,
-"name": "ETEC de Taboão da Serra",
-"description": "Uma escola técnica da rede Centro Paula Souza",
-"type": "ensino medio e tecnico",
-"icon": "icon.png"
+	"id": 5,
+	"name": "ETEC de Taboão da Serra",
+	"description": "Uma escola técnica da rede Centro Paula Souza",
+	"type": "ensino medio e tecnico",
+	"icon": "icon.png"
 },
 ]
 ```
@@ -107,10 +107,10 @@ PUT /schools/:id_school
 ```json
 rote: /schools/1
 json: {
-"school_name": "ETEC de Taboão da Serra",
-"school_desc": "**que que é pra por aqui?**",
-"school_year": 2,
-"icon_school": "icon.png"
+	"school_name": "ETEC de Taboão da Serra",
+	"school_desc": "**que que é pra por aqui?**",
+	"school_year": 2,
+	"icon_school": "icon.png"
 }
 ```
 

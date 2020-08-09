@@ -6,7 +6,7 @@
 
 Criando um turno com determinadas propriedades.
 
-	POST /turns
+	POST schools/:id_school/turns
 	REQUIRED authentication
 
 ### Parâmetros
@@ -17,14 +17,15 @@ Criando um turno com determinadas propriedades.
 | start     | string | inicio do turno (HH:MM) |
 | end       | string | fim do turno (HH:MM)   |
 | class_duration | string | período de duração de aula |
-| intervals | array of [interval](#type_interval) | intervalos do turno |
+| intervals | array | intervalos do turno (Objeto com as propriedades start e end) |
 | week_days    | array    | vetor de numeros para indicar os dias que o turno possui aula. 0: domingo até 6: sábado |
+
 
 
 ### Exemplo
 
 ```json
-rote: /turns
+rote: schools/1/turns
 json: {
 	"name": "Integral",
 	"start": "07:30",
@@ -59,13 +60,13 @@ _______________________________________________________________
 
 Selecionar todas os turnos que o indivíduo tem acesso
 
-	GET /turns
+	GET schools/:id_school/turns
 	REQUIRED authentication
 
 ### Exemplo
 
 ```
-	rote: /turns
+	rote: schools/1/turns
 ```
 
 ### Resposta
@@ -93,19 +94,20 @@ _______________________________________________________________
 		],
 		"week_days": [1,2,3,4,5]
 	},
-	...
 ]
 ```
 
 ## Selecionar um turno <a name="select_turn"></a>
 
 Seleciona um turno em especifico que o individuo tem acesso
-GET /turns/:id_turn
+
+	GET schools/:id_school/turns/:id_turn
+	REQUIRED authentication
 
 ### Exemplo
 
 ```
-	rote: /turns/1
+	rote: schools/1/turns/1
 ```
 
 ### Resposta
@@ -136,7 +138,9 @@ _______________________________________________________________
 ## Editar um Turno <a name="edit_turn"></a>
 
 Editando um Turno com determinadas propriedades.
-PUT /turns/:id_turn
+
+	PUT schools/:id_school/turns/:id_turn
+	REQUIRED authentication
 
 ### Parâmetros
 
@@ -152,7 +156,7 @@ PUT /turns/:id_turn
 ### Exemplo
 
 ```json
-rote: /turns/1
+rote: schools/1/turns/1
 json: {
 	"name": "Noite",
 	"start": "07:30",
@@ -178,12 +182,14 @@ json: {
 ## Deletar um Turno <a name="delete_turn"></a>
 
 Removendo um determinado Turno
-DELETE /turns/:id_turn
+
+	DELETE schools/:id_school/turns/:id_turn
+	REQUIRED authentication
 
 ### Exemplo
 
 ```json
-    rote: /turns/1
+    rote: schools/1/turns/1
 ```
 
 ### Resposta
