@@ -33,13 +33,11 @@ Aqui estão listadas todas as rotas da API da aplicação
     5. [Deletar um turno](turns.md#delete_turn)
 
 5.  Cursos
-    1. [Criar um curso](course.md#create_course)
-    2. [Selecionar todos os cursos](course.md#select_course)
-    3. [Selecionar um curso](course.md#select_course)
-    4. [Editar um curso](course.md#edit_course)
-    5. [Deletar um curso](course.md#delete_course)
-
----
+    1. [Criar um curso](courses.md#create_course)
+    2. [Selecionar todos os cursos](courses.md#select_course)
+    3. [Selecionar um curso](courses.md#select_course)
+    4. [Editar um curso](courses.md#edit_course)
+    5. [Deletar um curso](courses.md#delete_course)
 
 6.  Turma
 
@@ -56,6 +54,8 @@ Aqui estão listadas todas as rotas da API da aplicação
     1. [Selecionar uma matéria](subjects.md#select_subject)
     1. [Editar uma matéria](subjects.md#edit_subject)
     1. [Deletar uma matéria](subjects.md#delete_subject)
+
+---
 
 8.  Professores
 

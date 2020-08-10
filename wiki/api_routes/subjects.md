@@ -5,24 +5,29 @@
 ## Criar uma Matéria <a name="create_subject"></a>
 
 Criando uma matéria com determinadas propriedades.
-POST /subjects
+
+	POST schools/:id_school/subjects
+	REQUIRED authentication
 
 ### Parâmetros
 
 | Nome                 | Tipo   | Descrição             |
 | -------------------- | ------ | --------------------- |
-| subject_name         | string | Nome da matéria       |
-| subject_abbreviation | string | Abreviação da matéria |
-
-
+| name         | string | Nome da matéria       |
+| modules | array of object with module_id and quant_classes | Abreviação da matéria |
 
 ### Exemplo
 
 ```json
-rote: /subjects
+rote: schools/2/subjects
 json: {
-	"subejct_name": "Matemática",
-	"subject_abbreviation": "MAT"
+	"name": "Matemática",
+	"modules": [
+		{
+			"module_id": 1,
+			"quant_classes": 3
+		}
+	]
 }
 ```
 
@@ -40,16 +45,14 @@ _______________________________________________________________
 ## Selecionar todas as Matérias <a name="select_subjects"></a>
 
 Selecionar todas as Matérias que o indivíduo tem acesso
-GET /subjects
+
+	GET schools/:id_school/subjects
+	REQUIRED authentication
 
 ### Exemplo
 
 ```json
-	rote: /subjects
-
-	json:{
-
-	}
+	rote: schools/1/subjects
 ```
 
 ### Resposta
@@ -58,20 +61,30 @@ GET /subjects
 Status: 200 OK
 _______________________________________________________________
 
-{
-    "subjects":[{"id_subect": 1,"subejct_name": "Matemática","subject_abbreviation": "MAT"},{"id_subect": 2,"subejct_name": "Programação para Computadores","subject_abbreviation": "PC"}]
-}
+[
+	{
+		"name": "Matemática",
+		"modules": [
+			{
+				"module_id": 1,
+				"quant_classes": 3
+			}
+		]
+	},
+]
 ```
 
 ## Selecionar uma Matéria <a name="select_subject"></a>
 
 Seleciona uma matéria em especifico que o individuo tem acesso
-GET /subjects/:id_subject
+
+	GET schools/:id_school/subjects/:id_subject
+	REQUIRED authentication
 
 ### Exemplo
 
 ```
-	rote: /subjects/1
+	rote: schools/1/subjects/1
 ```
 
 ### Resposta
@@ -80,32 +93,44 @@ GET /subjects/:id_subject
 Status: 200 OK
 _______________________________________________________________
 
-{
-	"subejct_name": "Matemática",
-	"subject_abbreviation": "MAT"
 
+{
+	"name": "Matemática",
+	"modules": [
+		{
+			"module_id": 1,
+			"quant_classes": 3
+		}
+	]
 }
 ```
 
 ## Editar uma matéria <a name="edit_subject"></a>
 
 Editando uma Matéria com determinadas propriedades.
-PUT /subjects/:id_subject
+
+	PUT schools/:id_school/subjects/:id_subject
+	REQUIRED authentication
 
 ### Parâmetros
 
 | Nome                 | Tipo   | Descrição             |
 | -------------------- | ------ | --------------------- |
-| subject_name         | string | Nome da matéria       |
-| subject_abbreviation | string | Abreviação da matéria |
+| name         | string | Nome da matéria       |
+| modules | array of object with module_id and quant_classes | Abreviação da matéria |
 
 ### Exemplo
 
 ```json
-rote: /subjects/1
+rote: schools/1/subjects/1
 json: {
-	"subejct_name": "Matemática",
-	"subject_abbreviation": "MAT"
+	"name": "Matemática",
+	"modules": [
+		{
+			"module_id": 1,
+			"quant_classes": 3
+		}
+	]
 }
 ```
 
@@ -116,12 +141,14 @@ json: {
 ## Deletar uma matéria <a name="delete_subject"></a>
 
 Removendo uma determinada matéria
-DELETE /subjects/:id_subject
+
+	DELETE schools/:id_school/subjects/:id_subject
+	REQUIRED authentication
 
 ### Exemplo
 
 ```json
-    rote: /subjects/1
+    rote: schools/1/subjects/1
 ```
 
 ### Resposta
