@@ -5,36 +5,43 @@
 ## Criar um Turno <a name="create_turn"></a>
 
 Criando um turno com determinadas propriedades.
-POST /turns
+
+	POST schools/:id_school/turns
+	REQUIRED authentication
 
 ### Parâmetros
 
 | Nome           | Tipo   | Descrição              |
 | -------------- | ------ | ---------------------- |
-| turn_name      | string | Nome do turno          |
-| turn_period    | string | período do turno       |
-| turn_sunday    | bit    | turno de domingo       |
-| turn_monday    | bit    | turno de segunda-feira |
-| turn_tuesday   | bit    | turno de terça-feira   |
-| turn_wednesday | bit    | turno de quarta-feira  |
-| turn_thursday  | bit    | turno de quinta-feira  |
-| turn_friday    | bit    | turno de sexta-feira   |
-| turn_saturday  | bit    | turno de sábado        |
+| name      | string | nome do turno          |
+| start     | string | inicio do turno (HH:MM) |
+| end       | string | fim do turno (HH:MM)   |
+| class_duration | string | período de duração de aula |
+| intervals | array | intervalos do turno (Objeto com as propriedades start e end) |
+| week_days    | array    | vetor de numeros para indicar os dias que o turno possui aula. 0: domingo até 6: sábado |
+
+
 
 ### Exemplo
 
 ```json
-rote: /turns
+rote: schools/1/turns
 json: {
-	"turn_name": "seg quar sex",
-	"turn_period": "tarde",
-	"turn_sunday": 0,
-	"turn_monday": 1,
-	"turn_tuesday": 0,
-	"turn_wednesday": 1,
-	"turn_thursday": 0,
-	"turn_friday": 1,
-	"turn_saturday": 0
+	"name": "Integral",
+	"start": "07:30",
+	"end": "15:30",
+	"class_duration": 50,
+	"intervals": [
+		{
+			"start": "10:00",
+			"end": "10:20"
+		},
+		{
+			"start": "12:00",
+			"end": "13:00"
+		}
+	],
+	"week_days": [1,2,3,4,5]
 }
 ```
 
@@ -52,12 +59,14 @@ _______________________________________________________________
 ## Selecionar todas os Turnos <a name="select_turns"></a>
 
 Selecionar todas os turnos que o indivíduo tem acesso
-GET /turns
+
+	GET schools/:id_school/turns
+	REQUIRED authentication
 
 ### Exemplo
 
 ```
-	rote: /turns
+	rote: schools/1/turns
 ```
 
 ### Resposta
@@ -66,21 +75,39 @@ GET /turns
 Status: 200 OK
 _______________________________________________________________
 
-{
-    "turns": [{"id_turn": 1, "turn_name": "seg qua sex", "turn_period": "Tarde","turn_sunday": 0,"turn_monday": 1,"turn_tuesday": 0,"turn_wednesday": 1,"turn_thursday": 0,"turn_friday": 1,"turn_saturday": 0},{"id_turn": 2, "turn_name": "seg sex", "turn_period": "Manhã","turn_sunday": 0,
-	"turn_monday": 1,"turn_tuesday": 0,"turn_wednesday": 0,"turn_thursday": 0,"turn_friday": 1,"turn_saturday": 0}]
-}
+[
+	{
+		"id": 1,
+		"name": "Integral",
+		"start": "07:30",
+		"end": "15:30",
+		"class_duration": 50,
+		"intervals": [
+			{
+				"start": "10:00",
+				"end": "10:20"
+			},
+			{
+				"start": "12:00",
+				"end": "13:00"
+			}
+		],
+		"week_days": [1,2,3,4,5]
+	},
+]
 ```
 
 ## Selecionar um turno <a name="select_turn"></a>
 
 Seleciona um turno em especifico que o individuo tem acesso
-GET /turns/:id_turn
+
+	GET schools/:id_school/turns/:id_turn
+	REQUIRED authentication
 
 ### Exemplo
 
 ```
-	rote: /turns/1
+	rote: schools/1/turns/1
 ```
 
 ### Resposta
@@ -90,48 +117,63 @@ Status: 200 OK
 _______________________________________________________________
 
 {
-	"turn_name": "seg quar sex",
-	"turn_period": "tarde",
-	"turn_monday": 1,
-	"turn_wednesday": 1,
-	"turn_friday": 1
-
+	"name": "Integral",
+	"start": "07:30",
+	"end": "15:30",
+	"class_duration": 50,
+	"intervals": [
+		{
+			"start": "10:00",
+			"end": "10:20"
+		},
+		{
+			"start": "12:00",
+			"end": "13:00"
+		}
+	],
+	"week_days": [1,2,3,4,5]
 }
 ```
 
 ## Editar um Turno <a name="edit_turn"></a>
 
 Editando um Turno com determinadas propriedades.
-PUT /turns/:id_turn
+
+	PUT schools/:id_school/turns/:id_turn
+	REQUIRED authentication
 
 ### Parâmetros
 
 | Nome           | Tipo   | Descrição              |
 | -------------- | ------ | ---------------------- |
-| turn_name      | string | Nome do turno          |
-| turn_period    | string | período do turno       |
-| turn_sunday    | bit    | turno de domingo       |
-| turn_monday    | bit    | turno de segunda-feira |
-| turn_tuesday   | bit    | turno de terça-feira   |
-| turn_wednesday | bit    | turno de quarta-feira  |
-| turn_thursday  | bit    | turno de quinta-feira  |
-| turn_friday    | bit    | turno de sexta-feira   |
-| turn_saturday  | bit    | turno de sábado        |
+| name      | string | nome do turno          |
+| start     | string | inicio do turno (HH:MM) |
+| end       | string | fim do turno (HH:MM)   |
+| class_duration | string | período de duração de aula |
+| intervals | array of [interval](#type_interval) | intervalos do turno |
+| week_days    | array    | vetor de numeros para indicar os dias que o turno possui aula. 0: domingo até 6: sábado |
 
 ### Exemplo
 
 ```json
-rote: /turns/1
+rote: schools/1/turns/1
 json: {
-	"turn_name": "seg quar sex",
-	"turn_period": "tarde",
-	"turn_sunday": 0,
-	"turn_monday": 1,
-	"turn_tuesday": 0,
-	"turn_wednesday": 1,
-	"turn_thursday": 0,
-	"turn_friday": 1,
-	"turn_saturday": 0
+	"name": "Noite",
+	"start": "07:30",
+	"end": "15:30",
+	"class_duration": 50,
+	"intervals": [
+		{
+			"start": "10:00",
+			"end": "10:20"
+		},
+		{
+			"start": "12:00",
+			"end": "13:00"
+		}
+	],
+	"week_days": [1,2,3,4,5]
+}
 ```
 
 ### Resposta
@@ -141,12 +183,14 @@ json: {
 ## Deletar um Turno <a name="delete_turn"></a>
 
 Removendo um determinado Turno
-DELETE /turns/:id_turn
+
+	DELETE schools/:id_school/turns/:id_turn
+	REQUIRED authentication
 
 ### Exemplo
 
 ```json
-    rote: /turns/1
+    rote: schools/1/turns/1
 ```
 
 ### Resposta
