@@ -5,7 +5,10 @@
 ## Selecionar Convites professor <a name="invite_professor"></a>
 
 Selecionar todas os convites que o indivíduo tem acesso
-GET /schools/:id_school/invites
+
+	GET /schools/:id_school/invites
+	REQUIRED authentication
+
 ### Exemplo
 
 ```
@@ -32,7 +35,10 @@ _______________________________________________________________
 ## Selecionar Convites alunos <a name="invite_student"></a>
 
 Selecionar todas os convites que o indivíduo tem acesso
-GET /schools/:id_school/classes/:id_classe/invites
+
+	GET /schools/:id_school/classes/:id_classe/invites
+	
+
 ### Exemplo
 
 ```
