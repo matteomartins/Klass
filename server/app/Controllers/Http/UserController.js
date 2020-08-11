@@ -3,6 +3,8 @@
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')}  **/
 const User = use('App/Models/User');
 
+const Hash = use('Hash');
+
 class UserController {
     async create({request, auth}) {
         const userData = request.all();
@@ -23,9 +25,19 @@ class UserController {
         const user = await auth.getUser()
         const user_id = user.$attributes.idUsuario;
 
+        newUserData.password = await Hash.make(newUserData.password);
+
         await User.query().where('idUsuario', user_id).update(newUserData)
 
         return response.status(204).send()
+    }
+
+    async index({auth}) {
+        const user = await auth.getUser();
+
+        delete user.$attributes.password;
+
+        return { user }
     }
 }
 
