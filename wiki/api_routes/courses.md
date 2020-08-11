@@ -2,9 +2,9 @@
 
 # Rotas do Curso
 
-## Criar um Módulo <a name="create_course"></a>
+## Criar um Curso <a name="create_course"></a>
 
-Criando um módulo com determinadas propriedades.
+Criando um curso com determinadas propriedades.
 
 	POST schools/:id_school/courses
 	REQUIRED authentication
@@ -14,7 +14,7 @@ Criando um módulo com determinadas propriedades.
 | Nome           | Tipo   | Descrição              |
 | -------------- | ------ | ---------------------- |
 | name      | string | nome do curso          |
-| course_id   | string | id do curso        |
+| turn_id   | string | id do curso        |
 | modules   | array  | vetor de strings, cada string é nome do módulo   |
 
 ### Exemplo
@@ -23,7 +23,7 @@ Criando um módulo com determinadas propriedades.
 rote: schools/1/courses
 json: {
 	"name": "Ensino Médio",
-	"course_id": 1,
+	"turn_id": 1,
 	"modules": ["1 ANO", "2 ANO"]
 }
 ```
@@ -35,7 +35,7 @@ Status: 201 CREATED
 _______________________________________________________________
 
 {
-    "id_course": 1
+    "id": 1
 }
 ```
 
@@ -60,8 +60,9 @@ _______________________________________________________________
 
 [
     {
+        "id": 5,
 	    "name": "Ensino Médio",
-	    "course_id": 1,
+	    "turn_id": 1,
 	    "modules": ["1 ANO", "2 ANO"]
     },
 ]
@@ -87,9 +88,9 @@ Status: 200 OK
 _______________________________________________________________
 
 {
-    "id_course": 1,
+    "id": 1,
     "name": "Ensino Médio",
-    "course_id": 1,
+    "turn_id": 1,
     "modules": ["1 ANO", "2 ANO"]
 }
 ```
@@ -115,7 +116,7 @@ Editando um curso com determinadas propriedades.
 rote: /courses/1
 json: {
     "name": "Ensino Médio",
-    "course_id": 1,
+    "turn_id": 1,
     "modules": ["1 ANO", "2 ANO"]
 }
 ```
