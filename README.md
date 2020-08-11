@@ -4,7 +4,7 @@ Projeto de TCC
 <br>
 
 <p align="center">
-  <img alt="Ecoleta" src="wiki/presentation_img" width="100%">
+  <img alt="Klass" src="wiki/presentation_img.jpg" width="100%">
 </p>
 
 ## 🚀 Tecnologias
