@@ -40,5 +40,5 @@ test('create a school', async ({ assert, client }) => {
     const response = await client.post('/schools').send(school).end()
 
     response.assertStatus(401);
-    assert.exists(response.body.token)
+    assert.equal(response.body.token)
 })
