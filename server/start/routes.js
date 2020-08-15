@@ -19,4 +19,10 @@ const Route = use('Route')
 Route.post('/users', 'UserController.create').validator('User')
 Route.put('/users', 'UserController.update')
 Route.get('/users', 'UserController.index')
+
 Route.post('/sessions', 'SessionController.store')
+
+Route.post('/schools', 'SchoolController.create').validator('School').middleware(['VerifyPremiumAndSchool']);
+Route.delete('/schools/:id', 'SchoolController.delete').middleware(['VerifyUserAndSchool']);
+Route.get('/schools/:id', 'SchoolController.index').middleware(['VerifyUserAndSchool']);
+Route.put('/schools/:id', 'SchoolController.update').validator('School').middleware(['VerifyUserAndSchool']);
