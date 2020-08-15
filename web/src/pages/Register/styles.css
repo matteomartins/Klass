@@ -7,7 +7,7 @@
     justify-content: center;
 }
 
-.register-container .presentation-container {
+.register-container .start-container {
     width: 55vw;
 
     display: flex;
@@ -16,11 +16,11 @@
     flex-direction: column;
 }
 
-.register-container .presentation-container img {
+.register-container .start-container img {
     height: 11rem;
 }
 
-.register-container .presentation-container h1 {
+.register-container .start-container h1 {
     margin: 3.5rem 0 5.5rem 0;
     font-size: 4.2rem;
     font-weight: 500;
@@ -28,7 +28,7 @@
     text-align: center;
 }
 
-.register-container .presentation-container p {
+.register-container .start-container p {
     color: var(--color-text-primary-opacity);
     font-size: 1.8rem;
     line-height: 2.8rem;
@@ -64,7 +64,7 @@
     border-radius: 50%;
 }
 
-.register-container .presentation-container #register-link {
+.register-container .start-container #register-link {
     text-decoration: none;
     color: var(--color-text-primary);
     font-size: 1.6rem;
@@ -102,16 +102,16 @@
         height: 200vh;
         flex-direction: column;
     }
-    .register-container .presentation-container,
+    .register-container .start-container,
     .register-container .form-container {
         height: 100vh;
         width: 100vw;
     }
 
-    .register-container .presentation-container h1 {
+    .register-container .start-container h1 {
         width: 90vw;
     }
-    .register-container .presentation-container #register-link {
+    .register-container .start-container #register-link {
         display: block;
     }
     .register-container .form-container {
