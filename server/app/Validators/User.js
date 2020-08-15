@@ -2,15 +2,16 @@
 
 class User {
 
-  get rules () {
+  get rules() {
     return {
       email: 'required|email|unique:usuario',
       password: 'required',
-      nomeUsuario: 'required'
+      nomeUsuario: 'required',
+      isPremium: 'required'
     }
   }
 
-  get messages () {
+  get messages() {
     return {
       'email.required': 'You must provide a email address.',
       'email.email': 'You must provide a valid email address.',
@@ -19,8 +20,8 @@ class User {
       'nomeUsuario.required': 'You must provide a username.'
     }
   }
-  
-  get sanitizationRules () {
+
+  get sanitizationRules() {
     return {
       email: 'normalize_email',
     }
