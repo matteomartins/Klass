@@ -4,6 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Drag from './pages/Drag';
+import FirstAccess from './pages/FirstAccess';
 
 export default function Routes() {
     return (
@@ -11,6 +12,7 @@ export default function Routes() {
             <Route path="/" exact component={Register} />
             <Route path="/login" exact component={Login} />
             <Route path="/drag" exact component={Drag} />
+            <Route path="/access" exact component={FirstAccess} />
         </BrowserRouter>
     )
 }

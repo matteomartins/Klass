@@ -12,7 +12,7 @@ import Checkbox from '../../components/Checkbox';
 function Register() {
     return (
         <div className="register-container">
-            <div className="presentation-container">
+            <div className="start-container">
                 <img src={iconLight} alt="Klass"/>
                 <h1>Olá, Seja Bem Vindo ao Klass</h1>
                 <p>
@@ -31,8 +31,9 @@ function Register() {
                 <Input label="Nome" Icon={KaUserOutline} maxLength={35} />
                 <Input label="Email" Icon={KaMail} maxLength={40} />
                 <Input label="Senha" Icon={KaPassword} maxLength={100} />
-                <Checkbox label="Lembre de mim" name="rememberme" />
-                <button className="button bg-dark">Cadastre-se</button>
+                <Checkbox label="Lembre de mim" name="rememberme"/>
+                <Link to="/access" className="button bg-dark">Cadastre-se</Link>
+                
             </form>
         </div>
     )
