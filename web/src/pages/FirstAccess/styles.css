@@ -9,31 +9,50 @@
     flex-direction: column;
 }
 
+.access-container .progress-container {
+    margin-top: 2rem;
+    align-self: flex-end;
+}
+
+.progress-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.8rem;
+}
+
 .terms-container, .theme-container, .presentation-container {
-    background-image: url(../../assets/images/container-background.svg);
-    background-repeat: no-repeat;
-    background-position: center;
     border-radius: 3.4rem;
     width: 100%;
     height: 498px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 2rem;
 }
 
-.terms-container > h1, .theme-container > h1, .presentation-container > h1{
-    margin-top: -1.2rem;
+.access-container > .background-light {
+    background: url(../../assets/images/container-background.svg);
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+
+.access-container > .background-dark {
+    background: url(../../assets/images/container-background-dark.svg);
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+
+.terms-container > h1, .theme-container > h1, .presentation-container > h1 {
+    margin-top: -1.4rem;
     font-size: 2.5rem;
-    justify-self: flex-start;
 }
 
-.terms-text {
-    height: 30rem;
+.terms-container .terms-text {
+    height: 70%;
     overflow-y: scroll;
     color: var(--color-text-secondary);
     justify-self: center;
-    margin-top: 7rem;
+    margin-top: 5rem;
     padding-right: 1rem;
     font-size: 2rem;
     width: 90%;
@@ -41,86 +60,93 @@
     text-indent: 1.5em;
 }
 
-.terms-container .input-checkbox{
+.terms-container .input-checkbox {
     align-self: flex-start;
-    margin-left: 8rem;
+    width: 90%;
+    margin: 0 auto;
     margin-top: 2rem;
 }
 
-.access-container .progress-container{
-    margin-top: 2rem;
-    align-self: flex-end;
+.theme-container .title {
+    margin-top: 4rem;
+    font-size: 3rem;
+    justify-self: flex-start;
+    color: var(--color-text-secondary);
 }
 
-.progress-icons{
+.theme-container .themes {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 0.8rem;
+    justify-content: space-between;
+    width: 90%;
+    margin-top: 2.5rem;
+}
+.theme-container .themes img {
+    border-radius: 2.5rem;
+    width: 100%;
+}
+.theme-container .themes a div img + img {
+    display: none;
+}
+.theme-container .themes h2 {
+    text-align: center;
+    font-size: 2rem;
+    line-height: 3rem;
+    font-weight: 600;
+}
+.theme-container .themes #text-light {
+    color: #444;
+}
+.theme-container .themes #text-dark {
+    color: #CCC;
+}
+.theme-container .themes .light {
+    background-color: #CCC;
+    border-radius: 2.6rem;
+    margin: .4rem;
 }
 
-.theme-container {
-    display: none; 
-}
-.theme-light {  
-    position: relative;
-    top:70px;
-    left: -220px;
-}
-.theme-black {
-    position: relative;
-    top:-193px;
-    left: 250px;
+.theme-container .themes .dark{
+    border-radius: 2.6rem;
+    background-color: #444;
+    margin: .4rem;
 }
 
-.title{
-    margin-top: -1.2rem;
-    font-size: 3rem;
-    justify-self: flex-start;
-    position: relative;
-    top: 60px;
-    color: #373737;
+.video {
+    margin-top: 5rem;
+    border-radius: 2rem;
 }
-.white{
+.arrow {
     position: absolute;
-    width: 420px;
-    height: 285px;
-    background-color: white;
-    top: 168px;
-    left: 253px;
-    border-radius:20px;
-}
-.claro{
-    margin-top: -1.2rem;
-    font-size: 3rem;
-    justify-self: flex-start;
-    position: relative;
-    top: -110px;
-    left: -220px;
-    color: #373737;
-}
-.black{
-    position: absolute;
-    width: 420px;
-    height: 285px;
-    top: 168px;
-    left: 723px;
-    border-radius:20px;
-    background-color: #373737;
-}
-.escuro{
-    margin-top: -1.2rem;
-    font-size: 3rem;
-    justify-self: flex-start;
-    position: relative;
-    top: -135px;
-    left: 253px;
-}
-.video{
-    margin-top:50px;
-}
-.arrow{
-    position: absolute;
-    top: 100px;
+    top: 50px;
     left:50px;
+}
+
+@media(max-width: 700px) {
+    .access-container {
+        width: 85vw;
+    }
+    .terms-container, .theme-container, .presentation-container {
+        width: 90vw;
+        height: 70vh;
+        margin-top: 0;
+    }
+    .access-container .progress-container {
+        align-self: center;
+        margin-top: 1rem;
+    }
+    .video {
+        width: 80vw;
+        height: 40vh;
+        flex: 1;
+    }
+}
+
+@media(max-width: 426px) {
+    .theme-container .themes a div img + img {
+        display: block;
+        max-height: 280px;
+    }
+    .theme-container .themes a div img:first-child {
+        display: none;
+    }
 }
