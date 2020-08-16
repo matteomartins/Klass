@@ -27,8 +27,7 @@ class SchoolController {
     async delete({ request, response, auth }) {
         const idSchool = request.params.id;
 
-        const user = await auth.getUser();
-        const user_id = user.$attributes.idUsuario;
+        await auth.getUser();
 
         await Database.table('administrador').where('idEscola', idSchool).delete();
         await Database.table('escola').where('idEscola', idSchool).delete();
