@@ -33,6 +33,6 @@ test('validate create user', async ({ assert, client }) => {
 
   const response = await client.post('/users').send(user).end();
 
-  response.assertStatus(200);
-  assert.exists(response.body.token);
+  response.assertStatus(400);
+  assert.equal(response.body.token);
 })
