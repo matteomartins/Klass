@@ -3,12 +3,14 @@ import './styles.css';
 import Checkbox from '../../components/Checkbox';
 import {KaCircleOutline, KaCircleSelected} from '../../assets/icons'
 
-// https://www.youtube.com/watch?v=N4lAe5NkReQ&feature=youtu.be
+import themeLight from '../../assets/images/print-light.jpg';
+import themeBlack from '../../assets/images/print-dark.jpg';
+import YouTube from 'react-youtube';
+import {KaArrow} from '../../assets/icons' 
 
 function FirstAccess(){
     return(
         <div className="access-container">
-
             <div className="terms-container">
                 <h1> Termos de Uso </h1>
                 <div className="terms-text">
@@ -32,6 +34,42 @@ function FirstAccess(){
                 <Checkbox label="Li e concordo com os Termos de Uso" name="according"/>
             </div>
 
+            {/* NEXT SCREEN */}
+
+            <div className="theme-container">
+                <h1> Tema </h1>
+                <h1 className="title"> Escolha um tema </h1>
+                
+                 <div className="white">
+                    amano, tu é?
+                </div> 
+                
+                <div className="theme-light">
+                    <img src={themeLight} style={{borderRadius: 25}} alt="Klass"/>
+                </div>
+                
+                <div className="black">
+                    eu não tu que deixa
+                </div>
+                <div className="theme-black">
+    
+                    <img src={themeBlack} width="421" height="259" style={{borderRadius: 25}} alt="Klass"/>
+                </div>
+            </div>
+            <h1 className="claro">Claro</h1>
+            <h1 className="escuro">Escuro</h1>
+
+            {/* NEXT SCREEN */}
+
+            <div className="presentation-container">
+                <h1> Apresentação </h1>
+                <div className="video">
+                    <YouTube
+                        videoId="Zc1OOS4aMbU"
+                    />
+                </div>
+            </div>
+
             <div className="progress-container">
                 <button className="button">Avançar</button>
                 <div className="progress-icons"> 
@@ -40,17 +78,9 @@ function FirstAccess(){
                     <KaCircleOutline color="#fff" size={17}/>
                 </div>
             </div>
-            
-
-            <div className="theme-container">
-                <h1> Tema </h1>
+            <div className="arrow">
+                <KaArrow color="#fff" size={28} />
             </div>
-
-            <div className="presentation-container">
-                <h1> Apresentação </h1>
-            </div>
-
-
         </div>
             
     )
