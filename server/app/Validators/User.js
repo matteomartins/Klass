@@ -7,7 +7,6 @@ class User {
       email: 'required|email|unique:usuario',
       password: 'required',
       nomeUsuario: 'required',
-      isPremium: 'required'
     }
   }
 
