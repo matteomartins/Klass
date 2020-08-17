@@ -2,6 +2,7 @@
 
 const { test, trait } = use('Test/Suite')('School Tests')
 trait('Test/ApiClient');
+trait('Auth/Client')
 
 /** @type {import('@adonisjs/lucid/src/Factory')} **/
 const Factory = use('Factory');
@@ -30,6 +31,7 @@ test('validate school details', async ({ assert, client }) => {
 })
 
 test('create a school', async ({ assert, client }) => {
+    const user = await User.find(1);
     const school = {
         "nomeEscola": Chance.username(),
         "descricao": Chance.string({ length: 20 }),
@@ -37,8 +39,8 @@ test('create a school', async ({ assert, client }) => {
         "iconEscola": Chance.avatar({ protocol: 'https', fileExtension: 'jpg' })
     }
 
-    const response = await client.post('/schools').send(school).end()
+    const response = await client.post('/schools').loginVia(user, 'jwt').send(school).end()
 
-    response.assertStatus(401);
-    assert.equal(response.body.token)
+    response.assertStatus(200);
+    assert.exists(response.body.idEscola)
 })
