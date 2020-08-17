@@ -82,12 +82,10 @@ function FirstAccess(){
                         </a>
                     </div>
                 </div>
-
                 <div className={`presentation-container background-${theme}`} style={{display: step===2?"flex":"none"}}>
                     <h1> Apresentação </h1>
                     <YouTube className="video" videoId="Zc1OOS4aMbU" />
                 </div>
-
                 <div className="progress-container">
                     <button className="button" onClick={handleNext}>Avançar</button>
                     <div className="progress-icons"> 
