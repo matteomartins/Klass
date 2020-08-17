@@ -3,6 +3,9 @@ import './styles.css';
 import Checkbox from '../../components/Checkbox';
 import {KaCircleOutline, KaCircleSelected} from '../../assets/icons'
 
+import { Link } from 'react-router-dom';
+import { KaUser, KaMail, KaPassword, KaArrow } from '../../assets/icons';
+
 // https://www.youtube.com/watch?v=N4lAe5NkReQ&feature=youtu.be
 
 function FirstAccess(){
@@ -10,6 +13,9 @@ function FirstAccess(){
         <div className="access-container">
 
             <div className="terms-container">
+                <Link to="/">
+                    <KaArrow color="#fff" size={28} />
+                </Link>
                 <h1> Termos de Uso </h1>
                 <div className="terms-text">
                     <p>
@@ -32,26 +38,26 @@ function FirstAccess(){
                     </p>
                 </div>
                 <Checkbox label="Li e concordo com os Termos de Uso" name="according"/>
+            </div>            
+
+            <div className="theme-container">
+                <h1> Tema </h1>
             </div>
+            
+
+            <div className="presentation-container">
+                <h1> Apresentação </h1>
+            </div>
+
 
             <div className="progress-container">
                 <button className="button">Avançar</button>
                 <div className="progress-icons"> 
                     <KaCircleSelected className="mr-3" color="#fff" size={18}/> 
                     <KaCircleOutline className="mr-3" color="#fff" size={17}/>
-                    <KaCircleOutline color="#fff" size={17}/>
+                    <KaCircleOutline className="mr-3" color="#fff" size={17}/>
                 </div>
             </div>
-            
-
-            <div className="theme-container">
-                <h1> Tema </h1>
-            </div>
-
-            <div className="presentation-container">
-                <h1> Apresentação </h1>
-            </div>
-
 
         </div>
             

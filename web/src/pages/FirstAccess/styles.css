@@ -21,11 +21,11 @@
 
 .terms-container {
     /* ctrl + ; */
-    /* display: none; */
+    display: none;
 }
 
 .theme-container {
-    display: none;
+    /* display: none; */
 }
 
 .presentation-container {
