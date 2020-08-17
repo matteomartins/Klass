@@ -10,7 +10,6 @@ const User = use('App/Models/User');
 const Chance = use('chance').Chance()
 
 test('validate user details', async ({ assert, client }) => {
-
   const user = {
     "nomeUsuario": "Vinicius Floriano",
     "emai": "viniciusfloriano@gmail.com",
@@ -24,7 +23,6 @@ test('validate user details', async ({ assert, client }) => {
 })
 
 test('validate create user', async ({ assert, client }) => {
-
   const user = {
     nomeUsuario: Chance.username(),
     email: Chance.email(),
@@ -33,6 +31,6 @@ test('validate create user', async ({ assert, client }) => {
 
   const response = await client.post('/users').send(user).end();
 
-  response.assertStatus(400);
-  assert.equal(response.body.token);
+  response.assertStatus(200);
+  assert.exists(response.body.token);
 })
