@@ -55,7 +55,7 @@ function FirstAccess(){
                 <div className="progress-icons"> 
                     <KaCircleSelected className="mr-3" color="#fff" size={18}/> 
                     <KaCircleOutline className="mr-3" color="#fff" size={17}/>
-                    <KaCircleOutline className="mr-3" color="#fff" size={17}/>
+                    <KaCircleOutline color="#fff" size={17}/>
                 </div>
             </div>
 
