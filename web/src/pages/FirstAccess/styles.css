@@ -137,6 +137,10 @@
         height: 40vh;
         flex: 1;
     }
+    .arrow {
+        top: 10px;
+        left: 10px;
+    }
 }
 
 @media(max-width: 426px) {

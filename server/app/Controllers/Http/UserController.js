@@ -24,8 +24,7 @@ class UserController {
 
         const user = await auth.getUser()
         const user_id = user.$attributes.idUsuario;
-
-        newUserData.password = await Hash.make(newUserData.password);
+        if(newUserData.password) newUserData.password = await Hash.make(newUserData.password);
 
         await User.query().where('idUsuario', user_id).update(newUserData)
 
