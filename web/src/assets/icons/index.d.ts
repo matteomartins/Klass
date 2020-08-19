@@ -11,6 +11,7 @@ export declare const KaCircleSelected: IconType;
 export declare const KaCircleOutline: IconType;
 export declare const KaMenu: IconType;
 export declare const KaArrow: IconType;
+export declare const KaClose: IconType;
 export declare const KaExcel: IconType;
 export declare const KaPrinter: IconType;
 export declare const KaPdf: IconType;
