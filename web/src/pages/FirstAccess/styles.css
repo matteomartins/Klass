@@ -58,7 +58,6 @@
     text-align: justify;
     text-indent: 1.5em;
 }
-
 .terms-container .input-checkbox {
     align-self: flex-start;
     width: 90%;
@@ -137,6 +136,10 @@
         width: 80vw;
         height: 40vh;
         flex: 1;
+    }
+    .arrow {
+        top: 10px;
+        left: 10px;
     }
 }
 
