@@ -29,8 +29,8 @@ function Register() {
                 </div>
                 <SocialMedias color="var(--color-border-primary)" />
                 <Input label="Nome" Icon={KaUserOutline} maxLength={35} />
-                <Input label="Email" Icon={KaMail} maxLength={40} />
-                <Input label="Senha" Icon={KaPassword} maxLength={100} />
+                <Input label="Email" type="email" Icon={KaMail} maxLength={40} />
+                <Input label="Senha" type="password" Icon={KaPassword} maxLength={100} />
                 <Checkbox label="Lembre de mim" name="rememberme"/>
                 <Link to="/access" className="button bg-dark">Cadastre-se</Link>
                 

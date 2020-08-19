@@ -2,7 +2,7 @@ import React from 'react';
 
 import './styles.css'
 import { Link } from 'react-router-dom';
-import { KaUser } from '../../assets/icons';
+import { KaUser, KaClose } from '../../assets/icons';
 import { useTheme } from '../../context/Theme';
 
 interface MenuProps {
@@ -19,11 +19,11 @@ const Menu:React.FC<MenuProps> = ({active, setActive}) => {
     }
     return (
         <div style={{display: active?'block':'none'}} id="global-menu">
-            <div className="blur" style={{height: active?'100vh':0}} onClick={()=> setActive(false)}></div>
+            <div className="blur" onClick={()=> setActive(false)}></div>
             <div className="menu-container" >
             <div className="header-menu">
                 <h1>Menu</h1>
-                <span onClick={()=> setActive(false)}>x</span>
+                <KaClose color='var(--color-border-primary)' size={12} onClick={()=> setActive(false)}>x</KaClose>
             </div>
             <Link to="/user" className="user-content">
                 <div className="user-icon">
@@ -42,11 +42,9 @@ const Menu:React.FC<MenuProps> = ({active, setActive}) => {
                     <Link to="help">Ajuda e suporte</Link>
                 </li>
                 <li id="btn-dark-mode">
-                    <a href="./">
-                        Modo Escuro
-                    </a>
+                    <a href="/">Modo Escuro</a>
                     <label className="switch">
-                        <input type="checkbox" checked={theme==='light'?false:true} onClick={changeMode}/>
+                        <input type="checkbox" checked={theme==='light'?false:true} onChange={changeMode} />
                         <span className="slider"></span>
                     </label>
                 </li>
