@@ -1,0 +1,59 @@
+.main-profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 95vw;
+    max-width: 969px;
+    margin: 0 auto;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.profile-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    background: url(../../assets/images/container-background.svg);
+    background-repeat: no-repeat;
+    background-position: center top;
+
+    width: 95vw;
+    max-width: 969px;
+    margin: 0 auto;
+    height: 500px;
+}
+
+.profile-container .folks-container, .profile-container .dice-container {
+    width: 55vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.profile-container .folks-container .user-icon {
+    height: 14rem;
+    width: 14rem;
+    background-color: var(--color-secondary);
+}
+
+.profile-container .folks-container a {
+    color: var(--color-secondary);
+    margin-left: 20rem;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.profile-container .folks-container h2{
+    color: var(--color-text-secondary);
+    margin-top: 5rem;
+    font-size: 20px;
+}
+
+.profile-container .folks-container p {
+    color: var(--color-text-secondary);
+    margin-top: 2rem;
+    font-size: 20px;
+    
+}

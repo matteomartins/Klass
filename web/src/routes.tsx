@@ -5,14 +5,16 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import Drag from './pages/Drag';
 import FirstAccess from './pages/FirstAccess';
+import Profile from './pages/Profile';
 
 export default function Routes() {
     return (
         <BrowserRouter>
-            <Route path="/" exact component={Register} />
+            {/* <Route path="/" exact component={Register} /> */}
             <Route path="/login" exact component={Login} />
             <Route path="/drag" exact component={Drag} />
             <Route path="/access" exact component={FirstAccess} />
+            <Route path="/" exact component={Profile} />
         </BrowserRouter>
     )
 }

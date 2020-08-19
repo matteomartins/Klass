@@ -33,7 +33,6 @@ function Register() {
                 <Input label="Senha" Icon={KaPassword} maxLength={100} />
                 <Checkbox label="Lembre de mim" name="rememberme"/>
                 <Link to="/access" className="button bg-dark">Cadastre-se</Link>
-                
             </form>
         </div>
     )
