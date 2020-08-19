@@ -19,8 +19,8 @@ function Header() {
             </Link>
             <img src={Icon} alt="Klass" />
             <div>
-                <div className="menu-icon">
-                    <KaMenu size={20} onClick={()=>setActive(true)} />
+                <div className="menu-icon" onClick={()=>setActive(true)} >
+                    <KaMenu size={20}/>
                 </div>
                 <Menu active={active} setActive={setActive} />
             </div>
