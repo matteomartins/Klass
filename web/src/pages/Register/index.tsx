@@ -23,7 +23,7 @@ function Register() {
                 <a href="#register" id="register-link">Cadastre-se &nbsp; &#9662; </a>
             </div>
             <form className="form-container" id="register">
-                <h1>Crie sua conta</h1>
+                <h1>Crie sua Conta</h1>
                 <div className="user-icon">
                     <KaUser size={70} color="var(--color-text-primary)" />
                 </div>
@@ -33,7 +33,6 @@ function Register() {
                 <Input label="Senha" type="password" Icon={KaPassword} maxLength={100} />
                 <Checkbox label="Lembre de mim" name="rememberme"/>
                 <Link to="/access" className="button bg-dark">Cadastre-se</Link>
-                
             </form>
         </div>
     )

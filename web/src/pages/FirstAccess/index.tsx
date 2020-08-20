@@ -37,7 +37,7 @@ function FirstAccess(){
             <a href="/" onClick={e  => handleBack(e)} style={{display: step===0?"none":"block"}}>
                 <div className="arrow">
                     <KaArrow color="#fff" size={28} />
-                </div>
+                </div>            
             </a>
             <div className="access-container">
                 <div className={`terms-container background-${theme}`} style={{display: step===0?"flex":"none"}}>
