@@ -14,14 +14,16 @@
     align-self: flex-end;
 }
 
-.progress-icons {
+.access-container .progress-icons {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 0.8rem;
 }
 
-.terms-container, .theme-container, .presentation-container {
+.access-container .terms-container,
+.access-container .theme-container,
+.access-container .presentation-container {
     border-radius: 3.4rem;
     width: 100%;
     height: 498px;
@@ -35,19 +37,20 @@
     background-repeat: no-repeat;
     background-position: center top;
 }
-
 .access-container > .background-dark {
     background: url(../../assets/images/container-background-dark.svg);
     background-repeat: no-repeat;
     background-position: center top;
 }
 
-.terms-container > h1, .theme-container > h1, .presentation-container > h1 {
+.access-container .terms-container h1,
+.access-container .theme-container h1, 
+.access-container .presentation-container h1 {
     margin-top: -1.4rem;
     font-size: 2.5rem;
 }
 
-.terms-container .terms-text {
+.access-container .terms-container .terms-text {
     height: 70%;
     overflow-y: scroll;
     color: var(--color-text-secondary);
@@ -59,64 +62,72 @@
     text-align: justify;
     text-indent: 1.5em;
 }
-.terms-container .input-checkbox {
+
+.access-container .terms-container .input-checkbox {
     align-self: flex-start;
     width: 90%;
     margin: 0 auto;
     margin-top: 2rem;
 }
 
-.theme-container .title {
+.access-container .theme-container .title {
     margin-top: 4rem;
     font-size: 3rem;
     justify-self: flex-start;
     color: var(--color-text-secondary);
 }
 
-.theme-container .themes {
+.access-container .theme-container .themes {
     display: flex;
     justify-content: space-between;
     width: 90%;
     margin-top: 2.5rem;
 }
-.theme-container .themes img {
+
+.access-container .theme-container .themes img {
     border-radius: 2.5rem;
     width: 100%;
 }
-.theme-container .themes a div img + img {
+
+.access-container .theme-container .themes a div img + img {
     display: none;
 }
-.theme-container .themes h2 {
+
+.access-container .theme-container .themes h2 {
     text-align: center;
     font-size: 2rem;
     line-height: 3rem;
     font-weight: 600;
 }
-.theme-container .themes #text-light {
+
+.access-container .theme-container .themes #text-light {
     color: #444;
 }
-.theme-container .themes #text-dark {
+
+.access-container .theme-container .themes #text-dark {
     color: #CCC;
 }
-.theme-container .themes .light {
+
+.access-container .theme-container .themes .light {
     background-color: #CCC;
     border-radius: 2.6rem;
     margin: .4rem;
 }
 
-.theme-container .themes .dark{
+.access-container .theme-container .themes .dark{
     border-radius: 2.6rem;
     background-color: #444;
     margin: .4rem;
 }
 
-.video {
+.access-container .video {
     margin-top: 5rem;
     border-radius: 2rem;
 }
+
 .arrow {
     position: absolute;
-    top: 50px;
+    top: 80px;
     left:50px;
 }
 

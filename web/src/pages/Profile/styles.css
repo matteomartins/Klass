@@ -1,0 +1,145 @@
+.main-profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 95vw;
+    max-width: 969px;
+    margin: 0 auto;
+    height: 85vh;
+    flex-direction: column;
+}
+
+.main-profile h1 {
+    margin-top: -1.4rem;
+    font-size: 2.5rem;
+}
+
+.main-profile .arrow {
+    margin-top: 6rem;
+}
+
+.main-profile .profile-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 95vw;
+    max-width: 969px;
+    margin: 0 auto;
+    height: 500px;
+}
+
+.main-profile .background-light {
+    background: url(../../assets/images/container-background.svg);
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+
+.main-profile .background-dark {
+    background: url(../../assets/images/container-background-dark.svg);
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+
+.profile-container .info-container, .profile-container .data-container {
+    width: 55vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.profile-container .info-container .user-icon {
+    height: 14rem;
+    width: 14rem;
+    background-color: var(--color-secondary);
+}
+
+.profile-container .info-container a {
+    color: var(--color-secondary);
+    margin-left: 20rem;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.profile-container .info-container h1 {
+    color: var(--color-text-secondary);
+    margin-top: 4rem;
+    font-size: 20px;
+}
+
+.profile-container .info-container p, .profile-container .data-container p  {
+    color: var(--color-text-secondary);
+    margin-top: 2rem;
+    font-size: 20px;  
+}
+
+.profile-container .info-container .input-container {
+    margin-top: 2rem;
+}
+
+.profile-container .info-container .input-container .input-items {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.profile-container .info-container .input-container .input-items input {
+    border: none;
+    background-color: transparent;
+    height: 30px;
+    width: 180px;
+    margin-top: 1.8rem;
+    margin-left: 0.5rem;
+    color: var(--color-text-secondary);
+    font-size: 2em;
+    text-align: end;
+}
+
+.profile-container .data-container .items-container {
+    margin-top: 5rem;
+}
+
+.profile-container .data-container .items-container .items {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    font-weight: 500;
+}
+
+.profile-container .data-container .items-container .items h1 {
+    height: 50px;
+    width: 180px;
+    margin-top: 1rem;
+    color: var(--color-text-secondary);
+    font-size: 3em;
+    text-align: end;
+}
+
+.profile-container .data-container .button-container {
+    margin-top: 10rem;
+}
+
+.profile-container .data-container .button-container .button {
+    margin-left: 1rem;
+    height: 45px;
+    width: 170px;
+    text-align: center;
+    font-size: 1.6em;
+}
+
+.main-profile .calendar-content {
+    display: flex;
+    margin-left: -1280px;    
+}
+
+.main-profile .calendar-content .calendar-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4.2rem;
+    width: 4.2rem;
+    border-radius: 50%;
+    background-color: var(--color-secondary);
+    box-shadow: 0px 5px 20px rgba(38, 39, 56, 0.45);
+    cursor: pointer;
+}

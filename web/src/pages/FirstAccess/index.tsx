@@ -37,7 +37,7 @@ function FirstAccess(){
             <a href="/" onClick={e  => handleBack(e)} style={{display: step===0?"none":"block"}}>
                 <div className="arrow">
                     <KaArrow color="#fff" size={28} />
-                </div>
+                </div>            
             </a>
             <div className="access-container">
                 <div className={`terms-container background-${theme}`} style={{display: step===0?"flex":"none"}}>
@@ -68,12 +68,10 @@ function FirstAccess(){
                         </a>
                     </div>
                 </div>
-
                 <div className={`presentation-container background-${theme}`} style={{display: step===2?"flex":"none"}}>
                     <h1> Apresentação </h1>
                     <YouTube className="video" videoId="Zc1OOS4aMbU" />
                 </div>
-
                 <div className="progress-container">
                     <button className="button" onClick={handleNext}>Avançar</button>
                     <div className="progress-icons"> 
