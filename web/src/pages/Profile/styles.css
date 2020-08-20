@@ -5,7 +5,7 @@
     width: 95vw;
     max-width: 969px;
     margin: 0 auto;
-    height: 87vh;
+    height: 85vh;
     flex-direction: column;
 }
 
@@ -127,7 +127,19 @@
     font-size: 1.6em;
 }
 
-.main-profile .calendar-icon {
-    margin-top: 2.5rem;
-    margin-left: -129rem;
+.main-profile .calendar-content {
+    display: flex;
+    margin-left: -1280px;    
+}
+
+.main-profile .calendar-content .calendar-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4.2rem;
+    width: 4.2rem;
+    border-radius: 50%;
+    background-color: var(--color-secondary);
+    box-shadow: 0px 5px 20px rgba(38, 39, 56, 0.45);
+    cursor: pointer;
 }

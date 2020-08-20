@@ -23,7 +23,7 @@ function Register() {
                 <a href="#register" id="register-link">Cadastre-se &nbsp; &#9662; </a>
             </div>
             <form className="form-container" id="register">
-                <h1>Crie sua conta</h1>
+                <h1>Crie sua Conta</h1>
                 <div className="user-icon">
                     <KaUser size={70} color="var(--color-text-primary)" />
                 </div>

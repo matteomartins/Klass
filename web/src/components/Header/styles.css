@@ -37,6 +37,7 @@ header .user-content .user-icon, header .menu-icon {
     box-shadow: 0px 5px 20px rgba(38, 39, 56, 0.45);
     cursor: pointer;
 }
+
 header > img {
     height: 4.2rem;
     width: 4.2rem;

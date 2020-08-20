@@ -14,14 +14,14 @@ export default function Routes() {
     return (
         <BrowserRouter>
             <Switch>
-                <Route path="/" exact component={Register} />
+                <Route path="/register" exact component={Register} />
                 <Route path="/login" exact component={Login} />
                 <Route path="/access" exact component={FirstAccess} />
                 <BrowserRouter>
                     <div>
                         <Header/>
                         <Route path="/drag" exact component={Drag} />
-                        <Route path="/profile" exact component={Profile} />
+                        <Route path="/" exact component={Profile} />
                     </div>
                 </BrowserRouter>
             </Switch>

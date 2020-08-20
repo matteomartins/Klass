@@ -1,5 +1,6 @@
 import React from 'react';
 import './styles.css';
+import { Link } from 'react-router-dom';
 
 import {KaUser, KaCalendar} from '../../assets/icons';
 import {KaCircleOutline, KaCircleSelected, KaArrow} from '../../assets/icons';
@@ -56,9 +57,11 @@ function Profile(){
                     </div>
                 </div>
             </div>
-            <div className="calendar-icon">
-                <KaCalendar size={30} color="var(--color-text-primary)"/>
-            </div>
+            <Link to="/" className="calendar-content">
+                <div className="calendar-icon">
+                    <KaCalendar size={22} color="var(--color-text-primary)" />  
+                </div>
+            </Link>
         </div>
     )
 }
