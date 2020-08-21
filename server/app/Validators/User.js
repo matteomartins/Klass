@@ -6,8 +6,8 @@ class User {
     return {
       email: 'required|email|unique:usuario',
       password: 'required',
-      nomeUsuario: 'required',
-      isPremium: 'required'
+      name: 'required',
+      is_premium: 'required'
     }
   }
 
@@ -17,7 +17,7 @@ class User {
       'email.email': 'You must provide a valid email address.',
       'email.unique': 'This email is already registered.',
       'password.required': 'You must provide a password.',
-      'nomeUsuario.required': 'You must provide a username.'
+      'name.required': 'You must provide a username.'
     }
   }
 

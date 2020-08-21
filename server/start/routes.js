@@ -26,3 +26,5 @@ Route.post('/schools', 'SchoolController.create').validator('School').middleware
 Route.delete('/schools/:id', 'SchoolController.delete').middleware(['VerifyUserAndSchool']);
 Route.get('/schools/:id', 'SchoolController.index').middleware(['VerifyUserAndSchool']);
 Route.put('/schools/:id', 'SchoolController.update').validator('School').middleware(['VerifyUserAndSchool']);
+
+Route.post('/schools/:id/courses', 'CourseController.create').validator('Course').middleware(['VerifyPremiumAndSchool']);

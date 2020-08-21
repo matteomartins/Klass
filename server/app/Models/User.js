@@ -8,10 +8,10 @@ const Hash = use('Hash')
 
 class User extends Model {
   static get table() {
-    return 'usuario';
+    return 'users';
   }
   static get primaryKey() {
-    return 'idUsuario';
+    return 'id';
   }
   static get createdAtColumn() {
     return null;
@@ -19,7 +19,7 @@ class User extends Model {
   static get updatedAtColumn() {
     return null;
   }
-  static boot () {
+  static boot() {
     super.boot()
 
     /**
@@ -43,7 +43,7 @@ class User extends Model {
    *
    * @return {Object}
    */
-  tokens () {
+  tokens() {
     return this.hasMany('App/Models/Token')
   }
 }

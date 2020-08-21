@@ -27,13 +27,13 @@ class VerifyPremiumAndSchool {
   async handle({ request, auth, response }, next) {
     // call next to advance the request
     const user = await auth.getUser();
-    const user_id = user.$attributes.idUsuario;
+    const user_id = user.$attributes.id;
 
     // const premiumValue = await Database.select('isPremium').from('usuario').where('idUsuario', user_id);
-    const premiumValue = await User.query().where('idUsuario', user_id).fetch('isPremium')
-    const admValues = await Adm.query().where('idUsuario', user_id).fetch('idAdministrador')
+    const premiumValue = await User.query().where('id', user_id).fetch('is_premium')
+    const admValues = await Adm.query().where('user_id', user_id).fetch('id')
 
-    if (premiumValue.rows[0].$attributes.isPremium == 0) {
+    if (premiumValue.rows[0].$attributes.is_premium == 0) {
       if (admValues.rows == 0) {
         await next()
       } else {
