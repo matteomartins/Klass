@@ -14,7 +14,9 @@
 }
 
 .login-container .login-content a {
-    margin-left: 1rem;
+    position: absolute;
+    top: 80px;
+    left:150px;
 }
 
 .login-container .form-login {

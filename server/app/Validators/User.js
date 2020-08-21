@@ -6,18 +6,18 @@ class User {
     return {
       email: 'required|email|unique:usuario',
       password: 'required',
-      name: 'required',
-      is_premium: 'required'
+      nomeUsuario: 'required',
     }
   }
 
   get messages() {
     return {
-      'email.required': 'You must provide a email address.',
-      'email.email': 'You must provide a valid email address.',
-      'email.unique': 'This email is already registered.',
-      'password.required': 'You must provide a password.',
-      'name.required': 'You must provide a username.'
+      'email.required': 'Você deve inserir um email.',
+      'email.email': 'Você precisa inserir um email válido.',
+      'email.unique': 'Este email já está cadastrado.',
+      'password.required': 'Você deve inserir uma senha.',
+      'nomeUsuario.required': 'Você deve inserir o nome de usuário.'
+
     }
   }
 

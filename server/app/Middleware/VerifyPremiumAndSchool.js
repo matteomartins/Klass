@@ -33,14 +33,9 @@ class VerifyPremiumAndSchool {
     const premiumValue = await User.query().where('id', user_id).fetch('is_premium')
     const admValues = await Adm.query().where('user_id', user_id).fetch('id')
 
-    if (premiumValue.rows[0].$attributes.is_premium == 0) {
-      if (admValues.rows == 0) {
-        await next()
-      } else {
-        return response.status(401).send({ message: "Somente assinantes Premium podem criar mais de uma escola" })
-      }
+    if (premiumValue.rows[0].$attributes.isPremium == 0 && admValues.rows != 0) {
+      return response.status(401).send({ message: "Somente assinantes Premium podem criar mais de uma escola" })
     } else {
-
       await next()
     }
 

@@ -39,6 +39,10 @@ module.exports.KaArrow = function (props) {
   return GenIcon({"tag":"svg","attr":{"viewBox":"0 0 20 38"},"child":[{"tag":"path", "attr": {"d":"M0.707107 19.7071C0.316582 19.3166 0.316583 18.6834 0.707107 18.2929L18.2929 0.707103C18.9229 0.0771384 20 0.523308 20 1.41421V2.75L3.66667 19L20 35.3636V36.5858C20 37.4767 18.9229 37.9229 18.2929 37.2929L0.707107 19.7071Z"}}]})(props);
 };
 module.exports.KaArrow.displayName = "KaArrow";
+module.exports.KaClose = function (props) {
+  return GenIcon({"tag":"svg","attr":{"viewBox":"0 0 20 20","fill": "none","strokeWidth": "1"},"child":[{"tag":"line","attr":{"x1": "0.353553", "y1":"1.31246", "x2": "18.6872", "y2":"19.6461"}},{"tag":"line","attr":{"x1": "18.6873", "y1":"0.353553", "x2":"0.353689", "y2": "18.6872"}}]})(props);
+};
+module.exports.KaClose.displayName = "KaClose";
 module.exports.KaExcel = function (props) {
   return GenIcon({"tag":"svg","attr":{"viewBox":"0 0 50 50","fill": "none"},"child":[{"tag":"rect","attr":{"y": "16.4805", "width": "21.3264", "height": "22.2313", "rx": "1", "fill": "#1E6F42"}},{"tag":"path", "attr": {"d":"M36.5446 2.18548L36.2507 1.88599H35.831H14.1865C12.5297 1.88599 11.1865 3.22913 11.1865 4.88598V44.8117C11.1865 46.4686 12.5297 47.8117 14.1865 47.8117H42.1761C43.8329 47.8117 45.1761 46.4686 45.1761 44.8117V11.3877V10.979L44.8897 10.6872L36.5446 2.18548Z", "stroke": "#1E6F42", "strokeWidth":"2"}},{"tag":"path", "attr": {"d":"M33.8135 1H36.5735L46 10.6063V13.0554H34.8135C34.2612 13.0554 33.8135 12.6077 33.8135 12.0554V1Z", "fill": "#2B734B"}},{"tag":"path", "attr": {"d":"M10.9213 26.0203L11.9672 23.8933H13.7294L11.9408 27.0662L13.7777 30.2917H11.9979L10.9213 28.1252L9.8446 30.2917H8.06921L9.90173 27.0662L8.11755 23.8933H9.87536L10.9213 26.0203Z", "fill": "#FFFFFF"}}]})(props);
 };
