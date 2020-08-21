@@ -5,10 +5,10 @@ const Model = use('Model')
 
 class Administrator extends Model {
     static get table() {
-        return 'administrador';
+        return 'administrators';
     }
     static get primaryKey() {
-        return 'idAdministrador';
+        return 'id';
     }
     static get createdAtColumn() {
         return null;

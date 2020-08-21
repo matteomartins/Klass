@@ -27,11 +27,11 @@ class VerifyPremiumAndSchool {
   async handle({ request, auth, response }, next) {
     // call next to advance the request
     const user = await auth.getUser();
-    const user_id = user.$attributes.idUsuario;
+    const user_id = user.$attributes.id;
 
     // const premiumValue = await Database.select('isPremium').from('usuario').where('idUsuario', user_id);
-    const premiumValue = await User.query().where('idUsuario', user_id).fetch('isPremium')
-    const admValues = await Adm.query().where('idUsuario', user_id).fetch('idAdministrador')
+    const premiumValue = await User.query().where('id', user_id).fetch('is_premium')
+    const admValues = await Adm.query().where('user_id', user_id).fetch('id')
 
     if (premiumValue.rows[0].$attributes.isPremium == 0 && admValues.rows != 0) {
       return response.status(401).send({ message: "Somente assinantes Premium podem criar mais de uma escola" })

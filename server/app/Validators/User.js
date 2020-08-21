@@ -17,6 +17,7 @@ class User {
       'email.unique': 'Este email já está cadastrado.',
       'password.required': 'Você deve inserir uma senha.',
       'nomeUsuario.required': 'Você deve inserir o nome de usuário.'
+
     }
   }
 
