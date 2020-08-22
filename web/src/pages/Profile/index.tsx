@@ -3,12 +3,10 @@ import { Link } from 'react-router-dom';
 
 import {KaUser, KaCalendar} from '../../assets/icons';
 import { KaArrow } from '../../assets/icons';
-import { useTheme } from '../../context/Theme';
 
 import './styles.css';
 
 function Profile(){
-    const { theme } = useTheme();
     return(
         
         <div className="main-profile">
