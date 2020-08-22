@@ -5,7 +5,7 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import Drag from './pages/Drag';
 import FirstAccess from './pages/FirstAccess';
-
+import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Header from './components/Header';
 
@@ -22,6 +22,7 @@ export default function Routes() {
                         <Header/>
                         <Route path="/drag" exact component={Drag} />
                         <Route path="/profile" exact component={Profile} />
+                        <Route path="/home" exact component={Home} />
                     </div>
                 </BrowserRouter>
             </Switch>

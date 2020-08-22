@@ -23,7 +23,7 @@ function Profile(){
                     </div>
                     <a href="/">Mudar Foto</a>
                     <h1>Claudio da Silva Peixoto</h1>
-                    <div className="input-container">
+                    <div className="input-container">   
                         <div className="input-items">
                             <p>Data de nasc.</p>
                             <input value="15/05/2002"/>
