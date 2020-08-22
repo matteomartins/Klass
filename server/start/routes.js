@@ -23,8 +23,11 @@ Route.get('/users', 'UserController.index')
 Route.post('/sessions', 'SessionController.store')
 
 Route.post('/schools', 'SchoolController.create').validator('School').middleware(['VerifyPremiumAndSchool']);
-Route.delete('/schools/:id', 'SchoolController.delete').middleware(['VerifyUserAndSchool']);
-Route.get('/schools/:id', 'SchoolController.index').middleware(['VerifyUserAndSchool']);
-Route.put('/schools/:id', 'SchoolController.update').validator('School').middleware(['VerifyUserAndSchool']);
+Route.delete('/schools/:id_school', 'SchoolController.delete').middleware(['VerifyUserAndSchool']);
+Route.get('/schools/:id_school', 'SchoolController.index').middleware(['VerifyUserAndSchool']);
+Route.put('/schools/:id_school', 'SchoolController.update').validator('School').middleware(['VerifyUserAndSchool']);
 
-Route.post('/schools/:id/courses', 'CourseController.create').validator('Course').middleware(['VerifyPremiumAndSchool']);
+Route.post('/schools/:id_school/courses', 'CourseController.create').validator('Course').middleware(['VerifyUserAndSchool']);
+Route.delete('/schools/:id_school/courses/:id_course', 'CourseController.delete').middleware(['VerifyUserAndSchool']);
+Route.get('/schools/:id_school/courses/:id_course', 'CourseController.index').middleware(['VerifyUserAndSchool']);
+Route.put('/schools/:id_school/courses/:id_course', 'CourseController.update').validator('Course').middleware(['VerifyUserAndSchool']);

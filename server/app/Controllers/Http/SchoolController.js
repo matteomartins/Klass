@@ -11,41 +11,39 @@ class SchoolController {
 
         const schoolData = request.all();
 
-        const { idEscola } = await School.create(schoolData);
-        let school = await School.find(idEscola);
-        school.$attributes.id = school.$attributes.id;
+        const { id } = await School.create(schoolData);
 
         const user = await auth.getUser();
         const user_id = user.$attributes.id;
 
-        await Database.table('administrador').insert({ school_id: idEscola, user_id: user_id })
+        await Database.table('administrators').insert({ school_id: id, user_id: user_id })
 
 
-        return { idEscola }
+        return { id }
 
     }
     async delete({ request, response, auth }) {
-        const idSchool = request.params.id;
+        const idSchool = request.params.id_school;
 
         await auth.getUser();
 
 
-        await Database.table('administrador').where('school_id', idSchool).delete();
-        await Database.table('escola').where('school_id', idSchool).delete();
+        await Database.table('administrators').where('school_id', idSchool).delete();
+        await Database.table('schools').where('id', idSchool).delete();
 
 
         return response.status(200).send({ message: "Escola apagada com sucesso" })
     }
     async index({ request }) {
-        const idSchool = request.params.id;
-        const school = await School.query().where('school_id', idSchool).fetch();
+        const idSchool = request.params.id_school;
+        const school = await School.query().where('id', idSchool).fetch();
         return { school }
     }
     async update({ request, response }) {
-        const idSchool = request.params.id;
+        const idSchool = request.params.id_school;
         const newSchoolData = request.all();
 
-        await School.query().where('school_id', idSchool).update(newSchoolData)
+        await School.query().where('id', idSchool).update(newSchoolData)
         return response.status(200).send({ message: "Escola atualizada com sucesso" })
     }
 

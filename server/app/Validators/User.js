@@ -4,9 +4,9 @@ class User {
 
   get rules() {
     return {
-      email: 'required|email|unique:usuario',
+      email: 'required|email|unique:users',
       password: 'required',
-      nomeUsuario: 'required',
+      username: 'required',
     }
   }
 
@@ -16,7 +16,7 @@ class User {
       'email.email': 'Você precisa inserir um email válido.',
       'email.unique': 'Este email já está cadastrado.',
       'password.required': 'Você deve inserir uma senha.',
-      'nomeUsuario.required': 'Você deve inserir o nome de usuário.'
+      'username.required': 'Você deve inserir o nome de usuário.'
 
     }
   }

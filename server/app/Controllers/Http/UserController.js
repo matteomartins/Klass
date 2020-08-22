@@ -9,10 +9,10 @@ class UserController {
     async create({ request, auth }) {
         const userData = request.all();
 
-        const { idUsuario } = await User.create(userData);
+        const { id } = await User.create(userData);
 
-        let user = await User.find(idUsuario);
-        user.$attributes.id = user.$attributes.idUsuario;
+        let user = await User.find(id);
+        // user.$attributes.id = user.$attributes.id;
 
         const { token } = await auth.generate(user);
 
@@ -23,10 +23,10 @@ class UserController {
         const newUserData = request.all();
 
         const user = await auth.getUser()
-        const user_id = user.$attributes.idUsuario;
-        if(newUserData.password) newUserData.password = await Hash.make(newUserData.password);
+        const user_id = user.$attributes.id;
+        if (newUserData.password) newUserData.password = await Hash.make(newUserData.password);
 
-        await User.query().where('user_id', user_id).update(newUserData)
+        await User.query().where('id', user_id).update(newUserData)
 
         return response.status(204).send()
     }
