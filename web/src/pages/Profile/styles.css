@@ -10,8 +10,12 @@
     height: 85vh;
 }
 .profile-container {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
     margin: 0 auto;
     width: 100%;
+    height: 100%;
 }
 .profile-container .info-container, 
 .profile-container .data-container {

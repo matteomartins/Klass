@@ -1,9 +1,11 @@
 .main-home {
     display:flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     width: 100vw;
+    height: 100vh;
 }
+
 .main-home .home-container {
     width: 1000px;
     height: 500px;
@@ -26,7 +28,6 @@
     position: fixed;
     top: 130px;
     right: 330px;
-    z-index: 1;
 }
 #classes {
     display: flex;

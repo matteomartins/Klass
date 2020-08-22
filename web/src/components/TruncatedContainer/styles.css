@@ -4,6 +4,10 @@
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
+    width: 95%;
+    max-width: 960px;
+    height: 70vh;
+    max-height: 700px;
 }
 .container-truncated h1 {
     position: relative;
