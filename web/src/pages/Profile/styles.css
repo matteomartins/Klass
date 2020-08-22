@@ -9,15 +9,6 @@
     flex-direction: column;
 }
 
-.main-profile h1 {
-    margin-top: -1.4rem;
-    font-size: 2.5rem;
-}
-
-.main-profile .arrow {
-    margin-top: 6rem;
-}
-
 .main-profile .profile-container {
     display: flex;
     align-items: center;
@@ -131,12 +122,6 @@
     justify-content: space-around;
     align-items: center;
     width: 100%;
-}
-
-.main-profile .calendar-content {
-    position: absolute;
-    left: 20px;
-    bottom: 20px;
 }
 
 @media (max-width: 700px) {

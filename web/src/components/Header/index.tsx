@@ -11,7 +11,7 @@ function Header() {
     const [active, setActive] = useState(false)
     return (
         <header>
-            <Link to="/user" className="user-content">
+            <Link to="/profile" className="user-content">
                 <div className="user-icon">
                     <KaUser size={20} />
                 </div>

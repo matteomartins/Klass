@@ -37,7 +37,7 @@ const Menu:React.FC<MenuProps> = ({active, setActive}) => {
                     <h1>Menu</h1>
                     <KaClose color='var(--color-border-primary)' size={12} onClick={()=> setActive(false)}>x</KaClose>
                 </div>
-                <Link to="/user" className="user-content">
+                <Link to="/profile" className="user-content">
                     <div className="user-icon">
                         <KaUser color="#fff" size={20} />
                     </div>

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { FormEvent } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 
 import './styles.css';
 import { KaUser, KaMail, KaPassword, KaArrow } from '../../assets/icons';
@@ -8,6 +8,14 @@ import Checkbox from '../../components/Checkbox';
 import SocialMedias from '../../components/SocialMedias';
 
 function Login() {
+
+    const history = useHistory();
+
+    function handleSubmit(e:FormEvent) {
+        e.preventDefault();
+        history.push('/home')
+    }
+
     return (
         <div className="login-container">
             <div className="login-content">
@@ -19,7 +27,7 @@ function Login() {
                     <div className="user-icon">
                         <KaUser size={70} color="var(--color-text-primary)" />
                     </div>
-                    <form className="form-container">
+                    <form className="form-container" onSubmit={handleSubmit}>
                         <Input label="Email" type="email" color="var(--color-text-secondary)" Icon={KaMail} />
                         <Input label="Senha" type="password" color="var(--color-text-secondary)" Icon={KaPassword} />
                         <Checkbox label="Lembre de mim" name="rememberme" />

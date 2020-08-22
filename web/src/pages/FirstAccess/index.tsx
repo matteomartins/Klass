@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import YouTube from 'react-youtube';
+import { useHistory } from 'react-router-dom';
 
 import './styles.css';
 
@@ -17,9 +18,10 @@ function FirstAccess(){
     const [step, setStep] = useState(0);
     const { theme, setTheme } = useTheme();
     const [ mode, setMode ] = useState('foward');
+    const history = useHistory();
 
     function handleNext() {
-        if(step===2) return
+        if(step===2) history.push('/home');
         setMode('foward')
         setStep(step+1);
     }
