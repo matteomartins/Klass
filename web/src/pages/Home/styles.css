@@ -1,9 +1,69 @@
 .background{
-    position: absolute;
     width: 1000px;
     height: 500px;
-    left: 170px;
-    top: 120px;
     background: #E5E5E5;
     border-radius: 34px;
+    max-width: 90vw;
+    padding: 5rem
 }
+.display-flex{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+}
+.name{
+    color: #39729D;
+    display:flex;
+    justify-content: flex-start;
+}
+.add-icon{
+    color: #39729D;
+    display:flex;
+    justify-content: flex-end;
+    padding: 1rem;
+    position: absolute;
+    top:130px;
+    left: 1080px;
+}
+#classes{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 150px;
+    padding: -1rem;
+    margin-top: 40px;
+}
+.item{
+    width: 150px;
+    margin:5px;
+    color:white;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 50px;
+    line-height: 59px;
+    text-align: center;
+    padding: 4rem;
+    background:#39729D;
+    -webkit-box-shadow:0px 2px 8px -1px rgba(0,0,0,0.24);
+    border-radius: 25px;
+}
+.span{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    color: #333333;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    margin-bottom: 15px;
+}
+.main-home .calendar-content {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+}
+
