@@ -23,7 +23,7 @@ function Login() {
                         <Input label="Email" type="email" color="var(--color-text-secondary)" Icon={KaMail} />
                         <Input label="Senha" type="password" color="var(--color-text-secondary)" Icon={KaPassword} />
                         <Checkbox label="Lembre de mim" name="rememberme" />
-                        <button className="button bg-dark" type="submit">Login</button>
+                        <button className="btn btn-bg-dark" type="submit">Login</button>
                     </form>
                     <SocialMedias color="#CCC" />
                 </div>

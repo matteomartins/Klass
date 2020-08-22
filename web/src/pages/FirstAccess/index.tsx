@@ -11,6 +11,8 @@ import themeLightMobile from '../../assets/images/print-mobile-light.jpg';
 import themeDarkMobile from '../../assets/images/print-mobile-dark.jpg';
 import Terms from '../../utils/Terms';
 import { useTheme } from '../../context/Theme';
+import {CSSTransition} from 'react-transition-group';
+
 
 function FirstAccess(){
     const [step, setStep] = useState(0);
@@ -40,26 +42,39 @@ function FirstAccess(){
                 </div>            
             </a>
             <div className="access-container">
-                <div className={`terms-container background-${theme}`} style={{display: step===0?"flex":"none"}}>
-                    <h1> Termos de Uso </h1>
-                    <div className="terms-text" >
-                        <Terms />
+                <CSSTransition
+                    timeout={2500}
+                    classNames="fade"
+                    in={(step===0?true:false)}
+                    style={{display: step===0?"flex":"none"}}
+                >
+                    <div className={`terms-container container-bg-${theme}`}>
+                        <h1> Termos de Uso </h1>
+                        <div className="terms-text" >
+                            <Terms />
+                        </div>
+                        <Checkbox label="Li e concordo com os Termos de Uso" name="according"/>
                     </div>
-                    <Checkbox label="Li e concordo com os Termos de Uso" name="according"/>
-                </div>
+                </CSSTransition>
 
-                <div className={ `theme-container  background-${theme}`} style={{display: step===1?"flex":"none"}}>
+                <CSSTransition
+                    timeout={3000}
+                    classNames="fade"
+                    in={(step===1?true:false)}
+                    style={{display: step===1?"flex":"none"}}
+                >
+                <div className={`theme-container container-bg-${theme}`}>
                     <h1> Tema </h1>
                     <h1 className="title"> Escolha um tema </h1>
                     <div className="themes">
-                        <a href="/access?" onClick={e => handleLight(e)}>
+                        <a href="/" onClick={e => handleLight(e)}>
                             <div className="light">
                                 <img src={themeLight} alt="Klass"/>
                                 <img src={themeLightMobile} alt="Klass"/>
                                 <h2 id="text-light">Claro</h2>
                             </div>
                         </a>
-                        <a href="/access?" onClick={e => handleDark(e)}>
+                        <a href="/" onClick={e => handleDark(e)}>
                             <div className="dark">
                                 <img src={themeDark} alt="Klass"/>
                                 <img src={themeDarkMobile} alt="Klass"/>
@@ -68,12 +83,20 @@ function FirstAccess(){
                         </a>
                     </div>
                 </div>
-                <div className={`presentation-container background-${theme}`} style={{display: step===2?"flex":"none"}}>
-                    <h1> Apresentação </h1>
-                    <YouTube className="video" videoId="Zc1OOS4aMbU" />
-                </div>
+                </CSSTransition>
+                <CSSTransition
+                    timeout={3000}
+                    classNames="fade"
+                    in={(step===2?true:false)}
+                    style={{display: step===2?"flex":"none"}}
+                >
+                    <div className={`presentation-container container-bg-${theme}`}>
+                        <h1> Apresentação </h1>
+                        <YouTube className="video" videoId="Zc1OOS4aMbU" />
+                    </div>
+                </CSSTransition>
                 <div className="progress-container">
-                    <button className="button" onClick={handleNext}>Avançar</button>
+                    <button className="btn" onClick={handleNext}>Avançar</button>
                     <div className="progress-icons"> 
                         {step===0
                             ?<KaCircleSelected className="mr-3" color="#fff" size={18}/>
