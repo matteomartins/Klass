@@ -20,9 +20,21 @@ const ThemeProvider:React.FC = ({children}) => {
 
     useEffect(()=> {
         const cssVars = theme==='dark'?darkTheme:lightTheme;
+        
         cssVars.forEach(color => {
             document.documentElement.style.setProperty(color.name, color.value);
         });
+
+        const elements = document.getElementsByClassName("container-truncated");
+
+        for(let i = 0; i<elements.length; i++) {
+            const oldClasses = elements[i].className
+                .replace('container-bg-dark', ' ')
+                .replace('container-bg-light', ' ')
+                .trimEnd();
+            elements[i].className = `${oldClasses} container-bg-${theme}`;
+        }
+
         localStorage.setItem('theme', theme);
     }, [theme])
 

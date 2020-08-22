@@ -21,7 +21,7 @@
 .main-profile .profile-container {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     width: 95vw;
     max-width: 969px;
     margin: 0 auto;
@@ -32,21 +32,31 @@
     background: url(../../assets/images/container-background.svg);
     background-repeat: no-repeat;
     background-position: center top;
+    background-size: cover;
+    border-radius: 2.5rem;
 }
 
 .main-profile .background-dark {
     background: url(../../assets/images/container-background-dark.svg);
     background-repeat: no-repeat;
     background-position: center top;
+    background-size: cover;
+    border-radius: 2.5rem;
 }
 
+
 .profile-container .info-container, .profile-container .data-container {
-    width: 55vw;
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 100%;
     flex-direction: column;
 }
+
+.profile-container .data-container {
+    justify-content: space-around;
+}
+
 
 .profile-container .info-container .user-icon {
     height: 14rem;
@@ -57,20 +67,20 @@
 .profile-container .info-container a {
     color: var(--color-secondary);
     margin-left: 20rem;
-    font-size: 15px;
+    font-size: 1.2rem;
     font-weight: 500;
 }
 
 .profile-container .info-container h1 {
     color: var(--color-text-secondary);
     margin-top: 4rem;
-    font-size: 20px;
+    font-size: 1.8rem;
 }
 
 .profile-container .info-container p, .profile-container .data-container p  {
     color: var(--color-text-secondary);
     margin-top: 2rem;
-    font-size: 20px;  
+    font-size: 1.6rem;  
 }
 
 .profile-container .info-container .input-container {
@@ -87,11 +97,11 @@
     border: none;
     background-color: transparent;
     height: 30px;
-    width: 180px;
+    width: 160px;
     margin-top: 1.8rem;
     margin-left: 0.5rem;
     color: var(--color-text-secondary);
-    font-size: 2em;
+    font-size: 1.6rem;
     text-align: end;
 }
 
@@ -103,7 +113,7 @@
     display: flex;
     justify-content: space-between;
     margin-top: 1rem;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .profile-container .data-container .items-container .items h1 {
@@ -111,35 +121,32 @@
     width: 180px;
     margin-top: 1rem;
     color: var(--color-text-secondary);
-    font-size: 3em;
+    font-size: 3.8em;
     text-align: end;
+    font-weight: 300;
 }
 
 .profile-container .data-container .button-container {
-    margin-top: 10rem;
-}
-
-.profile-container .data-container .button-container .button {
-    margin-left: 1rem;
-    height: 45px;
-    width: 170px;
-    text-align: center;
-    font-size: 1.6em;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
 }
 
 .main-profile .calendar-content {
-    display: flex;
-    margin-left: -1280px;    
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
 }
 
-.main-profile .calendar-content .calendar-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 4.2rem;
-    width: 4.2rem;
-    border-radius: 50%;
-    background-color: var(--color-secondary);
-    box-shadow: 0px 5px 20px rgba(38, 39, 56, 0.45);
-    cursor: pointer;
+@media (max-width: 700px) {
+    .main-profile .profile-container {
+        flex-direction: column;
+        overflow-y: scroll;
+        padding-bottom: 20px;
+        margin-right: 5rem;
+    }
+    .profile-container .info-container, .profile-container .data-container {
+        height: 100vh;
+    }
 }
