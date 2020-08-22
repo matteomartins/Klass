@@ -21,6 +21,13 @@
     margin-top: 0.8rem;
 }
 
+.foward, .backward {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
 .access-container .terms-container,
 .access-container .theme-container,
 .access-container .presentation-container {
@@ -32,23 +39,44 @@
     align-items: center;
 }
 
-.fade-enter {
-    position: relative;
-    left: 100%;
+.foward .fade-enter {
+    transform: translateX(150%);
+    opacity: 0;
 }
-.fade-enter-active {
-    left: 0;
-    transition: left .5s;
+.foward .fade-enter-active {
+    transform: translateX(0%);
+    opacity: 1;
+    transition: all 400ms ease-in-out;
 }
-.fade-exit {
-    position: relative;
-    left: 0;
+.foward .fade-exit {
+    transform: translateX(0%);
+    opacity: 1;
 }
-.fade-exit-active {
-    position: relative;
-    left: -100%;
-    transition: left .5s;
+.foward .fade-exit-active {
+    transform: translateX(-150%);
+    opacity: 0;
+    transition: all 400ms ease-in-out;
 }
+
+.backward .fade-enter {
+    transform: translateX(-150%);
+    opacity: 0;
+}
+.backward .fade-enter-active {
+    transform: translateX(0%);
+    opacity: 1;
+    transition: all 400ms ease-in-out;
+}
+.backward .fade-exit {
+    transform: translateX(0%);
+    opacity: 1;
+}
+.backward .fade-exit-active {
+    transform: translateX(150%);
+    opacity: 0;
+    transition: all 400ms ease-in-out;
+}
+
 
 .access-container .terms-container h1,
 .access-container .theme-container h1, 
@@ -142,10 +170,14 @@
     .access-container {
         width: 85vw;
     }
-    .terms-container, .theme-container, .presentation-container {
+    .foward, .backward  {
         width: 90vw;
         height: 70vh;
         margin-top: 0;
+    }
+    .terms-container, .theme-container, .presentation-container {
+        position: relative;
+        height: 70vh;
     }
     .access-container .progress-container {
         align-self: center;
