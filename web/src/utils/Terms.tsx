@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 
-export default function Terms() {
+const Terms:React.FC<HTMLAttributes<HTMLDivElement>> = ({...rest}) => {
     return (
-        <div>
+        <div {...rest}>
             <br/>
             <b>1. Do objeto</b>
             <p>A plataforma visa licenciar o uso de seu software, website, aplicativos e demais ativos de propriedade intelectual, fornecendo ferramentas para auxiliar e dinamizar o dia a dia dos seus usuários. A plataforma caracteriza-se pela prestação dos seguintes serviços pedagógicos e acadêmicos, de criação e gerenciamento de grade horária escolar.</p>
@@ -91,3 +91,5 @@ export default function Terms() {
         </div>
     )
 }
+
+export default Terms;

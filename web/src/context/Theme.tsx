@@ -4,7 +4,6 @@ import { lightTheme, darkTheme } from '../assets/styles/css-vars';
 type Dispatcher<S> = Dispatch<SetStateAction<S>>;
 
 const setThemeProps:Dispatcher<string> = () => null;
-const setReloadProps:Dispatcher<number> = () => null;
 
 const ThemeContext = createContext({
     theme: '',

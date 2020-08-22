@@ -1,19 +1,16 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 
-import {KaUser, KaCalendar} from '../../assets/icons';
-import { KaArrow } from '../../assets/icons';
+import {KaUser} from '../../assets/icons';
 
 import './styles.css';
-import ContainerTruncated from '../../components/ContainerTruncated';
-import CalendarIcon from '../../components/CalendarIcon';
+import TruncatedContainer from '../../components/TruncatedContainer';
 import BackButton from '../../components/BackButton';
 
 function Profile(){
     return(
         <div className="main-profile">
-            <BackButton/>
-            <ContainerTruncated title="Info. Pessoais">
+            <BackButton to="/home" />
+            <TruncatedContainer title="Info. Pessoais">
                 <div className="profile-container">
                     <div className="info-container">
                         <div className="user-icon">
@@ -57,7 +54,7 @@ function Profile(){
                         </div>
                     </div>
                 </div>
-            </ContainerTruncated>
+            </TruncatedContainer>
         </div>
     )
 }

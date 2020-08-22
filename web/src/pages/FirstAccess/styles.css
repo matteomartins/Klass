@@ -31,13 +31,124 @@
 .access-container .terms-container,
 .access-container .theme-container,
 .access-container .presentation-container {
-    border-radius: 3.4rem;
     width: 100%;
     height: 498px;
-    display: flex;
-    flex-direction: column;
     align-items: center;
 }
+
+.access-container .terms-container .terms-text {
+    height: 70%;
+    overflow-y: scroll;
+    color: var(--color-text-secondary);
+    justify-self: center;
+    margin-top: 5rem;
+    padding-right: 1rem;
+    font-size: 2rem;
+    width: 90%;
+    text-align: justify;
+    text-indent: 1.5em;
+}
+
+.access-container .terms-container .input-checkbox {
+    align-self: flex-start;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 2rem;
+}
+
+.access-container .theme-container .title {
+    margin-top: 2rem;
+    font-size: 3rem;
+    color: var(--color-text-secondary);
+}
+
+.access-container .theme-container .themes {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin-top: 2.5rem;
+}
+
+.access-container .theme-container .themes img {
+    border-radius: 2.5rem;
+    width: 100%;
+}
+
+.access-container .theme-container .themes div {
+    cursor: pointer;
+}
+
+.access-container .theme-container .themes div img + img {
+    display: none;
+}
+
+.access-container .theme-container .themes h2 {
+    text-align: center;
+    font-size: 2rem;
+    line-height: 3rem;
+    font-weight: 600;
+}
+
+.access-container .theme-container .themes #text-light {
+    color: #444;
+}
+
+.access-container .theme-container .themes #text-dark {
+    color: #CCC;
+}
+
+.access-container .theme-container .themes .light {
+    background-color: #CCC;
+    border-radius: 2.6rem;
+    margin: .4rem;
+}
+
+.access-container .theme-container .themes .dark{
+    border-radius: 2.6rem;
+    background-color: #444;
+    margin: .4rem;
+}
+
+.access-container .video {
+    margin-top: 5rem;
+    border-radius: 2rem;
+}
+
+@media(max-width: 700px) {
+    .access-container {
+        width: 85vw;
+    }
+    .foward, .backward  {
+        width: 90vw;
+        height: 70vh;
+        margin-top: 0;
+    }
+    .terms-container, .theme-container, .presentation-container {
+        position: relative;
+        height: 70vh !important;
+    }
+    .access-container .progress-container {
+        align-self: center;
+        margin-top: 1rem;
+    }
+    .video {
+        width: 80vw;
+        height: 40vh;
+        flex: 1;
+    }
+}
+
+@media(max-width: 426px) {
+    .theme-container .themes div img + img {
+        display: block !important;
+        width: 32vw !important;
+    }
+    .theme-container .themes div img:first-child {
+        display: none;
+    }
+}
+
+/* ANIMATIONS */
 
 .foward .fade-enter {
     transform: translateX(150%);
@@ -75,131 +186,4 @@
     transform: translateX(150%);
     opacity: 0;
     transition: all 400ms ease-in-out;
-}
-
-
-.access-container .terms-container h1,
-.access-container .theme-container h1, 
-.access-container .presentation-container h1 {
-    margin-top: -1.4rem;
-    font-size: 2.5rem;
-}
-
-.access-container .terms-container .terms-text {
-    height: 70%;
-    overflow-y: scroll;
-    color: var(--color-text-secondary);
-    justify-self: center;
-    margin-top: 5rem;
-    padding-right: 1rem;
-    font-size: 2rem;
-    width: 90%;
-    text-align: justify;
-    text-indent: 1.5em;
-}
-
-.access-container .terms-container .input-checkbox {
-    align-self: flex-start;
-    width: 90%;
-    margin: 0 auto;
-    margin-top: 2rem;
-}
-
-.access-container .theme-container .title {
-    margin-top: 4rem;
-    font-size: 3rem;
-    justify-self: flex-start;
-    color: var(--color-text-secondary);
-}
-
-.access-container .theme-container .themes {
-    display: flex;
-    justify-content: space-between;
-    width: 90%;
-    margin-top: 2.5rem;
-}
-
-.access-container .theme-container .themes img {
-    border-radius: 2.5rem;
-    width: 100%;
-}
-
-.access-container .theme-container .themes a div img + img {
-    display: none;
-}
-
-.access-container .theme-container .themes h2 {
-    text-align: center;
-    font-size: 2rem;
-    line-height: 3rem;
-    font-weight: 600;
-}
-
-.access-container .theme-container .themes #text-light {
-    color: #444;
-}
-
-.access-container .theme-container .themes #text-dark {
-    color: #CCC;
-}
-
-.access-container .theme-container .themes .light {
-    background-color: #CCC;
-    border-radius: 2.6rem;
-    margin: .4rem;
-}
-
-.access-container .theme-container .themes .dark{
-    border-radius: 2.6rem;
-    background-color: #444;
-    margin: .4rem;
-}
-
-.access-container .video {
-    margin-top: 5rem;
-    border-radius: 2rem;
-}
-
-.arrow {
-    position: absolute;
-    top: 80px;
-    left:50px;
-}
-
-@media(max-width: 700px) {
-    .access-container {
-        width: 85vw;
-    }
-    .foward, .backward  {
-        width: 90vw;
-        height: 70vh;
-        margin-top: 0;
-    }
-    .terms-container, .theme-container, .presentation-container {
-        position: relative;
-        height: 70vh;
-    }
-    .access-container .progress-container {
-        align-self: center;
-        margin-top: 1rem;
-    }
-    .video {
-        width: 80vw;
-        height: 40vh;
-        flex: 1;
-    }
-    .arrow {
-        top: 10px;
-        left: 10px;
-    }
-}
-
-@media(max-width: 426px) {
-    .theme-container .themes div img + img {
-        display: block !important;
-        max-height: 280px;
-    }
-    .theme-container .themes div img:first-child {
-        display: none;
-    }
 }
