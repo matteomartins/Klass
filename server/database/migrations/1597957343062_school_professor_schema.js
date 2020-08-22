@@ -6,8 +6,8 @@ const Schema = use('Schema')
 class SchoolProfessorSchema extends Schema {
   up () {
     this.create('school_professors', (table) => {
-      table.integer('school_id').notNullable()
-        .unsigned().references('id').inTable('schools')
+      table.string('school_id', 15).notNullable()
+        .references('id').inTable('schools')
         .onDelete('CASCADE').onUpdate('CASCADE')
       table.integer('user_id').notNullable()
         .unsigned().references('id').inTable('users')

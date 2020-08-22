@@ -8,10 +8,10 @@ class UserSchema extends Schema {
       table.increments()
       table.string('name', 80).notNullable()
       table.date('birth_date').notNullable()
-      table.string('email', 254).notNullable().unique()
+      table.string('email', 70).notNullable().unique()
       table.string('password', 60).notNullable()
       table.string('icon', 150)
-      table.integer('is_premium', 1).defaultTo('1')
+      table.integer('is_premium', 1).defaultTo('0')
       table.timestamps()
     })
   }
