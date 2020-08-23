@@ -23,6 +23,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
+    z-index: 100;
 }
 
 .blur {
@@ -68,9 +69,12 @@
 }
 
 .menu-container .user-content, .menu-container .user-content h1 {
-    color: var(--color-text-secondary);
     font-weight: 500;
     width: 90%;
+}
+
+.menu-container .user-content h1 {
+    color: var(--color-text-secondary)
 }
 
 .menu-container ul {

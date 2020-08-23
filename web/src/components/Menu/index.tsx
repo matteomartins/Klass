@@ -2,9 +2,10 @@ import React, {useState, useEffect} from 'react';
 
 import './styles.css'
 import { Link } from 'react-router-dom';
-import { KaUser, KaClose } from '../../assets/icons';
+import { KaClose } from '../../assets/icons';
 import { useTheme } from '../../context/Theme';
 import { CSSTransition } from 'react-transition-group';
+import UserCard from '../UserCard';
 
 interface MenuProps {
     active: boolean;
@@ -37,12 +38,7 @@ const Menu:React.FC<MenuProps> = ({active, setActive}) => {
                     <h1>Menu</h1>
                     <KaClose color='var(--color-border-primary)' size={12} onClick={()=> setActive(false)}>x</KaClose>
                 </div>
-                <Link to="/profile" className="user-content">
-                    <div className="user-icon">
-                        <KaUser color="#fff" size={20} />
-                    </div>
-                    <h1>Claudio da Silva Peixoto</h1>
-                </Link>
+                <UserCard />
                 <ul>
                     <li>
                         <a href="./">Notificações</a>
