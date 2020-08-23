@@ -20,7 +20,7 @@ class SchoolController {
         await Database.table('administrators').insert({ school_id: id, user_id: user_id })
 
 
-        return { idEscola }
+        return { id }
 
     }
     async delete({ request, response, auth }) {
