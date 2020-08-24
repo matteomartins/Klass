@@ -49,44 +49,39 @@ class CourseController {
     }
 
     async update({ request, response }) {
-        const idCourse = request.params.id_course;
+        const course_id = request.params.id_course;
 
         const courseName = request.only(['name']);
-        const level = request.only(['level']);
+        const newModules = request.only(['modules']);
 
-        const moduleLevels = await Database.select().from('modules').where({ course_id: idCourse });
+        const oldModules = await Module.query().where({ course_id }).fetch();
 
-        const requestLength = level.level.length;
-        const moduleLength = moduleLevels.length;
+        const addedModules = newModules.modules.filter(({ id }) => id === -1);
 
-        if (requestLength == moduleLength) {
-            for (let i = 0; i < requestLength; i++) {
-                await Database.table('modules').where('id', moduleLevels[i].id).update('level', level.level[i])
-            }
-        } else if (moduleLength < requestLength) {
-            for (let i = 0; i < moduleLength; i++) {
-                await Database.table('modules').where('id', moduleLevels[i].id).update('level', level.level[i])
-            }
-            for (let i = moduleLength; i < requestLength; i++) {
-                await Database.table('modules').insert({ course_id: idCourse, level: level.level[i] })
-            }
-        }
-
-        // console.log(level.level[0])
-        // console.log(moduleLevels[0].id);
-        // console.log(moduleLevels.findIndex((user, index, array) => user.level === '2 Ano'));
-        // console.log(moduleLevels.filter((user, index, array) => user.level === '2 Ano'));
-        // console.log(moduleLevels.find((user, index, array) => user.level === '2 Ano'));
-
-        level.level.map(level => {
-
+        addedModules.map(async ({ name, id }) => {
+            await Module.create({ course_id, level: name });
+            const removeModule = oldModules.rows.find(({ $attributes }) => $attributes.id === id);
+            const index = oldModules.rows.indexOf(removeModule);
+            oldModules.rows.splice(index, 1);
         });
 
-        //await Course.query().where('id', idCourse).update(courseName);
+        newModules.modules.map(async ({ id, name }) => {
+            const comparedModule = oldModules.rows.find(({ $attributes }) => $attributes.id === id);
 
+            const index = oldModules.rows.indexOf(comparedModule);
+            oldModules.rows.splice(index, 1);
 
+            if (comparedModule.$attributes.level !== name) {
+                await Module.query().where({ id }).update({ level: name });
+            }
+        });
 
-        return response.status(200).send({ message: "Curso atualizado com sucesso" })
+        // deletar
+        oldModules.rows.map(async ({ $attributes }) => {
+            await Module.query().where({ id: $attributes.id }).delete();
+        })
+
+        return response.status(200).send({ message: "Curso atualizado com sucesso" });
     }
 }
 
