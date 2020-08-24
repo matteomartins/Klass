@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,800,900&display=swap');
 
+/* GLOBAL STYLES */
+
 :root {
     font: 400 1.4rem Roboto, sans-serif;
     background-image: url(../images/background.jpg);
@@ -48,7 +50,32 @@ a {
     box-shadow: 0 4px 4px rgba(0,0,0,0.25); 
 }
 
-.button {
+@media(min-width: 700px) {
+    :root {
+      font-size: 62.5%;
+    }
+}
+
+
+/* STYLIZED CLASSES */
+
+.container-bg-dark {
+    background: url(../../assets/images/container-background-dark.svg);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    border-radius: 2.5rem;
+}
+
+.container-bg-light {
+    background: url(../../assets/images/container-background.svg);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    border-radius: 2.5rem;
+}
+
+.btn {
     width: 200px;
     padding: 1.5rem 2.5rem;
 
@@ -59,28 +86,43 @@ a {
 
     text-decoration: none;
     color: white;
-    font-size: 1.8rem;
-    font-weight: 500;
+    font-size: 1.7rem;
+    font-weight: 400;
     text-align: center;
 
     cursor: pointer;
     transition: background-color .3s;
 }
 
-.button:hover {
+.btn:hover {
     background-color: var(--color-primary-darker);
 }
 
-.bg-dark {
+.btn-small {
+    width: 130px;
+    padding: 1rem 2rem;
+
+    background-color: var(--color-primary);
+    box-shadow: 0px 5px 20px rgba(38, 39, 56, 0.45);
+    border: none;
+    border-radius: 6.5rem;
+
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-align: center;
+
+    cursor: pointer;
+    transition: background-color .3s;
+}
+
+.btn-bg-dark {
     background-color: var(--color-secondary);
 }
 
-.bg-dark:hover {
+.btn-bg-dark:hover {
     background-color: var(--color-secondary-darker);
-}
-
-.form-container button {
-    margin-top: 2.5rem;
 }
 
 .user-icon {
@@ -91,8 +133,19 @@ a {
     justify-content: center;
 }
 
-@media(min-width: 700px) {
-    :root {
-      font-size: 62.5%;
-    }
+
+.form-container button {
+    margin-top: 2.5rem;
+}
+
+.circle-icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4.2rem;
+    width: 4.2rem;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    box-shadow: 0px 5px 20px rgba(38, 39, 56, 0.45);
+    cursor: pointer;
 }

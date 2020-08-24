@@ -5,9 +5,10 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import Drag from './pages/Drag';
 import FirstAccess from './pages/FirstAccess';
-
+import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Header from './components/Header';
+import CalendarIcon from './components/CalendarIcon';
 
 
 export default function Routes() {
@@ -18,11 +19,13 @@ export default function Routes() {
                 <Route path="/login" exact component={Login} />
                 <Route path="/access" exact component={FirstAccess} />
                 <BrowserRouter>
-                    <div>
+                    <>
                         <Header/>
                         <Route path="/drag" exact component={Drag} />
                         <Route path="/profile" exact component={Profile} />
-                    </div>
+                        <Route path="/home" exact component={Home} />
+                        <CalendarIcon />
+                    </>
                 </BrowserRouter>
             </Switch>
         </BrowserRouter>

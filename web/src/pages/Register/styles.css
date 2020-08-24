@@ -51,7 +51,7 @@
 
 .register-container .form-container h1 {
     font-size: 3.4rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     font-weight: 800;
     text-align: center;
     color: var(--color-text-secondary);
@@ -72,25 +72,10 @@
     display: none;
 }
 
-.input {
-    width: 34rem;
-    height: 5rem;
-    margin: 0.7rem 0;
-    border-radius: 5px;
-    border: 3px solid var(--color-border-primary);
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.input input {
-    background: none;
-    flex: 1;
-    border: none;
-    padding: 0 1rem;
-    color: var(--color-text-secondary);
-    font: 400 1.8rem Roboto;
+.register-container .input-checkbox {
+    margin: 0 !important;
+    margin-bottom: 1rem !important;
 }
 
 .mr-3 {
@@ -101,9 +86,13 @@
     .register-container {
         height: 200vh;
         flex-direction: column;
+        justify-content: flex-start;
+        overflow-y: scroll;
+        overflow-x: hidden;
     }
     .register-container .start-container,
     .register-container .form-container {
+        position: relative;
         height: 100vh;
         width: 100vw;
     }
