@@ -86,9 +86,13 @@
     .register-container {
         height: 200vh;
         flex-direction: column;
+        justify-content: flex-start;
+        overflow-y: scroll;
+        overflow-x: hidden;
     }
     .register-container .start-container,
     .register-container .form-container {
+        position: relative;
         height: 100vh;
         width: 100vw;
     }

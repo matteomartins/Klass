@@ -46,6 +46,7 @@
     align-items: center;
     flex-direction: column;
     background-color: var(--color-background);
+    z-index: 5;
 }
 
 .menu-container .header-menu {

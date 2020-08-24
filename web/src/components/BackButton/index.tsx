@@ -12,9 +12,7 @@ interface BackButtonProps extends LinkProps {
 const BackButton:React.FC<BackButtonProps> = ({to, ...rest}) => {
     return (
         <Link to={to} {...rest} className="arrow">
-            <div>
-                <KaArrow color="#fff" size={28} />
-            </div>            
+            <KaArrow color="#fff" size={28} />
         </Link>
     )
 }
