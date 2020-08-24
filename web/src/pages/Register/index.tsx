@@ -19,7 +19,7 @@ function Register() {
                     Já possui um cadastro? <br />
                     Clique no botão abaixo
                 </p>
-                <Link to="/login" className="button">Entrar</Link>
+                <Link to="/login" className="btn">Entrar</Link>
                 <a href="#register" id="register-link">Cadastre-se &nbsp; &#9662; </a>
             </div>
             <form className="form-container" id="register">
@@ -32,7 +32,7 @@ function Register() {
                 <Input label="Email" type="email" Icon={KaMail} maxLength={40} />
                 <Input label="Senha" type="password" Icon={KaPassword} maxLength={100} />
                 <Checkbox label="Lembre de mim" name="rememberme"/>
-                <Link to="/access" className="button bg-dark">Cadastre-se</Link>
+                <Link to="/access" className="btn btn-bg-dark">Cadastre-se</Link>
             </form>
         </div>
     )

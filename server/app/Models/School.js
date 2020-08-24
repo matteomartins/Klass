@@ -5,10 +5,10 @@ const Model = use('Model')
 
 class School extends Model {
     static get table() {
-        return 'escola';
+        return 'schools';
     }
     static get primaryKey() {
-        return 'idEscola';
+        return 'id';
     }
     static get createdAtColumn() {
         return null;

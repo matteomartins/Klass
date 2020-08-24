@@ -1,0 +1,21 @@
+.arrow {
+    position: absolute;
+    top: 10rem;
+    left: 5rem;
+}
+
+@media(max-width:1070px) {
+    .arrow {
+        position: absolute;
+        top: 10rem;
+        left: 1rem;
+    }
+}
+
+@media(max-width:700px) {
+    .arrow {
+        position: absolute;
+        top: 1.8rem;
+        left: 0rem;
+    }
+}

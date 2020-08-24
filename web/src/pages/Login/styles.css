@@ -16,7 +16,7 @@
 .login-container .login-content a {
     position: absolute;
     top: 80px;
-    left:150px;
+    left: 150px;
 }
 
 .login-container .form-login {
@@ -61,6 +61,14 @@
     width: 300px;
 }
 
+@media(max-width: 630px) {
+    .login-container .login-content a {
+        position: absolute;
+        top: 50px;
+        left: 20px;
+    }
+}
+
 @media(max-width: 400px) {
     .login-container .input {
         width: 270px !important;
@@ -79,4 +87,5 @@
     .login-container .form-login h1 {
         margin: -4rem 0;
     }
+
 }

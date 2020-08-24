@@ -1,51 +1,30 @@
 .main-profile {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    flex-direction: column;
+
     width: 95vw;
     max-width: 969px;
     margin: 0 auto;
-    height: 85vh;
-    flex-direction: column;
+    height: 87vh;
 }
-
-.main-profile h1 {
-    margin-top: -1.4rem;
-    font-size: 2.5rem;
-}
-
-.main-profile .arrow {
-    margin-top: 6rem;
-}
-
-.main-profile .profile-container {
+.profile-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 95vw;
-    max-width: 969px;
-    margin: 0 auto;
-    height: 500px;
+    width: 100%;
+    height: 100%;
 }
-
-.main-profile .background-light {
-    background: url(../../assets/images/container-background.svg);
-    background-repeat: no-repeat;
-    background-position: center top;
-}
-
-.main-profile .background-dark {
-    background: url(../../assets/images/container-background-dark.svg);
-    background-repeat: no-repeat;
-    background-position: center top;
-}
-
-.profile-container .info-container, .profile-container .data-container {
-    width: 55vw;
+.profile-container .info-container, 
+.profile-container .data-container {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 90%;
+    max-width: 280px;
     flex-direction: column;
+
 }
 
 .profile-container .info-container .user-icon {
@@ -54,92 +33,100 @@
     background-color: var(--color-secondary);
 }
 
+.main-profile .profile-container .scroll-view {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+}
+
 .profile-container .info-container a {
     color: var(--color-secondary);
-    margin-left: 20rem;
-    font-size: 15px;
+    margin-left: 15rem;
+    margin-top: -1rem;
+    font-size: 1.2rem;
     font-weight: 500;
 }
 
 .profile-container .info-container h1 {
     color: var(--color-text-secondary);
-    margin-top: 4rem;
-    font-size: 20px;
+    margin-top: 0.5rem;
+    font-size: 1.8rem;
 }
 
 .profile-container .info-container p, .profile-container .data-container p  {
     color: var(--color-text-secondary);
     margin-top: 2rem;
-    font-size: 20px;  
-}
-
-.profile-container .info-container .input-container {
-    margin-top: 2rem;
+    font-size: 1.6rem;  
 }
 
 .profile-container .info-container .input-container .input-items {
     display: flex;
     justify-content: space-between;
     margin-top: 1rem;
+    width: 100%;
 }
-
+.profile-container .info-container .input-container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
 .profile-container .info-container .input-container .input-items input {
     border: none;
     background-color: transparent;
     height: 30px;
-    width: 180px;
+    width: 160px;
     margin-top: 1.8rem;
-    margin-left: 0.5rem;
     color: var(--color-text-secondary);
-    font-size: 2em;
+    font-size: 1.6rem;
     text-align: end;
 }
 
-.profile-container .data-container .items-container {
-    margin-top: 5rem;
-}
-
-.profile-container .data-container .items-container .items {
+.profile-container .data-container .items {
     display: flex;
     justify-content: space-between;
     margin-top: 1rem;
-    font-weight: 500;
+    font-weight: 400;
+    width: 100%;
 }
 
-.profile-container .data-container .items-container .items h1 {
+.profile-container .data-container .items h1 {
     height: 50px;
-    width: 180px;
+    width: 160px;
     margin-top: 1rem;
     color: var(--color-text-secondary);
-    font-size: 3em;
+    font-size: 3.8em;
     text-align: end;
+    font-weight: 300;
 }
 
 .profile-container .data-container .button-container {
-    margin-top: 10rem;
-}
-
-.profile-container .data-container .button-container .button {
-    margin-left: 1rem;
-    height: 45px;
-    width: 170px;
-    text-align: center;
-    font-size: 1.6em;
-}
-
-.main-profile .calendar-content {
     display: flex;
-    margin-left: -1280px;    
-}
-
-.main-profile .calendar-content .calendar-icon {
-    display: flex;
+    justify-content: space-around;
     align-items: center;
-    justify-content: center;
-    height: 4.2rem;
-    width: 4.2rem;
-    border-radius: 50%;
-    background-color: var(--color-secondary);
-    box-shadow: 0px 5px 20px rgba(38, 39, 56, 0.45);
-    cursor: pointer;
+    width: 100%;
+    margin-top: 5rem;
+}
+
+@media(max-width: 700px) {
+    .main-profile {
+        height: 90vh;
+    }
+    .main-profile .profile-container .scroll-view {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        overflow-y: scroll;
+        margin-right: 1rem;
+        width: 100%;
+        height: 70vh;
+    }
+    .profile-container .info-container, .profile-container .data-container {
+        margin: 2rem 0 !important;
+        height: 70vh;
+    }
 }
