@@ -8,7 +8,7 @@ class ProfessorsSchema extends Schema {
     this.create('professors', (table) => {
       table.increments()
       table.string('name', 45).notNullable()
-      table.string('email', 70).notNullable().unique()
+      table.string('email', 70).notNullable()
       table.date('hiring_date').notNullable()
       table.string('titulation', 30)
       table.integer('prority')

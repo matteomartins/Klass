@@ -10,9 +10,10 @@ class SchoolController {
     async create({ request, response, auth }) {
 
         const schoolData = request.all();
-
+      
         const { id } = await School.create(schoolData);
-
+        let school = await School.find(id);
+      
         const user = await auth.getUser();
         const user_id = user.$attributes.id;
 
