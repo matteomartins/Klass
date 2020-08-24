@@ -4,14 +4,14 @@ class Course {
   get rules() {
     return {
       name: 'required',
-      level: 'required'
+      modules: 'required'
     }
   }
 
   get messages() {
     return {
       'name.required': 'Você deve inserir o nome do curso.',
-      'level.required': 'Você deve inserir o nível do módulo.'
+      'modules.required': 'Você deve inserir o nível do módulo.'
     }
   }
 }
