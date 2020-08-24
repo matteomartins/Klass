@@ -12,7 +12,6 @@ class UserController {
         const { id } = await User.create(userData);
 
         let user = await User.find(id);
-        // user.$attributes.id = user.$attributes.id;
 
         const { token } = await auth.generate(user);
 
@@ -24,8 +23,7 @@ class UserController {
 
         const user = await auth.getUser()
         const user_id = user.$attributes.id;
-        if (newUserData.password) newUserData.password = await Hash.make(newUserData.password);
-
+        if(newUserData.password) newUserData.password = await Hash.make(newUserData.password);
         await User.query().where('id', user_id).update(newUserData)
 
         return response.status(204).send()
