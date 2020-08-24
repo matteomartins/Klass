@@ -10,10 +10,10 @@ class SchoolController {
     async create({ request, response, auth }) {
 
         const schoolData = request.all();
-
-        const { id} = await School.create(schoolData);
+      
+        const { id } = await School.create(schoolData);
         let school = await School.find(id);
-
+      
         const user = await auth.getUser();
         const user_id = user.$attributes.id;
 
@@ -24,7 +24,7 @@ class SchoolController {
 
     }
     async delete({ request, response, auth }) {
-        const idSchool = request.params.id;
+        const idSchool = request.params.id_school;
 
         await auth.getUser();
 
@@ -36,12 +36,12 @@ class SchoolController {
         return response.status(200).send({ message: "Escola apagada com sucesso" })
     }
     async index({ request }) {
-        const idSchool = request.params.id;
+        const idSchool = request.params.id_school;
         const school = await School.query().where('id', idSchool).fetch();
         return { school }
     }
     async update({ request, response }) {
-        const idSchool = request.params.id;
+        const idSchool = request.params.id_school;
         const newSchoolData = request.all();
 
         await School.query().where('id', idSchool).update(newSchoolData)

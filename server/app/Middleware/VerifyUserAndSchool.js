@@ -23,7 +23,7 @@ class VerifyUserAndSchool {
 
     const user = await auth.getUser();
     const user_id = user.$attributes.id;
-    const idSchool = request.params.id;
+    const idSchool = request.params.id_school;
 
 
     const hasSchoolId = await Database.from('administrators').where('user_id', user_id).where('school_id', idSchool)
