@@ -12,8 +12,6 @@ import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Feedback from './pages/Feedback';
 
-import Notifications from './components/Notifications';
-
 
 export default function Routes() {
     return (
@@ -22,7 +20,6 @@ export default function Routes() {
                 <Route path="/" exact component={Register} />
                 <Route path="/login" exact component={Login} />
                 <Route path="/access" exact component={FirstAccess} />
-                <Route path="/notifications" exact component={Notifications} />
                 <BrowserRouter>
                     <>
                         <Header/>
