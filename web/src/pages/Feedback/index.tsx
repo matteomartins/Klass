@@ -4,7 +4,6 @@ import React from 'react';
 import './styles.css';
 import TruncatedContainer from '../../components/TruncatedContainer';
 import BackButton from '../../components/BackButton';
-import Input from '../../components/Input';
 
 function Feedback() {
     return(
@@ -14,12 +13,14 @@ function Feedback() {
                 <div className="message-container">
                     <h1>Envie um Feedback</h1>
                     <div className="input-container">
-                        <input id="input1" placeholder="  Digite o Assunto"/>
-                        <input id="input2" placeholder="  Digite seu Feedback"/>
+                        <input type="text" id="input1" placeholder="Digite o Assunto"/>
+                        <textarea id="input2" placeholder="Digite seu Feedback"/>
                     </div>
                 </div>
             </TruncatedContainer>
-            <button className="btn">Enviar</button>
+            <div className="btn-container">
+                <button className="btn">Enviar</button>
+            </div>
         </div>
     )
 }
