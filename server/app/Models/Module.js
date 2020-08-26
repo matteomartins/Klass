@@ -3,9 +3,9 @@
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Model = use('Model')
 
-class School extends Model {
+class Module extends Model {
     static get table() {
-        return 'schools';
+        return 'modules';
     }
     static get primaryKey() {
         return 'id';
@@ -18,4 +18,4 @@ class School extends Model {
     }
 }
 
-module.exports = School
+module.exports = Module

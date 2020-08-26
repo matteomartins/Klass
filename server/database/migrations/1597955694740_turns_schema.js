@@ -7,8 +7,8 @@ class TurnsSchema extends Schema {
   up () {
     this.create('turns', (table) => {
       table.increments()
-      table.integer('school_id').notNullable()
-        .unsigned().references('id').inTable('schools')
+      table.string('school_id', 15).notNullable()
+        .references('id').inTable('schools')
         .onDelete('CASCADE').onUpdate('CASCADE')
       table.string('name', 45).notNullable()
       table.string('period', 45).notNullable()
