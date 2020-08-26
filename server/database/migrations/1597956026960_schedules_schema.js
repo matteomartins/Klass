@@ -13,7 +13,6 @@ class SchedulesSchema extends Schema {
       table.integer('day', 1).notNullable()
       table.time('start').notNullable()
       table.time('end').notNullable()
-      table.timestamps()
     })
   }
 
