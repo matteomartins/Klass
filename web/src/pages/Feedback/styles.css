@@ -47,7 +47,6 @@
     height: 45px;
     padding: 1rem;
 }
-
 #input2{
     height: 220px;
     padding: 1rem;
@@ -64,5 +63,11 @@
 @media(max-width: 700px) {
     .feedback-container {
         height: 90vh;
+    }
+    .feedback-content {
+        height: 65vh;
+    }
+    .feedback-container .btn-container {
+        justify-content: center;
     }
 }

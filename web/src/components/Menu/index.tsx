@@ -6,6 +6,7 @@ import { KaClose } from '../../assets/icons';
 import { useTheme } from '../../context/Theme';
 import { CSSTransition } from 'react-transition-group';
 import UserCard from '../UserCard';
+import Notifications from '../Notifications';
 
 interface MenuProps {
     active: boolean;
@@ -15,6 +16,7 @@ interface MenuProps {
 const Menu:React.FC<MenuProps> = ({active, setActive}) => {
     const { theme, setTheme } = useTheme();
     const [ delayedActive, setDelayedActive ] = useState(false);
+    const [ notificationsActive, setNotificationsActive ] = useState(false);
 
     useEffect(()=> {
         setTimeout(()=> setDelayedActive(active), 300)
@@ -25,6 +27,7 @@ const Menu:React.FC<MenuProps> = ({active, setActive}) => {
         setTheme(oldTheme==='light'?'dark':'light');
     }
     return (
+        <>
         <CSSTransition
             in={active}
             timeout={300}
@@ -36,12 +39,12 @@ const Menu:React.FC<MenuProps> = ({active, setActive}) => {
                 <div className="menu-container" >
                 <div className="header-menu">
                     <h1>Menu</h1>
-                    <KaClose color='var(--color-border-primary)' size={12} onClick={()=> setActive(false)}>x</KaClose>
+                    <KaClose color='var(--color-border-primary)' size={12} onClick={()=> setActive(false)} />
                 </div>
                 <UserCard />
                 <ul>
                     <li>
-                        <a href="./">Notificações</a>
+                        <a href="./" onClick={(e)=> {e.preventDefault();  setNotificationsActive(true)}}>Notificações</a>
                     </li>
                     <li>
                         <Link to="/feedback">Dar Feedback</Link>
@@ -67,8 +70,11 @@ const Menu:React.FC<MenuProps> = ({active, setActive}) => {
                 <span><a href="./">Privacidade • Termos • FAQ • Direitos Autorais</a></span>
                 <p>Klass © 2020</p>
                 </div>
+                <Notifications active={notificationsActive} setActive={setNotificationsActive} />
+
             </div>
         </CSSTransition>
+        </>
     )
 }
 

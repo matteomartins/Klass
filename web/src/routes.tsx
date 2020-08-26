@@ -1,15 +1,18 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
+import CalendarIcon from './components/CalendarIcon';
+import Header from './components/Header';
+
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Drag from './pages/Drag';
 import FirstAccess from './pages/FirstAccess';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
-import Header from './components/Header';
-import CalendarIcon from './components/CalendarIcon';
 import Feedback from './pages/Feedback';
+
+import Notifications from './components/Notifications';
 
 
 export default function Routes() {
@@ -19,6 +22,7 @@ export default function Routes() {
                 <Route path="/" exact component={Register} />
                 <Route path="/login" exact component={Login} />
                 <Route path="/access" exact component={FirstAccess} />
+                <Route path="/notifications" exact component={Notifications} />
                 <BrowserRouter>
                     <>
                         <Header/>
