@@ -8,7 +8,7 @@ interface TruncatedContainerProps extends HTMLAttributes<HTMLDivElement> {
     className?: string;
 }
 
-const TruncatedContainer:React.FC<TruncatedContainerProps> = ({children, title, className, ...rest}) => {
+const TruncatedContainer:React.FC<TruncatedContainerProps> = ({children, title, className = "", ...rest}) => {
     const { theme } = useTheme();
 
     return (

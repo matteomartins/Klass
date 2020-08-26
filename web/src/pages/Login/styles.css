@@ -70,9 +70,6 @@
 }
 
 @media(max-width: 400px) {
-    .login-container .input {
-        width: 270px !important;
-    }
     .login-container {
         width: 100vw;
     }
