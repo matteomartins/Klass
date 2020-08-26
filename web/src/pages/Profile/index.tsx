@@ -11,8 +11,9 @@ function Profile(){
         <div className="main-profile">
             <BackButton to="/home" />
             <TruncatedContainer title="Info. Pessoais">
-                <div className="profile-container">
-                    <div className="scroll-view">
+                <div className="scroll-view">
+                    <div>
+                    <div className="profile-container">
                         <div className="info-container">
                             <div className="user-icon">
                             <KaUser size={70} color="var(--color-text-primary)"/>
@@ -53,6 +54,7 @@ function Profile(){
                             </div>
                         </div>
                     </div>
+                </div>
                 </div>
             </TruncatedContainer>
         </div>
