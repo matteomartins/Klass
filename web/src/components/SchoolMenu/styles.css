@@ -49,8 +49,8 @@
     padding-right: 6rem;
 }
 .school-menu-content {
-    width: 344px;
-    height: 175px;
+    width: 32rem;
+    height: 16rem;
     border-radius: 2rem;
     display: flex;
     align-items: center;
@@ -61,7 +61,6 @@
 .school-menu-container ul {
     list-style: none;
     align-self: flex-start;
-    font-size: 1.6rem;
     margin: 2.5rem 3rem;
     width: 80%;
 }
@@ -80,12 +79,12 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin-top:20px;
+    margin-top: 1.6rem;
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
-    font-size: 22px;
-    line-height: 26px;
+    font-size: 2rem;
+    line-height: 2.6rem;
     text-align: center;
 }
 
@@ -95,7 +94,9 @@
 
 @media(max-width: 400px) {
     .school-menu-container {
-        top: 10px;
-        right: 10px;
+        padding-right: 0;
+    }
+    .school-menu-content {
+        align-self: center;
     }
 }

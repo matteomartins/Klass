@@ -21,6 +21,10 @@
     margin-top: 0.8rem;
 }
 
+.access-container .progress-icons .circle {
+    margin-right: 1rem;
+}
+
 .foward, .backward {
     display: flex;
     align-items: center;
