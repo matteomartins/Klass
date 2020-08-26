@@ -9,6 +9,7 @@ import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Header from './components/Header';
 import CalendarIcon from './components/CalendarIcon';
+import Feedback from './pages/Feedback';
 
 
 export default function Routes() {
@@ -24,6 +25,7 @@ export default function Routes() {
                         <Route path="/drag" exact component={Drag} />
                         <Route path="/profile" exact component={Profile} />
                         <Route path="/home" exact component={Home} />
+                        <Route path="/feedback" exact component={Feedback} />
                         <CalendarIcon />
                     </>
                 </BrowserRouter>
