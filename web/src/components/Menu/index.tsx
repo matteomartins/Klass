@@ -44,7 +44,7 @@ const Menu:React.FC<MenuProps> = ({active, setActive}) => {
                         <a href="./">Notificações</a>
                     </li>
                     <li>
-                        <Link to="feedback">Dar Feedback</Link>
+                        <Link to="/feedback">Dar Feedback</Link>
                     </li>
                     <li>
                         <Link to="help">Ajuda e suporte</Link>
