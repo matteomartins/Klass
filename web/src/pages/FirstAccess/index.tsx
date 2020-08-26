@@ -95,11 +95,11 @@ function FirstAccess(){
                 <button className="btn" onClick={handleNext}>Avançar</button>
                 <div className="progress-icons"> 
                     {step===0
-                        ?<KaCircleSelected className="mr-3" color="#fff" size={18}/>
-                        :<KaCircleOutline className="mr-3" color="#fff" size={17} /> }
+                        ?<KaCircleSelected className="circle" color="#fff" size={18}/>
+                        :<KaCircleOutline className="circle" color="#fff" size={17} /> }
                     {step===1
-                        ?<KaCircleSelected className="mr-3" color="#fff" size={18}/>
-                        :<KaCircleOutline className="mr-3" color="#fff" size={17} /> }
+                        ?<KaCircleSelected className="circle" color="#fff" size={18}/>
+                        :<KaCircleOutline className="circle" color="#fff" size={17} /> }
                     {step===2
                         ?<KaCircleSelected color="#fff" size={18}/>
                         :<KaCircleOutline color="#fff" size={17} /> }

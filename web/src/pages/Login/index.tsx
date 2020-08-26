@@ -27,8 +27,8 @@ function Login() {
                         <KaUser size={70} color="var(--color-text-primary)" />
                     </div>
                     <form className="form-container" onSubmit={handleSubmit}>
-                        <Input label="Email" type="email" color="var(--color-text-secondary)" Icon={KaMail} />
-                        <Input label="Senha" type="password" color="var(--color-text-secondary)" Icon={KaPassword} />
+                        <Input label="Email" type="email" Icon={KaMail} maxLength={50} />
+                        <Input label="Senha" type="password" Icon={KaPassword} maxLength={100} />
                         <Checkbox label="Lembre de mim" name="rememberme" />
                         <button className="btn btn-bg-dark" type="submit">Login</button>
                     </form>
