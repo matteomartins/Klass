@@ -1,11 +1,8 @@
 'use strict'
 
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
-const School = use('App/Models/School');
 const Course = use('App/Models/Course');
 const Module = use('App/Models/Module');
-const Adm = use('App/Models/Administrator');
-const User = use('App/Models/User');
 const Database = use('Database')
 
 class CourseController {
@@ -60,9 +57,9 @@ class CourseController {
 
         addedModules.map(async ({ name, id }) => {
             await Module.create({ course_id, level: name });
-            const removeModule = oldModules.rows.find(({ $attributes }) => $attributes.id === id);
-            const index = oldModules.rows.indexOf(removeModule);
-            oldModules.rows.splice(index, 1);
+            // const removeModule = oldModules.rows.find(({ $attributes }) => $attributes.id === id);
+            // const index = oldModules.rows.indexOf(removeModule);
+            // oldModules.rows.splice(index, 1);
         });
 
         newModules.modules.map(async ({ id, name }) => {
@@ -80,6 +77,8 @@ class CourseController {
         oldModules.rows.map(async ({ $attributes }) => {
             await Module.query().where({ id: $attributes.id }).delete();
         })
+
+        await Course.query().where({ id: course_id }).update({ name: courseName });
 
         return response.status(200).send({ message: "Curso atualizado com sucesso" });
     }

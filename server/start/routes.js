@@ -40,3 +40,9 @@ Route.post('/schools/:id_school/turns', 'TurnController.create').validator('Turn
 Route.delete('/schools/:id_school/turns/:id_turn', 'TurnController.delete').middleware(['VerifyUserAndSchool']);
 Route.get('/schools/:id_school/turns/:id_turn', 'TurnController.index').middleware(['VerifyUserAndSchool']);
 Route.put('/schools/:id_school/turns/:id_turn', 'TurnController.update').validator('Turn').middleware(['VerifyUserAndSchool']);
+
+//Classes
+Route.post('/schools/:id_school/classes', 'ClassController.create').validator('Class').middleware(['VerifyUserAndSchool']);
+Route.delete('/schools/:id_school/classes/:id_class', 'ClassController.delete').middleware(['VerifyUserAndSchool']);
+Route.get('/schools/:id_school/classes/:id_class', 'ClassController.index').middleware(['VerifyUserAndSchool']);
+Route.put('/schools/:id_school/classes/:id_class', 'ClassController.update').validator('Class').middleware(['VerifyUserAndSchool']);
