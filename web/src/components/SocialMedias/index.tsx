@@ -15,7 +15,7 @@ const SocialMedias:React.FC<SocialMediasProps> = ({color}) => {
                 <h1 className="icon" style={{color: color}}>f</h1>
             </div>
             <div className="circle" style={{borderColor: color}}>
-                <KaGoogle color={color} size={22} />
+                <KaGoogle color={color} size={18} />
             </div>
             <div className="circle" style={{borderColor: color}}>
                 <h1 className="icon" style={{color: color}}>in</h1>
