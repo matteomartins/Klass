@@ -50,7 +50,7 @@ function Home(){
                         </section>
                     </div>
                     <div className="school-container">
-                        <h1>Etec de Taboão Da Serra</h1>
+                        <h1>Etec de Embu das Artes</h1>
                         <section className="classes">
                             <article>
                                 <h1>1A</h1>
