@@ -1,11 +1,31 @@
-@keyframes slowShow {
-    0% {
-        transform: translateY(-100%);
-    }
-    100% {
-        transform: translateY(0);
-    }
+.slide-enter {
+    transform: translateY(-100%);
+    opacity: 0;
 }
+.slide-enter-active {
+    transform: translateY(0%);
+    opacity: 1;
+    transition: all 300ms ease-in-out;
+}
+.slide-exit {
+    transform: translateY(0%);
+    opacity: 1;
+}
+.slide-exit-active {
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: all 300ms ease-in-out;
+}
+
+.global-menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+}
+
 .blur {
     position: absolute;
     top: 0;
@@ -13,7 +33,6 @@
     width: 100vw;
     height: 100vh;
     background: rgba(28,26,50,0.43);
-    animation: 0.3s ease-out 0s 1 slowShow;
 }
 
 .menu-container {
@@ -27,7 +46,7 @@
     align-items: center;
     flex-direction: column;
     background-color: var(--color-background);
-    animation: 0.4s ease-out 0s 1 slowShow;
+    z-index: 5;
 }
 
 .menu-container .header-menu {
@@ -51,9 +70,12 @@
 }
 
 .menu-container .user-content, .menu-container .user-content h1 {
-    color: var(--color-text-secondary);
     font-weight: 500;
     width: 90%;
+}
+
+.menu-container .user-content h1 {
+    color: var(--color-text-secondary)
 }
 
 .menu-container ul {
