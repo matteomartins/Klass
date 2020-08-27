@@ -1,6 +1,6 @@
 'use strict'
 
-class Class {
+class Group {
   get rules() {
     return {
       name: 'required',
@@ -18,4 +18,4 @@ class Class {
   }
 }
 
-module.exports = Class
+module.exports = Group
