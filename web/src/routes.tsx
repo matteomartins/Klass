@@ -11,7 +11,8 @@ import FirstAccess from './pages/FirstAccess';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Feedback from './pages/Feedback';
-
+import Help from './pages/Help';
+import Premium from './pages/Premium';
 
 export default function Routes() {
     return (
@@ -27,6 +28,8 @@ export default function Routes() {
                         <Route path="/profile" exact component={Profile} />
                         <Route path="/home" exact component={Home} />
                         <Route path="/feedback" exact component={Feedback} />
+                        <Route path="/help" exact component={Help}/>
+                        <Route path="/premium" exact component={Premium}/>
                         <CalendarIcon />
                     </>
                 </BrowserRouter>
