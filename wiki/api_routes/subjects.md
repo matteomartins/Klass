@@ -15,7 +15,7 @@ Criando uma matéria com determinadas propriedades.
 | -------------------- | ------ | --------------------- |
 | name         | string | Nome da matéria       |
 | abbreviation | string | Abreviação da matéria |
-| modules | array of object with module_id and quant_classes | Array de objetos indicando os módulos que tem tal matéria e quantas aulas tem  |
+| modules | array of object with module_id and quant_classes | Array de objetos indicando os módulos que tem tal matéria e quantas aulas tem em cada um |
 
 ### Exemplo
 
@@ -27,7 +27,7 @@ json: {
 	"modules": [
 		{
 			"module_id": 1,
-			"quant_classes": 3
+			"total_classes": 3
 		}
 	]
 }
@@ -70,7 +70,7 @@ _______________________________________________________________
 		"modules": [
 			{
 				"module_id": 1,
-				"quant_classes": 3
+				"total_classes": 3
 			}
 		]
 	},
@@ -103,7 +103,7 @@ _______________________________________________________________
 	"modules": [
 		{
 			"module_id": 1,
-			"quant_classes": 3
+			"total_classes": 3
 		}
 	]
 }
@@ -122,7 +122,7 @@ Editando uma Matéria com determinadas propriedades.
 | -------------------- | ------ | --------------------- |
 | name         | string | Nome da matéria       |
 | abbreviation | string | Abreviação da matéria |
-| modules | array of object with module_id and quant_classes | Array de objetos indicando os módulos que tem tal matéria e quantas aulas tem |
+| modules | array of object with module_id and quant_classes | Array de objetos indicando os módulos que tem tal matéria e quantas aulas tem em cada um |
 
 ### Exemplo
 
@@ -134,7 +134,7 @@ json: {
 	"modules": [
 		{
 			"module_id": 1,
-			"quant_classes": 3
+			"total_classes": 3
 		}
 	]
 }
