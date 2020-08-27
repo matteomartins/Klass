@@ -12,7 +12,7 @@ const Input: React.FC<InputPros> = ({label, Icon, ...rest}) => {
     return (
         <div className="input">
             <input type="text" placeholder={label} {...rest} />
-            <Icon size={18} color="var(--color-border-primary)" className="mr-3" />
+            <Icon size={18} />
         </div>
     )
 }
