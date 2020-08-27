@@ -67,7 +67,7 @@ const Menu:React.FC<MenuProps> = ({active, setActive}) => {
                         <Link to="exit"><b>Sair</b></Link>
                     </li>
                 </ul>
-                <span><a href="./">Privacidade • Termos • FAQ • Direitos Autorais</a></span>
+                <span><a href="/politics">Privacidade • Termos • FAQ • Direitos Autorais</a></span>
                 <p>Klass © 2020</p>
                 </div>
                 <Notifications active={notificationsActive} setActive={setNotificationsActive} />
