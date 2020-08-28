@@ -16,9 +16,17 @@
     margin-top: 1rem;
 }
 
+.feedback-container .feedback-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    max-width: 500px;
+    height: 100%;
+}
 .feedback-container .message-container h1 {
     color: var(--color-text-secondary);
-    margin-top: 1rem;
+    margin-bottom: 1rem;
     font-size: 1.8rem;
     height: 3rem;
 }
@@ -39,15 +47,15 @@
     background-color: transparent;
     font-size: 1.8rem;
     text-align: justify;
-    border: 3px solid var(--color-border-primary);
+    border: 2.5px solid var(--color-border-primary);
     border-radius: 5px;
+    color: var(--color-text-secondary);
 }
 
 #input1{
     height: 45px;
     padding: 1rem;
 }
-
 #input2{
     height: 220px;
     padding: 1rem;
@@ -64,5 +72,11 @@
 @media(max-width: 700px) {
     .feedback-container {
         height: 90vh;
+    }
+    .feedback-content {
+        height: 65vh;
+    }
+    .feedback-container .btn-container {
+        justify-content: center;
     }
 }
