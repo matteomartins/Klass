@@ -1,54 +1,51 @@
 'use strict'
 
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
-const Class = use('App/Models/Class');
-const Turn = use('App/Models/Turn');
-const Module = use('App/Models/Module');
-const Database = use('Database')
+const Group = use('App/Models/Group');
 
-class ClassController {
+class GroupController {
     async create({ request, response }) {
         const { name, module_id, turn_id } = request.all();
-        const classObject = {
+        const groupObject = {
             "turn_id": turn_id,
             "module_id": module_id,
             "name": name
         }
 
-        await Class.create(classObject);
+        await Group.create(groupObject);
 
         return response.status(200).send({ message: "Classe criada com sucesso" })
     }
 
     async delete({ request, response }) {
-        const idClass = request.params.id_class;
+        const idGroup = request.params.id_group;
 
-        await Class.query().where('id', idClass).delete();
+        await Group.query().where('id', idGroup).delete();
 
         return response.status(201).send({ message: "Classe excluida com sucesso!" })
     }
 
     async index({ request, response }) {
-        const idClass = request.params.id_class;
+        const idGroup = request.params.id_group;
 
-        const classObject = await Class.query().where('id', idClass).fetch();
+        const groupObject = await Group.query().where('id', idGroup).fetch();
 
-        return { classObject }
+        return { groupObject }
     }
 
     async update({ request, response }) {
-        const idClass = request.params.id_class;
+        const idGroup = request.params.id_group;
         const { name, module_id, turn_id } = request.all();
-        const classObject = {
+        const groupObject = {
             "turn_id": turn_id,
             "module_id": module_id,
             "name": name
         }
 
-        await Class.query().where('id', idClass).update(classObject);
+        await Group.query().where('id', idGroup).update(groupObject);
 
         return response.status(201).send({ message: "Classe atualizada com sucesso" })
     }
 }
 
-module.exports = ClassController
+module.exports = GroupController

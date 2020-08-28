@@ -14,7 +14,8 @@ Criando uma matéria com determinadas propriedades.
 | Nome                 | Tipo   | Descrição             |
 | -------------------- | ------ | --------------------- |
 | name         | string | Nome da matéria       |
-| modules | array of object with module_id and quant_classes | Abreviação da matéria |
+| abbreviation | string | Abreviação da matéria |
+| modules | array of object with module_id and quant_classes | Array de objetos indicando os módulos que tem tal matéria e quantas aulas tem em cada um |
 
 ### Exemplo
 
@@ -22,10 +23,11 @@ Criando uma matéria com determinadas propriedades.
 rote: schools/2/subjects
 json: {
 	"name": "Matemática",
+	"abbreviation": "MAT",
 	"modules": [
 		{
 			"module_id": 1,
-			"quant_classes": 3
+			"total_classes": 3
 		}
 	]
 }
@@ -64,10 +66,11 @@ _______________________________________________________________
 [
 	{
 		"name": "Matemática",
+		"abbreviation": "MAT",
 		"modules": [
 			{
 				"module_id": 1,
-				"quant_classes": 3
+				"total_classes": 3
 			}
 		]
 	},
@@ -96,10 +99,11 @@ _______________________________________________________________
 
 {
 	"name": "Matemática",
+	"abbreviation": "MAT",
 	"modules": [
 		{
 			"module_id": 1,
-			"quant_classes": 3
+			"total_classes": 3
 		}
 	]
 }
@@ -117,7 +121,8 @@ Editando uma Matéria com determinadas propriedades.
 | Nome                 | Tipo   | Descrição             |
 | -------------------- | ------ | --------------------- |
 | name         | string | Nome da matéria       |
-| modules | array of object with module_id and quant_classes | Abreviação da matéria |
+| abbreviation | string | Abreviação da matéria |
+| modules | array of object with module_id and quant_classes | Array de objetos indicando os módulos que tem tal matéria e quantas aulas tem em cada um |
 
 ### Exemplo
 
@@ -125,10 +130,11 @@ Editando uma Matéria com determinadas propriedades.
 rote: schools/1/subjects/1
 json: {
 	"name": "Matemática",
+	"abbreviation": "MAT",
 	"modules": [
 		{
 			"module_id": 1,
-			"quant_classes": 3
+			"total_classes": 3
 		}
 	]
 }
