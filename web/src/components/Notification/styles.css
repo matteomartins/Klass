@@ -1,0 +1,36 @@
+.notification-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--color-background);
+    color: var(--color-text-secondary);
+    height: 5.8rem;
+    width: 80vw;
+    max-width: 61rem;
+    margin: 1rem auto;
+    border-radius: 3.4rem;
+    padding: 0.5rem 2rem;
+}
+
+.notification-container .notification-content {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 90%;
+    flex: 1;
+}
+
+.notification-container .notification-content h1 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-left: 2rem;
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 80%;
+}
+
+.notification-container span {
+    align-self: flex-end;
+}
