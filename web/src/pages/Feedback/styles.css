@@ -22,7 +22,7 @@
     justify-content: center;
     width: 90%;
     max-width: 500px;
-    height: 100%;
+    height: 80%;
 }
 .feedback-container .message-container h1 {
     color: var(--color-text-secondary);
@@ -38,6 +38,9 @@
     flex-direction: column;
     margin: 0;
     padding: 0;
+}
+.feedback-container #feedback-truncated-container {
+    height: 65vh;
 }
 
 .feedback-container .message-container .input-container input,
@@ -78,5 +81,8 @@
     }
     .feedback-container .btn-container {
         justify-content: center;
+    }
+    .feedback-container #feedback-truncated-container {
+        height: 68vh;
     }
 }

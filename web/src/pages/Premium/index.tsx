@@ -10,7 +10,8 @@ function Premium(){
                 <BackButton to="/home" />
                 <h1>Tornar-se Premium</h1>  
             </div>
-            <div className="plans-container">
+            <div className="scroll-view">
+                <div className="plans-container">
                     <div className="plans">
                         <h1>Alunos</h1>
                         <span>R$ 5,99</span>
@@ -42,6 +43,7 @@ function Premium(){
                         <button className="btn" id="btn2">Começar</button>
                         
                     </div>
+                </div>
             </div>
     
         </div>

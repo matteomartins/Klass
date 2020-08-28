@@ -43,7 +43,7 @@ textarea {
 }
 
 ::-webkit-scrollbar {
-    width: 1.4rem;
+    width: 1.2rem;
     background-color: #BDBDBD;
     border-radius: 1rem;
 }

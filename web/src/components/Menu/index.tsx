@@ -50,24 +50,24 @@ const Menu:React.FC<MenuProps> = ({active, setActive}) => {
                         <Link to="/feedback">Dar Feedback</Link>
                     </li>
                     <li>
-                        <Link to="help">Ajuda e suporte</Link>
+                        <Link to="/help">Ajuda e suporte</Link>
                     </li>
                     <li id="btn-dark-mode">
-                        <a href="/">Modo Escuro</a>
+                        <a href="/" onClick={(e)=> {e.preventDefault();}} >Modo Escuro</a>
                         <label className="switch">
                             <input type="checkbox" checked={theme==='light'?false:true} onChange={changeMode} />
                             <span className="slider"></span>
                         </label>
                     </li>
                     <li>
-                        <Link to="premium">Tornar-se premium</Link>
+                        <Link to="/premium">Tornar-se premium</Link>
                     </li>
                     <br/><br/>
                     <li>
-                        <Link to="exit"><b>Sair</b></Link>
+                        <Link to="/"><b>Sair</b></Link>
                     </li>
                 </ul>
-                <span><a href="/politics">Privacidade • Termos • FAQ • Direitos Autorais</a></span>
+                <span><Link to="/politics">Privacidade • Termos • FAQ • Direitos Autorais</Link></span>
                 <p>Klass © 2020</p>
                 </div>
                 <Notifications active={notificationsActive} setActive={setNotificationsActive} />

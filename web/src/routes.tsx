@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, RouteProps } from 'react-router-dom';
 
 import InfoIcon from './components/InfoIcon';
 import CalendarIcon from './components/CalendarIcon';
@@ -16,6 +16,26 @@ import Politics from './pages/Politics';
 import Help from './pages/Help';
 import Premium from './pages/Premium';
 
+const RouteWithCalendar:React.FC<RouteProps> = ({...props}) => {
+    return (
+        <>
+            <Header/>
+            <Route { ...props } />
+            <CalendarIcon />
+        </>
+    )
+}
+
+const RouteWithInfo:React.FC<RouteProps> = ({...props}) => {
+    return (
+        <>
+            <Header/>
+            <Route { ...props } />
+            <InfoIcon />
+        </>
+    )
+}
+
 export default function Routes() {
     return (
         <BrowserRouter>
@@ -23,26 +43,14 @@ export default function Routes() {
                 <Route path="/" exact component={Register} />
                 <Route path="/login" exact component={Login} />
                 <Route path="/access" exact component={FirstAccess} />
-                <BrowserRouter>
-                    <>
-                        <Header/>
-                        <Route path="/drag" exact component={Drag} />
-                        <Route path="/profile" exact component={Profile} />
-                        <Route path="/home" exact component={Home} />
-                        <Route path="/feedback" exact component={Feedback} />
-                        <Route path="/help" exact component={Help}/>
-                        <Route path="/premium" exact component={Premium}/>
-                        <CalendarIcon />
-                    </>
-                </BrowserRouter>
-                <BrowserRouter>
-                    <>
-                        <Header/>
-                        <Route path="/feedback" exact component={Feedback} />
-                        <Route path="/politics" exact component={Politics} />
-                        <InfoIcon />
-                    </>
-                </BrowserRouter>
+                <RouteWithCalendar path="/drag" exact component={Drag} />
+                <RouteWithCalendar path="/profile" exact component={Profile} />
+                <RouteWithCalendar path="/home" exact component={Home} />
+                <RouteWithCalendar path="/feedback" exact component={Feedback} />
+                <RouteWithCalendar path="/help" exact component={Help}/>
+                <RouteWithCalendar path="/premium" exact component={Premium}/>
+                <RouteWithInfo path="/feedback" exact component={Feedback} />
+                <RouteWithInfo path="/politics" exact component={Politics} />
             </Switch>
         </BrowserRouter>
     )
