@@ -14,7 +14,7 @@
     font-size: 15px;
     line-height: 29px;
     text-align: center;
-    color:black;
+    color: var(--color-text-secondary);
 }
 
 @media(max-height: 700px) {
