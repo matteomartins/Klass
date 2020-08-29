@@ -6,7 +6,6 @@ import { KaClose } from '../../assets/icons';
 import { useTheme } from '../../context/Theme';
 import { CSSTransition } from 'react-transition-group';
 import UserCard from '../UserCard';
-import Notifications from '../Notifications';
 
 interface MenuProps {
     active: boolean;
@@ -16,7 +15,6 @@ interface MenuProps {
 const Menu:React.FC<MenuProps> = ({active, setActive}) => {
     const { theme, setTheme } = useTheme();
     const [ delayedActive, setDelayedActive ] = useState(false);
-    const [ notificationsActive, setNotificationsActive ] = useState(false);
 
     useEffect(()=> {
         setTimeout(()=> setDelayedActive(active), 300)
@@ -44,7 +42,7 @@ const Menu:React.FC<MenuProps> = ({active, setActive}) => {
                 <UserCard />
                 <ul>
                     <li>
-                        <a href="./" onClick={(e)=> {e.preventDefault();  setNotificationsActive(true)}}>Notificações</a>
+                        <Link to="/notifications">Notificações</Link>
                     </li>
                     <li>
                         <Link to="/feedback">Dar Feedback</Link>
@@ -70,8 +68,6 @@ const Menu:React.FC<MenuProps> = ({active, setActive}) => {
                 <span><Link to="/politics">Privacidade • Termos • FAQ • Direitos Autorais</Link></span>
                 <p>Klass © 2020</p>
                 </div>
-                <Notifications active={notificationsActive} setActive={setNotificationsActive} />
-
             </div>
         </CSSTransition>
         </>

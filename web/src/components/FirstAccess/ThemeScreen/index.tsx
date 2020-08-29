@@ -6,6 +6,8 @@ import themeDark from '../../../assets/images/print-dark.jpg';
 import themeLightMobile from '../../../assets/images/print-mobile-light.jpg';
 import themeDarkMobile from '../../../assets/images/print-mobile-dark.jpg';
 
+import './styles.css';
+
 interface ThemeScreenProps {
     setTheme: Dispatch<SetStateAction<string>>;
 }

@@ -4,6 +4,8 @@ import Terms from '../../../utils/Terms';
 import Checkbox from '../../Checkbox';
 import TruncatedContainer from '../../TruncatedContainer';
 
+import './styles.css';
+
 function TermsScreen() {
     return (
         <TruncatedContainer title="Termos de Uso" className="terms-container">

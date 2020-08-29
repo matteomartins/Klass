@@ -12,6 +12,8 @@ import ThemeScreen from '../../components/FirstAccess/ThemeScreen';
 import TermsScreen from '../../components/FirstAccess/TermsScreen';
 import { useTheme } from '../../context/Theme';
 
+import './styles.css';
+
 function FirstAccess(){
     const [step, setStep] = useState(0);
     const [ mode, setMode ] = useState('foward');

@@ -4,7 +4,6 @@
     justify-content: flex-start;
     width: 100%;
     max-width: 1080px;
-    height: 87vh;
     flex-direction: column;
 }
 
@@ -42,7 +41,8 @@
 }
 
 .feedback-container #feedback-truncated-container {
-    height: 65vh;
+    height: 75vh;
+    max-height: 540px;
 }
 
 .feedback-container .message-container .input-container input,
