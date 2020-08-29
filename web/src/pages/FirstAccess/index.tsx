@@ -10,12 +10,22 @@ import BackButton from '../../components/BackButton';
 import PresentationScreen from '../../components/FirstAccess/PresentationScreen';
 import ThemeScreen from '../../components/FirstAccess/ThemeScreen';
 import TermsScreen from '../../components/FirstAccess/TermsScreen';
+import { useTheme } from '../../context/Theme';
 
 function FirstAccess(){
     const [step, setStep] = useState(0);
     const [ mode, setMode ] = useState('foward');
     const history = useHistory();
-    const screens = [TermsScreen, ThemeScreen, PresentationScreen];
+    const { setTheme } = useTheme();
+
+    function newThemeScreen() {
+        return (
+            <ThemeScreen setTheme={setTheme} />
+        )
+    }
+
+    const screens = [TermsScreen, newThemeScreen, PresentationScreen];
+
 
     function handleNext() {
         if(step===2) history.push('/home');
