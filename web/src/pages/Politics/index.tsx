@@ -1,7 +1,6 @@
 import React from 'react';
 
 import './styles.css';
-import TruncatedContainer from '../../components/TruncatedContainer';
 import BackButton from '../../components/BackButton';
 
 function Politics(){
@@ -9,7 +8,6 @@ function Politics(){
         <div className="main-politics">
             <BackButton to="/home" />
             <div className="politics-container">
-
                 <div className="faq-container">
                     <h1>FAQ</h1>
                         <a href="/" id="text"> Como utilizar tal ferramenta? </a>
@@ -22,7 +20,6 @@ function Politics(){
                         <a href="/"> Política de Sessão </a>
                         <a href="/"> Política de Direito Autoral </a>
                 </div>
-
                 <div className="faq-container">
                     <h1>FAQ</h1>
                     <div className="faq2-scroll">
@@ -55,10 +52,8 @@ function Politics(){
                         <a href="/"> Política de Cookies </a>
                         <a href="/"> Política de Sessão </a>
                         <a href="/"> Política de Direito Autoral </a>
-
                     </div>
                 </div>
-
             </div>
         </div>
     )
