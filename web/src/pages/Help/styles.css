@@ -2,8 +2,8 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    width: 100%;
-    max-width: 1080px;
+    width: 95vw;
+    max-width: 960px;
     height: 87vh;
     flex-direction: column;
 }

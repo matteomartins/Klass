@@ -7,7 +7,7 @@ const setThemeProps:Dispatcher<string> = () => null;
 
 const ThemeContext = createContext({
     theme: '',
-    setTheme: setThemeProps
+    setTheme: (setThemeProps)
 });
 
 const ThemeProvider:React.FC = ({children}) => {
@@ -20,11 +20,9 @@ const ThemeProvider:React.FC = ({children}) => {
 
     useEffect(()=> {
         const cssVars = theme==='dark'?darkTheme:lightTheme;
-        
         cssVars.forEach(color => {
             document.documentElement.style.setProperty(color.name, color.value);
         });
-
         localStorage.setItem('theme', theme);
     }, [theme])
 

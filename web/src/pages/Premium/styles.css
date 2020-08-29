@@ -3,7 +3,8 @@
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
-    width: 100vw;
+    width: 95vw;
+    max-width: 960px;
     height: 87vh;
 }
 

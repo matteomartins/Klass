@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 
 import TruncatedContainer from '../../TruncatedContainer';
 import themeLight from '../../../assets/images/print-light.jpg';
 import themeDark from '../../../assets/images/print-dark.jpg';
 import themeLightMobile from '../../../assets/images/print-mobile-light.jpg';
 import themeDarkMobile from '../../../assets/images/print-mobile-dark.jpg';
-import { useTheme } from '../../../context/Theme';
 
-function ThemeScreen() {
-    const { setTheme } = useTheme();
+import './styles.css';
 
+interface ThemeScreenProps {
+    setTheme: Dispatch<SetStateAction<string>>;
+}
+
+const ThemeScreen:React.FC<ThemeScreenProps> = ({setTheme}) => {
     return (
         <TruncatedContainer title="Tema" className="theme-container">
             <h1 className="title"> Escolha um tema </h1>
