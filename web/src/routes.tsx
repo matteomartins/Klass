@@ -15,6 +15,7 @@ import Feedback from './pages/Feedback';
 import Politics from './pages/Politics';
 import Help from './pages/Help';
 import Premium from './pages/Premium';
+import School from './pages/School';
 
 const RouteWithCalendar:React.FC<RouteProps> = ({...props}) => {
     return (
@@ -55,6 +56,7 @@ export default function Routes() {
                 <RouteWithCalendar path="/premium" exact component={Premium}/>
                 <RouteWithInfo path="/feedback" exact component={Feedback} />
                 <RouteWithInfo path="/politics" exact component={Politics} />
+                <RouteWithInfo path="/school" exact component={School} />
             </Switch>
         </BrowserRouter>
     )
