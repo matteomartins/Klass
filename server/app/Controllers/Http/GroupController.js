@@ -41,7 +41,7 @@ class GroupController {
 
         var groups = []
 
-        oldGroups.map(({ id, name, school_id, period, turn_id, module_id, flg_sunday, flg_monday, flg_tuesday, flg_wednesday, flg_thursday, flg_friday, flg_saturday }) => {
+        oldGroups.map(({ id, name, school_id, period, turn_id, module_id }) => {
 
             const valores = {
                 'school_id': school_id,
@@ -50,14 +50,6 @@ class GroupController {
                 'name': name,
                 'period': period,
                 'turn_id': turn_id,
-                'flg_sunday': flg_sunday,
-                'flg_monday': flg_monday,
-                'flg_tuesday': flg_tuesday,
-                'flg_wednesday': flg_wednesday,
-                'flg_thursday': flg_thursday,
-                'flg_friday': flg_friday,
-                'flg_saturday': flg_saturday
-
             }
             groups.push(valores)
         })
