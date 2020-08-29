@@ -2,9 +2,9 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    width: 100%;
     max-width: 1080px;
     height: 87vh;
-    margin: 0 auto;
     flex-direction: column;
 }
 
@@ -24,6 +24,7 @@
     max-width: 500px;
     height: 80%;
 }
+
 .feedback-container .message-container h1 {
     color: var(--color-text-secondary);
     margin-bottom: 1rem;
@@ -39,6 +40,7 @@
     margin: 0;
     padding: 0;
 }
+
 .feedback-container #feedback-truncated-container {
     height: 65vh;
 }
@@ -59,10 +61,12 @@
     height: 45px;
     padding: 1rem;
 }
+
 #input2{
     height: 220px;
     padding: 1rem;
 }
+
 .feedback-container .btn-container {
     width: 95%;
     max-width: 960px;

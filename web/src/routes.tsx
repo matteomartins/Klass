@@ -20,7 +20,9 @@ const RouteWithCalendar:React.FC<RouteProps> = ({...props}) => {
     return (
         <>
             <Header/>
-            <Route { ...props } />
+            <div className="main-container">
+                <Route { ...props } />
+            </div>
             <CalendarIcon />
         </>
     )
@@ -30,7 +32,9 @@ const RouteWithInfo:React.FC<RouteProps> = ({...props}) => {
     return (
         <>
             <Header/>
-            <Route { ...props } />
+            <div className="main-container">
+                <Route { ...props } />
+            </div>
             <InfoIcon />
         </>
     )

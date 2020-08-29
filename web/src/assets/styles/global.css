@@ -64,6 +64,14 @@ textarea {
 
 /* STYLIZED CLASSES */
 
+.main-container {
+    display:flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100vw;
+    height: 87vh;
+}
+
 .container-bg-dark {
     background: url(../../assets/images/container-background-dark.svg);
     background-repeat: no-repeat;
@@ -153,4 +161,10 @@ textarea {
     background-color: var(--color-primary);
     box-shadow: 0px 5px 20px rgba(38, 39, 56, 0.45);
     cursor: pointer;
+}
+
+@media (max-width: 700px) {
+    .main-container {
+        height: 90vh;
+    }
 }
