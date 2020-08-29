@@ -43,7 +43,7 @@
     width: 55%;
     margin-top: 10px;
     margin-left: 90px;
-    color: black;  
+    color: var(--color-text-secondary);  
 }
 
 .input-container2 {
@@ -64,7 +64,7 @@
 
 .description{
     display: flex;
-    color: black;
+    color: var(--color-text-secondary);
     font-family: Roboto;
     font-style: normal;
     margin-left:30px ;
@@ -97,6 +97,7 @@
     margin-left:6px;
     margin-bottom:14px;
     font-weight: bold;
+    color: var(--color-text-secondary);
 }
 
 .school2-container {
