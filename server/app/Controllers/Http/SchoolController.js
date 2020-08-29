@@ -10,10 +10,10 @@ class SchoolController {
     async create({ request, response, auth }) {
 
         const schoolData = request.all();
-      
+
         const { id } = await School.create(schoolData);
         let school = await School.find(id);
-      
+
         const user = await auth.getUser();
         const user_id = user.$attributes.id;
 
@@ -47,7 +47,28 @@ class SchoolController {
         await School.query().where('id', idSchool).update(newSchoolData)
         return response.status(200).send({ message: "Escola atualizada com sucesso" })
     }
+    async generalIndex({ request, response, auth }) {
+        const user = await auth.getUser();
+        const user_id = user.$attributes.id;
 
+
+        const oldUserSchools = await Database.table('schools').innerJoin('administrators', 'schools.id', 'administrators.school_id').where('administrators.user_id', user_id)
+
+        var userSchools = []
+
+        oldUserSchools.map(({ id, name, description, type, icon }) => {
+            const valores = {
+                'id': id,
+                'name': name,
+                'description': description,
+                'type': type,
+                'icon': icon
+            }
+            userSchools.push(valores)
+        })
+
+        return { userSchools }
+    }
 }
 
 module.exports = SchoolController
