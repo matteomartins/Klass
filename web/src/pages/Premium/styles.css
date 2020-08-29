@@ -88,6 +88,7 @@
     .main-premium .scroll-view {
         width: 90vw;
         overflow-x: scroll;
+        overflow-y: hidden;
     }
     .main-premium .scroll-view .plans-container {
         justify-content: flex-start;

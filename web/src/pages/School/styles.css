@@ -11,7 +11,7 @@
     max-height: 700px;
 }
 
-.school-photo{
+.school-container .school-photo{
     display: flex;
 
     font-family: Roboto;
@@ -21,16 +21,16 @@
     color: #39729D;
 }
 
-.school-photo .input-container2 .input-items2 p{
+.school-container .school-photo .input-container2 .input-items2 p{
     font-size: 15px;
 }
 
-.school-name{
+.school-container .school-name{
     margin-top: 100px;
     margin-left: 20px;
 }
 
-.school-container .scroll-view {
+.school-container .school-container .scroll-view {
     overflow-y: scroll;
     height: 470px;
     padding-right: 1.7rem;
@@ -38,7 +38,7 @@
 
 }
 
-.input-container2 .input-items2 {
+.school-container .input-container2 .input-items2 {
     display: flex;
     width: 55%;
     margin-top: 10px;
@@ -46,13 +46,13 @@
     color: var(--color-text-secondary);  
 }
 
-.input-container2 {
+.school-container .input-container2 {
     margin: 0;
     padding: 0;
     width: 50%;
 }
 
-.input-container2 .input-items2 input {
+.school-container .input-container2 .input-items2 input {
     border: none;
     background-color: transparent;
     
@@ -62,7 +62,7 @@
     text-align: end;
 }
 
-.description{
+.school-container .description{
     display: flex;
     color: var(--color-text-secondary);
     font-family: Roboto;
@@ -71,13 +71,13 @@
     margin-top:5px ;
 }
 
-.description .description-text h1{
+.school-container .description .description-text h1{
     font-size:18px;
     margin-bottom:22px;
     margin-top:5px;
 }
 
-.description .description-text p{
+.school-container .description .description-text p{
     font-size:13px;
     margin-bottom:18px;
     margin-left: 50px;
@@ -85,12 +85,12 @@
     text-indent: 10px;
 }
 
-.input-items3{
+.school-container .input-items3{
     display: flex;
     align-items: center;  
 }
 
-.input-items3 input {
+.school-container .input-items3 input {
     border: none;
     background-color: transparent;
     font-size: 16px;
@@ -100,7 +100,7 @@
     color: var(--color-text-secondary);
 }
 
-.school2-container {
+.school-container .school2-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -111,13 +111,13 @@
     
 }
 
-.school2-container > h1 {
+.school-container .school2-container > h1 {
     color: #39729D;
     align-self: flex-start;
     flex-wrap: wrap;
 }
 
-.school2-container .classes {
+.school-container .school2-container .classes {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
     width: 100%;
@@ -126,13 +126,13 @@
 }
 
 @media(max-width: 425px) {
-    .school2-container .classes {
+    .school-container .school2-container .classes {
         grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
     }
 }
 
 @media(max-width: 360px) {
-    .school2-container .classes {
+    .school-container .school2-container .classes {
         grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
     }
 }

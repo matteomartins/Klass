@@ -15,7 +15,7 @@ function Home(){
                 </div>
             </div>
             <div className="scroll-view">
-                <div className="school-container">
+                <div className="school-cards-container">
                     <h1>Etec de Taboão Da Serra </h1>
                     <div className="classes">
                         <ContentCard title="1A" text="1 ANO A" color="#0792A9" />
@@ -27,7 +27,7 @@ function Home(){
                         <ContentCard title="4A" text="4 ANO A" color="#DE6E4B" />
                     </div>
                 </div>
-                <div className="school-container">
+                <div className="school-cards-container">
                     <h1>Etec de Embu das Artes</h1>
                     <div className="classes">
                         <ContentCard title="1A" text="1 ANO A" color="#0792A9" />

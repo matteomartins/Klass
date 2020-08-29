@@ -30,7 +30,7 @@
     cursor: pointer;
 }
 
-.home-container .school-container {
+.home-container .school-cards-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -40,12 +40,12 @@
     width: 100%;
 }
 
-.home-container .school-container > h1 {
+.home-container .school-cards-container > h1 {
     color: #39729D;
     align-self: flex-start;
 }
 
-.home-container .school-container .classes {
+.home-container .school-cards-container .classes {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
     width: 100%;
@@ -60,13 +60,13 @@
 }
 
 @media(max-width: 425px) {
-    .home-container .school-container .classes {
+    .home-container .school-cards-container .classes {
         grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
     }
 }
 
 @media(max-width: 360px) {
-    .home-container .school-container .classes {
+    .home-container .school-cards-container .classes {
         grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
     }
 }
