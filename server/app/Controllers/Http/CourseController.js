@@ -8,18 +8,17 @@ const Database = use('Database')
 class CourseController {
     async create({ request, response, auth }) {
         const courseName = request.only(['name']);
-        const level = request.only(['level']);
+        const modules = request.only(['modules']);
 
         const school_id = request.params.id_school;
 
         await Database.table('courses').insert({ school_id: school_id, name: courseName.name });
 
-        const course = await Database.select('id').from('courses').where({ school_id: school_id });
+        const course = await Database.select('id').from('courses').where({ school_id: school_id }).orderBy('id', 'desc');
         const course_id = course[0].id
 
-
-        level.level.map(level => {
-            Module.create({ course_id, level })
+        modules.modules.map(modules => {
+            Module.create({ course_id, level: modules })
         })
 
         return response.status(200).send({ message: "Curso criado com sucesso" })
@@ -44,7 +43,26 @@ class CourseController {
 
         return { course, modules }
     }
+    async generalIndex({ request, response, auth }) {
+        const idSchool = request.params.id_school;
+        const oldModuleCourse = await Database.table('courses').innerJoin('modules', 'courses.id', 'modules.course_id').where('school_id', idSchool)
 
+        var ModuleCourse = []
+
+        oldModuleCourse.map(({ id, name, course_id, school_id, level }) => {
+
+            const valores = {
+                'course_id': course_id,
+                'name': name,
+                'module_id': id,
+                'module': level,
+                'school_id': school_id
+
+            }
+            ModuleCourse.push(valores)
+        })
+        return { ModuleCourse }
+    }
     async update({ request, response }) {
         const course_id = request.params.id_course;
 
