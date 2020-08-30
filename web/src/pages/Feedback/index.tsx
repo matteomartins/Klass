@@ -8,7 +8,7 @@ function Feedback() {
     return(
         <div className="feedback-container">
             <BackButton to="/home" />
-            <TruncatedContainer title="Feedback">
+            <TruncatedContainer title="Feedback" id="feedback-truncated-container">
                 <div className="feedback-content">
                     <div className="message-container">
                         <h1>Envie um Feedback</h1>

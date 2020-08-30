@@ -1,0 +1,19 @@
+.terms-container .terms-text {
+    height: 70%;
+    overflow-y: scroll;
+    color: var(--color-text-secondary);
+    justify-self: center;
+    margin-top: 5rem;
+    padding-right: 1rem;
+    font-size: 2rem;
+    width: 90%;
+    text-align: justify;
+    text-indent: 1.5em;
+}
+
+.terms-container .input-checkbox {
+    align-self: flex-start;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 2rem;
+}

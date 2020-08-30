@@ -6,7 +6,6 @@ import { KaClose } from '../../assets/icons';
 import { useTheme } from '../../context/Theme';
 import { CSSTransition } from 'react-transition-group';
 import UserCard from '../UserCard';
-import Notifications from '../Notifications';
 
 interface MenuProps {
     active: boolean;
@@ -16,7 +15,6 @@ interface MenuProps {
 const Menu:React.FC<MenuProps> = ({active, setActive}) => {
     const { theme, setTheme } = useTheme();
     const [ delayedActive, setDelayedActive ] = useState(false);
-    const [ notificationsActive, setNotificationsActive ] = useState(false);
 
     useEffect(()=> {
         setTimeout(()=> setDelayedActive(active), 300)
@@ -44,34 +42,32 @@ const Menu:React.FC<MenuProps> = ({active, setActive}) => {
                 <UserCard />
                 <ul>
                     <li>
-                        <a href="./" onClick={(e)=> {e.preventDefault();  setNotificationsActive(true)}}>Notificações</a>
+                        <Link to="/notifications">Notificações</Link>
                     </li>
                     <li>
                         <Link to="/feedback">Dar Feedback</Link>
                     </li>
                     <li>
-                        <Link to="help">Ajuda e suporte</Link>
+                        <Link to="/help">Ajuda e suporte</Link>
                     </li>
                     <li id="btn-dark-mode">
-                        <a href="/">Modo Escuro</a>
+                        <a href="/" onClick={(e)=> {e.preventDefault();}} >Modo Escuro</a>
                         <label className="switch">
                             <input type="checkbox" checked={theme==='light'?false:true} onChange={changeMode} />
                             <span className="slider"></span>
                         </label>
                     </li>
                     <li>
-                        <Link to="premium">Tornar-se premium</Link>
+                        <Link to="/premium">Tornar-se premium</Link>
                     </li>
                     <br/><br/>
                     <li>
-                        <Link to="exit"><b>Sair</b></Link>
+                        <Link to="/"><b>Sair</b></Link>
                     </li>
                 </ul>
-                <span><a href="/politics">Privacidade • Termos • FAQ • Direitos Autorais</a></span>
+                <span><Link to="/politics">Privacidade • Termos • FAQ • Direitos Autorais</Link></span>
                 <p>Klass © 2020</p>
                 </div>
-                <Notifications active={notificationsActive} setActive={setNotificationsActive} />
-
             </div>
         </CSSTransition>
         </>

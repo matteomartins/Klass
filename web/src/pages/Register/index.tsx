@@ -11,6 +11,8 @@ import Checkbox from '../../components/Checkbox';
 
 function Register() {
     return (
+        <div className="scroll-view">
+        <div>
         <div className="register-container">
             <div className="start-container">
                 <img src={iconLight} alt="Klass"/>
@@ -34,6 +36,8 @@ function Register() {
                 <Checkbox label="Lembre de mim" name="rememberme"/>
                 <Link to="/access" className="btn btn-bg-dark">Cadastre-se</Link>
             </form>
+        </div>
+        </div>
         </div>
     )
 }
