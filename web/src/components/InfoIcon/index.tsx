@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { KaCalendar } from '../../assets/icons';
-
 import './styles.css';
 
 function InfoIcon() {

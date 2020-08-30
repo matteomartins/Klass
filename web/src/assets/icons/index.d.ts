@@ -16,3 +16,4 @@ export declare const KaExcel: IconType;
 export declare const KaPrinter: IconType;
 export declare const KaPdf: IconType;
 export declare const KaCalendar: IconType;
+export declare const KaCheck: IconType;

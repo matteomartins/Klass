@@ -5,7 +5,10 @@
 ## Informações gerais da Dashboard <a name="dashboard"></a>
 
 Exibe as informações do dashboard da escola
-GET /schools/:id_school/
+
+	GET /schools/:id_school/
+	REQUIRED authentication
+
 ### Exemplo
 ```
 	rote: /schools/1/dashboard

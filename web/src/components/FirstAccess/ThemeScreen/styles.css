@@ -1,0 +1,53 @@
+
+.theme-container .title {
+    margin-top: 2rem;
+    font-size: 3rem;
+    color: var(--color-text-secondary);
+}
+
+.theme-container .themes {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin-top: 2.5rem;
+}
+
+.theme-container .themes img {
+    border-radius: 2.5rem;
+    width: 100%;
+}
+
+.theme-container .themes div {
+    cursor: pointer;
+}
+
+.theme-container .themes div img + img {
+    display: none;
+}
+
+.theme-container .themes h2 {
+    text-align: center;
+    font-size: 2rem;
+    line-height: 3rem;
+    font-weight: 600;
+}
+
+.theme-container .themes #text-light {
+    color: #444;
+}
+
+.theme-container .themes #text-dark {
+    color: #CCC;
+}
+
+.theme-container .themes .light {
+    background-color: #CCC;
+    border-radius: 2.6rem;
+    margin: .4rem;
+}
+
+.theme-container .themes .dark{
+    border-radius: 2.6rem;
+    background-color: #444;
+    margin: .4rem;
+}

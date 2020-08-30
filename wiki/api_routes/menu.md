@@ -67,14 +67,10 @@ Aqui estão listadas todas as rotas da API da aplicação
 
     1. [Selecionar notificações](notifications.md)
 
----
-
 10. Convite
 
-    1. [Convite para um professor](invites.md#invite_professor)
-    2. [Selecionar um aluno](invites.md#invite_student)
-    3. [Entrar na escola](invites.md#join_professor)
-    4. [Entrar na sala](invites.md#join_student)
+    1. [Entrar em uma escola](invites.md#invite_professor)
+    2. [Entrar em uma sala](invites.md#invite_student)
 
 11. Dashboard
 
@@ -82,7 +78,9 @@ Aqui estão listadas todas as rotas da API da aplicação
 
 12. Home
 
-    1. [Informações gerais](dashboard.md)
+    1. [Informações gerais](home.md)
+
+---
 
 13. Relatorio Professor
 

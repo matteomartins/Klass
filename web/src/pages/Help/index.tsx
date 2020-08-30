@@ -10,12 +10,10 @@ function Help() {
         <div className="help-container">
             <BackButton to="/home" />
             <TruncatedContainer title="Ajuda e suporte">
-                <TruncatedContainer title="" className="presentation-container">
-                    <YouTube className="video" videoId="Zc1OOS4aMbU" />
-                </TruncatedContainer>
+                <YouTube className="video" videoId="Zc1OOS4aMbU" />
                 <div className="infos">
                     <h1>Suporte</h1>
-                    <p className="italico">Email: suporte@klass.com</p>
+                    <p>Email: <i>suporte@klass.com</i></p>
                     <p>Telefone: (11) 3521-8541</p>
                 </div>
             </TruncatedContainer>
