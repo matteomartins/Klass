@@ -1,50 +1,33 @@
 import React from 'react';
 import './styles.css';
 import ContentCard from '../../components/ContentCard';
+import InputOutline from '../../components/InputOutline';
 
 function School(){
     return(
         <div className="school-container">
             <div className="scroll-view">
-                <div className="school-photo">
-                    <div className="contentCard">
+                <div>
+                <div className="school-header">
+                    <div className="card-content">
                         <ContentCard title="TS" text="" color="#0792A9" />
-                    </div>
-                    <div className="school-name">
                         <h1>Etec de Taboão Da Serra</h1>
                     </div>
-                    <div className="input-container2">   
-                        <div className="input-items2">
-                            <p>Professores:</p>
-                            <input value="Wallace C. Andrade"/>
-                        </div>
-                        <div className="input-items2">
-                            <p>Alunos:</p>
-                            <input value="160"/>
-                        </div>
-                        <div className="input-items2">
-                            <p>Matérias:</p>
-                            <input value="18"/>
-                        </div>
-                        <div className="input-items2">
-                            <p>Turnos:</p>
-                            <input value="3"/>
-                        </div>
+                    <div className="info-container">   
+                        <InputOutline text="Professores:" name="prof" value="Wallace C. Andrade" disabled />
+                        <InputOutline text="Alunos:" name="student" value="160" disabled />
+                        <InputOutline text="Matérias:" name="subject" value="18" disabled />
+                        <InputOutline text="Turnos:" name="turn" value="3" disabled />
                     </div>
                 </div>
                 <div className="description">
-                    <div className="description-text">
-                        <h1>Descrição</h1>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                        <div className="input-items3">
-                            <h1>Tipo de escola: </h1>
-                            <input value="Ensino Médio e Técnico"/>
-                        </div>
-                    </div>
+                    <h1>Descrição</h1>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    <InputOutline text="Tipo de escola:" name="students" value="Ensino Médio e Técnico" disabled />
                 </div>
-                <div className="school2-container">
+                <div className="school-cards-container">
                     <h1>Turno: Manhã </h1>
-                    <div className="classes">
+                    <div className="cards">
                         <ContentCard title="1A" text="1 ANO A" color="#0792A9" />
                         <ContentCard title="1B" text="1 ANO B" color="#0792A9" />
                         <ContentCard title="2A" text="2 ANO A" color="#F68237" />
@@ -54,6 +37,7 @@ function School(){
                         <ContentCard title="4A" text="4 ANO A" color="#DE6E4B" />
                     </div>
                 </div>
+            </div>
             </div>
         </div>
     )
