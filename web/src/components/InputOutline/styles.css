@@ -9,11 +9,9 @@
     color: var(--color-text-secondary);
     font-weight: bold;
     font-size: 1.6rem;
-    width: 100%;
 }
 
 .input-outline-container input {
-    width: 100%;
     background: none;
     border: none;
     color: var(--color-text-secondary);

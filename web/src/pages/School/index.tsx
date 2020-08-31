@@ -2,10 +2,12 @@ import React from 'react';
 import './styles.css';
 import ContentCard from '../../components/ContentCard';
 import InputOutline from '../../components/InputOutline';
+import BackButton from '../../components/BackButton';
 
 function School(){
     return(
         <div className="school-container">
+            <BackButton to="/home" />
             <div className="scroll-view">
                 <div>
                 <div className="school-header">
