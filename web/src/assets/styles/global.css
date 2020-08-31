@@ -173,3 +173,44 @@ textarea {
         height: 90vh;
     }
 }
+
+
+/* ANIMATIONS */
+
+.foward .slide-enter {
+    transform: translateX(150%);
+    opacity: 0;
+}
+.foward .slide-enter-active {
+    transform: translateX(0%);
+    opacity: 1;
+    transition: all 400ms ease-in-out;
+}
+.foward .slide-exit {
+    transform: translateX(0%);
+    opacity: 1;
+}
+.foward .slide-exit-active {
+    transform: translateX(-150%);
+    opacity: 0;
+    transition: all 400ms ease-in-out;
+}
+
+.backward .slide-enter {
+    transform: translateX(-150%);
+    opacity: 0;
+}
+.backward .slide-enter-active {
+    transform: translateX(0%);
+    opacity: 1;
+    transition: all 400ms ease-in-out;
+}
+.backward .slide-exit {
+    transform: translateX(0%);
+    opacity: 1;
+}
+.backward .slide-exit-active {
+    transform: translateX(150%);
+    opacity: 0;
+    transition: all 400ms ease-in-out;
+}
