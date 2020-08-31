@@ -1,3 +1,5 @@
+[Voltar](../../README.md)
+
 # TERMOS E LICENÇA
 
 <b>1. Do objeto</b>
