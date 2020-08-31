@@ -4,19 +4,21 @@
 const Group = use('App/Models/Group');
 const Module = use('App/Models/Module');
 const Database = use('Database')
+const {CreateIdHash} = require('../../Utils/createIdHash.js')
 
 class GroupController {
     async create({ request, response }) {
-        const { name, module_id, turn_id } = request.all();
-        const groupObject = {
-            "turn_id": turn_id,
-            "module_id": module_id,
-            "name": name
-        }
+      const { name, module_id, turn_id } = request.all();
+      const groupObject = {
+          "id": CreateIdHash(),
+          "turn_id": turn_id,
+          "module_id": module_id,
+          "name": name
+      }
 
-        await Group.create(groupObject);
+      await Group.create(groupObject);
 
-        return response.status(200).send({ message: "Classe criada com sucesso" })
+      return response.status(200).send({ message: "Classe criada com sucesso" })
     }
 
     async delete({ request, response }) {

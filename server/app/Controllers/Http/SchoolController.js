@@ -5,24 +5,33 @@ const School = use('App/Models/School');
 const Adm = use('App/Models/Administrator');
 const User = use('App/Models/User');
 const Database = use('Database')
+const {CreateIdHash} = require('../../Utils/createIdHash.js');
 
 class SchoolController {
     async create({ request, response, auth }) {
 
-        const schoolData = request.all();
+        const {name,description,type,icon} = request.all();
 
-        const { id } = await School.create(schoolData);
-        let school = await School.find(id);
+        const id = CreateIdHash();
+
+        const school = {
+          'id': id,
+          'name': name,
+          'description': description,
+          'type': type,
+          'icon': icon
+        }
+
+        await School.create(school);
 
         const user = await auth.getUser();
         const user_id = user.$attributes.id;
 
         await Database.table('administrators').insert({ school_id: id, user_id: user_id })
 
-
-        return { id }
-
+        return response.status(201).send({ message: "Escola criada com sucesso" })
     }
+
     async delete({ request, response, auth }) {
         const idSchool = request.params.id_school;
 
@@ -47,6 +56,7 @@ class SchoolController {
         await School.query().where('id', idSchool).update(newSchoolData)
         return response.status(200).send({ message: "Escola atualizada com sucesso" })
     }
+
     async generalIndex({ request, response, auth }) {
         const user = await auth.getUser();
         const user_id = user.$attributes.id;
@@ -56,9 +66,11 @@ class SchoolController {
 
         var userSchools = []
 
-        oldUserSchools.map(({ id, name, description, type, icon }) => {
+        console.log(oldUserSchools);
+
+        oldUserSchools.map(({ school_id, name, description, type, icon }) => {
             const valores = {
-                'id': id,
+                'id': school_id,
                 'name': name,
                 'description': description,
                 'type': type,
