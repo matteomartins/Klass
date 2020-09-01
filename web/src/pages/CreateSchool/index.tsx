@@ -14,11 +14,19 @@ import Create7 from '../../components/CreateSchool/Create7';
 import BackButton from '../../components/BackButton';
 
 function CreateSchool() {
-    const [ step, setStep ] = useState(1);
+    const [ step, setStep ] = useState(2);
     const [ mode, setMode ] = useState('foward');
+    const [ turns, setTurns ] = useState([{name: "integral", text:"Integral"}, {name: 'noturno', text: 'Noturno'}]);
+
     const history = useHistory();
 
-    const screens = [Create1, Create2, Create3, Create4, Create5, Create6, Create7];
+    function NewCreate3() {
+        return (
+            <Create3 turns={turns} setTurns={setTurns} />
+        )
+    }
+
+    const screens = [Create1, Create2, NewCreate3, Create4, Create5, Create6, Create7];
 
     function handleNext() {
         if(step===6) history.push('/dashboard');

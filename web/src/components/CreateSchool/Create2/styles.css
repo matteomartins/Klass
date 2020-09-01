@@ -7,13 +7,13 @@
 .create-school-content .icons-container .scroll-view {
     overflow-y: scroll;
     flex: 3;
+
 }
 
 .create-school-content .icons-container .icons-content {
-    justify-self: flex-start;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
-    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+    grid-gap: 3rem 0;
     margin: 4rem 0;
 }
 

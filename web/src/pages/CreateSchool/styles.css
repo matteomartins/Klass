@@ -35,6 +35,9 @@
 .create-school-container .create-school-content h1 {
     color: var(--color-text-secondary);
     font-size: 2.2rem;
+    line-height: 2.2rem;
+    margin-bottom: 0.8rem;
+    text-align: center;
 }
 
 

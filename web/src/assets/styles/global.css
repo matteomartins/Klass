@@ -37,6 +37,11 @@ a {
     color: #fff;
 }
 
+input {
+    font: 400 1.4rem Roboto, sans-serif;
+
+}
+
 textarea {
     font: 400 1.4rem Roboto, sans-serif;
     resize: none;
