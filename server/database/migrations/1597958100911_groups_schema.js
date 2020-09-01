@@ -6,7 +6,7 @@ const Schema = use('Schema')
 class GroupsSchema extends Schema {
   up () {
     this.create('groups', (table) => {
-      table.increments()
+      table.string('id', 25).primary().notNullable()
       table.integer('turn_id').notNullable()
         .unsigned().references('id').inTable('turns')
         .onDelete('CASCADE').onUpdate('CASCADE')

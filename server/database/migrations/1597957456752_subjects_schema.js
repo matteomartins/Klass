@@ -7,7 +7,7 @@ class SubjectsSchema extends Schema {
   up () {
     this.create('subjects', (table) => {
       table.increments()
-      table.string('school_id', 15).notNullable()
+      table.string('school_id', 25).notNullable()
         .references('id').inTable('schools')
         .onDelete('CASCADE').onUpdate('CASCADE')
       table.string('name', 45).notNullable()
