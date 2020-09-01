@@ -20,6 +20,7 @@ function Politics(){
                         <a href="/"> Política de Sessão </a>
                         <a href="/"> Política de Direito Autoral </a>
                 </div>
+                
                 <div className="faq-container">
                     <h1>FAQ</h1>
                     <div className="faq2-scroll">
