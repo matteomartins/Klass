@@ -7,8 +7,8 @@ class ClassesSchema extends Schema {
   up () {
     this.create('classes', (table) => {
       table.increments()
-      table.integer('group_id').notNullable()
-        .unsigned().references('id').inTable('groups')
+      table.string('group_id', 25).notNullable()
+        .references('id').inTable('groups')
         .onDelete('CASCADE').onUpdate('CASCADE')
       table.integer('subject_id').notNullable()
         .unsigned().references('id').inTable('subjects')

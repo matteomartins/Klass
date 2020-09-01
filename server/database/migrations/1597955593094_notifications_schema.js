@@ -7,7 +7,7 @@ class NotificationsSchema extends Schema {
   up () {
     this.create('notifications', (table) => {
       table.increments()
-      table.string('school_id', 15).notNullable()
+      table.string('school_id', 25).notNullable()
         .references('id').inTable('schools')
         .onDelete('CASCADE').onUpdate('CASCADE')
       table.integer('user_id').notNullable()

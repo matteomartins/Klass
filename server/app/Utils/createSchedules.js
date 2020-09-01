@@ -53,5 +53,37 @@ module.exports={
     while(s_end < total)
 
     return schedules;
+  },
+
+  Intervals: function Intervals(schedules){
+    const {convertHourToMinutes, convertMinutesToHour} = require('./convertHourToMinutes.js')
+
+    //array que guarda os intervalos
+    var intervals = [];
+
+    //final de um intervalo
+    const {start, end} = schedules[0];
+    var i_end = convertHourToMinutes(end);
+    var d_end = 0;
+    var d_start = convertMinutesToHour(convertHourToMinutes(start));
+    const class_duration = i_end - convertHourToMinutes(start);
+
+    schedules.map(({start, end})=>{
+      start = convertHourToMinutes(start);
+      end = convertHourToMinutes(end);
+
+      if(start > i_end){
+        const interval = {
+          'start': convertMinutesToHour(i_end),
+          'end': convertMinutesToHour(start)
+        }
+        intervals.push(interval)
+      }
+
+      i_end = end;
+      d_end = convertMinutesToHour(end)
+    })
+
+    return {intervals, class_duration, d_start, d_end};
   }
 }

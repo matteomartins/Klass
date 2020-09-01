@@ -5,7 +5,7 @@ const Turn = use('App/Models/Turn')
 const Schedule = use('App/Models/Schedule')
 const Database = use('Database')
 
-const {Schedules} = require('../../Utils/createSchedules.js')
+const {Schedules, Intervals} = require('../../Utils/createSchedules.js')
 
 class TurnController {
   async create({request, response, auth}){
@@ -117,12 +117,74 @@ class TurnController {
 
   async index({ request }) {
     const turn_id = request.params.id_turn;
+    const turns = await Turn.query().where('id', turn_id).fetch();
 
-    const turn = await Turn.query().where('id', turn_id).fetch();
-    const schedules = await Schedule.query().where({turn_id}).fetch();
+    const {name, period, flg_sunday,flg_monday,flg_tuesday,flg_wednesday,flg_thursday,flg_friday,flg_saturday} = turns.rows[0];
 
-    return { turn, schedules }
+    const days = [flg_sunday,flg_monday,flg_tuesday,flg_wednesday,flg_thursday,flg_friday,flg_saturday]
+
+    var week_days = days.map((value, index)=>{
+      if (value == 1)
+        return index;
+    })
+
+    week_days = week_days.filter((value)=>{
+      return value != undefined
+    })
+
+    const schedules = await Schedule.query().where({turn_id, day: week_days[0]}).fetch();
+    const {intervals, d_start, d_end, class_duration} = Intervals(schedules.rows);
+
+    const turn = {
+      'name': name,
+      'period': period,
+      'start': d_start,
+      'end': d_end,
+      'class_duration': class_duration,
+      'intervals': intervals,
+      'week_days': week_days
+    }
+
+    return turn
 }
+
+  async generalIndex({request}){
+    const idSchool = request.params.id_school;
+    const listTurns = await Turn.query().where('school_id', idSchool).fetch();
+
+    var turns = []
+
+    await Promise.all(listTurns.rows.map(async ({id, name, period, flg_sunday,flg_monday,flg_tuesday,flg_wednesday,flg_thursday,flg_friday,flg_saturday}, index)=>{
+      const days = [flg_sunday,flg_monday,flg_tuesday,flg_wednesday,flg_thursday,flg_friday,flg_saturday]
+
+      var week_days = days.map((value, index)=>{
+        if (value == 1)
+          return index;
+      })
+
+      week_days = week_days.filter((value)=>{
+        return value != undefined
+      })
+
+      const turn_id = id;
+      const schedules = await Schedule.query().where({turn_id, day: week_days[0]}).fetch();
+      const {intervals, d_start, d_end, class_duration} = Intervals(schedules.rows);
+
+      const turn = {
+        'name': name,
+        'period': period,
+        'start': d_start,
+        'end': d_end,
+        'class_duration': class_duration,
+        'intervals': intervals,
+        'week_days': week_days
+      }
+
+      turns.push(turn)
+    }))
+
+    return {turns}
+  }
 }
 
 module.exports = TurnController
