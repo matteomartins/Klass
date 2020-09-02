@@ -12,7 +12,7 @@ function School(){
                 <div>
                 <div className="school-header">
                     <div className="card-content">
-                        <ContentCard title="TS" text="" color="#0792A9" />
+                        <ContentCard small rounded title="P" text="Pedro F." color="#0792A9" />
                         <h1>Etec de Taboão Da Serra</h1>
                     </div>
                     <div className="info-container">   
