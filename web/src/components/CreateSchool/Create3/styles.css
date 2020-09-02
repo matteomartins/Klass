@@ -76,6 +76,19 @@
 
 }
 
+.creation-content .scroll-view {
+    overflow-y: scroll;
+    width: 95%;
+    height: 16rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.creation-content .scroll-view::-webkit-scrollbar {
+    display: none;
+}
+
 .creation-content .creation-cards {
     width: 90%;
     margin-top: 1.6rem;

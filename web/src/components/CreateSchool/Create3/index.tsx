@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import TruncatedContainer from '../../TruncatedContainer';
 
 import './styles.css';
@@ -10,19 +10,25 @@ interface Create3Props {
 }
 
 const Create3:React.FC<Create3Props> = ({turns, setTurns}) => {
+    const [name, setName] = useState('');
 
     function addTurn() {
-        setTurns([...turns, {name: "", text: ""}])
+        if(name.trim() !== '' && !turns.find(turn => turn.name.toLowerCase() === name.toLowerCase())) {
+            setTurns([...turns, {name: name, text: name}]);
+            setName('');
+        }
     }
-
     function removeTurn(name:string) {
-        const newTurns = turns;
-        const deleted = newTurns.find((turn) => turn.name === name);
+        let newTurns = turns;
+        const deleted = newTurns.find(deleted_turn => deleted_turn.name === name);
         const index = newTurns.indexOf(deleted);
-        newTurns.splice(index,1);
-        console.log(newTurns);
-        setTurns(newTurns);
-        console.log(turns);
+        newTurns.splice(index, 1);
+        setTurns([...newTurns]);
+    }
+    function handleKeyDown (e:any){
+        if (e.key === 'Enter') {
+            addTurn()
+        }
     }
 
     return (
@@ -37,17 +43,25 @@ const Create3:React.FC<Create3Props> = ({turns, setTurns}) => {
                         </div>
                         <div className="creation-content">
                             <div className="creation-input">
-                                <input type="text" placeholder="Novo Turno" />
+                                <input 
+                                    type="text" 
+                                    placeholder="Novo Turno" 
+                                    value={name} 
+                                    onChange={e => setName(e.target.value)}
+                                    onKeyDown={handleKeyDown}
+                                />
                                 <button onClick={()=> addTurn()}>+</button>
                             </div>
-                            <div className="creation-cards">
-                                {turns.map(({name, text}) => (
-                                    <div key={name} className="creation-card">
-                                        <input id={name} type="radio" name="turns" />
-                                        <label htmlFor="turn">{text}</label>
-                                        <button onClick={() => removeTurn(name)}><KaClose /></button>
-                                    </div>
-                                ))}
+                            <div className="scroll-view">
+                                <div className="creation-cards">
+                                    {turns.map(({name, text}) => (
+                                        <div key={name} className="creation-card">
+                                            <input id={name} type="radio" name="turns" />
+                                            <label htmlFor={name}>{text}</label>
+                                            <button onClick={() => removeTurn(name)}><KaClose /></button>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     </div>
