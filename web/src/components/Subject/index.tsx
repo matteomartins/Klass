@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { Link } from 'react-router-dom';
-
+import ContentCard from '../../components/ContentCard';
+import InputOutline from '../../components/InputOutline';
 import './styles.css';
 
 interface MenuProps {
@@ -27,16 +28,20 @@ const Menu:React.FC<MenuProps> = ({active, setActive}) => {
                 <div className="school-menu-container">
                 <div className="blur" onClick={()=> setActive(false)}></div>
                     <div className="school-menu-content" >
-                        <ul className="texts">
-                            <li>
-                                <Link className="texts" to="/create-school">Criar uma nova escola</Link>
-                            </li>
-                            <li>
-                                <Link className="texts" to="/enter-school">Entrar em uma nova escola</Link>
-                            </li>
-                        </ul>
+                        <div className="school-header">
+                            <div className="card-content">
+                                <ContentCard title="P" text="PORTUGUÊS" color="#0792A9" />
+                            </div>
+                            <div className="info-container">   
+                                <InputOutline text="Professores:" name="prof" value="Wallace C. Andrade" disabled />
+                                <InputOutline text="Alunos:" name="student" value="160" disabled />
+                                <InputOutline text="Matérias:" name="subject" value="18" disabled />
+                                <InputOutline text="Turnos:" name="turn" value="3" disabled />
+                            </div>
+                        </div>  
                     </div>
-                    </div>
+                    
+                </div>
                 </div>
         </CSSTransition>
     )

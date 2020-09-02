@@ -47,7 +47,7 @@ function FirstAccess(){
                 <SwitchTransition mode="out-in">
                     <CSSTransition
                     timeout={400}
-                    classNames="fade"
+                    classNames="slide"
                     key={step}
                     addEndListener={(node, done) => {
                         node.addEventListener("transitionend", done, false);

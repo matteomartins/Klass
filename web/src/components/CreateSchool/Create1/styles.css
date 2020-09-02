@@ -1,0 +1,43 @@
+.create-school-content .input-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    width: 90%;
+    max-width: 500px;
+}
+
+.create-school-content .input-container input,
+.create-school-content .input-container textarea,
+.create-school-content .input-container select {
+    width: 100%;
+    margin-top: 1rem;
+    background-color: transparent;
+    font-size: 1.6rem;
+    text-align: justify;
+    border: 2.5px solid var(--color-border-primary);
+    border-radius: 5px;
+    color: var(--color-text-secondary);
+}
+
+.create-school-content .input-container input {
+    height: 7vh;
+    max-height: 4.6rem;
+    padding: 1rem;
+}
+
+.create-school-content .input-container textarea {
+    height: 30vh;
+    max-height: 20rem;
+    padding: 1rem;
+}
+
+.create-school-content .input-container select {
+    height: 7vh;
+    max-height: 4.6rem;
+    padding: 1rem;
+    width: 100%;
+    max-width: 26rem;
+}

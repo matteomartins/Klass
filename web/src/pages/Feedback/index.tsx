@@ -13,8 +13,8 @@ function Feedback() {
                     <div className="message-container">
                         <h1>Envie um Feedback</h1>
                         <div className="input-container">
-                            <input type="text" id="input1" placeholder="Digite o Assunto"/>
-                            <textarea id="input2" placeholder="Digite seu Feedback"/>
+                            <input type="text" placeholder="Digite o Assunto"/>
+                            <textarea placeholder="Digite seu Feedback"/>
                         </div>
                     </div>
                 </div>

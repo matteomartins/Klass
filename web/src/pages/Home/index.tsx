@@ -4,6 +4,7 @@ import './styles.css';
 import SchoolMenu from '../../components/SchoolMenu';
 import {KaAddButton} from '../../assets/icons';
 import ContentCard from '../../components/ContentCard';
+import { Link } from 'react-router-dom';
 
 function Home(){
     const [active, setActive] = useState(false)
@@ -16,7 +17,7 @@ function Home(){
             </div>
             <div className="scroll-view">
                 <div className="school-cards-container">
-                    <h1>Etec de Taboão Da Serra </h1>
+                    <Link to="/school"><h1>Etec de Taboão Da Serra </h1></Link>
                     <div className="classes">
                         <ContentCard title="1A" text="1 ANO A" color="#0792A9" />
                         <ContentCard title="1B" text="1 ANO B" color="#0792A9" />
@@ -28,7 +29,7 @@ function Home(){
                     </div>
                 </div>
                 <div className="school-cards-container">
-                    <h1>Etec de Embu das Artes</h1>
+                    <Link to="/school"><h1>Etec de Embu das Artes</h1></Link>
                     <div className="classes">
                         <ContentCard title="1A" text="1 ANO A" color="#0792A9" />
                         <ContentCard title="1B" text="1 ANO B" color="#0792A9" />
