@@ -117,6 +117,7 @@ class TurnController {
 
   async index({ request }) {
     const turn_id = request.params.id_turn;
+    const turns = await Turn.query().where('id', turn_id).fetch();
 
     const {name, period, flg_sunday,flg_monday,flg_tuesday,flg_wednesday,flg_thursday,flg_friday,flg_saturday} = turns.rows[0];
 
