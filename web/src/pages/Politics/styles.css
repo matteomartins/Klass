@@ -21,46 +21,44 @@
     width: 100%;
 }
 
-.main-politics .politics-container .faq-container { 
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    width: 90%;
-    max-width: 330px;
+.main-politics .politics-container .scroll-container { 
     flex-direction: column;
-}
-
-.main-politics .politics-container .faq-container h1 {
-    color: #39729D;
-    font-size: 2.2rem;
-    margin-top: 1rem;
-}
-
-.main-politics .politics-container a {
-    color: var(--color-text-secondary);
-    margin-top: 1.8rem;
-    font-size: 1.8rem;
-}
-
-#text {
-    margin-left: 4rem;
-    margin-top: 1rem;
-}
-
-.main-politics .politics-container .faq2-scroll {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    position: relative;
-    width: 100%;
     overflow-y: scroll;
-    margin-top: 1rem;
-    height: 340px;
-    
+    width: 47%;
+    height: 360px;
+    margin-left: 1rem;
 }
 
-.main-politics .politics-container .faq2-scroll .classes {
+.main-politics .politics-container .scroll-container::-webkit-scrollbar { 
+    display: none;
+}
+
+#scroll-container1 {
+    margin-left: 5rem;
+}
+
+#scroll-container2 {
+    margin-left: -7rem;
+}
+
+.main-politics .politics-container .scroll-container .text-container {
+    margin-top: 1.5rem;
+    margin-left: 3rem;
+}
+
+.main-politics .politics-container .scroll-container .title-container a {
+    color: #39729D;
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+
+.main-politics .politics-container .scroll-container .text-container a {
+    color: var(--color-text-secondary);
+    font-size: 1.8rem;
+    margin-top: 5rem;
+}
+
+.main-politics .politics-container .text-container .classes {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
     width: 100%;
@@ -68,13 +66,35 @@
     margin: 2rem 0;
 }
 
-.main-politics .politics-container .faq2-scroll .classes article {
-    width: 13rem;
-    height: 13rem;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
+.main-politics .politics-container .text-container .classes .block {
+    width: 18.5rem;
+    height: 18.5rem;
     color: var(--color-text-primary);
     background:#39729D;
     border-radius: 25px;
 }
+
+
+#text-faq, #text-priv, #text-cook, #text-sesion, #text-dir {
+    display: none;
+}
+
+
+.main-politics .politics-container .scroll-container .FAQ:hover #text-faq { 
+    display: block;
+}
+.main-politics .politics-container .scroll-container .PRIV:hover #text-priv { 
+    display: block;
+}
+.main-politics .politics-container .scroll-container .COOK:hover #text-cook { 
+    display: block;
+}
+.main-politics .politics-container .scroll-container .SESION:hover #text-sesion { 
+    display: block;
+}
+.main-politics .politics-container .scroll-container .DIR:hover #text-dir { 
+    display: block;
+}
+
+
+
