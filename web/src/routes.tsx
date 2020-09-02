@@ -58,17 +58,17 @@ export default function Routes() {
                 <RouteWithCalendar path="/drag" exact component={Drag} />
                 <RouteWithCalendar path="/profile" exact component={Profile} />
                 <RouteWithCalendar path="/home" exact component={Home} />
-                <RouteWithCalendar path="/feedback" exact component={Feedback} />
-                <RouteWithCalendar path="/help" exact component={Help}/>
-                <RouteWithCalendar path="/premium" exact component={Premium}/>
-                <RouteWithCalendar path="/notifications" exact component={Notifications}/>
-                <RouteWithCalendar path="/school" component={School} />
+                <RouteWithInfo path="/help" exact component={Help}/>
+                <RouteWithInfo path="/premium" exact component={Premium}/>
+                <RouteWithInfo path="/notifications" exact component={Notifications}/>
+                <RouteWithInfo path="/feedback" exact component={Feedback} />
+                <RouteWithInfo path="/politics" exact component={Politics} />
+                <RouteWithCalendar path="/school" exact component={School} />
                 <RouteWithCalendar path="/teachers" exact component={Teachers} />
                 <RouteWithCalendar path="/class" exact component={Class} />
                 <RouteWithInfo path="/feedback" exact component={Feedback} />
                 <RouteWithInfo path="/politics" exact component={Politics} />
                 <RouteWithInfo path="/create-school" exact component={CreateSchool} />
-               
             </Switch>
         </BrowserRouter>
     )

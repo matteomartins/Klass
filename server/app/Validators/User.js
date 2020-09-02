@@ -6,7 +6,7 @@ class User {
     return {
       email: 'required|email|unique:users',
       password: 'required',
-      username: 'required',
+      name: 'required',
     }
   }
 
@@ -16,7 +16,7 @@ class User {
       'email.email': 'Você precisa inserir um email válido.',
       'email.unique': 'Este email já está cadastrado.',
       'password.required': 'Você deve inserir uma senha.',
-      'username.required': 'Você deve inserir o nome de usuário.'
+      'name.required': 'Você deve inserir o nome de usuário.'
 
     }
   }
