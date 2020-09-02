@@ -63,10 +63,10 @@ export default function Routes() {
                 <RouteWithCalendar path="/premium" exact component={Premium}/>
                 <RouteWithCalendar path="/notifications" exact component={Notifications}/>
                 <RouteWithCalendar path="/school" component={School} />
-                <RouteWithInfo path="/feedback" exact component={Feedback} />
-                <RouteWithInfo path="/politics" exact component={Politics} />
                 <RouteWithCalendar path="/teachers" exact component={Teachers} />
                 <RouteWithCalendar path="/class" exact component={Class} />
+                <RouteWithInfo path="/feedback" exact component={Feedback} />
+                <RouteWithInfo path="/politics" exact component={Politics} />
                 <RouteWithInfo path="/create-school" exact component={CreateSchool} />
                
             </Switch>
