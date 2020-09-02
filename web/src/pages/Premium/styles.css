@@ -6,6 +6,7 @@
     width: 95vw;
     max-width: 960px;
     height: 87vh;
+    max-height: 600px;
 }
 
 .main-premium .premium-container {

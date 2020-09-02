@@ -1,0 +1,20 @@
+.input-outline-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.7rem;
+}
+
+.input-outline-container label {
+    color: var(--color-text-secondary);
+    font-weight: bold;
+    font-size: 1.6rem;
+}
+
+.input-outline-container input {
+    background: none;
+    border: none;
+    color: var(--color-text-secondary);
+    font-size: 1.3rem;
+    text-align: right;
+}
