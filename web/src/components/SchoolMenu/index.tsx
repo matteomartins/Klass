@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
-
-import './styles.css'
 import { CSSTransition } from 'react-transition-group';
+import { Link } from 'react-router-dom';
+
+import './styles.css';
 
 interface MenuProps {
     active: boolean;
@@ -28,10 +29,10 @@ const Menu:React.FC<MenuProps> = ({active, setActive}) => {
                     <div className="school-menu-content" >
                         <ul className="texts">
                             <li>
-                                <a className="texts" href="./">Criar uma nova escola</a>
+                                <Link className="texts" to="/create-school">Criar uma nova escola</Link>
                             </li>
                             <li>
-                                <a className="texts" href="./">Entrar em uma nova escola</a>
+                                <Link className="texts" to="/enter-school">Entrar em uma nova escola</Link>
                             </li>
                         </ul>
                     </div>

@@ -4,103 +4,74 @@
     padding: 3rem 4rem;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    width: 70%;
+    justify-content: center;
+    width: 90%;
     max-width: 960px;
     height: 75vh;
-    max-height: 700px;
+    max-height: 600px;
 }
 
-.school-container .school-photo{
+.school-container .school-header {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
 
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 10px;
+.school-container .school-header .card-content {
+    display: flex;
+    align-items: flex-end;
+}
+
+.school-container .school-header .card-content > h1 {
+    margin-left: 1.4rem;
+    font-size: 2.2rem;
     color: #39729D;
 }
 
-.school-container .school-photo .input-container2 .input-items2 p{
-    font-size: 15px;
+.school-container .school-header .card-content .content-card-container h1 {
+    margin-bottom: 0;
+}
+.school-container .school-header .card-content .content-card-container span {
+    display: none;
 }
 
-.school-container .school-name{
-    margin-top: 100px;
-    margin-left: 20px;
+.school-container .info-container {
+    width: 25rem;
 }
 
-.school-container .school-container .scroll-view {
+.school-container .scroll-view {
     overflow-y: scroll;
     height: 470px;
     padding-right: 1.7rem;
     margin-right: 0rem;
-
 }
 
-.school-container .input-container2 .input-items2 {
+.school-container .description {
     display: flex;
-    width: 55%;
-    margin-top: 10px;
-    margin-left: 90px;
-    color: var(--color-text-secondary);  
-}
-
-.school-container .input-container2 {
-    margin: 0;
-    padding: 0;
-    width: 50%;
-}
-
-.school-container .input-container2 .input-items2 input {
-    border: none;
-    background-color: transparent;
-    
-    width: 350px;
-    color: var(--color-text-secondary);
-    font-size: 1.4rem;
-    text-align: end;
-}
-
-.school-container .description{
-    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    flex-direction: column;
     color: var(--color-text-secondary);
     font-family: Roboto;
     font-style: normal;
-    margin-left:30px ;
-    margin-top:5px ;
+    margin: 1.7rem 0;
 }
 
-.school-container .description .description-text h1{
-    font-size:18px;
-    margin-bottom:22px;
-    margin-top:5px;
+.school-container .description h1 {
+    font-size: 1.8rem;
+    line-height: 2.8rem;
 }
 
-.school-container .description .description-text p{
-    font-size:13px;
-    margin-bottom:18px;
-    margin-left: 50px;
+.school-container .description p {
+    font-size: 1.3rem;
+    line-height: 1.8rem;
     text-align: justify;
-    text-indent: 10px;
+    text-indent: 2rem;
+    margin: 1rem;
 }
 
-.school-container .input-items3{
-    display: flex;
-    align-items: center;  
-}
-
-.school-container .input-items3 input {
-    border: none;
-    background-color: transparent;
-    font-size: 16px;
-    margin-left:6px;
-    margin-bottom:14px;
-    font-weight: bold;
-    color: var(--color-text-secondary);
-}
-
-.school-container .school2-container {
+.school-container .school-cards-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -111,13 +82,13 @@
     
 }
 
-.school-container .school2-container > h1 {
+.school-container .school-cards-container > h1 {
     color: #39729D;
     align-self: flex-start;
     flex-wrap: wrap;
 }
 
-.school-container .school2-container .classes {
+.school-container .school-cards-container .cards {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
     width: 100%;
@@ -125,14 +96,34 @@
     margin: 4rem 0;
 }
 
+@media(max-width: 700px) {
+    .school-container {
+        padding: 2.4rem 1.8rem;
+    }
+    .school-container .school-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .school-container .school-header .info-container {
+        margin-top: 2.3rem;
+    }
+}
+
 @media(max-width: 425px) {
-    .school-container .school2-container .classes {
+    .school-container .description {
+        align-items: center;
+    }
+    .school-container .school-header {
+        flex-direction: column;
+        align-items: center;
+    }
+    .school-container .school-cards-container .cards {
         grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
     }
 }
 
 @media(max-width: 360px) {
-    .school-container .school2-container .classes {
+    .school-container .school-cards-container .cards {
         grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
     }
 }

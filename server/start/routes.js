@@ -41,6 +41,7 @@ Route.put('/schools/:id_school/courses/:id_course', 'CourseController.update').v
 Route.post('/schools/:id_school/turns', 'TurnController.create').validator('Turn').middleware(['VerifyUserAndSchool']);
 Route.delete('/schools/:id_school/turns/:id_turn', 'TurnController.delete').middleware(['VerifyUserAndSchool']);
 Route.get('/schools/:id_school/turns/:id_turn', 'TurnController.index').middleware(['VerifyUserAndSchool']);
+Route.get('/schools/:id_school/turns/', 'TurnController.generalIndex').middleware(['VerifyUserAndSchool']);
 Route.put('/schools/:id_school/turns/:id_turn', 'TurnController.update').validator('Turn').middleware(['VerifyUserAndSchool']);
 
 //Groups
@@ -54,4 +55,11 @@ Route.put('/schools/:id_school/groups/:id_group', 'GroupController.update').vali
 Route.post('/schools/:id_school/subjects', 'SubjectController.create').validator('Subject').middleware(['VerifyUserAndSchool']);
 Route.delete('/schools/:id_school/subjects/:id_subject', 'SubjectController.delete').middleware(['VerifyUserAndSchool']);
 Route.get('/schools/:id_school/subjects/:id_subject', 'SubjectController.index').middleware(['VerifyUserAndSchool']);
+Route.get('/schools/:id_school/subjects/', 'SubjectController.generalIndex').middleware(['VerifyUserAndSchool']);
 Route.put('/schools/:id_school/subjects/:id_subject', 'SubjectController.update').validator('Subject').middleware(['VerifyUserAndSchool']);
+
+//Home
+Route.get('/home', 'HomeController.index');
+
+//Dashboard
+Route.get('/dashboard', 'DashboardController.index');

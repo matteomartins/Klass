@@ -1,0 +1,25 @@
+.create-school-content .icons-container {
+    width: 100%;
+    display: flex;
+    height: 37rem;
+}
+
+.create-school-content .icons-container .scroll-view {
+    overflow-y: scroll;
+    flex: 3;
+
+}
+
+.create-school-content .icons-container .icons-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+    grid-gap: 3rem 0;
+    margin: 4rem 0;
+}
+
+.create-school-content .icons-container .icon-description {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

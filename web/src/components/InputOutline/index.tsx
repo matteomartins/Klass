@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { InputHTMLAttributes } from 'react';
 
-const InputOutline = () => {
+import './styles.css';
+
+interface InputOutlineProps extends InputHTMLAttributes<HTMLInputElement> {
+    text: string;
+    name: string;
+}
+
+const InputOutline:React.FC<InputOutlineProps> = ({text, name, ...rest}) => {
     return (
-        <div>
-            
+        <div className="input-outline-container">
+            <label htmlFor={name}>{text}</label>
+            <input id={name} {...rest} />
         </div>
     )
 }
