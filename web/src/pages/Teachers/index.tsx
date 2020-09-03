@@ -8,11 +8,11 @@ import { Link } from 'react-router-dom';
 function Home(){
     const [active, setActive] = useState(false)
     return(
-        <div className="home-container">
-            <div className="scroll-view" onClick={()=>setActive(true)}>
-                <div className="school-cards-container">
+        <div className="home-container5">
+            <div className="scroll-view5" onClick={()=>setActive(true)}>
+                <div className="school-cards-container5">
                     <Link to="/school"><h1>Administrativo</h1></Link>
-                    <div className="classes">
+                    <div className="classes5">
                         <ContentCard small rounded title="P" text="Pedro F." color="#0792A9" />
                         <ContentCard small rounded title="M" text="Matteo G." color="#0792A9" />
                         <ContentCard small rounded title="F" text="Furniqueiro S." color="#F68237" />
@@ -21,9 +21,9 @@ function Home(){
                         <ContentCard small rounded title="M" text="Manuela M." color="#B7B345" />
                     </div>
                 </div>
-                <div className="school-cards-container">
+                <div className="school-cards-container5">
                     <Link to="/school"><h1>Professores</h1></Link>
-                    <div className="classes">
+                    <div className="classes5">
                         <ContentCard small rounded title="P" text="Pedro F." color="#0792A9" />
                         <ContentCard small rounded title="M" text="Matteo G." color="#0792A9" />
                         <ContentCard small rounded title="F" text="Furniqueiro S." color="#F68237" />

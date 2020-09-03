@@ -8,11 +8,11 @@ import { Link } from 'react-router-dom';
 function Home(){
     const [active, setActive] = useState(false)
     return(
-        <div className="home-container">
-            <div className="scroll-view" onClick={()=>setActive(true)}>
-                <div className="school-cards-container">
+        <div className="home-container4">
+            <div className="scroll-view4" onClick={()=>setActive(true)}>
+                <div className="school-cards-container4">
                     <Link to="/school"><h1>1° ANO A</h1></Link>
-                    <div className="classes">
+                    <div className="classes4">
                         <ContentCard title="P" text="PORTUGUÊS" color="#0792A9" />
                         <ContentCard title="P" text="PORTUGUÊS" color="#0792A9" />
                         <ContentCard title="P" text="PORTUGUÊS" color="#0792A9" />
