@@ -12,7 +12,6 @@ class ProfessorsSchema extends Schema {
         .onDelete('CASCADE').onUpdate('CASCADE')
       table.string('name', 45).notNullable()
       table.string('email', 70).notNullable()
-      table.date('hiring_date').notNullable()
       table.string('titulation', 30)
       table.integer('prority')
       table.timestamps()
