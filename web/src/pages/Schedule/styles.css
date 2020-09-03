@@ -1,0 +1,40 @@
+.main-politics {
+    display:flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 95vw;
+    max-width: 960px;
+    height: 87vh;
+    max-height: 600px;
+}
+
+.main-politics .select1-container, .main-politics .select2-container, .main-politics .select3-container {
+    position: relative;
+    font-family: Arial;
+}
+
+.main-politics .select1-container select,
+.main-politics .select2-container select,
+.main-politics .select3-container select {
+    background-color: var(--color-primary);
+    font-size: 2rem;
+    color: #CFCFCF;
+    border-radius: 0.5vw;
+    margin-left: 1rem;
+    align-items: center;
+}
+
+.main-politics .select1-container select {
+    height: 55px;
+    width: 350px;
+}
+
+.main-politics .select2-container select {
+    height: 55px;
+    width: 300px;
+}
+
+.main-politics .select3-container select {
+    height: 55px;
+    width: 300px;
+}
