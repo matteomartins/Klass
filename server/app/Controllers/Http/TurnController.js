@@ -57,11 +57,10 @@ class TurnController {
   }
 
   async delete({request, response}){
-    const idSchool = request.params.id_school;
     const idturn = request.params.id_turn;
 
     await Database.table('schedules').where('turn_id', idturn).delete();
-    await Database.table('turns').where('school_id', idSchool).delete();
+    await Database.table('turns').where('id', idturn).delete();
 
     return response.status(200).send({ message: "Turno apagado com sucesso" })
   }
@@ -69,7 +68,7 @@ class TurnController {
   async update({request, response}){
     const turn_id = request.params.id_turn;
 
-    var schedules = [];
+    let schedules = [];
 
     const {name, period, start, end, class_duration, intervals, week_days} = request.all();
 
@@ -152,7 +151,7 @@ class TurnController {
     const idSchool = request.params.id_school;
     const listTurns = await Turn.query().where('school_id', idSchool).fetch();
 
-    var turns = []
+    let turns = []
 
     await Promise.all(listTurns.rows.map(async ({id, name, period, flg_sunday,flg_monday,flg_tuesday,flg_wednesday,flg_thursday,flg_friday,flg_saturday}, index)=>{
       const days = [flg_sunday,flg_monday,flg_tuesday,flg_wednesday,flg_thursday,flg_friday,flg_saturday]
