@@ -1,35 +1,24 @@
 import React, { useState } from 'react'
 
 import './styles.css';
+import InputCheckbox from '../InputCheckbox';
 
-interface InputWithButtonProps {
-    handleNew: Function;
-
+interface InputCheckboxGroupProps {
 }
 
-const InputWithButton:React.FC<InputWithButtonProps> = ({handleNew}) => {
-    
-    const [name, setName] = useState('');
-
-    function handleKeyDown (e:any){
-        if (e.key === 'Enter') {
-            handleNew(name);
-            setName('');
-        }
-    }
+const InputCheckboxGroup:React.FC<InputCheckboxGroupProps> = () => {
 
     return (
-        <div className="creation-input-with-button">
-            <input 
-                type="text" 
-                placeholder="Novo Turno" 
-                value={name} 
-                onChange={e => setName(e.target.value)}
-                onKeyDown={handleKeyDown}
-            />
-            <button onClick={()=> {handleNew(name); setName('')}}>+</button>
+        <div className="creation-input-checkbox-group">
+            <InputCheckbox name="0" text="S" />
+            <InputCheckbox name="1" text="T" />
+            <InputCheckbox name="2" text="Q" />
+            <InputCheckbox name="3" text="Q" />
+            <InputCheckbox name="4" text="S" />
+            <InputCheckbox name="5" text="S" />
+            <InputCheckbox name="6" text="D" />
         </div>
     )
 }
 
-export default InputWithButton;
+export default InputCheckboxGroup;

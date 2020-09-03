@@ -1,0 +1,31 @@
+.creation-list-container {
+    width: 90%;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.creation-list-container::-webkit-scrollbar {
+    display: none;
+}
+
+.creation-list-container li {
+    list-style: none;
+    text-align: center;
+    height: 4rem;
+    font-size: 1.4rem;
+    background-color: var(--color-background);
+    color: var(--color-text-secondary);
+    margin: 1px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.creation-list-container li:first-child {
+    border-radius: 2rem 2rem 0 0;
+}
+
+.creation-list-container li:last-child {
+    border-radius: 0 0 2rem 2rem;
+    margin-bottom: 0;
+}

@@ -2,34 +2,23 @@ import React, { useState } from 'react'
 
 import './styles.css';
 
-interface InputWithButtonProps {
-    handleNew: Function;
-
+interface InputCheckboxProps {
+    text: string;
+    name: string;
 }
 
-const InputWithButton:React.FC<InputWithButtonProps> = ({handleNew}) => {
-    
-    const [name, setName] = useState('');
-
-    function handleKeyDown (e:any){
-        if (e.key === 'Enter') {
-            handleNew(name);
-            setName('');
-        }
-    }
+const InputCheckbox:React.FC<InputCheckboxProps> = ({text, name}) => {
 
     return (
-        <div className="creation-input-with-button">
-            <input 
-                type="text" 
-                placeholder="Novo Turno" 
-                value={name} 
-                onChange={e => setName(e.target.value)}
-                onKeyDown={handleKeyDown}
+        <div className="creation-input-checkbox">
+            <input
+                type="checkbox"
+                value={name}
+                id={name}
             />
-            <button onClick={()=> {handleNew(name); setName('')}}>+</button>
+            <label htmlFor={name}>{text}</label>
         </div>
     )
 }
 
-export default InputWithButton;
+export default InputCheckbox;

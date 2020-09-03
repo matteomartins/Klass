@@ -4,10 +4,10 @@ import './styles.css';
 
 interface InputWithButtonProps {
     handleNew: Function;
-
+    placeholder: string;
 }
 
-const InputWithButton:React.FC<InputWithButtonProps> = ({handleNew}) => {
+const InputWithButton:React.FC<InputWithButtonProps> = ({handleNew, placeholder}) => {
     
     const [name, setName] = useState('');
 
@@ -22,7 +22,7 @@ const InputWithButton:React.FC<InputWithButtonProps> = ({handleNew}) => {
         <div className="creation-input-with-button">
             <input 
                 type="text" 
-                placeholder="Novo Turno" 
+                placeholder={placeholder}
                 value={name} 
                 onChange={e => setName(e.target.value)}
                 onKeyDown={handleKeyDown}

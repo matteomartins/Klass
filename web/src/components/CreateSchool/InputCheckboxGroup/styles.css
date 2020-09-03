@@ -1,31 +1,7 @@
 
-.creation-input-with-button {
+.creation-input-checkbox-group {
     display: flex;
-    align-items: center;
+    width: 80%;
     justify-content: space-between;
-    width: 90%;
-}
-
-.creation-input-with-button input {
-    height: 4.2rem;
-    width: 13.2rem;
-    border-radius: 2rem;
-    padding: 1rem;
-    border: none;
-    background: var(--color-background);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-}
-
-.creation-input-with-button button {
-    border: none;
-    background: var(--color-background);
-    border-radius: 2rem;
-    font-size: 2.4rem;
-    font-weight: 400;
-    width: 4rem;
-    height: 4rem;
-    cursor: pointer;
-    line-height: 2rem;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-bottom: 1rem;
 }

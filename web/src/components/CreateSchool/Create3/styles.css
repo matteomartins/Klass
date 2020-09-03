@@ -35,20 +35,21 @@
 
 .creation-group .creation-container .creation-content {
     background: var(--color-primary);
-    height: 90%;
+    height: 28rem;
     width: 20rem;
     border-radius: 2.4rem;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    padding: 2rem 0;
+
 }
 
 
 .creation-content .scroll-view {
     overflow-y: scroll;
     width: 95%;
-    height: 16rem;
     display: flex;
     align-items: flex-start;
     justify-content: center;

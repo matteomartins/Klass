@@ -9,7 +9,7 @@ interface InfoCardProps {
     text: string;
 }
 
-const InfoCardButton:React.FC<InfoCardProps> = ({handleDelete, name, text}) => {
+const InfoCard:React.FC<InfoCardProps> = ({handleDelete, name, text}) => {
     
     return (
         <div key={name} className="creation-card">
@@ -19,4 +19,4 @@ const InfoCardButton:React.FC<InfoCardProps> = ({handleDelete, name, text}) => {
     )
 }
 
-export default InfoCardButton;
+export default InfoCard;

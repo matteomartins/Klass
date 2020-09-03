@@ -7,10 +7,11 @@ import InputWithButton from '../InputWithButton';
 import InfoCard from '../InfoCard';
 import Input from '../Input';
 import InfoCardButton from '../InfoCardButton';
+import InputCheckbox from '../InputCheckbox';
+import InputCheckboxGroup from '../InputCheckboxGroup';
+import List from '../List';
 
 interface Create3Props {
-    turns: Array<any>;
-    setTurns: Function;
 }
 
 interface IntervalProps {
@@ -18,9 +19,10 @@ interface IntervalProps {
     text: string;
 }
 
-const Create3:React.FC<Create3Props> = ({turns, setTurns}) => {
+const Create3:React.FC<Create3Props> = () => {
     const intervalsDefault:Array<IntervalProps> = [];
-    const [intervals, setIntervals] = useState(intervalsDefault)
+    const [intervals, setIntervals] = useState(intervalsDefault);
+    const [turns, setTurns] = useState(intervalsDefault);
 
     function addTurn(name:string) {
         if(name.trim() !== '' && !turns.find(turn => turn.name.toLowerCase() === name.toLowerCase())) {
@@ -62,11 +64,11 @@ const Create3:React.FC<Create3Props> = ({turns, setTurns}) => {
                             <KaArrow size={18} />
                         </div>
                         <div className="creation-content">
-                            <InputWithButton handleNew={addTurn} />
+                            <InputWithButton handleNew={addTurn} placeholder="Novo Turno" />
                             <div className="scroll-view">
                                 <div className="creation-cards">
                                     {turns.map(({name, text}) => (
-                                        <InfoCardButton handleDelete={removeTurn} name={name} text={text} />
+                                        <InfoCardButton handleDelete={removeTurn} name={name} text={text} group="turns" />
                                     ))}
                                 </div>
                             </div>
@@ -80,20 +82,14 @@ const Create3:React.FC<Create3Props> = ({turns, setTurns}) => {
                         <div className="creation-content">
 							<Input name="" placeHolder="Horário" />
 							<Input name="" placeHolder="Duração da Aula" />
-							<div>
-								<input type="checkbox" value="S" />
-								<input type="checkbox" value="T" />
-								<input type="checkbox" value="Q" />
-								<input type="checkbox" value="Q" />
-								<input type="checkbox" value="S" />
-								<input type="checkbox" value="S" />
-								<input type="checkbox" value="D" />
-							</div>
-                            <InputWithButton handleNew={addInterval} />
-							<div className="creation-cards">
+                            <InputCheckboxGroup />
+                            <InputWithButton handleNew={addInterval} placeholder="Novo Intervalo" />
+                            <div className="scroll-view">
+                                <div className="creation-cards">
                                     {intervals.map(({name, text}) => (
                                         <InfoCard handleDelete={removeInterval} name={name} text={text} />
                                     ))}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -103,7 +99,7 @@ const Create3:React.FC<Create3Props> = ({turns, setTurns}) => {
                             <KaArrow size={18} />
                         </div>
                         <div className="creation-content">
-                            
+                            <List />
                         </div>
                     </div>
                 </div>
