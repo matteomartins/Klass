@@ -12,9 +12,9 @@ const Chance = use('chance').Chance()
 
 test('validate create user', async ({ assert, client }) => {
   const user = {
-    nomeUsuario: Chance.username(),
-    email: Chance.email(),
-    password: Chance.string()
+    "name": Chance.username(),
+    "email": Chance.email(),
+    "password": Chance.string()
   };
 
   const response = await client.post('/users').send(user).end();
@@ -25,7 +25,7 @@ test('validate create user', async ({ assert, client }) => {
 
 test('validate create user validator', async ({ assert, client }) => {
   const user = {
-    "nomeUsuario": "Vinicius Floriano",
+    "name": "Vinicius Floriano",
     "emai": "viniciusfloriano@gmail.com",
     "password": "123456"
   }
@@ -38,7 +38,7 @@ test('validate create user validator', async ({ assert, client }) => {
 
 test('validate edit user', async ({ assert, client }) => {
   const newUserData = {
-    nomeUsuario: Chance.username(),
+    name: Chance.username(),
     email: Chance.email(),
     password: Chance.string()
   };
@@ -61,7 +61,7 @@ test('validate list user', async ({ assert, client }) => {
 
 test('validate session user', async ({ assert, client }) => {
   const user = {
-    nomeUsuario: Chance.username(),
+    name: Chance.username(),
     email: Chance.email(),
     password: Chance.string()
   };

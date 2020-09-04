@@ -11,9 +11,6 @@ class AvailableDaysSchema extends Schema {
         .unsigned().references('id').inTable('professors')
         .onDelete('CASCADE').onUpdate('CASCADE')
       table.integer('day', 1).notNullable()
-      table.time('start').notNullable()
-      table.time('end').notNullable()
-      table.timestamps()
     })
   }
 
