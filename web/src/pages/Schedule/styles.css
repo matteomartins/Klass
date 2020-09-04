@@ -57,6 +57,7 @@
     max-width: 960px;
     height: 75vh;
     max-height: 400px;
+
 }
 
 .main-politics .container .schedule-container::-webkit-scrollbar { 
@@ -64,25 +65,67 @@
 }
 
 
- table {
+.main-politics .container .schedule-container table {
     font-size: 2rem;
     border-radius: 1rem;
     border-collapse: collapse;
     text-align: center;
     width: 100%;
     color: #CFCFCF;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-style: hidden;
 }
 
 
-th {
-    border: 1px solid #CFCFCF;
+.main-politics .container .schedule-container th {
+    border-radius: 10px;
     height: 45px;
 }
 
-td {
-    border: 1px solid #CFCFCF;
+.main-politics .container .schedule-container th span {
+    display: block;
+    border: 1px solid white;
+    font-size: 2rem;
+    line-height: 2.8rem;
+}
+
+.main-politics .container .schedule-container th:nth-child(2) span {
+    border-radius: 1rem 0 0 1rem;
+}
+
+.main-politics .container .schedule-container th:last-child span {
+    border-radius: 0 1rem 1rem 0;
+}
+
+.main-politics .container .schedule-container td span {
+    display: block;
+    height: 100%;
+    width: 100%;
+    border: 1px solid white;
+}
+
+.main-politics .container .schedule-container tr:first-child td:nth-child(2) span {
+    border-radius: 1rem 0 0 0;
+}
+
+.main-politics .container .schedule-container tr:first-child td:last-child span {
+    border-radius: 0 1rem 0 0;
+}
+
+.main-politics .container .schedule-container tr:last-child td:nth-child(2) span {
+    border-radius: 0 0 0 1rem;
+}
+
+.main-politics .container .schedule-container tr:last-child td:last-child span {
+    border-radius: 0 0 1rem 0;
+}
+
+.main-politics .container .schedule-container td {
     height: 50px;
     border-radius: 10px;
+    margin-bottom: 1rem;
+    width: 2rem;
 }
 
 #hora{
