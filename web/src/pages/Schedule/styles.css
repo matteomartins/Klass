@@ -8,33 +8,83 @@
     max-height: 600px;
 }
 
-.main-politics .select1-container, .main-politics .select2-container, .main-politics .select3-container {
-    position: relative;
-    font-family: Arial;
+.main-politics .container {
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
 }
 
-.main-politics .select1-container select,
-.main-politics .select2-container select,
-.main-politics .select3-container select {
+.main-politics .container .select-container {
+    display: flex;
+    margin-top: 3rem;
+    justify-content: flex-end;
+}
+
+.main-politics .container .select-container .select1 select,
+.main-politics .container .select-container .select2 select,
+.main-politics .container .select-container .select3 select {
     background-color: var(--color-primary);
+    box-shadow: 0px 5px 20px rgba(38, 39, 56, 0.45);
+    border: none;
+    border-radius: .5rem;
     font-size: 2rem;
     color: #CFCFCF;
-    border-radius: 0.5vw;
-    margin-left: 1rem;
+    margin-left: 1.5rem;
     align-items: center;
+    padding: 13px 20px 13px 25px;
+    text-decoration: none;
+    cursor: pointer;
 }
 
-.main-politics .select1-container select {
+.main-politics .container .select-container .select1 select {
     height: 55px;
     width: 350px;
 }
 
-.main-politics .select2-container select {
+.main-politics .container .select-container .select2 select,
+.main-politics .container .select-container .select3 select {
     height: 55px;
-    width: 300px;
+    width: 250px;
 }
 
-.main-politics .select3-container select {
-    height: 55px;
-    width: 300px;
+.main-politics .container .schedule-container {
+    margin-top: 4rem;
+    flex-direction: column;
+    overflow-y: scroll;
+    
+    padding: 3rem 4rem;
+    max-width: 960px;
+    height: 75vh;
+    max-height: 400px;
+}
+
+.main-politics .container .schedule-container::-webkit-scrollbar { 
+    display: none;
+}
+
+
+ table {
+    font-size: 2rem;
+    border-radius: 1rem;
+    border-collapse: collapse;
+    text-align: center;
+    width: 100%;
+    color: #CFCFCF;
+}
+
+
+th {
+    border: 1px solid #CFCFCF;
+    height: 45px;
+}
+
+td {
+    border: 1px solid #CFCFCF;
+    height: 50px;
+    border-radius: 10px;
+}
+
+#hora{
+    border: none;
 }
