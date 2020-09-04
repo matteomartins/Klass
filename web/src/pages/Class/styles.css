@@ -1,4 +1,4 @@
-.home-container {
+.home-container4 {
     background: var(--color-background);
     border-radius: 3.4rem;
     padding: 3rem 4rem;
@@ -11,7 +11,7 @@
     max-height: 600px;
 }
 
-.home-container .scroll-view {
+.home-container4 .scroll-view4 {
     overflow-y: scroll;
     height: 470px;
     padding-right: 1.7rem;
@@ -19,18 +19,14 @@
     margin-top: 1rem;
 }
 
-.home-container .header-home {
+.home-container4 .header-home4 {
     width: 100%;
     display: flex;
     align-items: flex-start;
     justify-content: flex-end;
 }
 
-.home-container .header-home .add-icon {
-    cursor: pointer;
-}
-
-.home-container .school-cards-container {
+.home-container4 .school-cards-container4 {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -40,12 +36,12 @@
     width: 100%;
 }
 
-.home-container .school-cards-container a {
+.home-container4 .school-cards-container4 a {
     color: #39729D;
     align-self: flex-start;
 }
 
-.home-container .school-cards-container .classes {
+.home-container4 .school-cards-container4 .classes4 {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
     width: 100%;
@@ -54,19 +50,19 @@
 }
 
 @media (max-width: 700px) {
-    .home-container {
+    .home-container4 {
         padding: 2rem;
     }
 }
 
 @media(max-width: 425px) {
-    .home-container .school-cards-container .classes {
+    .home-container4 .school-cards-container4 .classes4 {
         grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
     }
 }
 
 @media(max-width: 360px) {
-    .home-container .school-cards-container .classes {
+    .home-container4 .school-cards-container4 .classes4 {
         grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
     }
 }

@@ -35,51 +35,21 @@
 
 .creation-group .creation-container .creation-content {
     background: var(--color-primary);
-    height: 90%;
+    height: 28rem;
     width: 20rem;
     border-radius: 2.4rem;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-}
-
-.creation-content .creation-input {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 90%;
-}
-
-.creation-content .creation-input input {
-    height: 4.2rem;
-    width: 13.2rem;
-    border-radius: 2rem;
-    padding: 1rem;
-    border: none;
-    background: var(--color-background);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 2rem 0;
 
 }
 
-.creation-content .creation-input button {
-    border: none;
-    background: var(--color-background);
-    border-radius: 2rem;
-    font-size: 2.4rem;
-    font-weight: 400;
-    width: 4rem;
-    height: 4rem;
-    cursor: pointer;
-    line-height: 2rem;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-}
 
 .creation-content .scroll-view {
     overflow-y: scroll;
     width: 95%;
-    height: 16rem;
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -87,51 +57,4 @@
 
 .creation-content .scroll-view::-webkit-scrollbar {
     display: none;
-}
-
-.creation-content .creation-cards {
-    width: 90%;
-    margin-top: 1.6rem;
-}
-
-.creation-content .creation-cards .creation-card {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 0.8rem;
-}
-
-.creation-content .creation-cards .creation-card label {
-    height: 4.2rem;
-    font-size: 1.6rem;
-
-    background: var(--color-background);
-    color: var(--color-text-secondary-opacity);
-    border: none;
-    padding: 1rem;
-    display: flex;
-    align-items: center;
-    font-weight: 400;
-    border-radius: 2rem;
-    width: 90%;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    cursor: pointer;
-}
-
-.creation-content .creation-cards .creation-card input {
-    display: none;
-}
-
-.creation-content .creation-cards .creation-card input:checked + label {
-    box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.28);
-}
-
-
-
-.creation-content .creation-cards .creation-card button {
-    background: none;
-    border: none;
-    color: var(--color-text-primary);
-    cursor: pointer;
 }

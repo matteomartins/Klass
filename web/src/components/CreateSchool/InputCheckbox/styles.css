@@ -1,0 +1,29 @@
+
+.creation-input-checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2rem;
+    width: 2rem;
+}
+.creation-input-checkbox label {
+    height: 100%;
+    width: 100%;
+    border-radius: 1rem;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: var(--color-text-secondary);
+    background: var(--color-background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.creation-input-checkbox input {
+    display: none;
+}
+
+.creation-input-checkbox input:checked + label {
+    box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.28);
+
+}

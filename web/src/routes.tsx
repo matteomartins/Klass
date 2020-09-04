@@ -61,11 +61,11 @@ export default function Routes() {
                 <RouteWithInfo path="/help" exact component={Help}/>
                 <RouteWithInfo path="/premium" exact component={Premium}/>
                 <RouteWithInfo path="/notifications" exact component={Notifications}/>
-                <RouteWithInfo path="/feedback" exact component={Feedback} />
-                <RouteWithInfo path="/politics" exact component={Politics} />
                 <RouteWithCalendar path="/school" exact component={School} />
                 <RouteWithCalendar path="/teachers" exact component={Teachers} />
                 <RouteWithCalendar path="/class" exact component={Class} />
+                <RouteWithInfo path="/feedback" exact component={Feedback} />
+                <RouteWithInfo path="/politics" exact component={Politics} />
                 <RouteWithInfo path="/create-school" exact component={CreateSchool} />
             </Switch>
         </BrowserRouter>

@@ -24,15 +24,15 @@ const Menu:React.FC<MenuProps> = ({active, setActive}) => {
             classNames="slide"
             style={{display: active?'flex':delayedActive?'flex':'none'}}
         >
-                <div className="global-school-menu">
-                <div className="school-menu-container">
-                <div className="blur" onClick={()=> setActive(false)}></div>
-                    <div className="school-menu-content" >
-                        <div className="school-header">
-                            <div className="card-content">
+                <div className="global-school-menu2">
+                <div className="school-menu-container2">
+                <div className="blur2" onClick={()=> setActive(false)}></div>
+                    <div className="school-menu-content2" >
+                        <div className="school-header2">
+                            <div className="card-content2">
                                 <ContentCard title="P" text="PORTUGUÊS" color="#0792A9" />
                             </div>
-                            <div className="info-container">   
+                            <div className="info-container2">   
                                 <InputOutline text="Professores:" name="prof" value="Wallace C. Andrade" disabled />
                                 <InputOutline text="Alunos:" name="student" value="160" disabled />
                                 <InputOutline text="Matérias:" name="subject" value="18" disabled />
