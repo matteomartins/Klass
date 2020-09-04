@@ -8,7 +8,7 @@ class DashboardController {
         const user = await auth.getUser();
         const user_id = user.$attributes.id;
 
-        const dashboard = []
+        const dashboard = [];
 
         const oldUserSchools = await Database.table('schools').innerJoin('administrators', 'schools.id', 'administrators.school_id').where('administrators.user_id', user_id)
 

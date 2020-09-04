@@ -18,29 +18,29 @@ const Chance = use('chance').Chance()
 
 test('validate school details', async ({ assert, client }) => {
     const school = {
-        "nomeEscola": Chance.string({ length: 10 }),
-        "descricao": Chance.string({ length: 20 }),
-        "periodoLetiv": Chance.integer({ min: 1, max: 3 }),
-        "iconEscola": Chance.avatar({ protocol: 'https', fileExtension: 'jpg' })
+        "name": Chance.string({ length: 10 }),
+        "description": Chance.string({ length: 20 }),
+        "typ": Chance.integer({ min: 1, max: 3 }),
+        "icon": Chance.avatar({ protocol: 'https', fileExtension: 'jpg' })
     }
 
     const response = await client.post('/schools').send(school).end()
 
     response.assertStatus(400);
-    assert.equal(JSON.parse(response.text)[0].message, "Você deve inserir um periodo letivo.")
+    assert.equal(JSON.parse(response.text)[0].message, "Você deve inserir um tipo de escola.")
 })
 
 test('create a school', async ({ assert, client }) => {
     const user = await User.find(1);
     const school = {
-        "nomeEscola": Chance.username(),
-        "descricao": Chance.string({ length: 20 }),
-        "periodoLetivo": Chance.integer({ min: 1, max: 3 }),
-        "iconEscola": Chance.avatar({ protocol: 'https', fileExtension: 'jpg' })
+        "name": Chance.username(),
+        "description": Chance.string({ length: 20 }),
+        "type": Chance.string(),
+        "icon": Chance.avatar({ protocol: 'https', fileExtension: 'jpg' })
     }
 
     const response = await client.post('/schools').loginVia(user, 'jwt').send(school).end()
 
-    response.assertStatus(200);
-    assert.exists(response.body.idEscola)
+    response.assertStatus(201);
+    assert.exists(response.body.message)
 })
