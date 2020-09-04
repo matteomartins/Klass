@@ -23,6 +23,7 @@ test('validate create user', async ({ assert, client }) => {
   assert.exists(response.body.token);
 });
 
+
 test('validate create user validator', async ({ assert, client }) => {
   const user = {
     "name": "Vinicius Floriano",
@@ -35,6 +36,7 @@ test('validate create user validator', async ({ assert, client }) => {
   response.assertStatus(400);
   assert.equal(JSON.parse(response.text)[0].message, "Você deve inserir um email.");
 });
+
 
 test('validate edit user', async ({ assert, client }) => {
   const newUserData = {
@@ -50,6 +52,7 @@ test('validate edit user', async ({ assert, client }) => {
   response.assertStatus(204);
 });
 
+
 test('validate list user', async ({ assert, client }) => {
   const user = await User.find(1);
 
@@ -58,6 +61,7 @@ test('validate list user', async ({ assert, client }) => {
   response.assertStatus(200);
   assert.exists(response.body.user);
 });
+
 
 test('validate session user', async ({ assert, client }) => {
   const user = {
