@@ -63,62 +63,62 @@ _______________________________________________________________
 {
 	[
 		{
-				"name": "Wallace Andrade",
-				"email": "wallace.romantismo@gmail.com",
-				"subjects": [1, 2, 3],
-				"priority": 5,
-				"titulation": "Mestrado",
-				"days": [
-					{
-						"day": 1,
-						"schedules":[
-							{
-								"start": "7:30",
-								"end": "12:00"
-							},
-							{
-								"start": "21:00",
-								"end": "22:00"
-							},
-						]
-					},
-					{
-						"day": 3,
-						"schedules":[
-							{
-								"start": "12:00",
-								"end": "15:30"
-							}
-						]
-					},
-				]
+			"name": "Wallace Andrade",
+			"email": "wallace.romantismo@gmail.com",
+			"subjects": [1, 2, 3],
+			"priority": 5,
+			"titulation": "Mestrado",
+			"days": [
+				{
+					"day": 1,
+					"schedules":[
+						{
+							"start": "7:30",
+							"end": "12:00"
+						},
+						{
+							"start": "21:00",
+							"end": "22:00"
+						},
+					]
+				},
+				{
+					"day": 3,
+					"schedules":[
+						{
+							"start": "12:00",
+							"end": "15:30"
+						}
+					]
+				}
+			]
 		},
 		{
-				"name": "Manoel Messias",
-				"email": "messias.bhaskara@gmail.com",
-				"subjects": [4, 5],
-				"priority": 3,
-				"titulation": "Mestrado",
-				"days": [
-					{
-						"day": 4,
-						"schedules":[
-							{
-								"start": "7:30",
-								"end": "12:00"
-							}
-						]
-					},
-					{
-						"day": 5,
-						"schedules":[
-							{
-								"start": "12:00",
-								"end": "15:30"
-							}
-						]
-					},
-				]
+			"name": "Manoel Messias",
+			"email": "messias.bhaskara@gmail.com",
+			"subjects": [4, 5],
+			"priority": 3,
+			"titulation": "Mestrado",
+			"days": [
+				{
+					"day": 4,
+					"schedules":[
+						{
+							"start": "7:30",
+							"end": "12:00"
+						}
+					]
+				},
+				{
+					"day": 5,
+					"schedules":[
+						{
+							"start": "12:00",
+							"end": "15:30"
+						}
+					]
+				}
+			]
 		}
 	]
 }
