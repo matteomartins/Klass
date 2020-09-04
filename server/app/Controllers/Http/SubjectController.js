@@ -37,7 +37,7 @@ class SubjectController {
     const {name, abbreviation} = subjects.rows[0];
     const setOfDisciplines = await SetOfDiscipline.query().where({subject_id}).fetch();
 
-    var modules = []
+    let modules = []
 
     setOfDisciplines.rows.map(({module_id, total_classes})=>{
       const module = {
@@ -60,13 +60,13 @@ class SubjectController {
     const idSchool = request.params.id_school;
     const listSubjects = await Subject.query().where('school_id', idSchool).fetch();
 
-    var subjects = []
+    let subjects = []
 
     await Promise.all(listSubjects.rows.map(async ({id, name, abbreviation})=>{
       const subject_id = id;
       const setOfDisciplines = await SetOfDiscipline.query().where({subject_id}).fetch();
 
-      var modules = []
+      let modules = []
 
       setOfDisciplines.rows.map(({module_id, total_classes})=>{
         const module = {
