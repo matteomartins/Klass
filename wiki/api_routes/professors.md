@@ -61,7 +61,66 @@ Status: 200 OK
 _______________________________________________________________
 
 {
-
+	[
+		{
+				"name": "Wallace Andrade",
+				"email": "wallace.romantismo@gmail.com",
+				"subjects": [1, 2, 3],
+				"priority": 5,
+				"titulation": "Mestrado",
+				"days": [
+					{
+						"day": 1,
+						"schedules":[
+							{
+								"start": "7:30",
+								"end": "12:00"
+							},
+							{
+								"start": "21:00",
+								"end": "22:00"
+							},
+						]
+					},
+					{
+						"day": 3,
+						"schedules":[
+							{
+								"start": "12:00",
+								"end": "15:30"
+							}
+						]
+					},
+				]
+		},
+		{
+				"name": "Manoel Messias",
+				"email": "messias.bhaskara@gmail.com",
+				"subjects": [4, 5],
+				"priority": 3,
+				"titulation": "Mestrado",
+				"days": [
+					{
+						"day": 4,
+						"schedules":[
+							{
+								"start": "7:30",
+								"end": "12:00"
+							}
+						]
+					},
+					{
+						"day": 5,
+						"schedules":[
+							{
+								"start": "12:00",
+								"end": "15:30"
+							}
+						]
+					},
+				]
+		}
+	]
 }
 ```
 
@@ -85,21 +144,89 @@ Status: 200 OK
 _______________________________________________________________
 
 {
-	"id": 1,
 	"name": "Wallace Andrade",
 	"email": "wallace.romantismo@gmail.com",
-	"subjescts": [1, 2, 3],
+	"subjects": [1, 2, 3],
 	"priority": 5,
-	"hiring_date": "13/02/2019",
 	"titulation": "Mestrado",
-	"maxclasses": 4,
-	"days": [1, 2, 3, 4],
-	"time_start": "08:20",
-	"time_end": "15:30"
+	"days": [
+		{
+			"day": 1,
+			"schedules":[
+				{
+					"start": "7:30",
+					"end": "12:00"
+				},
+				{
+					"start": "21:00",
+					"end": "22:00"
+				},
+			]
+		},
+		{
+			"day": 3,
+			"schedules":[
+				{
+					"start": "12:00",
+					"end": "15:30"
+				}
+			]
+		},
+	]
+}
+```
+## Editar um professor (Edição do usuário) <a name="edit_professor"></a>
+
+
+	PUT /schools/:id_school/professors/:id_professor
+	REQUIRED authentication
+	
+
+### Parâmetros
+
+| Nome                 | Tipo   | Descrição                                    |
+| -------------------- | ------ | -------------------------------------------- |
+| titulation | string | Titulação do professor                                 |
+| days  | array of objects | Array de objetos contendo um int day indicando o dia e um array schedules contendo strings start e end, indicando quando começa e termina um horário do professor               |
+
+### Exemplo
+
+```json
+rote: /schools/1/professors/1
+json: {
+	"titulation": "Mestrado",
+	"days": [
+		{
+			"day": 1,
+			"schedules":[
+				{
+					"start": "7:30",
+					"end": "12:00"
+				},
+				{
+					"start": "21:00",
+					"end": "22:00"
+				},
+			]
+		},
+		{
+			"day": 3,
+			"schedules":[
+				{
+					"start": "12:00",
+					"end": "15:30"
+				}
+			]
+		},
+	]
 }
 ```
 
-## Editar um professor <a name="edit_professor"></a>
+### Resposta
+
+    Status: 204 No Content
+
+## Editar um professor (Edição da Escola) <a name="edit_professor"></a>
 
 Editando um Turno com determinadas propriedades.
 
@@ -114,12 +241,6 @@ Editando um Turno com determinadas propriedades.
 | email      | string | email do professor                                     |
 | subjects   | array of int   | matérias que o professor leciona (id)          |
 | priority   | int   | Prioridade do professor onde 0 é a maior e +infinito é a menor  |
-| hiring_date  | date   | data de contratação do professor FORMATO DD/MM/YYYY  |
-| titulation | string | Titulação do professor                                 |
-| maxclasses | int | máximo de aulas que o professor pode dar por semana       |
-| days  | string | dias da semana que o professor pode lecionar                |
-| time_start  | string | início do tempo que o professor pode lecionar         |
-| time_end  | string | fim do tempo que o professor pode lecionar              |
 
 ### Exemplo
 
@@ -129,13 +250,7 @@ json: {
 	"name": "Wallace Andrade",
 	"email": "wallace.romantismo@gmail.com",
 	"subjescts": [1, 2, 3],
-	"priority": 5,
-	"hiring_date": "13/02/2019",
-	"titulation": "Mestrado",
-	"maxclasses": 4,
-	"days": [1, 2, 3, 4],
-	"time_start": "08:20",
-	"time_end": "15:30"
+	"priority": 5
 }
 ```
 
@@ -143,7 +258,7 @@ json: {
 
     Status: 204 No Content
 
-## Deletar um professor <a name="delete_turn"></a>
+## Deletar um professor <a name="delete_professor"></a>
 
 Removendo um determinado professor
 
