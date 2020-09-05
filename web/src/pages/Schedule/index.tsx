@@ -3,20 +3,22 @@ import React from "react";
 import "./styles.css";
 import BackButton from "../../components/BackButton";
 
+import {KaPdf,KaPrinter,KaExcel,KaGoogle} from "../../assets/icons"
+
 function Schedule() {
     return (
-        <div className="main-politics">
+        <div className="main-schedule">
             <BackButton to="/home" />
-            <div className="container">
+            <div className="schedule-container">
                 <div className="select-container">
-                    <div className="select1">
+                    <div id="select1">
                         <select>
                             <option value="0">Escola</option>
                             <option value="1">Etec de Taboão da Serra</option>
                             <option value="2">Etec de Embu das Artes</option>
                         </select>
                     </div>
-                    <div className="select2">
+                    <div id="select2">
                         <select>
                             <option value="0">Turma</option>
                             <option value="1">Manhã</option>
@@ -24,7 +26,7 @@ function Schedule() {
                             <option value="2">Noite</option>
                         </select>
                     </div>
-                    <div className="select3">
+                    <div id="select3">
                         <select>
                             <option value="0">Ano</option>
                             <option value="1">1° Ano A</option>
@@ -36,7 +38,7 @@ function Schedule() {
                         </select>
                     </div>
                 </div>
-                <div className="schedule-container">
+                <div className="schedule-content">
                     <table>
                         <thead>
                             <tr>
@@ -56,29 +58,23 @@ function Schedule() {
                                 <th>
                                     <span>Sexta</span>
                                 </th>
+                                <th>
+                                    <span>Sabado</span>
+                                </th>
+                                <th>
+                                    <span>Domingo</span>
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td id="hora">07:00</td>
-                                <td>
-                                    <span>&nbsp;</span>
-                                </td>
+                                <td>07:00</td>
                                 <td>
                                     <span></span>
                                 </td>
                                 <td>
                                     <span></span>
                                 </td>
-                                <td>
-                                    <span></span>
-                                </td>
-                                <td>
-                                    <span></span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td id="hora">07:30</td>
                                 <td>
                                     <span></span>
                                 </td>
@@ -96,25 +92,13 @@ function Schedule() {
                                 </td>
                             </tr>
                             <tr>
-                                <td id="hora">08:00</td>
+                                <td>07:30</td>
                                 <td>
                                     <span></span>
                                 </td>
                                 <td>
                                     <span></span>
                                 </td>
-                                <td>
-                                    <span></span>
-                                </td>
-                                <td>
-                                    <span></span>
-                                </td>
-                                <td>
-                                    <span></span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td id="hora">08:30</td>
                                 <td>
                                     <span></span>
                                 </td>
@@ -132,25 +116,13 @@ function Schedule() {
                                 </td>
                             </tr>
                             <tr>
-                                <td id="hora">09:00</td>
+                                <td>08:00</td>
                                 <td>
                                     <span></span>
                                 </td>
                                 <td>
                                     <span></span>
                                 </td>
-                                <td>
-                                    <span></span>
-                                </td>
-                                <td>
-                                    <span></span>
-                                </td>
-                                <td>
-                                    <span></span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td id="hora">09:30</td>
                                 <td>
                                     <span></span>
                                 </td>
@@ -168,25 +140,13 @@ function Schedule() {
                                 </td>
                             </tr>
                             <tr>
-                                <td id="hora">10:00</td>
+                                <td>08:30</td>
                                 <td>
                                     <span></span>
                                 </td>
                                 <td>
                                     <span></span>
                                 </td>
-                                <td>
-                                    <span></span>
-                                </td>
-                                <td>
-                                    <span></span>
-                                </td>
-                                <td>
-                                    <span></span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td id="hora">10:30</td>
                                 <td>
                                     <span></span>
                                 </td>
@@ -204,7 +164,13 @@ function Schedule() {
                                 </td>
                             </tr>
                             <tr>
-                                <td id="hora">11:00</td>
+                                <td>09:00</td>
+                                <td>
+                                    <span></span>
+                                </td>
+                                <td>
+                                    <span></span>
+                                </td>
                                 <td>
                                     <span></span>
                                 </td>
@@ -222,7 +188,109 @@ function Schedule() {
                                 </td>
                             </tr>
                             <tr>
-                                <td id="hora">11:30</td>
+                                <td>09:30</td>
+                                <td>
+                                    <span></span>
+                                </td>
+                                <td>
+                                    <span></span>
+                                </td>
+                                <td>
+                                    <span></span>
+                                </td>
+                                <td>
+                                    <span></span>
+                                </td>
+                                <td>
+                                    <span></span>
+                                </td>
+                                <td>
+                                    <span></span>
+                                </td>
+                                <td>
+                                    <span></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>10:00</td>
+                                <td>
+                                    <span></span>
+                                </td>
+                                <td>
+                                    <span></span>
+                                </td>
+                                <td>
+                                    <span></span>
+                                </td>
+                                <td>
+                                    <span></span>
+                                </td>
+                                <td>
+                                    <span></span>
+                                </td>
+                                <td>
+                                    <span></span>
+                                </td>
+                                <td>
+                                    <span></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>10:30</td>
+                                <td>
+                                    <span></span>
+                                </td>
+                                <td>
+                                    <span></span>
+                                </td>
+                                <td>
+                                    <span></span>
+                                </td>
+                                <td>
+                                    <span></span>
+                                </td>
+                                <td>
+                                    <span></span>
+                                </td>
+                                <td>
+                                    <span></span>
+                                </td>
+                                <td>
+                                    <span></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>11:00</td>
+                                <td>
+                                    <span></span>
+                                </td>
+                                <td>
+                                    <span></span>
+                                </td>
+                                <td>
+                                    <span></span>
+                                </td>
+                                <td>
+                                    <span></span>
+                                </td>
+                                <td>
+                                    <span></span>
+                                </td>
+                                <td>
+                                    <span></span>
+                                </td>
+                                <td>
+                                    <span></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>11:30</td>
+                                <td>
+                                    <span></span>
+                                </td>
+                                <td>
+                                    <span></span>
+                                </td>
                                 <td>
                                     <span></span>
                                 </td>
@@ -242,6 +310,20 @@ function Schedule() {
                         </tbody>
                     </table>
                 </div>
+            <div className="export-container">
+                <div className="circle-icon-container">
+                    <KaExcel size={22}/>
+                </div>
+                <div className="circle-icon-container">
+                    <KaPdf size={22}/>
+                </div>
+                <div className="circle-icon-container">
+                    <KaPrinter size={22}/>
+                </div>
+                <div className="circle-icon-container">
+                    <KaGoogle size={22} color="var(--color-primary)"/>
+                </div>
+            </div>
             </div>
         </div>
     );
