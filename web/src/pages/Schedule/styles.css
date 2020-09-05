@@ -1,5 +1,5 @@
 .main-politics {
-    display:flex;
+    display: flex;
     align-items: flex-start;
     justify-content: center;
     width: 95vw;
@@ -27,9 +27,9 @@
     background-color: var(--color-primary);
     box-shadow: 0px 5px 20px rgba(38, 39, 56, 0.45);
     border: none;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     font-size: 2rem;
-    color: #CFCFCF;
+    color: #cfcfcf;
     margin-left: 1.5rem;
     align-items: center;
     padding: 13px 20px 13px 25px;
@@ -52,18 +52,16 @@
     margin-top: 4rem;
     flex-direction: column;
     overflow-y: scroll;
-    
+
     padding: 3rem 4rem;
     max-width: 960px;
     height: 75vh;
     max-height: 400px;
-
 }
 
-.main-politics .container .schedule-container::-webkit-scrollbar { 
+.main-politics .container .schedule-container::-webkit-scrollbar {
     display: none;
 }
-
 
 .main-politics .container .schedule-container table {
     font-size: 2rem;
@@ -71,12 +69,11 @@
     border-collapse: collapse;
     text-align: center;
     width: 100%;
-    color: #CFCFCF;
+    color: #cfcfcf;
     border-collapse: collapse;
     border-spacing: 0;
     border-style: hidden;
 }
-
 
 .main-politics .container .schedule-container th {
     border-radius: 10px;
@@ -105,15 +102,30 @@
     border: 1px solid white;
 }
 
-.main-politics .container .schedule-container tr:first-child td:nth-child(2) span {
+.main-politics
+    .container
+    .schedule-container
+    tr:first-child
+    td:nth-child(2)
+    span {
     border-radius: 1rem 0 0 0;
 }
 
-.main-politics .container .schedule-container tr:first-child td:last-child span {
+.main-politics
+    .container
+    .schedule-container
+    tr:first-child
+    td:last-child
+    span {
     border-radius: 0 1rem 0 0;
 }
 
-.main-politics .container .schedule-container tr:last-child td:nth-child(2) span {
+.main-politics
+    .container
+    .schedule-container
+    tr:last-child
+    td:nth-child(2)
+    span {
     border-radius: 0 0 0 1rem;
 }
 
@@ -128,6 +140,7 @@
     width: 2rem;
 }
 
-#hora{
+.main-politics .container .schedule-container tr td:first-child,
+.main-politics .container .schedule-container tr th:first-child {
     border: none;
 }

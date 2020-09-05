@@ -40,7 +40,7 @@ function Schedule() {
                     <table>
                         <thead>
                             <tr>
-                                <th id="hora">&nbsp;</th>
+                                <th>&nbsp;</th>
                                 <th>
                                     <span>Segunda</span>
                                 </th>
@@ -56,11 +56,17 @@ function Schedule() {
                                 <th>
                                     <span>Sexta</span>
                                 </th>
+                                <th>
+                                    <span>Sábado</span>
+                                </th>
+                                <th>
+                                    <span>Domingo</span>
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td id="hora">07:00</td>
+                                <td>07:00</td>
                                 <td>
                                     <span>&nbsp;</span>
                                 </td>
@@ -76,18 +82,6 @@ function Schedule() {
                                 <td>
                                     <span></span>
                                 </td>
-                            </tr>
-                            <tr>
-                                <td id="hora">07:30</td>
-                                <td>
-                                    <span></span>
-                                </td>
-                                <td>
-                                    <span></span>
-                                </td>
-                                <td>
-                                    <span></span>
-                                </td>
                                 <td>
                                     <span></span>
                                 </td>
@@ -96,7 +90,7 @@ function Schedule() {
                                 </td>
                             </tr>
                             <tr>
-                                <td id="hora">08:00</td>
+                                <td>07:30</td>
                                 <td>
                                     <span></span>
                                 </td>
@@ -114,7 +108,7 @@ function Schedule() {
                                 </td>
                             </tr>
                             <tr>
-                                <td id="hora">08:30</td>
+                                <td>08:00</td>
                                 <td>
                                     <span></span>
                                 </td>
@@ -132,7 +126,7 @@ function Schedule() {
                                 </td>
                             </tr>
                             <tr>
-                                <td id="hora">09:00</td>
+                                <td>08:30</td>
                                 <td>
                                     <span></span>
                                 </td>
@@ -150,7 +144,7 @@ function Schedule() {
                                 </td>
                             </tr>
                             <tr>
-                                <td id="hora">09:30</td>
+                                <td>09:00</td>
                                 <td>
                                     <span></span>
                                 </td>
@@ -168,7 +162,7 @@ function Schedule() {
                                 </td>
                             </tr>
                             <tr>
-                                <td id="hora">10:00</td>
+                                <td>09:30</td>
                                 <td>
                                     <span></span>
                                 </td>
@@ -186,7 +180,7 @@ function Schedule() {
                                 </td>
                             </tr>
                             <tr>
-                                <td id="hora">10:30</td>
+                                <td>10:00</td>
                                 <td>
                                     <span></span>
                                 </td>
@@ -204,7 +198,7 @@ function Schedule() {
                                 </td>
                             </tr>
                             <tr>
-                                <td id="hora">11:00</td>
+                                <td>10:30</td>
                                 <td>
                                     <span></span>
                                 </td>
@@ -222,7 +216,25 @@ function Schedule() {
                                 </td>
                             </tr>
                             <tr>
-                                <td id="hora">11:30</td>
+                                <td>11:00</td>
+                                <td>
+                                    <span></span>
+                                </td>
+                                <td>
+                                    <span></span>
+                                </td>
+                                <td>
+                                    <span></span>
+                                </td>
+                                <td>
+                                    <span></span>
+                                </td>
+                                <td>
+                                    <span></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>11:30</td>
                                 <td>
                                     <span></span>
                                 </td>
