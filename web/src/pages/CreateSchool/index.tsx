@@ -17,10 +17,10 @@ interface CardProps {
     name: string;
     text: string;
 }
-const cardDefault: Array<CardProps> = [{ name: "asd", text: "sad" }];
+const cardDefault: Array<CardProps> = [];
 
 function CreateSchool() {
-    const [step, setStep] = useState(2);
+    const [step, setStep] = useState(3);
     const [mode, setMode] = useState("foward");
 
     const [intervals, setIntervals] = useState(cardDefault);

@@ -1,14 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import TruncatedContainer from "../../TruncatedContainer";
 
 import "./styles.css";
-import Input from "../Input";
-import InputCheckboxGroup from "../InputCheckboxGroup";
 import InputWithButton from "../InputWithButton";
 import { KaArrow } from "../../../assets/icons";
 import InfoCardButton from "../InfoCardButton";
 import InfoCard from "../InfoCard";
-import List from "../List";
 
 interface Create4Props {
     courses: Array<any>;
@@ -73,7 +70,7 @@ const Create4: React.FC<Create4Props> = ({
                 <div className="creation-group">
                     <div className="creation-container">
                         <div className="creation-header">
-                            <h1>Turno</h1>
+                            <h1>Cursos</h1>
                             <KaArrow size={18} />
                         </div>
                         <div className="creation-content">
@@ -97,13 +94,31 @@ const Create4: React.FC<Create4Props> = ({
                     </div>
                     <div className="creation-container">
                         <div className="creation-header">
-                            <h1>Horários</h1>
+                            <h1>Conecte</h1>
                             <KaArrow size={18} />
                         </div>
                         <div className="creation-content">
-                            <Input name="" placeHolder="Horário" />
-                            <Input name="" placeHolder="Duração da Aula" />
-                            <InputCheckboxGroup />
+                            <h2>Ensino médio</h2>
+                            <div className="scroll-view">
+                                <div className="creation-cards">
+                                    <h3>Módulos</h3>
+                                    {modules.map(({ name, text }) => (
+                                        <InfoCard
+                                            handleDelete={removeModule}
+                                            name={name}
+                                            text={text}
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="creation-container">
+                        <div className="creation-header">
+                            <h1>Módulos</h1>
+                            <KaArrow size={18} />
+                        </div>
+                        <div className="creation-content">
                             <InputWithButton
                                 handleNew={addModule}
                                 placeholder="Novo Módulo"
@@ -119,15 +134,6 @@ const Create4: React.FC<Create4Props> = ({
                                     ))}
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div className="creation-container">
-                        <div className="creation-header">
-                            <h1>Visualização</h1>
-                            <KaArrow size={18} />
-                        </div>
-                        <div className="creation-content">
-                            <List />
                         </div>
                     </div>
                 </div>
