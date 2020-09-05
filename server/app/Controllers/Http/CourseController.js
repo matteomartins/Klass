@@ -15,7 +15,7 @@ class CourseController {
         await Database.table('courses').insert({ school_id: school_id, name: courseName.name });
 
         const course = await Database.select('id').from('courses').where({ school_id: school_id }).orderBy('id', 'desc');
-        const course_id = course[0].id
+        const course_id = course[0].id;
 
         modules.modules.map(modules => {
             Module.create({ course_id, level: modules })
@@ -63,6 +63,7 @@ class CourseController {
         })
         return { ModuleCourse }
     }
+    
     async update({ request, response }) {
         const course_id = request.params.id_course;
 

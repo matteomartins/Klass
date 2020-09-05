@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import './styles.css';
+import "./styles.css";
 
 interface ContentCardProps {
     title: string;
@@ -10,13 +10,23 @@ interface ContentCardProps {
     rounded?: boolean;
 }
 
-const ContentCard:React.FC<ContentCardProps> = ({title, text, color, small, rounded}) => {
+const ContentCard: React.FC<ContentCardProps> = ({
+    title,
+    text,
+    color,
+    small,
+    rounded,
+}) => {
     return (
-        <div className={`${small?'small-': ''}content-card-container ${rounded?'rounded':''}`}>
-            <h1 style={{background: color}}>{title}</h1>
+        <div
+            className={`${small ? "small-" : ""}content-card-container ${
+                rounded ? "rounded" : ""
+            }`}
+        >
+            <h1 style={{ background: color }}>{title}</h1>
             <span>{text}</span>
         </div>
-    )
-}
+    );
+};
 
 export default ContentCard;

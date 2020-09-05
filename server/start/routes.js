@@ -57,3 +57,16 @@ Route.delete('/schools/:id_school/subjects/:id_subject', 'SubjectController.dele
 Route.get('/schools/:id_school/subjects/:id_subject', 'SubjectController.index').middleware(['VerifyUserAndSchool']);
 Route.get('/schools/:id_school/subjects/', 'SubjectController.generalIndex').middleware(['VerifyUserAndSchool']);
 Route.put('/schools/:id_school/subjects/:id_subject', 'SubjectController.update').validator('Subject').middleware(['VerifyUserAndSchool']);
+
+//Professors
+Route.post('/schools/:id_school/professors', 'ProfessorController.create').validator('Professor').middleware(['VerifyUserAndSchool']);
+Route.delete('/schools/:id_school/professors/:id_professor', 'ProfessorController.delete').middleware(['VerifyUserAndSchool']);
+Route.get('/schools/:id_school/professors/:id_professor', 'ProfessorController.index').middleware(['VerifyUserAndSchool']);
+Route.get('/schools/:id_school/professors/', 'ProfessorController.generalIndex').middleware(['VerifyUserAndSchool']);
+Route.put('/schools/:id_school/professors/:id_professor', 'ProfessorController.update').validator('Professor').middleware(['VerifyUserAndSchool']);
+
+//Home
+Route.get('/home', 'HomeController.index');
+
+//Dashboard
+Route.get('/dashboard', 'DashboardController.index');

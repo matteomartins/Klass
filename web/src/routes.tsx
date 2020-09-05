@@ -22,6 +22,8 @@ import Class from './pages/Class';
 import Teachers from './pages/Teachers';
 import Shift from './pages/Shift';
 import TutorialCreate from './pages/TutorialCreate';
+import Schedule from './pages/Schedule';
+
 
 
 const RouteWithCalendar:React.FC<RouteProps> = ({...props}) => {
@@ -48,6 +50,17 @@ const RouteWithInfo:React.FC<RouteProps> = ({...props}) => {
     )
 }
 
+const RouteHeader:React.FC<RouteProps> = ({...props}) => {
+    return (
+        <>
+            <Header/>
+            <div className="main-container">
+                <Route { ...props } />
+            </div>
+        </>
+    )
+}
+
 export default function Routes() {
     return (
         <BrowserRouter>
@@ -69,6 +82,8 @@ export default function Routes() {
                 <RouteWithInfo path="/politics" exact component={Politics} />
                 <RouteWithInfo path="/create-school" exact component={CreateSchool} />
                 <RouteWithCalendar path="/shift" exact component={Shift} />
+                <RouteHeader path="/schedule" exact component={Schedule} />
+
             </Switch>
         </BrowserRouter>
     )
