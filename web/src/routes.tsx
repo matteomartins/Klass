@@ -20,8 +20,7 @@ import Notifications from './components/Notifications';
 import CreateSchool from './pages/CreateSchool';
 import Class from './pages/Class';
 import Teachers from './pages/Teachers';
-// import Teachers from './pages/Teachers';
-// import Teachers from './pages/Teachers';
+import Schedule from './pages/Schedule';
 
 
 const RouteWithCalendar:React.FC<RouteProps> = ({...props}) => {
@@ -48,6 +47,17 @@ const RouteWithInfo:React.FC<RouteProps> = ({...props}) => {
     )
 }
 
+const RouteHeader:React.FC<RouteProps> = ({...props}) => {
+    return (
+        <>
+            <Header/>
+            <div className="main-container">
+                <Route { ...props } />
+            </div>
+        </>
+    )
+}
+
 export default function Routes() {
     return (
         <BrowserRouter>
@@ -67,6 +77,7 @@ export default function Routes() {
                 <RouteWithInfo path="/feedback" exact component={Feedback} />
                 <RouteWithInfo path="/politics" exact component={Politics} />
                 <RouteWithInfo path="/create-school" exact component={CreateSchool} />
+                <RouteHeader path="/schedule" exact component={Schedule} />
             </Switch>
         </BrowserRouter>
     )
