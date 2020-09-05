@@ -1,49 +1,65 @@
-import React, { useState } from 'react';
-import TruncatedContainer from '../../TruncatedContainer';
+import React, { useState } from "react";
+import TruncatedContainer from "../../TruncatedContainer";
 
-import './styles.css';
-import Input from '../Input';
-import InputCheckboxGroup from '../InputCheckboxGroup';
-import InputWithButton from '../InputWithButton';
-import { KaArrow } from '../../../assets/icons';
-import InfoCardButton from '../InfoCardButton';
-import InfoCard from '../InfoCard';
-import List from '../List';
+import "./styles.css";
+import Input from "../Input";
+import InputCheckboxGroup from "../InputCheckboxGroup";
+import InputWithButton from "../InputWithButton";
+import { KaArrow } from "../../../assets/icons";
+import InfoCardButton from "../InfoCardButton";
+import InfoCard from "../InfoCard";
+import List from "../List";
 
-interface IntervalProps {
-    name: string;
-    text: string;
+interface Create4Props {
+    courses: Array<any>;
+    setCourses: Function;
+    modules: Array<any>;
+    setModules: Function;
 }
-const modulesDefault:Array<IntervalProps> = [];
 
-const Create4:React.FC = () => {
-
-    const [courses, setCourses] = useState(modulesDefault);
-    const [modules, setModules] = useState(modulesDefault);
-
-    function addCourse(name:string) {
-        if(name.trim() !== '' && !courses.find(course => course.name.toLowerCase() === name.toLowerCase())) {
-            setCourses([...courses, {name: name, text: name}]);
+const Create4: React.FC<Create4Props> = ({
+    courses,
+    setCourses,
+    modules,
+    setModules,
+}) => {
+    function addCourse(name: string) {
+        if (
+            name.trim() !== "" &&
+            !courses.find(
+                (course) => course.name.toLowerCase() === name.toLowerCase()
+            )
+        ) {
+            setCourses([...courses, { name: name, text: name }]);
         }
     }
-    function removeCourse(name:string) {
+    function removeCourse(name: string) {
         let newCourses = courses;
-        const deleted = newCourses.find(deleted_course => deleted_course.name === name);
-        if(deleted) {
+        const deleted = newCourses.find(
+            (deleted_course) => deleted_course.name === name
+        );
+        if (deleted) {
             const index = newCourses.indexOf(deleted);
             newCourses.splice(index, 1);
             setCourses([...newCourses]);
         }
     }
-    function addModule(name:string) {
-        if(name.trim() !== '' && !modules.find(module => module.name.toLowerCase() === name.toLowerCase())) {
-            setModules([...modules, {name: name, text: name}]);
+    function addModule(name: string) {
+        if (
+            name.trim() !== "" &&
+            !modules.find(
+                (module) => module.name.toLowerCase() === name.toLowerCase()
+            )
+        ) {
+            setModules([...modules, { name: name, text: name }]);
         }
     }
-    function removeModule(name:string) {
+    function removeModule(name: string) {
         let newModules = modules;
-        const deleted = newModules.find(deleted_module => deleted_module.name === name);
-        if(deleted) {
+        const deleted = newModules.find(
+            (deleted_module) => deleted_module.name === name
+        );
+        if (deleted) {
             const index = newModules.indexOf(deleted);
             newModules.splice(index, 1);
             setModules([...newModules]);
@@ -52,8 +68,8 @@ const Create4:React.FC = () => {
 
     return (
         <TruncatedContainer title="Criar" className="create-school-container">
-                        <div className="create-school-content">
-                <h1>Crie Turnos e Informe seus Horários</h1>
+            <div className="create-school-content">
+                <h1>Crie Cursos, Módulos, Conecte-os</h1>
                 <div className="creation-group">
                     <div className="creation-container">
                         <div className="creation-header">
@@ -61,11 +77,19 @@ const Create4:React.FC = () => {
                             <KaArrow size={18} />
                         </div>
                         <div className="creation-content">
-                            <InputWithButton handleNew={addCourse} placeholder="Novo Curso" />
+                            <InputWithButton
+                                handleNew={addCourse}
+                                placeholder="Novo Curso"
+                            />
                             <div className="scroll-view">
                                 <div className="creation-cards">
-                                    {courses.map(({name, text}) => (
-                                        <InfoCardButton handleDelete={removeCourse} name={name} text={text} group="Courses2" />
+                                    {courses.map(({ name, text }) => (
+                                        <InfoCardButton
+                                            handleDelete={removeCourse}
+                                            name={name}
+                                            text={text}
+                                            group="Courses2"
+                                        />
                                     ))}
                                 </div>
                             </div>
@@ -77,14 +101,21 @@ const Create4:React.FC = () => {
                             <KaArrow size={18} />
                         </div>
                         <div className="creation-content">
-							<Input name="" placeHolder="Horário" />
-							<Input name="" placeHolder="Duração da Aula" />
+                            <Input name="" placeHolder="Horário" />
+                            <Input name="" placeHolder="Duração da Aula" />
                             <InputCheckboxGroup />
-                            <InputWithButton handleNew={addModule} placeholder="Novo Módulo" />
+                            <InputWithButton
+                                handleNew={addModule}
+                                placeholder="Novo Módulo"
+                            />
                             <div className="scroll-view">
                                 <div className="creation-cards">
-                                    {modules.map(({name, text}) => (
-                                        <InfoCard handleDelete={removeModule} name={name} text={text} />
+                                    {modules.map(({ name, text }) => (
+                                        <InfoCard
+                                            handleDelete={removeModule}
+                                            name={name}
+                                            text={text}
+                                        />
                                     ))}
                                 </div>
                             </div>
@@ -102,7 +133,7 @@ const Create4:React.FC = () => {
                 </div>
             </div>
         </TruncatedContainer>
-    )
-}
+    );
+};
 
 export default Create4;

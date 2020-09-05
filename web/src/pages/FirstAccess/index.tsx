@@ -1,78 +1,103 @@
-import React, {useState} from 'react';
-import { useHistory } from 'react-router-dom';
-import { CSSTransition, SwitchTransition } from 'react-transition-group';
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import { CSSTransition, SwitchTransition } from "react-transition-group";
 
-import './styles.css';
+import "./styles.css";
 
-import {KaCircleOutline, KaCircleSelected } from '../../assets/icons';
-import BackButton from '../../components/BackButton';
+import { KaCircleOutline, KaCircleSelected } from "../../assets/icons";
+import BackButton from "../../components/BackButton";
 
-import PresentationScreen from '../../components/FirstAccess/PresentationScreen';
-import ThemeScreen from '../../components/FirstAccess/ThemeScreen';
-import TermsScreen from '../../components/FirstAccess/TermsScreen';
-import { useTheme } from '../../context/Theme';
+import PresentationScreen from "../../components/FirstAccess/PresentationScreen";
+import ThemeScreen from "../../components/FirstAccess/ThemeScreen";
+import TermsScreen from "../../components/FirstAccess/TermsScreen";
+import { useTheme } from "../../context/Theme";
 
-import './styles.css';
+import "./styles.css";
 
-function FirstAccess(){
+function FirstAccess() {
     const [step, setStep] = useState(0);
-    const [ mode, setMode ] = useState('foward');
+    const [mode, setMode] = useState("foward");
     const history = useHistory();
     const { setTheme } = useTheme();
 
     function newThemeScreen() {
-        return (
-            <ThemeScreen setTheme={setTheme} />
-        )
+        return <ThemeScreen setTheme={setTheme} />;
     }
 
     const screens = [TermsScreen, newThemeScreen, PresentationScreen];
 
-
     function handleNext() {
-        if(step===2) history.push('/home');
-        setMode('foward')
-        setStep(step+1);
+        if (step === 2) history.push("/home");
+        setMode("foward");
+        setStep(step + 1);
     }
-    function handleBack(e:any) {
+    function handleBack(e: any) {
         e.preventDefault();
-        setMode('backward');
-        setStep(step-1);
+        setMode("backward");
+        setStep(step - 1);
     }
 
-    return(
+    return (
         <div className="access-container">
-            <BackButton to="/" onClick={e  => handleBack(e)} style={{display: step===0?"none":"block"}} />
+            <BackButton
+                to="/"
+                onClick={(e) => handleBack(e)}
+                style={{ display: step === 0 ? "none" : "block" }}
+            />
             <div className={mode}>
                 <SwitchTransition mode="out-in">
                     <CSSTransition
-                    timeout={400}
-                    classNames="slide"
-                    key={step}
-                    addEndListener={(node, done) => {
-                        node.addEventListener("transitionend", done, false);
-                    }}
-                >
-                    {screens[step]}
+                        timeout={400}
+                        classNames="slide"
+                        key={step}
+                        addEndListener={(node, done) => {
+                            node.addEventListener("transitionend", done, false);
+                        }}
+                    >
+                        {screens[step]}
                     </CSSTransition>
                 </SwitchTransition>
             </div>
             <div className="progress-container">
-                <button className="btn" onClick={handleNext}>Avançar</button>
-                <div className="progress-icons"> 
-                    {step===0
-                        ?<KaCircleSelected className="circle" color="#fff" size={18}/>
-                        :<KaCircleOutline className="circle" color="#fff" size={17} /> }
-                    {step===1
-                        ?<KaCircleSelected className="circle" color="#fff" size={18}/>
-                        :<KaCircleOutline className="circle" color="#fff" size={17} /> }
-                    {step===2
-                        ?<KaCircleSelected color="#fff" size={18}/>
-                        :<KaCircleOutline color="#fff" size={17} /> }
+                <button className="btn" onClick={handleNext}>
+                    Avançar
+                </button>
+                <div className="progress-icons">
+                    {step === 0 ? (
+                        <KaCircleSelected
+                            className="circle"
+                            color="#fff"
+                            size={18}
+                        />
+                    ) : (
+                        <KaCircleOutline
+                            className="circle"
+                            color="#fff"
+                            size={17}
+                        />
+                    )}
+                    {step === 1 ? (
+                        <KaCircleSelected
+                            className="circle"
+                            color="#fff"
+                            size={18}
+                        />
+                    ) : (
+                        <KaCircleOutline
+                            className="circle"
+                            color="#fff"
+                            size={17}
+                        />
+                    )}
+                    {step === 2 ? (
+                        <KaCircleSelected color="#fff" size={18} />
+                    ) : (
+                        <KaCircleOutline color="#fff" size={17} />
+                    )}
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default FirstAccess;
