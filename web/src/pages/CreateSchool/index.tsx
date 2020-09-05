@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { useHistory } from 'react-router-dom';
 import { SwitchTransition, CSSTransition } from 'react-transition-group';
+import ExitCreateSchool from '../../components/ExitCreateSchool';
 
 import './styles.css';
 import Create1 from '../../components/CreateSchool/Create1';
@@ -14,6 +15,7 @@ import Create7 from '../../components/CreateSchool/Create7';
 import BackButton from '../../components/BackButton';
 
 function CreateSchool() {
+    const [active, setActive] = useState(false)
     const [ step, setStep ] = useState(2);
     const [ mode, setMode ] = useState('foward');
     const [ turns, setTurns ] = useState([{name: "integral", text:"Integral"}, {name: 'noturno', text: 'Noturno'}]);
@@ -42,6 +44,7 @@ function CreateSchool() {
     }
 
     return (
+        
         <div className="create-school-container">
             <BackButton to="/home" onClick={e  => handleBack(e)} />
             <div className={mode}>
@@ -59,10 +62,12 @@ function CreateSchool() {
                 </SwitchTransition>
             </div>
             <div className="progress-container">
-                <button className="btn" onClick={handleNext}>Avançar</button>
+                <button className="btn" onClick={()=>setActive(true)}>Avançar</button>
                 <span> {step+1}/7 </span>
             </div>
+            <ExitCreateSchool active={active} setActive={setActive} />
         </div>
+        
     )
 }
 

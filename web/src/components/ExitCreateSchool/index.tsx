@@ -23,18 +23,20 @@ const Menu:React.FC<MenuProps> = ({active, setActive}) => {
             classNames="slide"
             style={{display: active?'flex':delayedActive?'flex':'none'}}
         >
-                <div className="global-school-menu">
-                <div className="school-menu-container">
-                <div className="blur" onClick={()=> setActive(false)}></div>
-                    <div className="school-menu-content" >
-                        <ul className="texts">
+                <div className="global-school-menu8">
+                <div className="school-menu-container8">
+                <div className="blur8" onClick={()=> setActive(false)}></div>
+                    <div className="school-menu-content8" >
+                        <ul className="texts8">
                             <li>
-                                <Link className="texts" to="/create-school" >Criar uma nova escola</Link>
-                            </li>
-                            <li>
-                                <Link className="texts" to="/enter-school">Entrar em uma nova escola</Link>
+                                <Link className="texts8" to="/create-school" >Deseja realmente parar de criar uma escola?</Link>
                             </li>
                         </ul>
+                    
+                        <div className="buttons8">
+                            <button className="btn" id="btn">Sim</button>
+                            <button className="btn" id="btn">Não</button>
+                        </div>   
                     </div>
                     </div>
                 </div>
