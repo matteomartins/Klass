@@ -1,15 +1,14 @@
-import React from 'react';
-import './styles.css';
-import BackButton from '../../components/BackButton';
-import { KaCheck } from '../../assets/icons';
+import React from "react";
+import "./styles.css";
+import BackButton from "../../components/BackButton";
+import { KaCheck } from "../../assets/icons";
 
-function Premium(){
-    
-    return(
+function Premium() {
+    return (
         <div className="main-premium">
             <div className="premium-container">
                 <BackButton to="/home" />
-                <h1>Tornar-se Premium</h1>  
+                <h1>Tornar-se Premium</h1>
             </div>
             <div className="scroll-view">
                 <div className="plans-container">
@@ -36,8 +35,10 @@ function Premium(){
                         <h1>Escolas</h1>
                         <span>R$ 50,99</span>
                         <p>
-                            <KaCheck size={20}/>
-                            <span>Aproveite todas as funcionalidades sem anúncio</span>
+                            <KaCheck size={20} />
+                            <span>
+                                Aproveite todas as funcionalidades sem anúncio
+                            </span>
                         </p>
                         <p>Agenda e anotações</p>
                         <p>Criação de até 5 escolas</p>
@@ -48,9 +49,8 @@ function Premium(){
                     </div>
                 </div>
             </div>
-    
         </div>
-    )
+    );
 }
 
 export default Premium;

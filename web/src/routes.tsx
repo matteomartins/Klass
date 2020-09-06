@@ -20,7 +20,10 @@ import Notifications from './components/Notifications';
 import CreateSchool from './pages/CreateSchool';
 import Class from './pages/Class';
 import Teachers from './pages/Teachers';
+import Shift from './pages/Shift';
+import TutorialCreate from './pages/TutorialCreate';
 import Schedule from './pages/Schedule';
+
 
 
 const RouteWithCalendar:React.FC<RouteProps> = ({...props}) => {
@@ -72,12 +75,15 @@ export default function Routes() {
                 <RouteWithInfo path="/premium" exact component={Premium}/>
                 <RouteWithInfo path="/notifications" exact component={Notifications}/>
                 <RouteWithCalendar path="/school" exact component={School} />
+                <Route path="/tutorial-create" exact component={TutorialCreate} />
                 <RouteWithCalendar path="/teachers" exact component={Teachers} />
                 <RouteWithCalendar path="/class" exact component={Class} />
                 <RouteWithInfo path="/feedback" exact component={Feedback} />
                 <RouteWithInfo path="/politics" exact component={Politics} />
                 <RouteWithInfo path="/create-school" exact component={CreateSchool} />
+                <RouteWithCalendar path="/shift" exact component={Shift} />
                 <RouteHeader path="/schedule" exact component={Schedule} />
+
             </Switch>
         </BrowserRouter>
     )
