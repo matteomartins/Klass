@@ -37,20 +37,17 @@ function Politics() {
                         </div>
                         <div className="text-container" id="text-priv">
                             <a href="#priv1">
-                                {" "}
-                                Quais as Politicas de Privacidade?{" "}
+                                Quais as Politicas de Privacidade?
                             </a>
                             <br />
                             <br />
                             <a href="#priv2">
-                                {" "}
-                                Quais as Politicas de Privacidade?{" "}
+                                Quais as Politicas de Privacidade?
                             </a>
                             <br />
                             <br />
                             <a href="#priv3">
-                                {" "}
-                                Quais as Politicas de Privacidade?{" "}
+                                Quais as Politicas de Privacidade?
                             </a>
                         </div>
                     </div>
@@ -61,34 +58,19 @@ function Politics() {
                             <a href="#text-cook">Política de Cookies</a>
                         </div>
                         <div className="text-container" id="text-cook">
-                            <a href="#cook1">
-                                {" "}
-                                Quais as Politicas de Cookies?{" "}
-                            </a>
+                            <a href="#cook1">Quais as Politicas de Cookies?</a>
                             <br />
                             <br />
-                            <a href="#cook2">
-                                {" "}
-                                Quais as Politicas de Cookies?{" "}
-                            </a>
+                            <a href="#cook2">Quais as Politicas de Cookies?</a>
                             <br />
                             <br />
-                            <a href="#cook3">
-                                {" "}
-                                Quais as Politicas de Cookies?{" "}
-                            </a>
+                            <a href="#cook3">Quais as Politicas de Cookies?</a>
                             <br />
                             <br />
-                            <a href="#cook4">
-                                {" "}
-                                Quais as Politicas de Cookies?{" "}
-                            </a>
+                            <a href="#cook4">Quais as Politicas de Cookies?</a>
                             <br />
                             <br />
-                            <a href="#cook5">
-                                {" "}
-                                Quais as Politicas de Cookies?{" "}
-                            </a>
+                            <a href="#cook5">Quais as Politicas de Cookies?</a>
                         </div>
                     </div>
                     <br />
@@ -98,34 +80,19 @@ function Politics() {
                             <a href="#text-sesion">Política de Sessão</a>
                         </div>
                         <div className="text-container" id="text-sesion">
-                            <a href="#sesion1">
-                                {" "}
-                                Quais as Politicas de Sessão?{" "}
-                            </a>
+                            <a href="#sesion1">Quais as Politicas de Sessão?</a>
                             <br />
                             <br />
-                            <a href="#sesion2">
-                                {" "}
-                                Quais as Politicas de Sessão?{" "}
-                            </a>
+                            <a href="#sesion2">Quais as Politicas de Sessão?</a>
                             <br />
                             <br />
-                            <a href="#sesion3">
-                                {" "}
-                                Quais as Politicas de Sessão?{" "}
-                            </a>
+                            <a href="#sesion3">Quais as Politicas de Sessão?</a>
                             <br />
                             <br />
-                            <a href="#sesion4">
-                                {" "}
-                                Quais as Politicas de Sessão?{" "}
-                            </a>
+                            <a href="#sesion4">Quais as Politicas de Sessão?</a>
                             <br />
                             <br />
-                            <a href="#sesion5">
-                                {" "}
-                                Quais as Politicas de Sessão?{" "}
-                            </a>
+                            <a href="#sesion5">Quais as Politicas de Sessão?</a>
                         </div>
                     </div>
                     <br />
@@ -136,20 +103,17 @@ function Politics() {
                         </div>
                         <div className="text-container" id="text-dir">
                             <a href="#dir1">
-                                {" "}
-                                Quais as Politicas de Direito Autoral?{" "}
+                                Quais as Politicas de Direito Autoral?
                             </a>
                             <br />
                             <br />
                             <a href="#dir2">
-                                {" "}
-                                Quais as Politicas de Direito Autoral?{" "}
+                                Quais as Politicas de Direito Autoral?
                             </a>
                             <br />
                             <br />
                             <a href="#dir3">
-                                {" "}
-                                Quais as Politicas de Direito Autoral?{" "}
+                                Quais as Politicas de Direito Autoral?
                             </a>
                         </div>
                     </div>
@@ -275,24 +239,21 @@ function Politics() {
                     </div>
                     <div className="text-container">
                         <h2 id="dir1">
-                            {" "}
-                            Quais as Politicas de Direito Autoral?{" "}
+                            Quais as Politicas de Direito Autoral?
                         </h2>
                         <div className="classes">
                             <div className="block" />
                             <div className="block" />
                         </div>
                         <h2 id="dir2">
-                            {" "}
-                            Quais as Politicas de Direito Autoral?{" "}
+                            Quais as Politicas de Direito Autoral?
                         </h2>
                         <div className="classes">
                             <div className="block" />
                             <div className="block" />
                         </div>
                         <h2 id="dir3">
-                            {" "}
-                            Quais as Politicas de Direito Autoral?{" "}
+                            Quais as Politicas de Direito Autoral?
                         </h2>
                         <div className="classes">
                             <div className="block" />

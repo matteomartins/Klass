@@ -34,9 +34,7 @@ const Menu: React.FC<MenuProps> = ({ active, setActive }) => {
                     <div className="school-menu-content">
                         <ul className="texts">
                             <li>
-                                <Link className="texts" to="/create-school">
-                                    Criar uma nova escola
-                                </Link>
+                                <Link className="texts" to="/create-school" >Criar uma nova escola</Link>
                             </li>
                             <li>
                                 <Link className="texts" to="/enter-school">
