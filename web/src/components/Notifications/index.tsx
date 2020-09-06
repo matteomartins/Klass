@@ -1,11 +1,10 @@
-import React from 'react';
+import React from "react";
 
-import { KaClose } from '../../assets/icons';
-import Notification from '../Notification';
+import { KaClose } from "../../assets/icons";
+import Notification from "../Notification";
 
-import './styles.css';
-import { Link } from 'react-router-dom';
-
+import "./styles.css";
+import { Link } from "react-router-dom";
 
 const Notifications = () => {
     return (
@@ -18,21 +17,21 @@ const Notifications = () => {
                     </Link>
                 </div>
                 <div className="notifications">
-                <Notification />
-                <Notification />
-                <Notification />
-                <Notification />
-                <Notification />
-                <Notification />
-                <Notification />
-                <Notification />
-                <Notification />
-                <Notification />
-                <Notification />
+                    <Notification />
+                    <Notification />
+                    <Notification />
+                    <Notification />
+                    <Notification />
+                    <Notification />
+                    <Notification />
+                    <Notification />
+                    <Notification />
+                    <Notification />
+                    <Notification />
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Notifications;
