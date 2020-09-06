@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 
-import { useHistory } from 'react-router-dom';
-import { SwitchTransition, CSSTransition } from 'react-transition-group';
-import ExitCreateSchool from '../../components/ExitCreateSchool';
-
-
+import { useHistory } from "react-router-dom";
+import { SwitchTransition, CSSTransition } from "react-transition-group";
+import ExitCreateSchool from "../../components/CreateSchool/Exit";
 
 import "./styles.css";
 import Create1 from "../../components/CreateSchool/Create1";
@@ -23,11 +21,13 @@ interface CardProps {
 const cardDefault: Array<CardProps> = [];
 
 function CreateSchool() {
-
-    const [active, setActive] = useState(false)
-    const [ step, setStep ] = useState(2);
-    const [ mode, setMode ] = useState('foward');
-    const [ turns, setTurns ] = useState([{name: "integral", text:"Integral"}, {name: 'noturno', text: 'Noturno'}]);
+    const [active, setActive] = useState(false);
+    const [step, setStep] = useState(2);
+    const [mode, setMode] = useState("foward");
+    const [turns, setTurns] = useState([
+        { name: "integral", text: "Integral" },
+        { name: "noturno", text: "Noturno" },
+    ]);
     const [intervals, setIntervals] = useState(cardDefault);
 
     const newCreate3 = () => (
@@ -68,15 +68,15 @@ function CreateSchool() {
         setStep(step + 1);
     }
     function handleBack(e: any) {
-        if (step !== 0) {
-            e.preventDefault();
+        e.preventDefault();
+        if (step === 0) setActive(true);
+        else {
             setMode("backward");
             setStep(step - 1);
         }
     }
 
     return (
-        
         <div className="create-school-container">
             <BackButton to="/home" onClick={(e) => handleBack(e)} />
             <div className={mode}>
@@ -94,17 +94,14 @@ function CreateSchool() {
                 </SwitchTransition>
             </div>
             <div className="progress-container">
-
                 <button className="btn" onClick={handleNext}>
                     Avançar
                 </button>
                 <span> {step + 1}/7 </span>
-
             </div>
             <ExitCreateSchool active={active} setActive={setActive} />
         </div>
     );
-
 }
 
 export default CreateSchool;
