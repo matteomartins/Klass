@@ -63,7 +63,8 @@ Route.post('/schools/:id_school/professors', 'ProfessorController.create').valid
 Route.delete('/schools/:id_school/professors/:id_professor', 'ProfessorController.delete').middleware(['VerifyUserAndSchool']);
 Route.get('/schools/:id_school/professors/:id_professor', 'ProfessorController.index').middleware(['VerifyUserAndSchool']);
 Route.get('/schools/:id_school/professors/', 'ProfessorController.generalIndex').middleware(['VerifyUserAndSchool']);
-Route.put('/schools/:id_school/professors/:id_professor', 'ProfessorController.update').validator('Professor').middleware(['VerifyUserAndSchool']);
+Route.put('/schools/:id_school/professors/:id_professor', 'ProfessorController.schoolUpdate').validator('Professor').middleware(['VerifyUserAndSchool']);
+Route.put('/schools/:id_school/professors/:id_professor', 'ProfessorController.userUpdate').validator('ProfessorUser').middleware(['VerifyUserAndProfessor']);
 
 //Home
 Route.get('/home', 'HomeController.index');
