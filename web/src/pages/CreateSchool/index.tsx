@@ -22,7 +22,7 @@ const cardDefault: Array<CardProps> = [];
 
 function CreateSchool() {
     const [active, setActive] = useState(false);
-    const [step, setStep] = useState(2);
+    const [step, setStep] = useState(3);
     const [mode, setMode] = useState("foward");
     const [turns, setTurns] = useState([
         { name: "integral", text: "Integral" },
@@ -39,8 +39,8 @@ function CreateSchool() {
         />
     );
 
-    const [courses, setCourses] = useState(cardDefault);
-    const [modules, setModules] = useState(cardDefault);
+    const [courses, setCourses] = useState([]);
+    const [modules, setModules] = useState([]);
 
     const newCreate4 = () => (
         <Create4

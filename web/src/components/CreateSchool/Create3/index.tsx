@@ -83,12 +83,15 @@ const Create3: React.FC<Create3Props> = ({
                             />
                             <div className="scroll-view">
                                 <div className="creation-cards">
-                                    {turns.map(({ name, text }) => (
+                                    {turns.map(({ name, text }, index) => (
                                         <InfoCardButton
                                             handleDelete={removeTurn}
+                                            index={index}
                                             name={name}
                                             text={text}
                                             group="turns"
+                                            checked={false}
+                                            handleCheck={() => {}}
                                         />
                                     ))}
                                 </div>

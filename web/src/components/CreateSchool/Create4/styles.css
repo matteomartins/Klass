@@ -1,0 +1,20 @@
+.creation-container .creation-content h2 {
+    font-weight: 400;
+    font-size: 2rem;
+}
+
+.creation-container .creation-content .creation-cards h3 {
+    font-weight: 300;
+    font-size: 1.7rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.creation-container .creation-content .creation-cards p {
+    text-align: center;
+    color: var(--color-text-primary-opacity);
+}
+.creation-container .creation-content > p {
+    text-align: center;
+    font-size: 1.7rem;
+}
