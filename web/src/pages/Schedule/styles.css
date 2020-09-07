@@ -27,9 +27,9 @@
     background-color: var(--color-primary);
     box-shadow: 0px 5px 20px rgba(38, 39, 56, 0.45);
     border: none;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     font-size: 2rem;
-    color: #CFCFCF;
+    color: #cfcfcf;
     margin-left: 1.5rem;
     align-items: center;
     padding: 13px 20px 13px 25px;
@@ -70,12 +70,11 @@
     border-collapse: collapse;
     text-align: center;
     width: 100%;
-    color: #CFCFCF;
+    color: #cfcfcf;
     border-collapse: collapse;
     border-spacing: 0;
     border-style: hidden;
 }
-
 
 .main-schedule .schedule-container .schedule-content th {
     border-radius: 10px;
@@ -143,7 +142,6 @@
     justify-content: space-between;
     height: 19rem;
     flex-direction: column;
-    
 }
 
 .main-schedule .export-container .circle-icon-container {

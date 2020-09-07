@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 
-import { useHistory } from "react-router-dom";
-import { SwitchTransition, CSSTransition } from "react-transition-group";
+import { useHistory } from 'react-router-dom';
+import { SwitchTransition, CSSTransition } from 'react-transition-group';
+import ExitCreateSchool from '../../components/ExitCreateSchool';
+
+
 
 import "./styles.css";
 import Create1 from "../../components/CreateSchool/Create1";
@@ -20,11 +23,12 @@ interface CardProps {
 const cardDefault: Array<CardProps> = [];
 
 function CreateSchool() {
-    const [step, setStep] = useState(3);
-    const [mode, setMode] = useState("foward");
 
+    const [active, setActive] = useState(false)
+    const [ step, setStep ] = useState(2);
+    const [ mode, setMode ] = useState('foward');
+    const [ turns, setTurns ] = useState([{name: "integral", text:"Integral"}, {name: 'noturno', text: 'Noturno'}]);
     const [intervals, setIntervals] = useState(cardDefault);
-    const [turns, setTurns] = useState(cardDefault);
 
     const newCreate3 = () => (
         <Create3
@@ -72,6 +76,7 @@ function CreateSchool() {
     }
 
     return (
+        
         <div className="create-school-container">
             <BackButton to="/home" onClick={(e) => handleBack(e)} />
             <div className={mode}>
@@ -89,13 +94,17 @@ function CreateSchool() {
                 </SwitchTransition>
             </div>
             <div className="progress-container">
+
                 <button className="btn" onClick={handleNext}>
                     Avançar
                 </button>
                 <span> {step + 1}/7 </span>
+
             </div>
+            <ExitCreateSchool active={active} setActive={setActive} />
         </div>
     );
+
 }
 
 export default CreateSchool;
