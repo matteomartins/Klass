@@ -5,21 +5,21 @@ const School = use('App/Models/School');
 const Adm = use('App/Models/Administrator');
 const User = use('App/Models/User');
 const Database = use('Database')
-const {CreateIdHash} = require('../../Utils/createIdHash.js');
+const { CreateIdHash } = require('../../Utils/createIdHash.js');
 
 class SchoolController {
     async create({ request, response, auth }) {
 
-        const {name,description,type,icon} = request.all();
+        const { name, description, type, icon } = request.all();
 
         const id = CreateIdHash();
 
         const school = {
-          'id': id,
-          'name': name,
-          'description': description,
-          'type': type,
-          'icon': icon
+            'id': id,
+            'name': name,
+            'description': description,
+            'type': type,
+            'icon': icon
         }
 
         await School.create(school);
@@ -66,7 +66,6 @@ class SchoolController {
 
         var userSchools = []
 
-        console.log(oldUserSchools);
 
         oldUserSchools.map(({ school_id, name, description, type, icon }) => {
             const valores = {

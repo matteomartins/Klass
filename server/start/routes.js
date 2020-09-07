@@ -14,59 +14,93 @@
 */
 
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
-const Route = use('Route')
+const Route = use('Route');
 
 //Users
-Route.post('/users', 'UserController.create').validator('User')
-Route.put('/users', 'UserController.update')
-Route.get('/users', 'UserController.index')
+Route.group(() => {
+    Route.post('', 'UserController.create').validator('User');
+    Route.put('', 'UserController.update');
+    Route.get('', 'UserController.index');
+}).prefix('/users')
 
-Route.post('/sessions', 'SessionController.store')
+Route.post('/sessions', 'SessionController.store');
 
 //Schools
-Route.post('/schools', 'SchoolController.create').validator('School').middleware(['VerifyPremiumAndSchool']);
-Route.delete('/schools/:id_school', 'SchoolController.delete').middleware(['VerifyUserAndSchool']);
-Route.get('/schools/', 'SchoolController.generalIndex');
-Route.get('/schools/:id_school', 'SchoolController.index').middleware(['VerifyUserAndSchool']);
-Route.put('/schools/:id_school', 'SchoolController.update').validator('School').middleware(['VerifyUserAndSchool']);
+Route.group(() => {
+    Route.post('', 'SchoolController.create').validator('School').middleware(['VerifyPremiumAndSchool']);
+    Route.get('', 'SchoolController.generalIndex');
+}).prefix('/schools')
+
+Route.group(() => {
+    Route.get('', 'SchoolController.index');
+    Route.put('', 'SchoolController.update').validator('School');
+    Route.delete('', 'SchoolController.delete');
+}).prefix('/schools/:id_school').middleware(['VerifyUserAndSchool']);
 
 //Courses
-Route.post('/schools/:id_school/courses', 'CourseController.create').validator('Course').middleware(['VerifyUserAndSchool']);
-Route.delete('/schools/:id_school/courses/:id_course', 'CourseController.delete').middleware(['VerifyUserAndSchool']);
-Route.get('/schools/:id_school/courses/', 'CourseController.generalIndex').middleware(['VerifyUserAndSchool']);
-Route.get('/schools/:id_school/courses/:id_course', 'CourseController.index').middleware(['VerifyUserAndSchool']);
-Route.put('/schools/:id_school/courses/:id_course', 'CourseController.update').validator('Course').middleware(['VerifyUserAndSchool']);
+Route.group(() => {
+    Route.get('', 'CourseController.generalIndex');
+    Route.post('', 'CourseController.create').validator('Course');
+}).prefix('/schools/:id_school/courses/').middleware(['VerifyUserAndSchool']);
+
+Route.group(() => {
+    Route.delete('', 'CourseController.delete');
+    Route.get('', 'CourseController.index');
+    Route.put('', 'CourseController.update').validator('Course');
+}).prefix('/schools/:id_school/courses/:id_course').middleware(['VerifyUserAndSchool']);
 
 //Turns
-Route.post('/schools/:id_school/turns', 'TurnController.create').validator('Turn').middleware(['VerifyUserAndSchool']);
-Route.delete('/schools/:id_school/turns/:id_turn', 'TurnController.delete').middleware(['VerifyUserAndSchool']);
-Route.get('/schools/:id_school/turns/:id_turn', 'TurnController.index').middleware(['VerifyUserAndSchool']);
-Route.get('/schools/:id_school/turns/', 'TurnController.generalIndex').middleware(['VerifyUserAndSchool']);
-Route.put('/schools/:id_school/turns/:id_turn', 'TurnController.update').validator('Turn').middleware(['VerifyUserAndSchool']);
+Route.group(() => {
+    Route.post('', 'TurnController.create').validator('Turn');
+    Route.get('', 'TurnController.generalIndex');
+}).prefix('/schools/:id_school/turns/').middleware(['VerifyUserAndSchool']);
+
+Route.group(() => {
+    Route.delete('', 'TurnController.delete');
+    Route.get('', 'TurnController.index');
+    Route.put('', 'TurnController.update').validator('Turn');
+}).prefix('/schools/:id_school/turns/:id_turn').middleware(['VerifyUserAndSchool']);
 
 //Groups
-Route.post('/schools/:id_school/groups', 'GroupController.create').validator('Group').middleware(['VerifyUserAndSchool']);
-Route.delete('/schools/:id_school/groups/:id_group', 'GroupController.delete').middleware(['VerifyUserAndSchool']);
-Route.get('/schools/:id_school/groups/', 'GroupController.generalIndex').middleware(['VerifyUserAndSchool']);
-Route.get('/schools/:id_school/groups/:id_group', 'GroupController.index').middleware(['VerifyUserAndSchool']);
-Route.put('/schools/:id_school/groups/:id_group', 'GroupController.update').validator('Group').middleware(['VerifyUserAndSchool']);
+Route.group(() => {
+    Route.post('', 'GroupController.create').validator('Group');
+    Route.get('', 'GroupController.generalIndex');
+}).prefix('/schools/:id_school/groups').middleware(['VerifyUserAndSchool']);
+
+Route.group(() => {
+    Route.delete('', 'GroupController.delete');
+    Route.get('', 'GroupController.index');
+    Route.put('', 'GroupController.update').validator('Group');
+}).prefix('/schools/:id_school/groups/:id_group').middleware(['VerifyUserAndSchool']);
+
 
 //Subjects
-Route.post('/schools/:id_school/subjects', 'SubjectController.create').validator('Subject').middleware(['VerifyUserAndSchool']);
-Route.delete('/schools/:id_school/subjects/:id_subject', 'SubjectController.delete').middleware(['VerifyUserAndSchool']);
-Route.get('/schools/:id_school/subjects/:id_subject', 'SubjectController.index').middleware(['VerifyUserAndSchool']);
-Route.get('/schools/:id_school/subjects/', 'SubjectController.generalIndex').middleware(['VerifyUserAndSchool']);
-Route.put('/schools/:id_school/subjects/:id_subject', 'SubjectController.update').validator('Subject').middleware(['VerifyUserAndSchool']);
+Route.group(() => {
+    Route.post('', 'SubjectController.create').validator('Subject');
+    Route.get('', 'SubjectController.generalIndex');
+}).prefix('/schools/:id_school/subjects').middleware(['VerifyUserAndSchool']);
+
+Route.group(() => {
+    Route.delete('', 'SubjectController.delete');
+    Route.get('', 'SubjectController.index');
+    Route.put('', 'SubjectController.update').validator('Subject');
+}).prefix('/schools/:id_school/subjects/:id_subject').middleware(['VerifyUserAndSchool']);
 
 //Professors
-Route.post('/schools/:id_school/professors', 'ProfessorController.create').validator('Professor').middleware(['VerifyUserAndSchool']);
-Route.delete('/schools/:id_school/professors/:id_professor', 'ProfessorController.delete').middleware(['VerifyUserAndSchool']);
-Route.get('/schools/:id_school/professors/:id_professor', 'ProfessorController.index').middleware(['VerifyUserAndSchool']);
-Route.get('/schools/:id_school/professors/', 'ProfessorController.generalIndex').middleware(['VerifyUserAndSchool']);
-Route.put('/schools/:id_school/professors/:id_professor', 'ProfessorController.update').validator('Professor').middleware(['VerifyUserAndSchool']);
+Route.group(() => {
+    Route.post('', 'ProfessorController.create').validator('Professor');
+    Route.get('', 'ProfessorController.generalIndex')
+}).prefix('/schools/:id_school/professors').middleware(['VerifyUserAndSchool']);
+
+Route.group(() => {
+    Route.delete('', 'ProfessorController.delete');
+    Route.get('', 'ProfessorController.index');
+    Route.put('', 'ProfessorController.update').validator('Professor');
+}).prefix('/schools/:id_school/professors/:id_professor').middleware(['VerifyUserAndSchool']);
 
 //Home
 Route.get('/home', 'HomeController.index');
 
 //Dashboard
 Route.get('/dashboard', 'DashboardController.index');
+
