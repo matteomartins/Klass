@@ -8,7 +8,7 @@ const Database = use('Database')
 const { CreateIdHash } = require('../../Utils/createIdHash.js');
 
 class SchoolController {
-    async create({ request, response, auth }) {
+    async store({ request, response, auth }) {
 
         const { name, description, type, icon } = request.all();
 
@@ -32,8 +32,8 @@ class SchoolController {
         return response.status(201).send({ message: "Escola criada com sucesso" })
     }
 
-    async delete({ request, response, auth }) {
-        const idSchool = request.params.id_school;
+    async destroy({ request, response, auth }) {
+        const idSchool = request.params.id;
 
         await auth.getUser();
 
@@ -44,8 +44,8 @@ class SchoolController {
 
         return response.status(200).send({ message: "Escola apagada com sucesso" })
     }
-    async index({ request }) {
-        const idSchool = request.params.id_school;
+    async show({ request }) {
+        const idSchool = request.params.id;
         const school = await School.query().where('id', idSchool).fetch();
         return { school }
     }
@@ -57,7 +57,7 @@ class SchoolController {
         return response.status(200).send({ message: "Escola atualizada com sucesso" })
     }
 
-    async generalIndex({ request, response, auth }) {
+    async index({ request, response, auth }) {
         const user = await auth.getUser();
         const user_id = user.$attributes.id;
 

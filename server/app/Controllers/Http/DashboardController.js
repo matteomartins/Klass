@@ -95,7 +95,7 @@ class DashboardController {
 }
 
 /* 
-		"school_name": 
+		"school_name": X
 		"semanal_hours": 
 		"professors_number": X
 		"classes_number": X
