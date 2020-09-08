@@ -13,7 +13,6 @@ class SetOfDisciplinesSchema extends Schema {
         .unsigned().references('id').inTable('modules')
         .onDelete('CASCADE').onUpdate('CASCADE')
       table.integer('total_classes').notNullable()
-      table.timestamps()
     })
   }
 
