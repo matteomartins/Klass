@@ -7,7 +7,6 @@ import Header from "./components/Header";
 
 import Register from "./pages/Register";
 import Login from "./pages/Login";
-import Drag from "./pages/Drag";
 import FirstAccess from "./pages/FirstAccess";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";

@@ -6,34 +6,39 @@ import "./styles.css";
 interface InfoCardButtonProps {
     handleDelete: Function;
     index: number;
-    name: string;
-    text: string;
+    id: string;
+    title: string;
     group: string;
     checked: boolean;
     handleCheck: Function;
+    disableDelete?: boolean;
 }
 
 const InfoCardButton: React.FC<InfoCardButtonProps> = ({
     handleDelete,
     index,
-    name,
-    text,
+    id,
+    title,
     group,
     checked,
     handleCheck,
+    disableDelete,
 }) => {
     return (
-        <div key={name} className="creation-card">
+        <div key={id} className="creation-card">
             <input
-                id={name}
+                id={id}
                 type="radio"
                 name={group}
-                value={name}
+                value={id}
                 checked={checked}
                 onChange={() => handleCheck(index)}
             />
-            <label htmlFor={name}>{text}</label>
-            <button onClick={() => handleDelete(name)}>
+            <label htmlFor={id}>{title}</label>
+            <button
+                style={{ display: disableDelete ? "none" : "flex" }}
+                onClick={() => handleDelete(id)}
+            >
                 <KaClose />
             </button>
         </div>

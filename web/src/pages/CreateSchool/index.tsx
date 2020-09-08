@@ -14,30 +14,14 @@ import Create6 from "../../components/CreateSchool/Create6";
 import Create7 from "../../components/CreateSchool/Create7";
 import BackButton from "../../components/BackButton";
 
-interface CardProps {
-    name: string;
-    text: string;
-}
-const cardDefault: Array<CardProps> = [];
-
 function CreateSchool() {
     const [active, setActive] = useState(false);
     const [step, setStep] = useState(3);
     const [mode, setMode] = useState("foward");
-    const [turns, setTurns] = useState([
-        { name: "integral", text: "Integral" },
-        { name: "noturno", text: "Noturno" },
-    ]);
-    const [intervals, setIntervals] = useState(cardDefault);
 
-    const newCreate3 = () => (
-        <Create3
-            intervals={intervals}
-            setIntervals={setIntervals}
-            turns={turns}
-            setTurns={setTurns}
-        />
-    );
+    const [turns, setTurns] = useState([]);
+
+    const newCreate3 = () => <Create3 turns={turns} setTurns={setTurns} />;
 
     const [courses, setCourses] = useState([]);
     const [modules, setModules] = useState([]);
@@ -51,13 +35,24 @@ function CreateSchool() {
         />
     );
 
+    const [subjects, setSubjects] = useState([]);
+
+    const newCreate5 = () => (
+        <Create5
+            subjects={subjects}
+            setSubjects={setSubjects}
+            modules={modules}
+            setModules={setModules}
+        />
+    );
+
     const history = useHistory();
     const screens = [
         Create1,
         Create2,
         newCreate3,
         newCreate4,
-        Create5,
+        newCreate5,
         Create6,
         Create7,
     ];

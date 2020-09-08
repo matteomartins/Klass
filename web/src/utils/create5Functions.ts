@@ -1,37 +1,37 @@
-import { CourseProps, ModuleProps } from "./commonInterfaces";
+import { ModuleProps, SubjectProps } from "./commonInterfaces";
 
-export function create4Functions(
-    courses: Array<CourseProps>,
-    setCourses: Function,
+export function create5Functions(
+    subjects: Array<SubjectProps>,
+    setSubjects: Function,
     modules: Array<ModuleProps>,
     setModules: Function,
-    selectedCourse: number,
-    setSelectedCourse: Function
+    selectedModule: number,
+    setSelectedModule: Function
 ) {
     return {
-        addCourse: (name: string) => {
+        addSubject: (name: string) => {
             if (
                 name.trim() !== "" &&
-                !courses.find(
-                    (course) => course.id.toLowerCase() === name.toLowerCase()
+                !subjects.find(
+                    (subject) => subject.id.toLowerCase() === name.toLowerCase()
                 )
             ) {
-                setCourses([
-                    ...courses,
+                setSubjects([
+                    ...subjects,
                     { id: name, title: name, content: [] },
                 ]);
             }
         },
-        removeCourse: (name: string) => {
-            let newCourses = courses;
-            const deleted = newCourses.find(
+        removeSubject: (name: string) => {
+            let newSubjects = subjects;
+            const deleted = newSubjects.find(
                 (deleted_course) => deleted_course.id === name
             );
             if (deleted) {
-                const index = newCourses.indexOf(deleted);
-                if (selectedCourse === index) setSelectedCourse(-1);
-                newCourses.splice(index, 1);
-                setCourses([...newCourses]);
+                const index = newSubjects.indexOf(deleted);
+                if (selectedModule === index) setSelectedModule(-1);
+                newSubjects.splice(index, 1);
+                setSubjects([...newSubjects]);
             }
         },
         addModule: (name: string) => {
@@ -45,8 +45,7 @@ export function create4Functions(
                 let newModules: Array<any> = [...modules];
                 newModules.push({
                     id: `item-${name.trim()}-${new Date().getTime()}`,
-                    title: name.trim(),
-                    content: [],
+                    content: name.trim(),
                 });
                 setModules(newModules);
             }
@@ -57,16 +56,17 @@ export function create4Functions(
             setModules(newModules);
         },
         removeConnection: (name: string) => {
-            const newCourses = [...courses];
-            const deleted = newCourses[selectedCourse].content.find(
+            const newModules = [...modules];
+            const deleted = newModules[selectedModule].content?.find(
                 (deleted_content) => deleted_content.id === name
             );
             if (deleted) {
-                const index = newCourses[selectedCourse].content.indexOf(
+                const index = newModules[selectedModule].content?.indexOf(
                     deleted
                 );
-                newCourses[selectedCourse].content.splice(index, 1);
-                setCourses([...newCourses]);
+                if (!index) return;
+                newModules[selectedModule].content?.splice(index, 1);
+                setModules([...newModules]);
             }
         },
     };

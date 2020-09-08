@@ -25,7 +25,6 @@ function DragDrop(
         } else if (sInd === 0) {
             return;
         } else {
-            //const result = move(state[sInd], state[dInd], source, destination);
             const sourceClone: Array<any> = Array.from(state[sInd - 1]);
             if (
                 !stateDestiny[dInd - 2].content.find(
@@ -46,24 +45,24 @@ function DragDrop(
 
 export default DragDrop;
 
-function move(
-    source: any,
-    destination: any,
-    droppableSource: any,
-    droppableDestination: any
-) {
-    const sourceClone = Array.from(source);
-    const destClone = Array.from(destination);
-    const [removed] = sourceClone.splice(droppableSource.index, 1);
+// function move(
+//     source: any,
+//     destination: any,
+//     droppableSource: any,
+//     droppableDestination: any
+// ) {
+//     const sourceClone = Array.from(source);
+//     const destClone = Array.from(destination);
+//     const [removed] = sourceClone.splice(droppableSource.index, 1);
 
-    destClone.splice(droppableDestination.index, 0, removed);
+//     destClone.splice(droppableDestination.index, 0, removed);
 
-    const result = [];
-    result[droppableSource.droppableId] = sourceClone;
-    result[droppableDestination.droppableId] = destClone;
+//     const result = [];
+//     result[droppableSource.droppableId] = sourceClone;
+//     result[droppableDestination.droppableId] = destClone;
 
-    return result;
-}
+//     return result;
+// }
 function reorder(list: any, startIndex: number, endIndex: number) {
     const result = Array.from(list);
     const [removed] = result.splice(startIndex, 1);

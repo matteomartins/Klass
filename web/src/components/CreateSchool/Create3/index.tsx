@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import TruncatedContainer from "../../TruncatedContainer";
 
 import "./styles.css";
@@ -6,64 +6,68 @@ import { KaArrow } from "../../../assets/icons";
 import InputWithButton from "../InputWithButton";
 import InfoCard from "../InfoCard";
 import Input from "../Input";
-import InfoCardButton from "../InfoCardButton";
 import InputCheckboxGroup from "../InputCheckboxGroup";
 import List from "../List";
+import CreateCardSection from "../CreateCardSection";
+import { create3Functions } from "../../../utils/create3Functions";
+import { TurnProps } from "../../../utils/commonInterfaces";
 
 interface Create3Props {
-    intervals: Array<any>;
-    setIntervals: Function;
-    turns: Array<any>;
+    turns: Array<TurnProps>;
     setTurns: Function;
 }
 
-const Create3: React.FC<Create3Props> = ({
-    intervals,
-    setIntervals,
-    turns,
-    setTurns,
-}) => {
-    function addTurn(name: string) {
-        if (
-            name.trim() !== "" &&
-            !turns.find(
-                (turn) => turn.name.toLowerCase() === name.toLowerCase()
-            )
-        ) {
-            setTurns([...turns, { name: name, text: name }]);
+const Create3: React.FC<Create3Props> = ({ turns, setTurns }) => {
+    const [selectedTurn, setSelectedTurn] = useState(-1);
+    const {
+        addInterval,
+        addTurn,
+        removeInterval,
+        removeTurn,
+    } = create3Functions(turns, setTurns, selectedTurn);
+
+    function TurnInfoContainer() {
+        if (selectedTurn === -1) {
+            return (
+                <div className="creation-content">
+                    <p>Selecione um turno</p>
+                </div>
+            );
         }
-    }
-    function removeTurn(name: string) {
-        let newTurns = turns;
-        const deleted = newTurns.find(
-            (deleted_turn) => deleted_turn.name === name
+
+        return (
+            <div className="creation-content">
+                <Input name="" placeHolder="Horário" />
+                <Input name="" placeHolder="Duração da Aula" />
+                <InputCheckboxGroup />
+                <InputWithButton
+                    handleNew={addInterval}
+                    placeholder="Novo Intervalo"
+                />
+                <div className="scroll-view">
+                    <div className="creation-cards">
+                        {(() => {
+                            if (
+                                turns[selectedTurn].content.intervals.length ===
+                                0
+                            ) {
+                                return <p>Adicione intervalos</p>;
+                            } else {
+                                return turns[
+                                    selectedTurn
+                                ].content.intervals.map(({ id, title }) => (
+                                    <InfoCard
+                                        handleDelete={removeInterval}
+                                        id={id}
+                                        title={title}
+                                    />
+                                ));
+                            }
+                        })()}
+                    </div>
+                </div>
+            </div>
         );
-        if (deleted) {
-            const index = newTurns.indexOf(deleted);
-            newTurns.splice(index, 1);
-            setTurns([...newTurns]);
-        }
-    }
-    function addInterval(name: string) {
-        if (
-            name.trim() !== "" &&
-            !intervals.find(
-                (interval) => interval.name.toLowerCase() === name.toLowerCase()
-            )
-        ) {
-            setIntervals([...intervals, { name: name, text: name }]);
-        }
-    }
-    function removeInterval(name: string) {
-        let newIntervals = intervals;
-        const deleted = newIntervals.find(
-            (deleted_interval) => deleted_interval.name === name
-        );
-        if (deleted) {
-            const index = newIntervals.indexOf(deleted);
-            newIntervals.splice(index, 1);
-            setIntervals([...newIntervals]);
-        }
     }
 
     return (
@@ -76,53 +80,21 @@ const Create3: React.FC<Create3Props> = ({
                             <h1>Turno</h1>
                             <KaArrow size={18} />
                         </div>
-                        <div className="creation-content">
-                            <InputWithButton
-                                handleNew={addTurn}
-                                placeholder="Novo Turno"
-                            />
-                            <div className="scroll-view">
-                                <div className="creation-cards">
-                                    {turns.map(({ name, text }, index) => (
-                                        <InfoCardButton
-                                            handleDelete={removeTurn}
-                                            index={index}
-                                            name={name}
-                                            text={text}
-                                            group="turns"
-                                            checked={false}
-                                            handleCheck={() => {}}
-                                        />
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
+                        <CreateCardSection
+                            cards={turns}
+                            addCard={addTurn}
+                            removeCard={removeTurn}
+                            selectedCard={selectedTurn}
+                            setSelectedCard={setSelectedTurn}
+                            placeholder="Novo Turno"
+                        />
                     </div>
                     <div className="creation-container">
                         <div className="creation-header">
                             <h1>Horários</h1>
                             <KaArrow size={18} />
                         </div>
-                        <div className="creation-content">
-                            <Input name="" placeHolder="Horário" />
-                            <Input name="" placeHolder="Duração da Aula" />
-                            <InputCheckboxGroup />
-                            <InputWithButton
-                                handleNew={addInterval}
-                                placeholder="Novo Intervalo"
-                            />
-                            <div className="scroll-view">
-                                <div className="creation-cards">
-                                    {intervals.map(({ name, text }) => (
-                                        <InfoCard
-                                            handleDelete={removeInterval}
-                                            name={name}
-                                            text={text}
-                                        />
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
+                        <TurnInfoContainer />
                     </div>
                     <div className="creation-container">
                         <div className="creation-header">

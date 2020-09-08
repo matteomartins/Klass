@@ -2,21 +2,21 @@ import React from "react";
 import { Droppable } from "react-beautiful-dnd";
 
 import { KaArrow } from "../../../assets/icons";
-import { CourseProps } from "../../../utils/CommonInterfaces";
+import { CardProps } from "../../../utils/commonInterfaces";
 import InfoCard from "../InfoCard";
 
 interface ConnectionSectionProps {
-    selectedCourse: number;
-    courses: Array<CourseProps>;
+    cards: Array<CardProps>;
+    selectedCard: number;
     removeConnection: Function;
 }
 
 const ConnectionSection: React.FC<ConnectionSectionProps> = ({
-    selectedCourse,
-    courses,
+    cards,
+    selectedCard,
     removeConnection,
 }) => {
-    if (selectedCourse === -1) {
+    if (selectedCard === -1) {
         return (
             <div className="creation-container">
                 <div className="creation-header">
@@ -36,11 +36,11 @@ const ConnectionSection: React.FC<ConnectionSectionProps> = ({
                 <KaArrow size={18} />
             </div>
             <div className="creation-content">
-                <h2>{courses[selectedCourse].text}</h2>
+                <h2>{cards[selectedCard].title}</h2>
                 <div className="scroll-view">
                     <Droppable
-                        key={selectedCourse + 2}
-                        droppableId={`${selectedCourse + 2}`}
+                        key={selectedCard + 2}
+                        droppableId={`${selectedCard + 2}`}
                     >
                         {(provided, snapshot) => (
                             <div
@@ -51,19 +51,18 @@ const ConnectionSection: React.FC<ConnectionSectionProps> = ({
                                 <h3>Módulos</h3>
                                 {(() => {
                                     if (
-                                        courses[selectedCourse].content
-                                            .length === 0
+                                        cards[selectedCard].content.length === 0
                                     ) {
                                         return <p>Insira os Módulos</p>;
                                     } else {
-                                        return courses[
-                                            selectedCourse
-                                        ].content.map(({ id, content }) => (
+                                        return cards[
+                                            selectedCard
+                                        ].content.map(({ id, title }: any) => (
                                             <InfoCard
                                                 key={id}
                                                 handleDelete={removeConnection}
-                                                name={id}
-                                                text={content}
+                                                id={id}
+                                                title={title}
                                             />
                                         ));
                                     }

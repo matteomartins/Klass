@@ -5,22 +5,22 @@ import "./styles.css";
 
 interface InfoCardProps extends React.HTMLAttributes<HTMLDivElement> {
     handleDelete: Function;
-    name: string;
-    text: string;
+    id: string;
+    title: string;
     style?: Object;
     isDragging?: any;
 }
 
 const InfoCard: React.FC<InfoCardProps> = ({
     handleDelete,
-    name,
-    text,
+    id,
+    title,
     style,
     isDragging,
     ...rest
 }) => {
     return (
-        <div key={name} className="creation-card" style={style} {...rest}>
+        <div key={id} className="creation-card" style={style} {...rest}>
             <label
                 style={{
                     background: isDragging
@@ -28,11 +28,11 @@ const InfoCard: React.FC<InfoCardProps> = ({
                         : "var(--color-background)",
                 }}
             >
-                {text}
+                {title}
             </label>
             <button
                 style={{ display: isDragging ? "none" : "flex" }}
-                onClick={() => handleDelete(name)}
+                onClick={() => handleDelete(id)}
             >
                 <KaClose />
             </button>
