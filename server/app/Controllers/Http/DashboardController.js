@@ -1,6 +1,6 @@
 'use strict'
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
-const Database = use('Database')
+const Database = use('Database');
 const Turn = use('App/Models/Turn');
 
 class DashboardController {
@@ -95,7 +95,7 @@ class DashboardController {
 }
 
 /* 
-		"school_name": 
+		"school_name": X
 		"semanal_hours": 
 		"professors_number": X
 		"classes_number": X

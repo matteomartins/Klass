@@ -6,7 +6,7 @@ const Module = use('App/Models/Module');
 const Database = use('Database')
 
 class CourseController {
-    async create({ request, response, auth }) {
+    async store({ request, response, auth }) {
         const courseName = request.only(['name']);
         const modules = request.only(['modules']);
 
@@ -24,9 +24,9 @@ class CourseController {
         return response.status(200).send({ message: "Curso criado com sucesso" })
     }
 
-    async delete({ request, response, auth }) {
+    async destroy({ request, response, auth }) {
         const idSchool = request.params.id_school;
-        const idCourse = request.params.id_course;
+        const idCourse = request.params.id;
 
 
         await Database.table('modules').where('course_id', idCourse).delete();
@@ -35,15 +35,15 @@ class CourseController {
         return response.status(200).send({ message: "Curso apagado com sucesso" })
     }
 
-    async index({ request }) {
-        const idCourse = request.params.id_course;
+    async show({ request }) {
+        const idCourse = request.params.id;
 
         const course = await Course.query().where('id', idCourse).fetch();
         const modules = await Module.query().where('course_id', idCourse).fetch();
 
         return { course, modules }
     }
-    async generalIndex({ request, response, auth }) {
+    async index({ request, response, auth }) {
         const idSchool = request.params.id_school;
         const oldModuleCourse = await Database.table('courses').innerJoin('modules', 'courses.id', 'modules.course_id').where('school_id', idSchool)
 
@@ -63,9 +63,9 @@ class CourseController {
         })
         return { ModuleCourse }
     }
-    
+
     async update({ request, response }) {
-        const course_id = request.params.id_course;
+        const course_id = request.params.id;
 
         const courseName = request.only(['name']);
         const newModules = request.only(['modules']);

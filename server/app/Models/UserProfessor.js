@@ -3,12 +3,12 @@
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Model = use('Model')
 
-class Subject extends Model {
+class UserProfessor extends Model {
   static get table() {
-    return 'subjects';
+    return 'user_professors';
   }
   static get primaryKey() {
-      return 'id';
+      return null;
   }
   static get createdAtColumn() {
       return null;
@@ -18,4 +18,4 @@ class Subject extends Model {
   }
 }
 
-module.exports = Subject
+module.exports = UserProfessor
