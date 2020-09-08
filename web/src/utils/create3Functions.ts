@@ -1,4 +1,4 @@
-import { TurnProps } from "./commonInterfaces";
+import { TurnProps } from "./CommonInterfaces";
 
 export function create3Functions(
     turns: Array<TurnProps>,
@@ -22,7 +22,7 @@ export function create3Functions(
         removeTurn: (name: string) => {
             let newTurns = turns;
             const deleted = newTurns.find(
-                (deleted_turn) => deleted_turn.id === name
+                (deletedContent) => deletedContent.id === name
             );
             if (deleted) {
                 const index = newTurns.indexOf(deleted);
@@ -50,7 +50,7 @@ export function create3Functions(
         removeInterval: (name: string) => {
             const newTurns = turns;
             const deleted = newTurns[selectedTurn].content.intervals.find(
-                (deleted_interval) => deleted_interval.id === name
+                (deletedContent) => deletedContent.id === name
             );
             if (deleted) {
                 const index = newTurns[selectedTurn].content.intervals.indexOf(

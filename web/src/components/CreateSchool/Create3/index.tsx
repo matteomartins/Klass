@@ -3,14 +3,11 @@ import TruncatedContainer from "../../TruncatedContainer";
 
 import "./styles.css";
 import { KaArrow } from "../../../assets/icons";
-import InputWithButton from "../InputWithButton";
-import InfoCard from "../InfoCard";
-import Input from "../Input";
-import InputCheckboxGroup from "../InputCheckboxGroup";
 import List from "../List";
 import CreateCardSection from "../CreateCardSection";
 import { create3Functions } from "../../../utils/create3Functions";
-import { TurnProps } from "../../../utils/commonInterfaces";
+import { TurnProps } from "../../../utils/CommonInterfaces";
+import TurnInfoContainer from "../TurnInfoContainer";
 
 interface Create3Props {
     turns: Array<TurnProps>;
@@ -25,50 +22,6 @@ const Create3: React.FC<Create3Props> = ({ turns, setTurns }) => {
         removeInterval,
         removeTurn,
     } = create3Functions(turns, setTurns, selectedTurn);
-
-    function TurnInfoContainer() {
-        if (selectedTurn === -1) {
-            return (
-                <div className="creation-content">
-                    <p>Selecione um turno</p>
-                </div>
-            );
-        }
-
-        return (
-            <div className="creation-content">
-                <Input name="" placeHolder="Horário" />
-                <Input name="" placeHolder="Duração da Aula" />
-                <InputCheckboxGroup />
-                <InputWithButton
-                    handleNew={addInterval}
-                    placeholder="Novo Intervalo"
-                />
-                <div className="scroll-view">
-                    <div className="creation-cards">
-                        {(() => {
-                            if (
-                                turns[selectedTurn].content.intervals.length ===
-                                0
-                            ) {
-                                return <p>Adicione intervalos</p>;
-                            } else {
-                                return turns[
-                                    selectedTurn
-                                ].content.intervals.map(({ id, title }) => (
-                                    <InfoCard
-                                        handleDelete={removeInterval}
-                                        id={id}
-                                        title={title}
-                                    />
-                                ));
-                            }
-                        })()}
-                    </div>
-                </div>
-            </div>
-        );
-    }
 
     return (
         <TruncatedContainer title="Criar" className="create-school-container">
@@ -94,7 +47,12 @@ const Create3: React.FC<Create3Props> = ({ turns, setTurns }) => {
                             <h1>Horários</h1>
                             <KaArrow size={18} />
                         </div>
-                        <TurnInfoContainer />
+                        <TurnInfoContainer
+                            addInterval={addInterval}
+                            removeInterval={removeInterval}
+                            selectedTurn={selectedTurn}
+                            turns={turns}
+                        />
                     </div>
                     <div className="creation-container">
                         <div className="creation-header">

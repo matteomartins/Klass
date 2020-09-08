@@ -1,4 +1,4 @@
-import { ModuleProps, SubjectProps } from "./commonInterfaces";
+import { ModuleProps, SubjectProps } from "./CommonInterfaces";
 
 export function create5Functions(
     subjects: Array<SubjectProps>,
@@ -25,7 +25,7 @@ export function create5Functions(
         removeSubject: (name: string) => {
             let newSubjects = subjects;
             const deleted = newSubjects.find(
-                (deleted_course) => deleted_course.id === name
+                (deletedContent) => deletedContent.id === name
             );
             if (deleted) {
                 const index = newSubjects.indexOf(deleted);
@@ -34,31 +34,10 @@ export function create5Functions(
                 setSubjects([...newSubjects]);
             }
         },
-        addModule: (name: string) => {
-            if (
-                name.trim() &&
-                !modules.find(
-                    (module) =>
-                        module.title.toLowerCase() === name.toLowerCase()
-                )
-            ) {
-                let newModules: Array<any> = [...modules];
-                newModules.push({
-                    id: `item-${name.trim()}-${new Date().getTime()}`,
-                    content: name.trim(),
-                });
-                setModules(newModules);
-            }
-        },
-        removeModule: (index: number) => {
-            const newModules = [...modules];
-            newModules.splice(index, 1);
-            setModules(newModules);
-        },
         removeConnection: (name: string) => {
             const newModules = [...modules];
             const deleted = newModules[selectedModule].content?.find(
-                (deleted_content) => deleted_content.id === name
+                (deletedContent) => deletedContent.id === name
             );
             if (deleted) {
                 const index = newModules[selectedModule].content?.indexOf(

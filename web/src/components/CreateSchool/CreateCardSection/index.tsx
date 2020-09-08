@@ -35,10 +35,9 @@ const CreateCardSection: React.FC<CreateCardSectionProps> = ({
                             title={title}
                             group={group}
                             checked={selectedCard === index ? true : false}
-                            handleCheck={(value: number) => {
-                                setSelectedCard(value);
-                                console.log(value);
-                            }}
+                            handleCheck={(value: number) =>
+                                setSelectedCard(value)
+                            }
                         />
                     ))}
                 </div>

@@ -1,18 +1,16 @@
 import React from "react";
 import InfoCardButton from "../InfoCardButton";
-import { CardProps } from "../../../utils/commonInterfaces";
+import { CardProps } from "../../../utils/CommonInterfaces";
 import { v4 as uuidv4 } from "uuid";
 
 interface CardSectionProps {
     cards: Array<CardProps>;
-    removeCard: Function;
     selectedCard: number;
     setSelectedCard: Function;
 }
 
 const CardSection: React.FC<CardSectionProps> = ({
     cards,
-    removeCard,
     selectedCard,
     setSelectedCard,
 }) => {
@@ -24,16 +22,13 @@ const CardSection: React.FC<CardSectionProps> = ({
                     {cards.map(({ id, title }, index) => (
                         <InfoCardButton
                             index={index}
-                            handleDelete={removeCard}
                             id={id}
                             title={title}
                             group={group}
                             checked={selectedCard === index ? true : false}
                             handleCheck={(value: number) => {
                                 setSelectedCard(value);
-                                console.log(value);
                             }}
-                            disableDelete
                         />
                     ))}
                 </div>

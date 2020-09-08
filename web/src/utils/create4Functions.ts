@@ -1,4 +1,4 @@
-import { CourseProps, ModuleProps } from "./commonInterfaces";
+import { CourseProps, ModuleProps } from "./CommonInterfaces";
 
 export function create4Functions(
     courses: Array<CourseProps>,
@@ -25,7 +25,7 @@ export function create4Functions(
         removeCourse: (name: string) => {
             let newCourses = courses;
             const deleted = newCourses.find(
-                (deleted_course) => deleted_course.id === name
+                (deletedContent) => deletedContent.id === name
             );
             if (deleted) {
                 const index = newCourses.indexOf(deleted);
@@ -59,7 +59,7 @@ export function create4Functions(
         removeConnection: (name: string) => {
             const newCourses = [...courses];
             const deleted = newCourses[selectedCourse].content.find(
-                (deleted_content) => deleted_content.id === name
+                (deletedContent) => deletedContent.id === name
             );
             if (deleted) {
                 const index = newCourses[selectedCourse].content.indexOf(

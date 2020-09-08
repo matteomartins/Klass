@@ -31,6 +31,21 @@ export interface CourseProps {
     content: Array<ModuleProps>;
 }
 
+export interface TeacherProps {
+    id: string;
+    title: string;
+    content: Array<SubjectProps>;
+}
+
+export interface ClassProps {
+    id: string;
+    title: string;
+    content?: {
+        turn?: string;
+        module?: string;
+    };
+}
+
 export interface CardProps {
     id: string;
     title: string;

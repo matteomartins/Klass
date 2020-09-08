@@ -4,14 +4,13 @@ import { KaClose } from "../../../assets/icons";
 import "./styles.css";
 
 interface InfoCardButtonProps {
-    handleDelete: Function;
+    handleDelete?: Function;
     index: number;
     id: string;
     title: string;
     group: string;
     checked: boolean;
     handleCheck: Function;
-    disableDelete?: boolean;
 }
 
 const InfoCardButton: React.FC<InfoCardButtonProps> = ({
@@ -22,7 +21,6 @@ const InfoCardButton: React.FC<InfoCardButtonProps> = ({
     group,
     checked,
     handleCheck,
-    disableDelete,
 }) => {
     return (
         <div key={id} className="creation-card">
@@ -35,12 +33,15 @@ const InfoCardButton: React.FC<InfoCardButtonProps> = ({
                 onChange={() => handleCheck(index)}
             />
             <label htmlFor={id}>{title}</label>
-            <button
-                style={{ display: disableDelete ? "none" : "flex" }}
-                onClick={() => handleDelete(id)}
-            >
-                <KaClose />
-            </button>
+            {(() => {
+                if (handleDelete) {
+                    return (
+                        <button onClick={() => handleDelete(id)}>
+                            <KaClose />
+                        </button>
+                    );
+                }
+            })()}
         </div>
     );
 };

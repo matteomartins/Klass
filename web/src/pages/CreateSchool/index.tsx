@@ -46,6 +46,23 @@ function CreateSchool() {
         />
     );
 
+    const [teachers, setTeachers] = useState([]);
+
+    const newCreate6 = () => (
+        <Create6
+            subjects={subjects}
+            setSubjects={setSubjects}
+            teachers={teachers}
+            setTeachers={setTeachers}
+        />
+    );
+
+    const [classes, setClasses] = useState([]);
+
+    const newCreate7 = () => (
+        <Create7 classes={classes} setClasses={setClasses} />
+    );
+
     const history = useHistory();
     const screens = [
         Create1,
@@ -53,8 +70,8 @@ function CreateSchool() {
         newCreate3,
         newCreate4,
         newCreate5,
-        Create6,
-        Create7,
+        newCreate6,
+        newCreate7,
     ];
 
     function handleNext() {

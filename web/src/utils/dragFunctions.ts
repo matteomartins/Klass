@@ -12,7 +12,6 @@ function DragDrop(
 
         const sInd = +source.droppableId;
         const dInd = +destination.droppableId;
-        console.log(dInd);
         if (sInd === dInd) {
             const items = reorder(
                 state[sInd - 1],
@@ -35,7 +34,6 @@ function DragDrop(
                 const [removed] = sourceClone.splice(source.index, 1);
 
                 const newState: Array<any> = [...stateDestiny];
-                console.log(removed);
                 newState[dInd - 2].content.push(removed);
                 setStateDestiny(newState);
             }

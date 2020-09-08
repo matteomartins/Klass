@@ -4,7 +4,7 @@ import { KaClose } from "../../../assets/icons";
 import "./styles.css";
 
 interface InfoCardProps extends React.HTMLAttributes<HTMLDivElement> {
-    handleDelete: Function;
+    handleDelete?: Function;
     id: string;
     title: string;
     style?: Object;
@@ -30,12 +30,18 @@ const InfoCard: React.FC<InfoCardProps> = ({
             >
                 {title}
             </label>
-            <button
-                style={{ display: isDragging ? "none" : "flex" }}
-                onClick={() => handleDelete(id)}
-            >
-                <KaClose />
-            </button>
+            {(() => {
+                if (handleDelete) {
+                    return (
+                        <button
+                            onClick={() => handleDelete(id)}
+                            style={{ display: isDragging ? "none" : "flex" }}
+                        >
+                            <KaClose />
+                        </button>
+                    );
+                }
+            })()}
         </div>
     );
 };

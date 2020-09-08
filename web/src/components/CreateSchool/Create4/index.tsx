@@ -4,7 +4,7 @@ import { DragDropContext } from "react-beautiful-dnd";
 import TruncatedContainer from "../../TruncatedContainer";
 import { KaArrow } from "../../../assets/icons";
 import DragDrop from "../../../utils/dragFunctions";
-import { CourseProps, ModuleProps } from "../../../utils/commonInterfaces";
+import { CourseProps, ModuleProps } from "../../../utils/CommonInterfaces";
 import { create4Functions } from "../../../utils/create4Functions";
 import ConnectionSection from "../ConnectionSection";
 import CreateDraggableSection from "../CreateDraggableSection";

@@ -8,7 +8,7 @@ import {
     SubjectProps,
     CourseProps,
     ModuleProps,
-} from "../../../utils/commonInterfaces";
+} from "../../../utils/CommonInterfaces";
 import { create5Functions } from "../../../utils/create5Functions";
 import ConnectionSection from "../ConnectionSection";
 import CreateDraggableSection from "../CreateDraggableSection";
@@ -16,14 +16,14 @@ import CreateDraggableSection from "../CreateDraggableSection";
 import "./styles.css";
 import CardSection from "../CardSection";
 
-interface Create4Props {
+interface Create5Props {
     courses: Array<CourseProps>;
     setCourses: Function;
     subjects: Array<SubjectProps>;
     setSubjects: Function;
 }
 
-const Create5: React.FC<Create4Props> = ({
+const Create5: React.FC<Create5Props> = ({
     subjects,
     setSubjects,
     courses,
@@ -45,20 +45,15 @@ const Create5: React.FC<Create4Props> = ({
 
     const [modules, setModules] = useState(newModules);
 
-    const [selectedCourse, setSelectedCourse] = useState(-1);
+    const [selectedModule, setSelectedModule] = useState(-1);
     const onDragEnd = DragDrop([subjects], setSubjects, modules, setModules);
-    const {
-        addSubject,
-        removeSubject,
-        removeModule,
-        removeConnection,
-    } = create5Functions(
+    const { addSubject, removeSubject, removeConnection } = create5Functions(
         subjects,
         setSubjects,
         modules,
         setModules,
-        selectedCourse,
-        setSelectedCourse
+        selectedModule,
+        setSelectedModule
     );
 
     return (
@@ -77,15 +72,14 @@ const Create5: React.FC<Create4Props> = ({
                             </div>
                             <CardSection
                                 cards={modules}
-                                removeCard={removeModule}
-                                selectedCard={selectedCourse}
-                                setSelectedCard={setSelectedCourse}
+                                selectedCard={selectedModule}
+                                setSelectedCard={setSelectedModule}
                             />
                         </div>
                         <DragDropContext onDragEnd={onDragEnd}>
                             <ConnectionSection
                                 cards={modules}
-                                selectedCard={selectedCourse}
+                                selectedCard={selectedModule}
                                 removeConnection={removeConnection}
                                 unselectedMessage="Selecione um módulo"
                                 noCardMessage="Insira uma matéria"
