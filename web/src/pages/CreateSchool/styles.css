@@ -40,8 +40,8 @@
     text-align: center;
 }
 
-
-.foward, .backward {
+.foward,
+.backward {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -54,11 +54,12 @@
     align-items: center;
 }
 
-@media(max-width: 700px) {
+@media (max-width: 700px) {
     .create-school-container {
         width: 85vw;
     }
-    .foward, .backward  {
+    .foward,
+    .backward {
         width: 90vw;
         height: 70vh;
         margin-top: 0;
@@ -66,5 +67,15 @@
     .create-school-container .progress-container {
         align-self: center;
         margin-top: 1rem;
+    }
+    .create-school-container .creation-group {
+        justify-content: flex-start;
+        overflow-x: scroll;
+    }
+    .create-school-container .creation-group::-webkit-scrollbar {
+        display: none;
+    }
+    .create-school-container .creation-group .creation-container {
+        margin: 0 1rem;
     }
 }
