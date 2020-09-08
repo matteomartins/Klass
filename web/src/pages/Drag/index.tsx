@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import DragDrop, { getItemStyle, getItems } from "../../utils/dragFunctions";
 
 import "./styles.css";
-
-import DragDrop, { getItemStyle, getItems } from "../../utils/dragFunctions";
 
 function Drag() {
     const [state, setState] = useState([getItems(10), getItems(5, 10)]);
     const [name, setName] = useState("");
 
-    const onDragEnd = DragDrop(state, setState);
+    const onDragEnd = DragDrop(state, setState, "sad", "asd");
 
     function addDraggable() {
         if (name.trim()) {
