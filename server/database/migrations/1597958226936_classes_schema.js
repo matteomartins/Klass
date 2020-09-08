@@ -13,7 +13,6 @@ class ClassesSchema extends Schema {
       table.integer('subject_id').notNullable()
         .unsigned().references('id').inTable('subjects')
         .onDelete('CASCADE').onUpdate('CASCADE')
-      table.timestamps()
     })
   }
 
