@@ -70,6 +70,9 @@ const Create4: React.FC<Create4Props> = ({
                                 cards={courses}
                                 selectedCard={selectedCourse}
                                 removeConnection={removeConnection}
+                                unselectedMessage="Selecione um curso"
+                                noCardMessage="Insira um módulo"
+                                title="Módulos"
                             />
                             <div className="creation-container">
                                 <div className="creation-header">
@@ -80,6 +83,7 @@ const Create4: React.FC<Create4Props> = ({
                                     cards={modules}
                                     addCard={addModule}
                                     removeCard={removeModule}
+                                    placeholder="Novo Módulo"
                                 />
                             </div>
                         </DragDropContext>

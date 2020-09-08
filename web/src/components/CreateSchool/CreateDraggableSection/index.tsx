@@ -9,16 +9,18 @@ interface CreateDraggableSectionProps {
     cards: Array<ModuleProps>;
     addCard: Function;
     removeCard: Function;
+    placeholder: string;
 }
 
 const CreateDraggableSection: React.FC<CreateDraggableSectionProps> = ({
     cards,
     addCard,
     removeCard,
+    placeholder,
 }) => {
     return (
         <div className="creation-content">
-            <InputWithButton handleNew={addCard} placeholder="Novo Módulo" />
+            <InputWithButton handleNew={addCard} placeholder={placeholder} />
             <div className="scroll-view">
                 <Droppable key={1} droppableId="1">
                     {(provided, snapshot) => (

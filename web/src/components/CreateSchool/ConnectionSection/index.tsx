@@ -9,12 +9,18 @@ interface ConnectionSectionProps {
     cards: Array<CardProps>;
     selectedCard: number;
     removeConnection: Function;
+    unselectedMessage: string;
+    noCardMessage: string;
+    title: string;
 }
 
 const ConnectionSection: React.FC<ConnectionSectionProps> = ({
     cards,
     selectedCard,
     removeConnection,
+    unselectedMessage,
+    noCardMessage,
+    title,
 }) => {
     if (selectedCard === -1) {
         return (
@@ -24,7 +30,7 @@ const ConnectionSection: React.FC<ConnectionSectionProps> = ({
                     <KaArrow size={18} />
                 </div>
                 <div className="creation-content">
-                    <p>Selecione um curso</p>
+                    <p>{unselectedMessage}</p>
                 </div>
             </div>
         );
@@ -48,12 +54,12 @@ const ConnectionSection: React.FC<ConnectionSectionProps> = ({
                                 {...provided.droppableProps}
                                 className="creation-cards"
                             >
-                                <h3>Módulos</h3>
+                                <h3>{title}</h3>
                                 {(() => {
                                     if (
                                         cards[selectedCard].content.length === 0
                                     ) {
-                                        return <p>Insira os Módulos</p>;
+                                        return <p>{noCardMessage}</p>;
                                     } else {
                                         return cards[
                                             selectedCard

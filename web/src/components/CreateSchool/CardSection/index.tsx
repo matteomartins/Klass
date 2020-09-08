@@ -1,5 +1,4 @@
 import React from "react";
-import InputWithButton from "../InputWithButton";
 import InfoCardButton from "../InfoCardButton";
 import { CardProps } from "../../../utils/commonInterfaces";
 import { v4 as uuidv4 } from "uuid";

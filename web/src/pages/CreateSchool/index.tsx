@@ -16,7 +16,7 @@ import BackButton from "../../components/BackButton";
 
 function CreateSchool() {
     const [active, setActive] = useState(false);
-    const [step, setStep] = useState(3);
+    const [step, setStep] = useState(4);
     const [mode, setMode] = useState("foward");
 
     const [turns, setTurns] = useState([]);
@@ -41,8 +41,8 @@ function CreateSchool() {
         <Create5
             subjects={subjects}
             setSubjects={setSubjects}
-            modules={modules}
-            setModules={setModules}
+            courses={courses}
+            setCourses={setCourses}
         />
     );
 
