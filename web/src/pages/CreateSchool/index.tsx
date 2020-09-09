@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import { useHistory } from "react-router-dom";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
+import ExitCreateSchool from "../../components/CreateSchool/Exit";
 
 import "./styles.css";
 import Create1 from "../../components/CreateSchool/Create1";
@@ -13,30 +14,17 @@ import Create6 from "../../components/CreateSchool/Create6";
 import Create7 from "../../components/CreateSchool/Create7";
 import BackButton from "../../components/BackButton";
 
-interface CardProps {
-    name: string;
-    text: string;
-}
-const cardDefault: Array<CardProps> = [];
-
 function CreateSchool() {
-    const [step, setStep] = useState(3);
+    const [active, setActive] = useState(false);
+    const [step, setStep] = useState(4);
     const [mode, setMode] = useState("foward");
 
-    const [intervals, setIntervals] = useState(cardDefault);
-    const [turns, setTurns] = useState(cardDefault);
+    const [turns, setTurns] = useState([]);
 
-    const newCreate3 = () => (
-        <Create3
-            intervals={intervals}
-            setIntervals={setIntervals}
-            turns={turns}
-            setTurns={setTurns}
-        />
-    );
+    const newCreate3 = () => <Create3 turns={turns} setTurns={setTurns} />;
 
-    const [courses, setCourses] = useState(cardDefault);
-    const [modules, setModules] = useState(cardDefault);
+    const [courses, setCourses] = useState([]);
+    const [modules, setModules] = useState([]);
 
     const newCreate4 = () => (
         <Create4
@@ -47,15 +35,43 @@ function CreateSchool() {
         />
     );
 
+    const [subjects, setSubjects] = useState([]);
+
+    const newCreate5 = () => (
+        <Create5
+            subjects={subjects}
+            setSubjects={setSubjects}
+            courses={courses}
+            setCourses={setCourses}
+        />
+    );
+
+    const [teachers, setTeachers] = useState([]);
+
+    const newCreate6 = () => (
+        <Create6
+            subjects={subjects}
+            setSubjects={setSubjects}
+            teachers={teachers}
+            setTeachers={setTeachers}
+        />
+    );
+
+    const [classes, setClasses] = useState([]);
+
+    const newCreate7 = () => (
+        <Create7 classes={classes} setClasses={setClasses} />
+    );
+
     const history = useHistory();
     const screens = [
         Create1,
         Create2,
         newCreate3,
         newCreate4,
-        Create5,
-        Create6,
-        Create7,
+        newCreate5,
+        newCreate6,
+        newCreate7,
     ];
 
     function handleNext() {
@@ -64,8 +80,9 @@ function CreateSchool() {
         setStep(step + 1);
     }
     function handleBack(e: any) {
-        if (step !== 0) {
-            e.preventDefault();
+        e.preventDefault();
+        if (step === 0) setActive(true);
+        else {
             setMode("backward");
             setStep(step - 1);
         }
@@ -94,6 +111,7 @@ function CreateSchool() {
                 </button>
                 <span> {step + 1}/7 </span>
             </div>
+            <ExitCreateSchool active={active} setActive={setActive} />
         </div>
     );
 }

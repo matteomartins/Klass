@@ -4,7 +4,7 @@
     padding: 3rem 4rem;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     width: 95vw;
     max-width: 960px;
     height: 75vh;
@@ -37,7 +37,7 @@
 }
 
 .home-container4 .school-cards-container4 a {
-    color: #39729D;
+    color: #39729d;
     align-self: flex-start;
 }
 
@@ -55,13 +55,13 @@
     }
 }
 
-@media(max-width: 425px) {
+@media (max-width: 425px) {
     .home-container4 .school-cards-container4 .classes4 {
         grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
     }
 }
 
-@media(max-width: 360px) {
+@media (max-width: 360px) {
     .home-container4 .school-cards-container4 .classes4 {
         grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
     }

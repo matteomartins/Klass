@@ -38,8 +38,8 @@ const namedMiddleware = {
   auth: 'Adonis/Middleware/Auth',
   guest: 'Adonis/Middleware/AllowGuestOnly',
   VerifyPremiumAndSchool: 'App/Middleware/VerifyPremiumAndSchool',
-  VerifyUserAndSchool: 'App/Middleware/VerifyUserAndSchool'
-
+  VerifyUserAndSchool: 'App/Middleware/VerifyUserAndSchool',
+  VerifyUserAndProfessor: 'App/Middleware/VerifyUserAndProfessor'
 }
 
 /*

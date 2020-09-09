@@ -3,7 +3,7 @@ import React from "react";
 import "./styles.css";
 import BackButton from "../../components/BackButton";
 
-import {KaPdf,KaPrinter,KaExcel,KaGoogle} from "../../assets/icons"
+import { KaPdf, KaPrinter, KaExcel, KaGoogle } from "../../assets/icons";
 
 function Schedule() {
     return (
@@ -42,7 +42,7 @@ function Schedule() {
                     <table>
                         <thead>
                             <tr>
-                                <th id="hora">&nbsp;</th>
+                                <th>&nbsp;</th>
                                 <th>
                                     <span>Segunda</span>
                                 </th>
@@ -67,30 +67,6 @@ function Schedule() {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>07:00</td>
-                                <td>
-                                    <span></span>
-                                </td>
-                                <td>
-                                    <span></span>
-                                </td>
-                                <td>
-                                    <span></span>
-                                </td>
-                                <td>
-                                    <span></span>
-                                </td>
-                                <td>
-                                    <span></span>
-                                </td>
-                                <td>
-                                    <span></span>
-                                </td>
-                                <td>
-                                    <span></span>
-                                </td>
-                            </tr>
                             <tr>
                                 <td>07:30</td>
                                 <td>
@@ -310,20 +286,20 @@ function Schedule() {
                         </tbody>
                     </table>
                 </div>
-            <div className="export-container">
-                <div className="circle-icon-container">
-                    <KaExcel size={22}/>
+                <div className="export-container">
+                    <div className="circle-icon-container">
+                        <KaExcel size={22} />
+                    </div>
+                    <div className="circle-icon-container">
+                        <KaPdf size={22} />
+                    </div>
+                    <div className="circle-icon-container">
+                        <KaPrinter size={22} />
+                    </div>
+                    <div className="circle-icon-container">
+                        <KaGoogle size={22} color="var(--color-primary)" />
+                    </div>
                 </div>
-                <div className="circle-icon-container">
-                    <KaPdf size={22}/>
-                </div>
-                <div className="circle-icon-container">
-                    <KaPrinter size={22}/>
-                </div>
-                <div className="circle-icon-container">
-                    <KaGoogle size={22} color="var(--color-primary)"/>
-                </div>
-            </div>
             </div>
         </div>
     );
