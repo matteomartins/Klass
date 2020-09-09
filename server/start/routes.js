@@ -58,5 +58,5 @@ Route.group(() => {
 Route.get('/home', 'HomeController.index');
 
 //Dashboard
-Route.get('/dashboard', 'DashboardController.index');
+Route.get('/schools/:id_school/dashboard', 'DashboardController.index').middleware(['VerifyUserAndSchool']);
 
