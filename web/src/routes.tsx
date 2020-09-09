@@ -22,6 +22,7 @@ import Class from './pages/Class';
 import Teachers from './pages/Teachers';
 import Schedule from './pages/Schedule';
 import Courses from './pages/Courses';
+import Modules from './pages/Modules';
 
 const RouteWithCalendar: React.FC<RouteProps> = ({ ...props }) => {
     return (
@@ -91,6 +92,7 @@ export default function Routes() {
                 />
                 <RouteHeader path="/schedule" exact component={Schedule} />
                 <RouteWithCalendar path="/courses" exact component={Courses} />
+                <RouteWithCalendar path="/modules" exact component={Modules} />
             </Switch>
         </BrowserRouter>
     );
