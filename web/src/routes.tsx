@@ -21,6 +21,7 @@ import CreateSchool from './pages/CreateSchool';
 import Class from './pages/Class';
 import Teachers from './pages/Teachers';
 import Schedule from './pages/Schedule';
+import Courses from './pages/Courses';
 
 
 const RouteWithCalendar:React.FC<RouteProps> = ({...props}) => {
@@ -78,6 +79,7 @@ export default function Routes() {
                 <RouteWithInfo path="/politics" exact component={Politics} />
                 <RouteWithInfo path="/create-school" exact component={CreateSchool} />
                 <RouteHeader path="/schedule" exact component={Schedule} />
+                <RouteWithCalendar path="/courses" exact component={Courses} />
             </Switch>
         </BrowserRouter>
     )

@@ -1,0 +1,81 @@
+.main-courses {
+    display:flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 95vw;
+    max-width: 960px;
+    height: 87vh;
+    max-height: 600px;
+}
+
+.main-courses .courses-container {
+    background: var(--color-background);
+    border-radius: 3.4rem;
+    padding: 3rem 4rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 95vw;
+    max-width: 960px;
+    height: 75vh;
+    max-height: 600px;
+}
+
+.main-courses .courses-container .courses-content {
+    background: #39729D;
+    border-radius: 3.4rem;
+    padding: 3rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 22vw;
+    height: 65vh;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+.main-courses .courses-container .courses-content h1 {
+    color: var(--color-background)
+}
+
+.main-courses .courses-container .courses-content select {
+    background-color: #E5E5E5;
+    box-shadow: 0px 5px 20px rgba(38, 39, 56, 0.45);
+    border: none;
+    border-radius: 5rem;
+    font-size: 1.6rem;
+    color: #333333;
+    padding: 13px 80px 13px 80px;
+    text-decoration: none;
+    cursor: pointer;
+    width: 240px;
+}
+
+.main-courses .courses-container .courses-content .teacher-container,
+.main-courses .courses-container .courses-content .matter-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.main-courses .courses-container .courses-content .teacher-container h1 {
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
+
+.main-courses .courses-container .courses-content .matter-container h1 {
+    margin-left: 6.5rem;
+    margin-right: 6.5rem;
+}
+
+.main-courses .courses-container .courses-content .icon-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(2.5rem, 1fr));
+    width: 100%;
+    grid-gap: 1rem;
+}
+
+.main-courses .courses-container .courses-content .icon-container .circle-icon-container {
+    background-color: var(--color-background);
+    height: 30px;
+    width: 30px;
+}

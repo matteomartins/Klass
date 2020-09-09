@@ -142,8 +142,7 @@
     align-items: center;
     justify-content: space-between;
     height: 19rem;
-    flex-direction: column;
-    
+    flex-direction: column;   
 }
 
 .main-schedule .export-container .circle-icon-container {
