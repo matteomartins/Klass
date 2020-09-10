@@ -25,6 +25,7 @@ function Home() {
                     </Link>
                     <div className="classes">
                         <ContentCard
+                            to="/class"
                             title="1A"
                             text="1 ANO A"
                             color="#0792A9"

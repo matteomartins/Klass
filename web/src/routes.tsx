@@ -10,18 +10,18 @@ import Login from './pages/Login';
 import FirstAccess from './pages/FirstAccess';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
-import Feedback from './pages/Feedback';
-import Politics from './pages/Politics';
-import Help from './pages/Help';
-import Premium from './pages/Premium';
+import Feedback from './pages/Menu/Feedback';
+import Politics from './pages/Menu/Politics';
+import Help from './pages/Menu/Help';
+import Premium from './pages/Menu/Premium';
 import School from './pages/School';
 import Notifications from './components/Notifications';
 import CreateSchool from './pages/CreateSchool';
-import Class from './pages/Class';
-import Teachers from './pages/Teachers';
+import Class from './pages/Grade';
+import Teachers from './pages/Dashboard/Teachers';
 import Schedule from './pages/Schedule';
-import Courses from './pages/Courses';
-import Modules from './pages/Modules';
+import Courses from './pages/Dashboard/Courses';
+import Modules from './pages/Dashboard/Modules';
 
 const RouteWithCalendar: React.FC<RouteProps> = ({ ...props }) => {
     return (

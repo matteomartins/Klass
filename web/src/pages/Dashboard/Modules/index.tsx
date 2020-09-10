@@ -1,10 +1,10 @@
 import React from "react";
 
 import "./styles.css";
-import BackButton from "../../components/BackButton";
-import TruncatedContainer from "../../components/TruncatedContainer";
+import BackButton from "../../../components/BackButton";
+import TruncatedContainer from "../../../components/TruncatedContainer";
 
-import {KaUser, KaCheck} from "../../assets/icons"
+import {KaUser, KaCheck} from "../../../assets/icons"
 
 function Modules() {
     return (

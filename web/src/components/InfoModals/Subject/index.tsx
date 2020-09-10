@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { CSSTransition } from "react-transition-group";
-import ContentCard from "../../components/ContentCard";
-import InputOutline from "../../components/InputOutline";
+import ContentCard from "../../ContentCard";
+import InputOutline from "../../InputOutline";
 import "./styles.css";
 
 interface MenuProps {
@@ -25,22 +25,18 @@ const Menu: React.FC<MenuProps> = ({ active, setActive }) => {
                 display: active ? "flex" : delayedActive ? "flex" : "none",
             }}
         >
-            <div className="global-school-menu2">
-                <div className="school-menu-container2">
-                    <div
-                        className="blur2"
-                        onClick={() => setActive(false)}
-                    ></div>
-                    <div className="school-menu-content2">
-                        <div className="school-header2">
-                            <div className="card-content2">
+            <div className="global-subject-modal">
+                <div className="blur" onClick={() => setActive(false)}></div>
+                    <div className="subject-modal-content">
+                        <div className="subject-header">
+                            <div className="card-content">
                                 <ContentCard
                                     title="P"
                                     text="PORTUGUÊS"
                                     color="#0792A9"
                                 />
                             </div>
-                            <div className="info-container2">
+                            <div className="info-container">
                                 <InputOutline
                                     text="Professores:"
                                     name="prof"
@@ -69,7 +65,6 @@ const Menu: React.FC<MenuProps> = ({ active, setActive }) => {
                         </div>
                     </div>
                 </div>
-            </div>
         </CSSTransition>
     );
 };

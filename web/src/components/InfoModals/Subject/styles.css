@@ -1,49 +1,15 @@
-.slide-enter {
-    transform: translateY(-100%);
-    opacity: 0;
-}
-.slide-enter-active {
-    transform: translateY(0%);
-    opacity: 1;
-    transition: all 300ms ease-in-out;
-}
-.slide-exit {
-    transform: translateY(0%);
-    opacity: 1;
-}
-.slide-exit-active {
-    transform: translateY(-100%);
-    opacity: 0;
-    transition: all 300ms ease-in-out;
-}
-
-.global-school-menu2 {
+.global-subject-modal {
     position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-}
-
-.blur2 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(28,26,50,0.43);
-    z-index: 1;
-}
-.school-menu-container2 {
     display: flex;
     align-items: center;
-    width: 95%;
-    max-width: 960px;
-    height: 470px;
-    padding-right: 6rem;
-    
+    justify-content: center;
 }
-.school-menu-content2{
+
+.global-subject-modal .subject-modal-content {
     width: 600px;
     height: 350px;
     border-radius: 2rem;
@@ -52,8 +18,10 @@
     align-items: center;
     flex-direction: column;
     background-color: var(--color-background);
+    z-index: 5;
 }
-.school-header2{
+
+.subject-modal-content .subject-header {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -61,19 +29,20 @@
     margin-left: 0px;
     margin-bottom: 10px;
 }
-.card-content2{
+
+.subject-modal-content .card-content {
     display: flex;
     margin-right: 100px;
 }
 
-.main-div2{
+.subject-modal-content .main-div2 {
     width: 550px;
     display: flex;
     flex-direction: column;
     
 }
 
-.school-text2{
+.subject-modal-content .school-text2 {
     display: flex;
     justify-content:flex-start ;
     align-items: flex-start;    
@@ -81,7 +50,8 @@
     color: var(--color-text-secondary);
     margin-right: 400px;
 }
-.class2{
+
+.subject-modal-content .class2 {
     display: flex;
     justify-content:space-around;
     align-items: flex-start;    
@@ -90,13 +60,14 @@
     margin-right: 400px;
     margin-bottom: 20px;
 }
-.class2 p{
+
+.subject-modal-content .class2 p {
     display: flex;
     margin-right:5px ;
     font-size:12px
 }
 
-.texts2{
+.subject-modal-content .texts2 {
     display: flex;
     margin-top: 1.7rem;
     font-family: Roboto;
@@ -107,23 +78,25 @@
     text-align: center;
 }
 
-.close2{
+.close2 {
     color:#333333
 }
 
-.buttons{
+.buttons {
     display: flex;
     margin-left:90px;
 }
-.buttons button{
+
+.buttons button {
     display: flex;
     margin-right:90px;
 }
+
 @media(max-width: 400px) {
-    .school-menu-container2 {
+    .global-subject-modal .subject-modal-container {
         padding-right: 0;
     }
-    .school-menu-content2 {
+    .global-subject-modal .subject-modal-content {
         align-self: center;
     }
 }

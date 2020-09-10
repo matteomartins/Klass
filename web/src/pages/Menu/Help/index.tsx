@@ -2,8 +2,8 @@ import React from "react";
 import YouTube from "react-youtube";
 
 import "./styles.css";
-import TruncatedContainer from "../../components/TruncatedContainer";
-import BackButton from "../../components/BackButton";
+import TruncatedContainer from "../../../components/TruncatedContainer";
+import BackButton from "../../../components/BackButton";
 
 function Help() {
     return (

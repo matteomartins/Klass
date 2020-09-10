@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./styles.css";
 
-import TeacherProfile from "../../components/TeacherProfile";
-import ContentCard from "../../components/ContentCard";
+import TeacherProfile from "../../../components/InfoModals/TeacherProfile";
+import ContentCard from "../../../components/ContentCard";
 import { Link } from "react-router-dom";
 
 function Home() {

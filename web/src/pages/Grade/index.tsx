@@ -1,24 +1,25 @@
 import React, { useState } from "react";
 import "./styles.css";
 
-import Subject from "../../components/Subject";
+import Subject from "../../components/InfoModals/Subject";
 import ContentCard from "../../components/ContentCard";
-import { Link } from "react-router-dom";
+import BackButton from "../../components/BackButton";
 
-function Home() {
+function Grade() {
     const [active, setActive] = useState(false);
     return (
-        <div className="home-container4">
-            <div className="scroll-view4" onClick={() => setActive(true)}>
-                <div className="school-cards-container4">
-                    <Link to="/school">
-                        <h1>1° ANO A</h1>
-                    </Link>
-                    <div className="classes4">
+        <div className="grade-container">
+            <BackButton to="/home" />
+            <div className="scroll-view">
+                <div className="school-cards-container">
+                    <h1>1° ANO A</h1>
+                    <div className="classes">
                         <ContentCard
                             title="P"
                             text="PORTUGUÊS"
                             color="#0792A9"
+                            onClick={() => setActive(true)}
+                            style={{cursor: 'pointer'}}
                         />
                         <ContentCard
                             title="P"
@@ -111,4 +112,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default Grade;

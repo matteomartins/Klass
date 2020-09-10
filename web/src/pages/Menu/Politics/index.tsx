@@ -1,9 +1,9 @@
 import React from "react";
 
 import "./styles.css";
-import BackButton from "../../components/BackButton";
-import Terms from "../../utils/Terms";
-import DropDownMenuSection from "../../components/DropDownMenuSection";
+import BackButton from "../../../components/BackButton";
+import Terms from "../../../utils/Terms";
+import DropDownMenuSection from "../../../components/DropDownMenuSection";
 
 function Politics() {
     return (

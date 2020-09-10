@@ -1,8 +1,8 @@
 import React from "react";
 
 import "./styles.css";
-import TruncatedContainer from "../../components/TruncatedContainer";
-import BackButton from "../../components/BackButton";
+import TruncatedContainer from "../../../components/TruncatedContainer";
+import BackButton from "../../../components/BackButton";
 
 function Feedback() {
     return (

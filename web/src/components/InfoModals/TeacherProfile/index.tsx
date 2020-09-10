@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { CSSTransition } from "react-transition-group";
-import ContentCard from "../../components/ContentCard";
-import InputOutline from "../../components/InputOutline";
+import ContentCard from "../../ContentCard";
+import InputOutline from "../../InputOutline";
 import "./styles.css";
 
 interface MenuProps {

@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles.css";
-import BackButton from "../../components/BackButton";
-import { KaCheck } from "../../assets/icons";
+import BackButton from "../../../components/BackButton";
+import { KaCheck } from "../../../assets/icons";
 
 function Premium() {
     return (
