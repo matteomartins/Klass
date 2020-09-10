@@ -1,5 +1,5 @@
 .main-politics {
-    display:flex;
+    display: flex;
     align-items: flex-start;
     justify-content: center;
     width: 95vw;
@@ -22,89 +22,68 @@
     width: 100%;
 }
 
-.main-politics .politics-container .scroll-container { 
-    flex-direction: column;
+.main-politics .politics-container .scroll-container {
     overflow-y: scroll;
-    width: 47%;
+    width: 50%;
     height: 360px;
     margin-left: 1rem;
 }
 
-.main-politics .politics-container .scroll-container::-webkit-scrollbar { 
+.main-politics .politics-container .scroll-container::-webkit-scrollbar {
     display: none;
 }
 
-#scroll-container1 {
-    margin-left: 5rem;
-}
-
-#scroll-container2 {
-    margin-left: -7rem;
-}
-
-.main-politics .politics-container .scroll-container .text-container {
-    margin-top: 1.5rem;
-    margin-left: 3rem;
-}
-
-.main-politics .politics-container .scroll-container .title-container a {
-    color: #39729D;
+.main-politics .politics-container #scroll-container1 h1 {
+    color: var(--color-text-secondary);
     font-size: 2.5rem;
+    margin-bottom: 1rem;
     font-weight: 500;
+    cursor: pointer;
 }
 
-.main-politics .politics-container .scroll-container .title-container h1 {
-    color: #39729D;
-    font-size: 2.5rem;
-    font-weight: 500;
+.main-politics .politics-container #scroll-container1 .text-container {
+    margin-bottom: 1.5rem;
 }
 
 .main-politics .politics-container .scroll-container .text-container a {
+    display: block;
     color: var(--color-text-secondary);
     font-size: 1.8rem;
-    margin-top: 5rem;
+    line-height: 3.2rem;
+    margin-left: 3rem;
 }
 
-.main-politics .politics-container .scroll-container .text-container h2 {
+.main-politics .politics-container #scroll-container2 h1 {
+    color: #39729d;
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+.main-politics .politics-container #scroll-container2 b {
     color: var(--color-text-secondary);
-    font-size: 1.8rem;
-    margin-top: 5rem;
-}
-
-.main-politics .politics-container .text-container .classes {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
-    width: 100%;
-    grid-gap: 1rem;
-    margin: 2rem 0;
-}
-
-.main-politics .politics-container .text-container .classes .block {
-    width: 18.5rem;
-    height: 18.5rem;
-    color: var(--color-text-primary);
-    background:#39729D;
-    border-radius: 25px;
-}
-
-
-#text-faq, #text-priv, #text-cook, #text-sesion, #text-dir {
-    display: none;
-}
-
-
-.main-politics .politics-container .scroll-container .FAQ:hover #text-faq { 
+    font-size: 1.7rem;
+    line-height: 2.6rem;
+    font-weight: 500;
     display: block;
 }
-.main-politics .politics-container .scroll-container .PRIV:hover #text-priv { 
+
+.main-politics .politics-container #scroll-container2 p {
+    color: var(--color-text-secondary);
+    font-size: 1.4rem;
+    font-weight: 300;
     display: block;
+    text-align: justify;
+    text-indent: 2.5rem;
 }
-.main-politics .politics-container .scroll-container .COOK:hover #text-cook { 
-    display: block;
-}
-.main-politics .politics-container .scroll-container .SESION:hover #text-sesion { 
-    display: block;
-}
-.main-politics .politics-container .scroll-container .DIR:hover #text-dir { 
-    display: block;
+
+@media (max-width: 700px) {
+    .main-politics .politics-container {
+        flex-direction: column;
+    }
+    .main-politics .politics-container .scroll-container {
+        width: 100%;
+        height: 100%;
+    }
+    .main-politics .politics-container #scroll-container1 {
+        display: none;
+    }
 }
