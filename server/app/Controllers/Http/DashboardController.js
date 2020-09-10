@@ -1,109 +1,62 @@
 'use strict'
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Database = use('Database');
+const School = use('App/Models/School');
+const Group = use('App/Models/Group');
 const Turn = use('App/Models/Turn');
+const Schedule = use('App/Models/Schedule');
+const { convertHourToMinutes, convertMinutesToHour } = require('../../Utils/convertHourToMinutes.js')
 
 class DashboardController {
-    async index({ request, response, auth }) {
-        const user = await auth.getUser();
-        const user_id = user.$attributes.id;
+    async index({ request, response }) {
+        const id_school = request.params.id_school
 
-        const dashboard = [];
+        const [{turns, subjects, professors, groups, reports, notifications, students}] = await Database.table('dashboard').where('school_id', id_school);
+        const {rows:[{$attributes:{name: school_name}}]} = await School.query().where('id', id_school).fetch();
+        const group_ids = await Database.table('school_groups').where('school_id', id_school);
 
-        const oldUserSchools = await Database.table('schools').innerJoin('administrators', 'schools.id', 'administrators.school_id').where('administrators.user_id', user_id)
+        const group_hours = await Promise.all(group_ids.map(async ({group_id})=>{
+          const {rows:[{$attributes:{turn_id}}]} = await Group.query().where('id', group_id).fetch();
+          const {rows:[{$attributes:{flg_sunday, flg_monday, flg_tuesday, flg_wednesday, flg_thursday, flg_friday, flg_saturday}}]} = await Turn.query().where('id', turn_id).fetch();
+          const days = [flg_sunday, flg_monday, flg_tuesday, flg_wednesday, flg_thursday, flg_friday, flg_saturday]
+          let week_days = days.map((value, index) => {
+            if (value == 1)
+              return index;
+          })
+          week_days = week_days.filter((value) => {
+            return value != undefined
+          })
+          const {rows:[{$attributes: {start: schedule1}}]} = await Schedule.query().where({turn_id, day: week_days[0]}).orderBy('id').limit(1).fetch();
+          const {rows:[{$attributes: {end: schedule2}}]} = await Schedule.query().where({turn_id, day: week_days[0]}).orderBy('id','desc').limit(1).fetch();
+          const totalInWeek = (convertHourToMinutes(schedule2) - convertHourToMinutes(schedule1)) * 5;
 
-        const turnsInnerJoin = await Database.table('schools')
-            .innerJoin('administrators', 'schools.id', 'administrators.school_id')
-            .innerJoin('turns', 'schools.id', 'turns.school_id')
-            .where('administrators.user_id', user_id)
+          return ({group_id: group_id, minutes: totalInWeek});
+        }));
 
-        const subjectInnerJoin = await Database.table('schools')
-            .innerJoin('administrators', 'schools.id', 'administrators.school_id')
-            .innerJoin('subjects', 'schools.id', 'subjects.school_id')
-            .where('administrators.user_id', user_id)
+        const sumTurnMinutes = group_hours.reduce(function(preVal,elem){
+            return preVal+elem.minutes;
+        },0)
 
-        const groupInnerJoin = await Database.table('schools')
-            .innerJoin('administrators', 'schools.id', 'administrators.school_id')
-            .innerJoin('courses', 'schools.id', 'courses.school_id')
-            .innerJoin('modules', 'courses.id', 'modules.course_id')
-            .innerJoin('groups', 'modules.id', 'groups.module_id')
-            .where('administrators.user_id', user_id)
+        let semanal_hours = Math.floor(sumTurnMinutes / 60);
+        let minutes = sumTurnMinutes % 60;
+        if(minutes != 0)
+          semanal_hours = semanal_hours.toString() + ":" + minutes;
 
-        const professorInnerJoin = await Database.table('schools')
-            .innerJoin('administrators', 'schools.id', 'administrators.school_id')
-            .innerJoin('school_professors', 'schools.id', 'school_professors.school_id')
-            .where('administrators.user_id', user_id)
+        const dashboard = {
+            'school_name': school_name,
+            'semanal_hours': semanal_hours,
+            'professors_number': professors,
+            'classes_number': groups,
+            'students_number': students,
+            'subjects_number': subjects,
+            'turns_number': turns,
+            'notifications_number': notifications,
+            'reports_number': reports
+        }
 
-        const reportsInnerJoin = await Database.table('schools')
-            .innerJoin('administrators', 'schools.id', 'administrators.school_id')
-            .innerJoin('reports', 'schools.id', 'reports.school_id')
-            .where('administrators.user_id', user_id)
-
-        const notificationsInnerJoin = await Database.table('schools')
-            .innerJoin('administrators', 'schools.id', 'administrators.school_id')
-            .innerJoin('notifications', 'schools.id', 'notifications.school_id')
-            .where('administrators.user_id', user_id)
-
-        const studentsInnerJoin = await Database.table('schools')
-            .innerJoin('administrators', 'schools.id', 'administrators.school_id')
-            .innerJoin('connections', 'schools.id', 'connections.school_id')
-            .innerJoin('users', 'connections.user_id', 'users.id')
-            .innerJoin('students', 'users.id', 'students.user_id')
-            .where('administrators.user_id', user_id)
-
-        oldUserSchools.map(({ name, school_id }) => {
-            const turnFiltered = turnsInnerJoin.filter(function (turn) {
-                return turn.school_id == school_id
-            })
-            const subjectFiltered = subjectInnerJoin.filter(function (subject) {
-                return subject.school_id == school_id
-            })
-            const groupFiltered = groupInnerJoin.filter(function (group) {
-                return group.school_id == school_id
-            })
-            const professorFiltered = professorInnerJoin.filter(function (professor) {
-                return professor.school_id == school_id
-            })
-            const reportsFiltered = reportsInnerJoin.filter(function (reports) {
-                return reports.school_id == school_id
-            })
-            const notificationsFiltered = notificationsInnerJoin.filter(function (notifications) {
-                return notifications.school_id == school_id
-            })
-            const studentsFiltered = studentsInnerJoin.filter(function (students) {
-                return students.school_id = school_id
-            })
-
-            const valores = {
-                'school_name': name,
-                'semanal_hours': 'Em desenvolvimento',
-                'professors_number': professorFiltered.length,
-                'classes_number': groupFiltered.length,
-                'students_number': studentsFiltered.length,
-                'subjects_number': subjectFiltered.length,
-                'turns_number': turnFiltered.length,
-                'notifications_number': notificationsFiltered.length,
-                'reports_number': reportsFiltered.length
-            }
-            dashboard.push(valores)
-        })
-
-        return { dashboard }
-
-
+        return response.status(302).send({dashboard});
     }
 }
 
-/* 
-		"school_name": X
-		"semanal_hours": 
-		"professors_number": X
-		"classes_number": X
-		"students_number":
-		"subjects_number": X
-		"turns_number": X
-		"notifications_number": X
-		"reports_number": X
-*/
-
 module.exports = DashboardController
+

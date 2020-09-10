@@ -5,8 +5,7 @@ const Schema = use('Schema')
 
 class QtdStudentsSchema extends Schema {
   up () {
-    this.raw(`DELIMITER $$
-    create function qtd_students (school varchar(25)) returns int
+    this.raw(`create function qtd_students (school varchar(25)) returns int
     reads sql data
     begin
         declare totalGroups int;
@@ -26,8 +25,7 @@ class QtdStudentsSchema extends Schema {
         end while;
 
         return totalStudents;
-    end$$
-    DELIMITER ;`)
+    end;`)
   }
 
   down () {
