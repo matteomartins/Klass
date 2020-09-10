@@ -38,15 +38,17 @@
     margin-left: 1rem;
 }
 
-.main-modules .modules-container .modules-content h1 {
+.main-modules .modules-container .modules-content > h1 {
     color: var(--color-background);
-    margin-top: 1rem;
+    margin-top: .5rem;
+    font-size: 25px;
 }
 
 
 .main-modules .modules-container .modules-content .teacher-container,
 .main-modules .modules-container .modules-content .matter-container,
 .main-modules .modules-container .modules-content .class-container {
+    margin-top: 2rem;
     display: flex;
     flex-direction: row;
 }

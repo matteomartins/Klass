@@ -28,7 +28,7 @@
 .main-courses .courses-container .courses-content {
     background: #39729D;
     border-radius: 3.4rem;
-    padding: 3rem 4rem;
+    padding: 2rem 4rem;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -38,9 +38,10 @@
     margin-left: 1rem;
 }
 
-.main-courses .courses-container .courses-content h1 {
+.main-courses .courses-container .courses-content > h1 {
     color: var(--color-background);
-    margin-top: 1rem;
+    margin-top: .5rem;
+    font-size: 25px;
 }
 
 .main-courses .courses-container .courses-content select {
@@ -58,7 +59,7 @@
 
 .main-courses .courses-container .courses-content .teacher-container,
 .main-courses .courses-container .courses-content .matter-container {
-    margin-top: .5rem;
+    margin-top: 2rem;
     display: flex;
     flex-direction: row;
 }
