@@ -37,13 +37,13 @@
 }
 
 .home-container6 .school-cards-container6 a {
-    color: #39729D;
+    color: #39729d;
     align-self: flex-start;
 }
 
 .home-container6 .school-cards-container6 .classes6 {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
     width: 100%;
     grid-gap: 1rem;
     margin: 4rem 0;
@@ -55,13 +55,13 @@
     }
 }
 
-@media(max-width: 425px) {
+@media (max-width: 425px) {
     .home-container6 .school-cards-container6 .classes6 {
         grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
     }
 }
 
-@media(max-width: 360px) {
+@media (max-width: 360px) {
     .home-container6 .school-cards-container6 .classes6 {
         grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
     }
