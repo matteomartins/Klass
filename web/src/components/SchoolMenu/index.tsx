@@ -7,9 +7,10 @@ import "./styles.css";
 interface MenuProps {
     active: boolean;
     setActive: Function;
+    enterSchool: Function;
 }
 
-const Menu: React.FC<MenuProps> = ({ active, setActive }) => {
+const Menu: React.FC<MenuProps> = ({ active, setActive, enterSchool }) => {
     const [delayedActive, setDelayedActive] = useState(false);
 
     useEffect(() => {
@@ -37,9 +38,9 @@ const Menu: React.FC<MenuProps> = ({ active, setActive }) => {
                                 <Link className="texts" to="/create-school" >Criar uma nova escola</Link>
                             </li>
                             <li>
-                                <Link className="texts" to="/enter-school">
+                                <a href="#enter-school" onClick={()=> enterSchool()} className="texts">
                                     Entrar em uma nova escola
-                                </Link>
+                                </a>
                             </li>
                         </ul>
                     </div>

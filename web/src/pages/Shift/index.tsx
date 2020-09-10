@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import "./styles.css";
 
-import SchoolMenu from "../../components/SchoolMenu";
 import ContentCard from "../../components/ContentCard";
 import { Link } from "react-router-dom";
 
 function Home() {
-    const [active, setActive] = useState(false);
     return (
         <div className="home-container6">
             <div className="scroll-view6">
@@ -122,7 +120,6 @@ function Home() {
                     </div>
                 </div>
             </div>
-            <SchoolMenu active={active} setActive={setActive} />
         </div>
     );
 }

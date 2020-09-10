@@ -1,4 +1,4 @@
-.exit-create-school-buttons {
+.successful-create-school-buttons {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -7,7 +7,7 @@
 }
 
 @media(max-width: 600px) {
-    .exit-create-school-buttons {
-        width: 90%;
+    .successful-create-school-buttons {
+        width: 95%;
     }
 }

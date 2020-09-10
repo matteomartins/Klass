@@ -5,13 +5,16 @@ import SchoolMenu from "../../components/SchoolMenu";
 import { KaAddButton } from "../../assets/icons";
 import ContentCard from "../../components/ContentCard";
 import { Link } from "react-router-dom";
+import EnterSchool from "../../components/EnterSchool";
 
 function Home() {
-    const [active, setActive] = useState(false);
+    const [activeMenu, setActiveMenu] = useState(false);
+    const [activeEnterSchool, setActiveEnterSchool] = useState(false);
+
     return (
         <div className="home-container">
             <div className="header-home">
-                <div className="add-icon" onClick={() => setActive(true)}>
+                <div className="add-icon" onClick={() => setActiveMenu(true)}>
                     <KaAddButton size={32} color="#39729D" />
                 </div>
             </div>
@@ -96,7 +99,8 @@ function Home() {
                     </div>
                 </div>
             </div>
-            <SchoolMenu active={active} setActive={setActive} />
+            <SchoolMenu active={activeMenu} setActive={setActiveMenu} enterSchool={()=> setActiveEnterSchool(true)} />
+            <EnterSchool active={activeEnterSchool} setActive={setActiveEnterSchool} />
         </div>
     );
 }
