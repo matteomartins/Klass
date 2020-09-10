@@ -32,6 +32,10 @@
 .main-politics .politics-container .scroll-container::-webkit-scrollbar {
     display: none;
 }
+.main-politics .politics-container #scroll-container1,
+.main-politics .politics-container #scroll-container2 {
+    margin: 0;
+}
 
 .main-politics .politics-container #scroll-container1 h1 {
     color: var(--color-text-secondary);
@@ -78,6 +82,7 @@
 @media (max-width: 700px) {
     .main-politics .politics-container {
         flex-direction: column;
+        padding: 2rem;
     }
     .main-politics .politics-container .scroll-container {
         width: 100%;
@@ -86,4 +91,5 @@
     .main-politics .politics-container #scroll-container1 {
         display: none;
     }
+
 }

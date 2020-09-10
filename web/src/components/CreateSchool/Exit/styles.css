@@ -72,19 +72,19 @@
 }
 
 
-.buttons8{
+.school-menu-container8 .buttons8{
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 50px;
 }
-.btn{
+.school-menu-container8 .btn {
     display: flex;
     margin-right: 30px;
     align-items: center;
     justify-content: center;
 }
-.texts8{
+.school-menu-container8 .texts8{
     display: flex;
     font-family: Roboto;
     font-style: normal;
@@ -94,7 +94,7 @@
     margin-top: 70px;
 }
 
-.close8{
+.school-menu-container8 .close8{
     color:#333333
 }
 
