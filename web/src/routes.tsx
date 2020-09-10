@@ -5,23 +5,24 @@ import InfoIcon from "./components/InfoIcon";
 import CalendarIcon from "./components/CalendarIcon";
 import Header from "./components/Header";
 
-import Register from "./pages/Register";
-import Login from "./pages/Login";
-import FirstAccess from "./pages/FirstAccess";
-import Home from "./pages/Home";
-import Profile from "./pages/Profile";
-import Feedback from "./pages/Feedback";
-import Politics from "./pages/Politics";
-import Help from "./pages/Help";
-import Premium from "./pages/Premium";
-import School from "./pages/School";
-import Notifications from "./components/Notifications";
-import CreateSchool from "./pages/CreateSchool";
-import Class from "./pages/Class";
-import Teachers from "./pages/Teachers";
-import Shift from "./pages/Shift";
-import TutorialCreate from "./pages/TutorialCreate";
-import Schedule from "./pages/Schedule";
+import Register from './pages/Register';
+import Login from './pages/Login';
+import Drag from './pages/Drag';
+import FirstAccess from './pages/FirstAccess';
+import Home from './pages/Home';
+import Profile from './pages/Profile';
+import Feedback from './pages/Feedback';
+import Politics from './pages/Politics';
+import Help from './pages/Help';
+import Premium from './pages/Premium';
+import School from './pages/School';
+import Notifications from './components/Notifications';
+import CreateSchool from './pages/CreateSchool';
+import Class from './pages/Class';
+import Teachers from './pages/Teachers';
+import Schedule from './pages/Schedule';
+import Courses from './pages/Courses';
+import Modules from './pages/Modules';
 
 const RouteWithCalendar: React.FC<RouteProps> = ({ ...props }) => {
     return (
@@ -76,11 +77,6 @@ export default function Routes() {
                     component={Notifications}
                 />
                 <RouteWithCalendar path="/school" exact component={School} />
-                <Route
-                    path="/tutorial-create"
-                    exact
-                    component={TutorialCreate}
-                />
                 <RouteWithCalendar
                     path="/teachers"
                     exact
@@ -94,8 +90,9 @@ export default function Routes() {
                     exact
                     component={CreateSchool}
                 />
-                <RouteWithCalendar path="/shift" exact component={Shift} />
                 <RouteHeader path="/schedule" exact component={Schedule} />
+                <RouteWithCalendar path="/courses" exact component={Courses} />
+                <RouteWithCalendar path="/modules" exact component={Modules} />
             </Switch>
         </BrowserRouter>
     );

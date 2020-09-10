@@ -5,21 +5,21 @@ const School = use('App/Models/School');
 const Adm = use('App/Models/Administrator');
 const User = use('App/Models/User');
 const Database = use('Database')
-const {CreateIdHash} = require('../../Utils/createIdHash.js');
+const { CreateIdHash } = require('../../Utils/createIdHash.js');
 
 class SchoolController {
-    async create({ request, response, auth }) {
+    async store({ request, response, auth }) {
 
-        const {name,description,type,icon} = request.all();
+        const { name, description, type, icon } = request.all();
 
         const id = CreateIdHash();
 
         const school = {
-          'id': id,
-          'name': name,
-          'description': description,
-          'type': type,
-          'icon': icon
+            'id': id,
+            'name': name,
+            'description': description,
+            'type': type,
+            'icon': icon
         }
 
         await School.create(school);
@@ -32,8 +32,8 @@ class SchoolController {
         return response.status(201).send({ message: "Escola criada com sucesso" })
     }
 
-    async delete({ request, response, auth }) {
-        const idSchool = request.params.id_school;
+    async destroy({ request, response, auth }) {
+        const idSchool = request.params.id;
 
         await auth.getUser();
 
@@ -44,8 +44,8 @@ class SchoolController {
 
         return response.status(200).send({ message: "Escola apagada com sucesso" })
     }
-    async index({ request }) {
-        const idSchool = request.params.id_school;
+    async show({ request }) {
+        const idSchool = request.params.id;
         const school = await School.query().where('id', idSchool).fetch();
         return { school }
     }
@@ -57,7 +57,7 @@ class SchoolController {
         return response.status(200).send({ message: "Escola atualizada com sucesso" })
     }
 
-    async generalIndex({ request, response, auth }) {
+    async index({ request, response, auth }) {
         const user = await auth.getUser();
         const user_id = user.$attributes.id;
 
@@ -66,7 +66,6 @@ class SchoolController {
 
         var userSchools = []
 
-        console.log(oldUserSchools);
 
         oldUserSchools.map(({ school_id, name, description, type, icon }) => {
             const valores = {

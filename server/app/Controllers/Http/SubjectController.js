@@ -5,7 +5,7 @@ const Subject = use('App/Models/Subject')
 const SetOfDiscipline = use('App/Models/SetOfDiscipline')
 
 class SubjectController {
-  async create({request, response}){
+  async store({request, response}){
     const {name, abbreviation, modules} = request.all();
     const school_id = request.params.id_school;
 
@@ -30,8 +30,8 @@ class SubjectController {
     return response.status(200).send({ message: "Matéria criada com sucesso"});
   }
 
-  async index({request}){
-    const subject_id = request.params.id_subject;
+  async show({request}){
+    const subject_id = request.params.id;
 
     const subjects = await Subject.query().where('id', subject_id).fetch();
     const {name, abbreviation} = subjects.rows[0];
@@ -56,7 +56,7 @@ class SubjectController {
     return {subject}
   }
 
-  async generalIndex({request}){
+  async index({request}){
     const idSchool = request.params.id_school;
     const listSubjects = await Subject.query().where('school_id', idSchool).fetch();
 
@@ -87,9 +87,9 @@ class SubjectController {
     return {subjects}
   }
 
-  async delete({request, response}){
+  async destroy({request, response}){
     const school_id = request.params.id_school;
-    const subject_id = request.params.id_subject;
+    const subject_id = request.params.id;
 
     await SetOfDiscipline.query().where({subject_id}).delete();
     await Subject.query().where({school_id}).delete();
@@ -99,7 +99,7 @@ class SubjectController {
 
   async update({request, response}){
     const {name, abbreviation, modules} = request.all();
-    const subject_id = request.params.id_subject;
+    const subject_id = request.params.id;
 
     const oldSetOfDisciplines = await SetOfDiscipline.query().where({subject_id}).fetch();
     const moduleIDS = oldSetOfDisciplines.rows.map(({$attributes})=>{
