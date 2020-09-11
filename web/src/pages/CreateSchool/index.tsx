@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-import { useHistory } from "react-router-dom";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
 
 import "./styles.css";
@@ -65,7 +64,6 @@ function CreateSchool() {
         <Create7 classes={classes} setClasses={setClasses} />
     );
 
-    const history = useHistory();
     const screens = [
         Create1,
         Create2,

@@ -6,10 +6,12 @@ import { KaAddButton } from "../../assets/icons";
 import ContentCard from "../../components/ContentCard";
 import { Link } from "react-router-dom";
 import EnterSchool from "../../components/EnterSchool";
+import { useAlert } from 'react-alert'
 
 function Home() {
     const [activeMenu, setActiveMenu] = useState(false);
     const [activeEnterSchool, setActiveEnterSchool] = useState(false);
+    const alert = useAlert()
 
     return (
         <div className="home-container">
@@ -34,16 +36,19 @@ function Home() {
                             title="1B"
                             text="1 ANO B"
                             color="#0792A9"
+                            onClick={()=> alert.error('Alerta chave!')}
                         />
                         <ContentCard
                             title="2A"
                             text="2 ANO A"
                             color="#F68237"
+                            onClick={()=> alert.success('Alerta chave!')}
                         />
                         <ContentCard
                             title="2B"
                             text="2 ANO B"
                             color="#F68237"
+                            onClick={()=> alert.info('Alerta chave!')}
                         />
                         <ContentCard
                             title="3A"

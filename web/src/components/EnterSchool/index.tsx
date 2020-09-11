@@ -2,7 +2,6 @@ import React from 'react';
 
 import './styles.css';
 import ModalContainer from '../ModalContainer';
-import Input from '../Input';
 
 interface EnterSchoolProps {
     active: boolean;

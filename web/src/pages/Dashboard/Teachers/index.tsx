@@ -3,17 +3,14 @@ import "./styles.css";
 
 import TeacherProfile from "../../../components/InfoModals/TeacherProfile";
 import ContentCard from "../../../components/ContentCard";
-import { Link } from "react-router-dom";
 
-function Home() {
+function Teachers() {
     const [active, setActive] = useState(false);
     return (
         <div className="home-container5">
-            <div className="scroll-view5" onClick={() => setActive(true)}>
+            <div className="scroll-view5">
                 <div className="school-cards-container5">
-                    <Link to="/school">
-                        <h1>Administrativo</h1>
-                    </Link>
+                    <h1>Administrativo</h1>
                     <div className="classes5">
                         <ContentCard
                             small
@@ -21,6 +18,7 @@ function Home() {
                             title="P"
                             text="Pedro F."
                             color="#0792A9"
+                            onClick={() => setActive(true)}
                         />
                         <ContentCard
                             small
@@ -60,9 +58,7 @@ function Home() {
                     </div>
                 </div>
                 <div className="school-cards-container5">
-                    <Link to="/school">
-                        <h1>Professores</h1>
-                    </Link>
+                    <h1>Professores</h1>
                     <div className="classes5">
                         <ContentCard
                             small
@@ -240,4 +236,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default Teachers;

@@ -1,21 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 
 import "./styles.css";
 import BackButton from "../../components/BackButton";
 
-import { KaPdf, KaPrinter, KaExcel, KaGoogle, KaArrow } from "../../assets/icons";
+import {
+    KaPdf,
+    KaPrinter,
+    KaExcel,
+    KaGoogle,
+    KaArrow,
+} from "../../assets/icons";
 
 function Schedule() {
-    const [ style, setStyle ] = useState({});
-
     function handleBack() {
-        if(!document) return;
-        const tableElement = document.getElementById('main-schedule');
-        if(!tableElement) return;
-        const rowQuantity = +getComputedStyle(tableElement).getPropertyValue('--quantity-of-columns');
-        if(!rowQuantity) return;
-
-        
+        if (!document) return;
+        const tableElement = document.getElementById("main-schedule");
+        if (!tableElement) return;
+        const rowQuantity = +getComputedStyle(tableElement).getPropertyValue(
+            "--quantity-of-columns"
+        );
+        if (!rowQuantity) return;
     }
 
     return (
@@ -51,7 +55,7 @@ function Schedule() {
                     </div>
                 </div>
                 <div className="schedule-buttons">
-                    <button onClick={()=> handleBack()}>
+                    <button onClick={() => handleBack()}>
                         <KaArrow size={22} />
                     </button>
                     <button>

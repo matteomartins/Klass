@@ -36,14 +36,14 @@
     width: 100%;
 }
 
-.home-container5 .school-cards-container5 a {
+.home-container5 .school-cards-container5 > h1 {
     color: #39729D;
     align-self: flex-start;
 }
 
 .home-container5 .school-cards-container5 .classes5 {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
     width: 100%;
     grid-gap: 1rem;
     margin: 4rem 0;
