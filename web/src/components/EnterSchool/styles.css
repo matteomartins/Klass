@@ -1,13 +1,23 @@
-.exit-create-school-buttons {
+.enter-school-input {
+    background: none;
+    border: var(--color-border-primary) 3px solid;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    width: 80%;
+    max-width: 22rem;
+}
+
+.enter-school-buttons {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    width: 70%;
-    margin-bottom: 2rem
+    width: 90%;
+    margin-bottom: 1rem;
 }
 
 @media(max-width: 600px) {
-    .exit-create-school-buttons {
+    .enter-school-buttons {
         width: 90%;
     }
 }

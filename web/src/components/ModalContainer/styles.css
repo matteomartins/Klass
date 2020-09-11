@@ -13,7 +13,7 @@
 .main-modal-container .modal-container {
     background: var(--color-background);
     width: 85%;
-    max-width: 480px;
+    max-width: 420px;
     border-radius: 3.4rem;
     padding: 2rem;
     z-index: 5;
@@ -42,8 +42,9 @@
     font-size: 1.9rem;
     font-weight: 400;
     text-align: center;
-    margin-top: 1rem;
-    margin-bottom: 3rem;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    width: 90%;
 }
 
 .main-modal-container .modal-container .modal-container-content {
