@@ -1,4 +1,4 @@
-.home-container6 {
+.shift-container6 {
     background: var(--color-background);
     border-radius: 3.4rem;
     padding: 3rem 4rem;
@@ -11,7 +11,7 @@
     max-height: 600px;
 }
 
-.home-container6 .scroll-view6 {
+.shift-container6 .scroll-view6 {
     overflow-y: scroll;
     height: 470px;
     padding-right: 1.7rem;
@@ -19,14 +19,14 @@
     margin-top: 1rem;
 }
 
-.home-container6 .header-home6 {
+.shift-container6 .header-shift6 {
     width: 100%;
     display: flex;
     align-items: flex-start;
     justify-content: flex-end;
 }
 
-.home-container6 .school-cards-container6 {
+.shift-container6 .shift-cards-container6 {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,12 +36,12 @@
     width: 100%;
 }
 
-.home-container6 .school-cards-container6 a {
+.shift-container6 .shift-cards-container6 a {
     color: #39729d;
     align-self: flex-start;
 }
 
-.home-container6 .school-cards-container6 .classes6 {
+.shift-container6 .shift-cards-container6 .classes6 {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
     width: 100%;
@@ -50,19 +50,19 @@
 }
 
 @media (max-width: 700px) {
-    .home-container6 {
+    .shift-container6 {
         padding: 2rem;
     }
 }
 
 @media (max-width: 425px) {
-    .home-container6 .school-cards-container6 .classes6 {
+    .shift-container6 .shift-cards-container6 .classes6 {
         grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
     }
 }
 
 @media (max-width: 360px) {
-    .home-container6 .school-cards-container6 .classes6 {
+    .shift-container6 .shift-cards-container6 .classes6 {
         grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
     }
 }

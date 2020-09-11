@@ -4,11 +4,11 @@ import "./styles.css";
 import ContentCard from "../../../components/ContentCard";
 import { Link } from "react-router-dom";
 
-function Home() {
+function Shift() {
     return (
-        <div className="home-container6">
+        <div className="shift-container6">
             <div className="scroll-view6">
-                <div className="school-cards-container6">
+                <div className="shift-cards-container6">
                     <Link to="/school">
                         <h1>Turno: Manhã </h1>
                     </Link>
@@ -45,7 +45,7 @@ function Home() {
                         />
                     </div>
                 </div>
-                <div className="school-cards-container6">
+                <div className="shift-cards-container6">
                     <Link to="/school">
                         <h1>Turno: Tarde</h1>
                     </Link>
@@ -82,7 +82,7 @@ function Home() {
                         />
                     </div>
                 </div>
-                <div className="school-cards-container6">
+                <div className="shift-cards-container6">
                     <Link to="/school">
                         <h1>Turno: Noite </h1>
                     </Link>
@@ -124,4 +124,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default Shift;
