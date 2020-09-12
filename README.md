@@ -20,22 +20,35 @@ O Klass é uma aplicação capaz de facilitar o trabalho de cordenadores, alunos
 - Vinicius Stephanto
 - Vitor Silva
 
+---
+
 ## :page_with_curl: Documentação
 
-- [Canvas do Projeto](https://docs.google.com/presentation/d/1Z1a0AT6j1cqnuT0zSRHb5xTNw5duZ2EBxJIyC4qcfig/edit?usp=sharing)
-- [Canvas Persona](https://docs.google.com/presentation/d/1TYSgnnCtL9Xs7BR-M-I1XIexxjCqAKzifD_OBuCXb3I/edit?usp=sharing)
-- [Regras de Negócio](https://docs.google.com/document/d/16mWHoG_VQl5GhHsM9YRXrkWVrkOpqreCrxhkrhHrAcI/edit?usp=sharing)
-- [Funcionalidades](https://docs.google.com/document/d/13V-64ofHABqmF7rmbw4k1oP7EGWMxI5pSmeWIS7v6IA/edit?usp=sharing)
-- [Levantamento de Requisitos]()
-- [Diagrama de Caso de Uso](https://app.lucidchart.com/documents/edit/1c59bb75-d60a-4fc3-86bf-fd1142f0404e/0_0?shared=true)
-- [Diagrama de Classes]()
-- [Diagrama de Atividades]()
-- [Diagrama de Sequência]()
-- [DER]()
-- [Rotas API](wiki/api_routes/menu.md)
-- [Fluxograma de relatório](https://whimsical.com/MMb39pfkDEyY5GAjgJ6Vpq)
-- [Wireframe](https://miro.com/welcomeonboard/bN6NRyrdnNDJkCfWyxlhtATPSC5hcBnh0PE2uhhf2AGQqNu1CXEvDA9JguDIMhTT)
-- [Estrutura de Arquivos do projeto](wiki/file_structure.MD)
+- Desenvolvendo a ideia
+    - [Canvas do Projeto](https://docs.google.com/presentation/d/1Z1a0AT6j1cqnuT0zSRHb5xTNw5duZ2EBxJIyC4qcfig/edit?usp=sharing)
+    - [Canvas Persona](https://docs.google.com/presentation/d/1TYSgnnCtL9Xs7BR-M-I1XIexxjCqAKzifD_OBuCXb3I/edit?usp=sharing)
+    - [Regras de Negócio](https://docs.google.com/document/d/16mWHoG_VQl5GhHsM9YRXrkWVrkOpqreCrxhkrhHrAcI/edit?usp=sharing)
+    - [Funcionalidades](https://docs.google.com/document/d/13V-64ofHABqmF7rmbw4k1oP7EGWMxI5pSmeWIS7v6IA/edit?usp=sharing)
+    - [Especificações do progeto]()
+    - [Levantamento de Requisitos]()
+
+- Backend
+    - [Diagrama de Caso de Uso](https://app.lucidchart.com/documents/edit/1c59bb75-d60a-4fc3-86bf-fd1142f0404e/0_0?shared=true)
+    - [Diagrama de Classes]()
+    - [Diagrama de Atividades]()
+    - [Diagrama de Sequência]()
+    - [Rotas API](wiki/api_routes/menu.md)
+    - [Fluxograma de relatório](https://whimsical.com/MMb39pfkDEyY5GAjgJ6Vpq)
+    - [Estrutura de Arquivos](wiki/file_structure.MD)
+
+- Banco de Dados
+    - [DER]()
+    - [Dicionário de Dados](wiki/DicionarioDeDados.docx?raw=true)
+
+- Frontend
+    - [Wireframe](https://miro.com/welcomeonboard/bN6NRyrdnNDJkCfWyxlhtATPSC5hcBnh0PE2uhhf2AGQqNu1CXEvDA9JguDIMhTT)
+    - [Estrutura de Arquivos](wiki/file_structure.MD)
+
 
 ## :clock2: Cronograma
 
@@ -49,6 +62,8 @@ O Diário de Bordo é uma forma de relatar o que cada participante realizou em c
 
 Após a finalização do projeto de pesquisa e programação da aplicação foi realizada uma monografia que além de relatar os passos para o desenvolvimento explica a viabilidade e outros pontos. Clique [nesse link](wiki/MonografiaKlass.docx?raw=true) para baixar a [monografia](wiki/MonografiaKlass.docx?raw=true)
 
+---
+
 ## 🚀 Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
@@ -61,6 +76,8 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 ## 🔖 Layout
 
 Você pode visualizar o layout do projeto através [desse link](https://www.figma.com/file/mvZjbj9Y5rMXsn3zNf6vBA/TCC?node-id=0%3A1). Lembrando que você  precisa ter uma conta no [Figma](http://figma.com/) para acessá-lo.
+
+---
 
 ## :link: Clonar o repositório
 
@@ -84,6 +101,8 @@ Para a execução da aplicação backend entre na pasta server e execute o coman
 
 
 Para a execução da aplicação frontend entre na pasta web e execute o comando ```npm start```.
+
+---
 
 ## :memo: Licença
 
