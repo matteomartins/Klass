@@ -62,13 +62,23 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 Você pode visualizar o layout do projeto através [desse link](https://www.figma.com/file/mvZjbj9Y5rMXsn3zNf6vBA/TCC?node-id=0%3A1). Lembrando que você  precisa ter uma conta no [Figma](http://figma.com/) para acessá-lo.
 
-## Instalação
+## :link: Clonar o repositório
 
-## Clonar o repositório
+Clone o repositório do projeto usando ```git clone https://github.com/stephanto-dev/Klass```. Você precisa do [GIT](https://git-scm.com/) instalado em sua maquina.
 
-## Instalar dependências
+## :hammer: Instalação
 
-## Executar o projeto
+Para a instalação do projeto é necessário ter o ambiente Node.js instalado no computador. As instruções de instalação para o rutime estão no site oficial do [node.js](http://nodejs.org).
+<br>
+Após a clonagem, instale o ambiente do adonis executando o comando ```npm install adonis-cli --global```.
+<br>
+Entre na pasta server do projeto, na raiz (aonde se encontra o arquivo package.json ) e execute o comando ```npm install``` em seu terminal. Aguarde a finalização e certifique-se de que, no final, há uma pasta chamada node_modules nesta mesma raiz.
+<br>
+Depois faça o mesmo na pasta web, execute o comando ```npm install``` em seu terminal. Aguarde a finalização e certifique-se de que, no final, há uma pasta chamada node_modules nesta mesma raiz.
+<br>
+Para a execução da aplicação backend entre na pasta server e execute o comando ```adonis serve```.
+<br>
+Para a execução da aplicação frontend entre na pasta web e execute o comando ```npm start```.
 
 ## :memo: Licença
 

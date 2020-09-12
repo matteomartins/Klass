@@ -1,6 +1,6 @@
 [Voltar](../README.md)
 
-# Estrutura de Arquivos
+# :file_folder: Estrutura de Arquivos
 
 ## Estrutura de Arquivos do Backend
 
