@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 
-import { useHistory } from "react-router-dom";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
-import ExitCreateSchool from "../../components/CreateSchool/Exit";
 
 import "./styles.css";
 import Create1 from "../../components/CreateSchool/Create1";
@@ -12,10 +10,13 @@ import Create4 from "../../components/CreateSchool/Create4";
 import Create5 from "../../components/CreateSchool/Create5";
 import Create6 from "../../components/CreateSchool/Create6";
 import Create7 from "../../components/CreateSchool/Create7";
+import ExitCreateSchool from "../../components/CreateSchool/Exit";
+import SuccessfulCreateSchool from "../../components/CreateSchool/Successful";
 import BackButton from "../../components/BackButton";
 
 function CreateSchool() {
-    const [active, setActive] = useState(false);
+    const [activeExit, setActiveExit] = useState(false);
+    const [activeSuccessful, setActiveSuccessful] = useState(false);
     const [step, setStep] = useState(0);
     const [mode, setMode] = useState("foward");
 
@@ -63,7 +64,6 @@ function CreateSchool() {
         <Create7 classes={classes} setClasses={setClasses} />
     );
 
-    const history = useHistory();
     const screens = [
         Create1,
         Create2,
@@ -75,13 +75,15 @@ function CreateSchool() {
     ];
 
     function handleNext() {
-        if (step === 6) history.push("/dashboard");
-        setMode("foward");
-        setStep(step + 1);
+        if (step === 6) setActiveSuccessful(true);
+        else {
+            setMode("foward");
+            setStep(step + 1);
+        }
     }
     function handleBack(e: any) {
         e.preventDefault();
-        if (step === 0) setActive(true);
+        if (step === 0) setActiveExit(true);
         else {
             setMode("backward");
             setStep(step - 1);
@@ -111,7 +113,8 @@ function CreateSchool() {
                 </button>
                 <span> {step + 1}/7 </span>
             </div>
-            <ExitCreateSchool active={active} setActive={setActive} />
+            <ExitCreateSchool active={activeExit} setActive={setActiveExit} />
+            <SuccessfulCreateSchool active={activeSuccessful} setActive={setActiveSuccessful} />
         </div>
     );
 }

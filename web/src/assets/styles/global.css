@@ -77,6 +77,14 @@ textarea {
     height: 87vh;
 }
 
+.main-container-center {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
 .container-bg-dark {
     background: url(../../assets/images/container-background-dark.svg);
     background-repeat: no-repeat;

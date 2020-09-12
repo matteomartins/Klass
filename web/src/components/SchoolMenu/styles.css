@@ -37,20 +37,24 @@
     background: rgba(28,26,50,0.43);
     z-index: 1;
 }
+
 .school-menu-container {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-end;
-    width: 95%;
+    width: 90%;
     max-width: 960px;
-    height: 470px;
+    height: 90%;
+    max-height: 470px;
     margin-top: 16rem;
     padding-right: 6rem;
 }
+
 .school-menu-content {
-    width: 32rem;
-    height: 16rem;
+    width: 100%;
+    max-width: 32rem;
+    height: 15rem;
     border-radius: 2rem;
     display: flex;
     align-items: center;
@@ -74,7 +78,7 @@
     margin-top: 1.4rem;
 }
 
-.texts{
+.school-menu-content .texts {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -88,7 +92,7 @@
     text-align: center;
 }
 
-.close{
+.school-menu-content .close{
     color:#333333
 }
 
@@ -98,5 +102,8 @@
     }
     .school-menu-content {
         align-self: center;
+    }
+    .school-menu-content .texts {
+        font-size: 1.8rem;
     }
 }

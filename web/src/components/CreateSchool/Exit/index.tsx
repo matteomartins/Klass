@@ -1,47 +1,24 @@
-import React, {useState, useEffect} from 'react';
-import { CSSTransition } from 'react-transition-group';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 import './styles.css';
+import ModalContainer from '../../ModalContainer';
 
-interface MenuProps {
+interface ExitCreateSchoolProps {
     active: boolean;
     setActive: Function;
 }
 
-const Menu:React.FC<MenuProps> = ({active, setActive}) => {
-    const [ delayedActive, setDelayedActive ] = useState(false);
-
-    useEffect(()=> {
-        setTimeout(()=> setDelayedActive(active), 300)
-    }, [active]);
-
+const ExitCreateSchool:React.FC<ExitCreateSchoolProps> = ({active, setActive}) => {
+    const history = useHistory();
     return (
-        <CSSTransition
-            in={active}
-            timeout={300}
-            classNames="slide"
-            style={{display: active?'flex':delayedActive?'flex':'none'}}
-        >
-                <div className="global-school-menu8">
-                <div className="school-menu-container8">
-                <div className="blur8" onClick={()=> setActive(false)}></div>
-                    <div className="school-menu-content8" >
-                        <ul className="texts8">
-                            <li>
-                                <Link className="texts8" to="/create-school" >Deseja realmente parar de criar uma escola?</Link>
-                            </li>
-                        </ul>
-                    
-                        <div className="buttons8">
-                            <button className="btn" id="btn">Sim</button>
-                            <button className="btn" id="btn">Não</button>
-                        </div>   
-                    </div>
-                    </div>
-                </div>
-        </CSSTransition>
+        <ModalContainer active={active} setActive={setActive} title="Deseja realmente parar de criar uma escola?">
+            <div className="exit-create-school-buttons">
+                <button className="btn-small" onClick={()=> {setActive(false); history.push('/home')}}>Sim</button>
+                <button className="btn-small" onClick={()=> setActive(false)}>Não</button>
+            </div>
+        </ModalContainer>
     )
 }
 
-export default Menu;
+export default ExitCreateSchool;

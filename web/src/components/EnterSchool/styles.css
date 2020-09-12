@@ -1,0 +1,24 @@
+.enter-school-input {
+    background: none;
+    border: var(--color-border-primary) 3px solid;
+    color: var(--color-text-secondary);
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    width: 80%;
+    max-width: 22rem;
+}
+
+.enter-school-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 90%;
+    margin-bottom: 1rem;
+}
+
+@media(max-width: 600px) {
+    .enter-school-buttons {
+        width: 90%;
+    }
+}

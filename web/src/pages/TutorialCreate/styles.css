@@ -1,4 +1,4 @@
-.help-container7  {
+.tutorial-create-container  {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -10,7 +10,7 @@
     margin-top: 50px;
 }
 
-.help-container7  .infos7{
+.tutorial-create-container  .infos7{
     margin-top: 2rem;
     font-family: Roboto;
     font-size: 15px;
@@ -31,10 +31,10 @@
 
 
 @media(max-width: 700px) {
-    .help-container7  {
+    .tutorial-create-container  {
         height: 90vh;
     }
-    .help-content7 {
+    .tutorial-create-content{ 
         height: 65vh;
     }   
 }
