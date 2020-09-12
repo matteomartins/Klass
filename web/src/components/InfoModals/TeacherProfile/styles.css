@@ -23,26 +23,22 @@
 
 .teacher-modal-content .teacher-modal-header {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin-bottom:0px ;
-    margin-left: 0px;
-    margin-bottom: 10px;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    width: 90%;
 }
 
-.teacher-modal-content .card-content3{
-    display: flex;
-    margin-right: 100px;
-}
-
-.teacher-modal-content .main-div3{
+.teacher-modal-content .teacher-main-card {
     width: 550px;
     display: flex;
     flex-direction: column;
     
 }
 
-.teacher-modal-content .school-text3{
+.teacher-modal-content .main-text .grade-text {
     display: flex;
     justify-content:flex-start ;
     align-items: flex-start;    
@@ -50,7 +46,8 @@
     color: var(--color-text-secondary);
     margin-right: 400px;
 }
-.teacher-modal-content .class3{
+
+.teacher-modal-content .main-text .grades {
     display: flex;
     justify-content:space-around;
     align-items: flex-start;    
@@ -59,13 +56,14 @@
     margin-right: 400px;
     margin-bottom: 20px;
 }
-.teacher-modal-content .class3 p{
+
+.teacher-modal-content .main-text .grades p {
     display: flex;
     margin-right:5px ;
     font-size:12px
 }
 
-.teacher-modal-content .texts3{
+.teacher-modal-content .grades {
     display: flex;
     margin-top: 1.6rem;
     font-family: Roboto;
@@ -76,18 +74,13 @@
     text-align: center;
 }
 
-.teacher-modal-content .close3{
-    color:#333333
+.teacher-modal-content .buttons {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
-.teacher-modal-content .buttons2{
-    display: flex;
-    margin-left:90px;
-}
-.teacher-modal-content .buttons2 button{
-    display: flex;
-    margin-right:90px;
-}
 @media(max-width: 400px) {
     .global-teacher-modal .teacher-modal-content {
         align-self: center;

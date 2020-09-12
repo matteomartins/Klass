@@ -29,7 +29,7 @@ const Menu: React.FC<MenuProps> = ({ active, setActive }) => {
                 <div className="blur" onClick={() => setActive(false)}></div>
                 <div className="teacher-modal-content">
                     <div className="teacher-modal-header">
-                        <div className="card-content3">
+                        <div className="teacher-main">
                             <ContentCard
                                 rounded
                                 title="P"
@@ -37,7 +37,7 @@ const Menu: React.FC<MenuProps> = ({ active, setActive }) => {
                                 color="#0792A9"
                             />
                         </div>
-                        <div className="info-container3">
+                        <div className="info-container">
                             <InputOutline
                                 text="Professores:"
                                 name="prof"
@@ -64,11 +64,11 @@ const Menu: React.FC<MenuProps> = ({ active, setActive }) => {
                             />
                         </div>
                     </div>
-                    <div className="main-text3">
-                        <div className="school-text3">
+                    <div className="main-text">
+                        <div className="grade-text">
                             <h2>Turmas</h2>
                         </div>
-                        <div className="class3">
+                        <div className="grades">
                             <p>1 ANO A</p>
                             <p></p>
                             <p>2 ANO A</p>
@@ -77,7 +77,7 @@ const Menu: React.FC<MenuProps> = ({ active, setActive }) => {
                             <p></p>
                         </div>
                     </div>
-                    <div className="buttons2">
+                    <div className="buttons">
                         <button className="btn-small">Remover</button>
                         <button className="btn-small">Salvar</button>
                     </div>

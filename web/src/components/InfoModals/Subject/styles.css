@@ -78,18 +78,15 @@
     text-align: center;
 }
 
-.close2 {
+.subject-modal-content .close2 {
     color:#333333
 }
 
-.buttons {
+.subject-modal-content .buttons {
+    width: 60%;
     display: flex;
-    margin-left:90px;
-}
-
-.buttons button {
-    display: flex;
-    margin-right:90px;
+    align-items: center;
+    justify-content: space-around;
 }
 
 @media(max-width: 400px) {

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 import iconLight from "../../assets/images/icon-light.svg";
 import { KaUser, KaUserOutline, KaMail, KaPassword } from "../../assets/icons";
@@ -10,6 +11,13 @@ import Input from "../../components/Input";
 import Checkbox from "../../components/Checkbox";
 
 function Register() {
+    const { register, handleSubmit, watch, errors } = useForm();
+    const onSubmit = (data:any) => {
+        console.log(data);
+        console.log(errors);
+        console.log(watch);
+    };
+
     return (
         <div className="scroll-view">
             <div>
@@ -28,7 +36,7 @@ function Register() {
                             Cadastre-se &nbsp; &#9662;{" "}
                         </a>
                     </div>
-                    <form className="form-container" id="register">
+                    <form className="form-container" id="register" onSubmit={handleSubmit(onSubmit)}>
                         <h1>Crie sua Conta</h1>
                         <div className="user-icon">
                             <KaUser
@@ -38,26 +46,32 @@ function Register() {
                         </div>
                         <SocialMedias color="var(--color-border-primary)" />
                         <Input
+                            name="name"
                             label="Nome"
+                            type="text"
                             Icon={KaUserOutline}
                             maxLength={35}
+                            ref={register({ required: true })}
                         />
+                        {errors.exampleRequired && <span>This field is required</span>}
                         <Input
+                            name="email"
                             label="Email"
                             type="email"
                             Icon={KaMail}
                             maxLength={50}
+                            ref={register}
                         />
                         <Input
+                            name="password"
                             label="Senha"
                             type="password"
                             Icon={KaPassword}
                             maxLength={100}
+                            ref={register}
                         />
                         <Checkbox label="Lembre de mim" name="rememberme" />
-                        <Link to="/access" className="btn btn-bg-dark">
-                            Cadastre-se
-                        </Link>
+                        <input type="submit" value="Cadastre-se" className="btn btn-bg-dark" />
                     </form>
                 </div>
             </div>

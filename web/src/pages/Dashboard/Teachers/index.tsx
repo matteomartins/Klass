@@ -7,11 +7,11 @@ import ContentCard from "../../../components/ContentCard";
 function Teachers() {
     const [active, setActive] = useState(false);
     return (
-        <div className="home-container5">
-            <div className="scroll-view5">
-                <div className="school-cards-container5">
+        <div className="teachers-container">
+            <div className="scroll-view">
+                <div className="teachers-cards-container">
                     <h1>Administrativo</h1>
-                    <div className="classes5">
+                    <div className="teachers">
                         <ContentCard
                             small
                             rounded
@@ -57,9 +57,9 @@ function Teachers() {
                         />
                     </div>
                 </div>
-                <div className="school-cards-container5">
+                <div className="teachers-cards-container">
                     <h1>Professores</h1>
-                    <div className="classes5">
+                    <div className="teachers">
                         <ContentCard
                             small
                             rounded

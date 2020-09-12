@@ -1,6 +1,7 @@
 .enter-school-input {
     background: none;
     border: var(--color-border-primary) 3px solid;
+    color: var(--color-text-secondary);
     border-radius: 1rem;
     padding: 1rem;
     margin-bottom: 2rem;
