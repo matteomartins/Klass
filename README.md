@@ -24,6 +24,8 @@ O Klass é uma aplicação capaz de facilitar o trabalho de cordenadores, alunos
 
 - [Canvas do Projeto](https://docs.google.com/presentation/d/1Z1a0AT6j1cqnuT0zSRHb5xTNw5duZ2EBxJIyC4qcfig/edit?usp=sharing)
 - [Canvas Persona](https://docs.google.com/presentation/d/1TYSgnnCtL9Xs7BR-M-I1XIexxjCqAKzifD_OBuCXb3I/edit?usp=sharing)
+- [Regras de Negócio](https://docs.google.com/document/d/16mWHoG_VQl5GhHsM9YRXrkWVrkOpqreCrxhkrhHrAcI/edit?usp=sharing)
+- [Funcionalidades](https://docs.google.com/document/d/13V-64ofHABqmF7rmbw4k1oP7EGWMxI5pSmeWIS7v6IA/edit?usp=sharing)
 - [Levantamento de Requisitos]()
 - [Diagrama de Caso de Uso](https://app.lucidchart.com/documents/edit/1c59bb75-d60a-4fc3-86bf-fd1142f0404e/0_0?shared=true)
 - [Diagrama de Classes]()
@@ -33,6 +35,7 @@ O Klass é uma aplicação capaz de facilitar o trabalho de cordenadores, alunos
 - [Rotas API](wiki/api_routes/menu.md)
 - [Fluxograma de relatório](https://whimsical.com/MMb39pfkDEyY5GAjgJ6Vpq)
 - [Wireframe](https://miro.com/welcomeonboard/bN6NRyrdnNDJkCfWyxlhtATPSC5hcBnh0PE2uhhf2AGQqNu1CXEvDA9JguDIMhTT)
+- [Estrutura de Arquivos do projeto]()
 
 ## :clock2: Cronograma
 
