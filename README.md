@@ -35,7 +35,7 @@ O Klass é uma aplicação capaz de facilitar o trabalho de cordenadores, alunos
 - [Rotas API](wiki/api_routes/menu.md)
 - [Fluxograma de relatório](https://whimsical.com/MMb39pfkDEyY5GAjgJ6Vpq)
 - [Wireframe](https://miro.com/welcomeonboard/bN6NRyrdnNDJkCfWyxlhtATPSC5hcBnh0PE2uhhf2AGQqNu1CXEvDA9JguDIMhTT)
-- [Estrutura de Arquivos do projeto]()
+- [Estrutura de Arquivos do projeto](wiki/file_structure.MD)
 
 ## :clock2: Cronograma
 

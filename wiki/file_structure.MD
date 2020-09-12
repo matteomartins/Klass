@@ -1,8 +1,30 @@
+[Voltar](../../README.md)
+
 # Estrutura de Arquivos
 
 ## Estrutura de Arquivos do Backend
 
 O projeto segue uma organização simples de arquivos:
+
+```
+server
+├── vowfile.js
+├── server.js
+├── package.json
+├── .gitignore
+├── start
+│   ├── app.js
+│   ├── kernel.js
+│   └── routes.js
+└── app
+    ├── Controllers
+    │   ├── CourseController.js
+    │   └── DashboardController
+    ├── Moddleware
+    ├── Models
+    ├── Utils
+    └── Validators
+```
 
 - ```app```: Contém todos os arquivos do projeto
     - ```app/Controllers```
