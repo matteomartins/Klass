@@ -5,9 +5,9 @@ import './styles.css';
 import TruncatedContainer from '../../components/TruncatedContainer';
 import BackButton from '../../components/BackButton';
 
-function Help() {
+function TutorialCreate() {
     return(
-        <div className="help-container7">
+        <div className="tutorial-create-container">
             <BackButton to="/home" />
             <TruncatedContainer title="Tutorial Criar">
                     <YouTube className="video7" videoId="Zc1OOS4aMbU"  />
@@ -16,4 +16,4 @@ function Help() {
     )
 }
 
-export default Help;
+export default TutorialCreate;
