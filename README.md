@@ -17,10 +17,23 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## :page_with_curl: Documentação
 
+- [Canvas do Projeto](https://docs.google.com/presentation/d/1Z1a0AT6j1cqnuT0zSRHb5xTNw5duZ2EBxJIyC4qcfig/edit?usp=sharing)
+- [Canvas Persona](https://docs.google.com/presentation/d/1TYSgnnCtL9Xs7BR-M-I1XIexxjCqAKzifD_OBuCXb3I/edit?usp=sharing)
+- [Levantamento de Requisitos]()
+- [Diagrama de Caso de Uso](https://app.lucidchart.com/documents/edit/1c59bb75-d60a-4fc3-86bf-fd1142f0404e/0_0?shared=true)
+- [Diagrama de Classes]()
+- [DER]()
 - [Rotas API](wiki/api_routes/menu.md)
 - [Fluxograma de relatório](https://whimsical.com/MMb39pfkDEyY5GAjgJ6Vpq)
 - [Wireframe](https://miro.com/welcomeonboard/bN6NRyrdnNDJkCfWyxlhtATPSC5hcBnh0PE2uhhf2AGQqNu1CXEvDA9JguDIMhTT)
-- [Diagrama de Caso de Uso](https://app.lucidchart.com/documents/edit/1c59bb75-d60a-4fc3-86bf-fd1142f0404e/0_0?shared=true)
+
+## :clock2: Cronograma
+
+O Cronograma do Projeto Klass está dividido em 4 partes, todas elas no ano de 2020. Cada parte dura em média 60 dias e possui diferentes processos re realização de atividades. Clique [nesse link](wiki/CronogramaKlass.xlsx) para baixar o [cronograma](wiki/CronogramaKlass.xlsx).
+
+## :notebook_with_decorative_cover: Diário de bordo
+
+O Diário de Bordo é uma forma de relatar o que cada participante realizou em cada parte do projeto, deixando claro as conquistas individuais e coletivas. Clique [nesse link](wiki/DiarioDeBordoKlass.docx) para baixar o [diário de bordo](wiki/DiarioDeBordoKlass.docx).
 
 ## 💻 Projeto
 
