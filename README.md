@@ -7,6 +7,10 @@ Projeto de TCC
   <img alt="Klass" src="wiki/presentation_img.jpg" width="100%">
 </p>
 
+## 💻 Projeto
+
+O Klass é uma aplicação capaz de facilitar o trabalho de cordenadores, alunos e professores, automatizando a criação e divulgação de horários escolares e grades horárias.
+
 ## :busts_in_silhouette: Desenvolvedores
 
 - Elmer Campos
@@ -32,19 +36,15 @@ Projeto de TCC
 
 ## :clock2: Cronograma
 
-O Cronograma do Projeto Klass está dividido em 4 partes, todas elas no ano de 2020. Cada parte dura em média 60 dias e possui diferentes processos re realização de atividades. Clique [nesse link](wiki/CronogramaKlass.xlsx) para baixar o [cronograma](wiki/CronogramaKlass.xlsx).
+O Cronograma do Projeto Klass está dividido em 4 partes, todas elas no ano de 2020. Cada parte dura em média 60 dias e possui diferentes processos re realização de atividades. Clique [nesse link](wiki/CronogramaKlass.xlsx?raw=true) para baixar o [cronograma](wiki/CronogramaKlass.xlsx?raw=true).
 
 ## :notebook_with_decorative_cover: Diário de bordo
 
-O Diário de Bordo é uma forma de relatar o que cada participante realizou em cada parte do projeto, deixando claro as conquistas individuais e coletivas. Clique [nesse link](wiki/DiarioDeBordoKlass.docx) para baixar o [diário de bordo](wiki/DiarioDeBordoKlass.docx).
+O Diário de Bordo é uma forma de relatar o que cada participante realizou em cada parte do projeto, deixando claro as conquistas individuais e coletivas. Clique [nesse link](wiki/DiarioDeBordoKlass.docx?raw=true) para baixar o [diário de bordo](wiki/DiarioDeBordoKlass.docx?raw=true).
 
 ## :scroll: Monografia
 
-Após a finalização do projeto de pesquisa e programação da aplicação foi realizada uma monografia que além de relatar os passos para o desenvolvimento explica a viabilidade e outros pontos. Clique [nesse link](wiki/MonografiaKlass.docx) para baixar a [monografia](wiki/MonografiaKlass.docx)
-
-## 💻 Projeto
-
-O Klass é uma aplicação capaz de facilitar o trabalho de cordenadores, alunos e professores, automatizando a criação e divulgação de horários escolares e grades horárias.
+Após a finalização do projeto de pesquisa e programação da aplicação foi realizada uma monografia que além de relatar os passos para o desenvolvimento explica a viabilidade e outros pontos. Clique [nesse link](wiki/MonografiaKlass.docx?raw=true) para baixar a [monografia](wiki/MonografiaKlass.docx?raw=true)
 
 ## 🚀 Tecnologias
 
