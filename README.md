@@ -7,13 +7,14 @@ Projeto de TCC
   <img alt="Klass" src="wiki/presentation_img.jpg" width="100%">
 </p>
 
-## 🚀 Tecnologias
+## :busts_in_silhouette: Desenvolvedores
 
-Esse projeto foi desenvolvido com as seguintes tecnologias:
-
-- [Node.js](https://nodejs.org/en/)
-- [Adonis](https://adonisjs.com/)
-- [React](https://reactjs.org)
+- Elmer Campos
+- Raphael Gabia
+- Matteo Martins
+- Vinicius Pereira
+- Vinicius Stephanto
+- Vitor Silva
 
 ## :page_with_curl: Documentação
 
@@ -38,6 +39,14 @@ O Diário de Bordo é uma forma de relatar o que cada participante realizou em c
 ## 💻 Projeto
 
 O Klass é uma aplicação capaz de facilitar o trabalho de cordenadores, alunos e professores, automatizando a criação e divulgação de horários escolares e grades horárias.
+
+## 🚀 Tecnologias
+
+Esse projeto foi desenvolvido com as seguintes tecnologias:
+
+- [Node.js](https://nodejs.org/en/)
+- [Adonis](https://adonisjs.com/)
+- [React](https://reactjs.org)
 
 ## 🔖 Layout
 
