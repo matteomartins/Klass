@@ -23,6 +23,8 @@ Projeto de TCC
 - [Levantamento de Requisitos]()
 - [Diagrama de Caso de Uso](https://app.lucidchart.com/documents/edit/1c59bb75-d60a-4fc3-86bf-fd1142f0404e/0_0?shared=true)
 - [Diagrama de Classes]()
+- [Diagrama de Atividades]()
+- [Diagrama de Sequência]()
 - [DER]()
 - [Rotas API](wiki/api_routes/menu.md)
 - [Fluxograma de relatório](https://whimsical.com/MMb39pfkDEyY5GAjgJ6Vpq)
@@ -36,6 +38,10 @@ O Cronograma do Projeto Klass está dividido em 4 partes, todas elas no ano de 2
 
 O Diário de Bordo é uma forma de relatar o que cada participante realizou em cada parte do projeto, deixando claro as conquistas individuais e coletivas. Clique [nesse link](wiki/DiarioDeBordoKlass.docx) para baixar o [diário de bordo](wiki/DiarioDeBordoKlass.docx).
 
+## :scroll: Monografia
+
+Após a finalização do projeto de pesquisa e programação da aplicação foi realizada uma monografia que além de relatar os passos para o desenvolvimento explica a viabilidade e outros pontos. Clique [nesse link](wiki/MonografiaKlass.docx) para baixar a [monografia](wiki/MonografiaKlass.docx)
+
 ## 💻 Projeto
 
 O Klass é uma aplicação capaz de facilitar o trabalho de cordenadores, alunos e professores, automatizando a criação e divulgação de horários escolares e grades horárias.
@@ -47,6 +53,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [Node.js](https://nodejs.org/en/)
 - [Adonis](https://adonisjs.com/)
 - [React](https://reactjs.org)
+- [MySQL](https://www.mysql.com/)
 
 ## 🔖 Layout
 
