@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 .teachers-container {
-=======
-.teacher-container5 {
->>>>>>> be95af55ce42a836fb8f8d1f10f1a2dbb421d09f
     background: var(--color-background);
     border-radius: 3.4rem;
     padding: 3rem 4rem;
@@ -15,11 +11,7 @@
     max-height: 600px;
 }
 
-<<<<<<< HEAD
 .teachers-container .scroll-view {
-=======
-.teacher-container5 .scroll-view5 {
->>>>>>> be95af55ce42a836fb8f8d1f10f1a2dbb421d09f
     overflow-y: scroll;
     height: 470px;
     padding-right: 1.7rem;
