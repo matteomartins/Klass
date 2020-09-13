@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { CSSTransition } from "react-transition-group";
-import { Link } from "react-router-dom";
 
 import "./styles.css";
 
 interface MenuProps {
     active: boolean;
     setActive: Function;
+    enterSchool: Function;
+    createSchool: Function;
 }
 
-const Menu: React.FC<MenuProps> = ({ active, setActive }) => {
+const Menu: React.FC<MenuProps> = ({ active, setActive, enterSchool, createSchool }) => {
     const [delayedActive, setDelayedActive] = useState(false);
 
     useEffect(() => {
@@ -34,12 +35,14 @@ const Menu: React.FC<MenuProps> = ({ active, setActive }) => {
                     <div className="school-menu-content">
                         <ul className="texts">
                             <li>
-                                <Link className="texts" to="/create-school" >Criar uma nova escola</Link>
+                                <a href="#create-school" onClick={()=> createSchool()} className="texts">
+                                    Criar uma nova escola
+                                </a>
                             </li>
                             <li>
-                                <Link className="texts" to="/enter-school">
+                                <a href="#enter-school" onClick={()=> enterSchool()} className="texts">
                                     Entrar em uma nova escola
-                                </Link>
+                                </a>
                             </li>
                         </ul>
                     </div>

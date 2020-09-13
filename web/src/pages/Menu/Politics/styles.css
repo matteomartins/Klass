@@ -1,0 +1,95 @@
+.main-politics {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 95vw;
+    max-width: 960px;
+    height: 87vh;
+    max-height: 600px;
+}
+
+.main-politics .politics-container {
+    background: var(--color-background);
+    border-radius: 3.4rem;
+    padding: 3rem 4rem;
+    max-width: 960px;
+    height: 75vh;
+    max-height: 700px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.main-politics .politics-container .scroll-container {
+    overflow-y: scroll;
+    width: 50%;
+    height: 360px;
+    margin-left: 1rem;
+}
+
+.main-politics .politics-container .scroll-container::-webkit-scrollbar {
+    display: none;
+}
+.main-politics .politics-container #scroll-container1,
+.main-politics .politics-container #scroll-container2 {
+    margin: 0;
+}
+
+.main-politics .politics-container #scroll-container1 h1 {
+    color: var(--color-text-secondary);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.main-politics .politics-container #scroll-container1 .text-container {
+    margin-bottom: 1.5rem;
+}
+
+.main-politics .politics-container .scroll-container .text-container a {
+    display: block;
+    color: var(--color-text-secondary);
+    font-size: 1.8rem;
+    line-height: 3.2rem;
+    margin-left: 3rem;
+}
+
+.main-politics .politics-container #scroll-container2 h1 {
+    color: #39729d;
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+.main-politics .politics-container #scroll-container2 b {
+    color: var(--color-text-secondary);
+    font-size: 1.7rem;
+    line-height: 2.6rem;
+    font-weight: 500;
+    display: block;
+}
+
+.main-politics .politics-container #scroll-container2 p {
+    color: var(--color-text-secondary);
+    font-size: 1.4rem;
+    font-weight: 300;
+    display: block;
+    text-align: justify;
+    text-indent: 2.5rem;
+}
+
+@media (max-width: 700px) {
+    .main-politics .politics-container {
+        flex-direction: column;
+        padding: 2rem;
+    }
+    .main-politics .politics-container .scroll-container {
+        width: 100%;
+        height: 100%;
+    }
+    .main-politics .politics-container #scroll-container1 {
+        display: none;
+    }
+
+}

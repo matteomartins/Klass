@@ -1,24 +1,49 @@
-import React from 'react'
+import React from "react";
 
-import { KaClose } from '../../../assets/icons';
-import './styles.css';
+import { KaClose } from "../../../assets/icons";
+import "./styles.css";
 
 interface InfoCardButtonProps {
-    handleDelete: Function;
-    name: string;
-    text: string;
+    handleDelete?: Function;
+    index: number;
+    id: string;
+    title: string;
     group: string;
+    checked: boolean;
+    handleCheck: Function;
 }
 
-const InfoCardButton:React.FC<InfoCardButtonProps> = ({handleDelete, name, text, group}) => {
-    
+const InfoCardButton: React.FC<InfoCardButtonProps> = ({
+    handleDelete,
+    index,
+    id,
+    title,
+    group,
+    checked,
+    handleCheck,
+}) => {
     return (
-        <div key={name} className="creation-card">
-            <input id={name} type="radio" name={group} value={name} />
-            <label htmlFor={name}>{text}</label>
-            <button onClick={() => handleDelete(name)}><KaClose /></button>
+        <div key={id} className="creation-card">
+            <input
+                id={id}
+                type="radio"
+                name={group}
+                value={id}
+                checked={checked}
+                onChange={() => handleCheck(index)}
+            />
+            <label htmlFor={id}>{title}</label>
+            {(() => {
+                if (handleDelete) {
+                    return (
+                        <button onClick={() => handleDelete(id)}>
+                            <KaClose />
+                        </button>
+                    );
+                }
+            })()}
         </div>
-    )
-}
+    );
+};
 
 export default InfoCardButton;

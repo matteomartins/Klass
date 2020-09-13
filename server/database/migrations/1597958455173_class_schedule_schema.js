@@ -13,7 +13,6 @@ class ClassScheduleSchema extends Schema {
       table.integer('schedule_id').notNullable()
         .unsigned().references('id').inTable('schedules')
         .onDelete('CASCADE').onUpdate('CASCADE')
-      table.timestamps()
     })
   }
 

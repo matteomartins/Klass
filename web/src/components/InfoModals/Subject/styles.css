@@ -1,0 +1,99 @@
+.global-subject-modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.global-subject-modal .subject-modal-content {
+    width: 600px;
+    height: 350px;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--color-background);
+    z-index: 5;
+}
+
+.subject-modal-content .subject-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom:0px ;
+    margin-left: 0px;
+    margin-bottom: 10px;
+}
+
+.subject-modal-content .card-content {
+    display: flex;
+    margin-right: 100px;
+}
+
+.subject-modal-content .main-div2 {
+    width: 550px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.subject-modal-content .school-text2 {
+    display: flex;
+    justify-content:flex-start ;
+    align-items: flex-start;    
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    margin-right: 400px;
+}
+
+.subject-modal-content .class2 {
+    display: flex;
+    justify-content:space-around;
+    align-items: flex-start;    
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    margin-right: 400px;
+    margin-bottom: 20px;
+}
+
+.subject-modal-content .class2 p {
+    display: flex;
+    margin-right:5px ;
+    font-size:12px
+}
+
+.subject-modal-content .texts2 {
+    display: flex;
+    margin-top: 1.7rem;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 4rem;
+    line-height: 2.6rem;
+    text-align: center;
+}
+
+.subject-modal-content .close2 {
+    color:#333333
+}
+
+.subject-modal-content .buttons {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+@media(max-width: 400px) {
+    .global-subject-modal .subject-modal-container {
+        padding-right: 0;
+    }
+    .global-subject-modal .subject-modal-content {
+        align-self: center;
+    }
+}

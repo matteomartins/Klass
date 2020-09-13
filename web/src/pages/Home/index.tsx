@@ -1,17 +1,25 @@
 import React, { useState } from "react";
+import { useAlert } from "react-alert";
+
 import "./styles.css";
 
 import SchoolMenu from "../../components/SchoolMenu";
 import { KaAddButton } from "../../assets/icons";
 import ContentCard from "../../components/ContentCard";
 import { Link } from "react-router-dom";
+import EnterSchool from "../../components/EnterSchool";
+import InitialCreateSchool from "../../components/CreateSchool/InitialCreate";
 
 function Home() {
-    const [active, setActive] = useState(false);
+    const [activeInitial, setActiveInitial] = useState(false);
+    const [activeMenu, setActiveMenu] = useState(false);
+    const [activeEnterSchool, setActiveEnterSchool] = useState(false);
+    const alert = useAlert();
+
     return (
         <div className="home-container">
             <div className="header-home">
-                <div className="add-icon" onClick={() => setActive(true)}>
+                <div className="add-icon" onClick={() => setActiveMenu(true)}>
                     <KaAddButton size={32} color="#39729D" />
                 </div>
             </div>
@@ -22,6 +30,7 @@ function Home() {
                     </Link>
                     <div className="classes">
                         <ContentCard
+                            to="/class"
                             title="1A"
                             text="1 ANO A"
                             color="#0792A9"
@@ -30,16 +39,19 @@ function Home() {
                             title="1B"
                             text="1 ANO B"
                             color="#0792A9"
+                            onClick={() => alert.error("Alerta chave!")}
                         />
                         <ContentCard
                             title="2A"
                             text="2 ANO A"
                             color="#F68237"
+                            onClick={() => alert.success("Alerta chave!")}
                         />
                         <ContentCard
                             title="2B"
                             text="2 ANO B"
                             color="#F68237"
+                            onClick={() => alert.info("Alerta chave!")}
                         />
                         <ContentCard
                             title="3A"
@@ -96,7 +108,18 @@ function Home() {
                     </div>
                 </div>
             </div>
-            <SchoolMenu active={active} setActive={setActive} />
+            <SchoolMenu
+                active={activeMenu}
+                setActive={setActiveMenu}
+                enterSchool={() => setActiveEnterSchool(true)}
+                createSchool={() => setActiveInitial(true)}
+            />
+            <EnterSchool
+                active={activeEnterSchool}
+                setActive={setActiveEnterSchool}
+            />
+            <InitialCreateSchool active={activeInitial} setActive={setActiveInitial} />
+
         </div>
     );
 }

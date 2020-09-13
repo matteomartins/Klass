@@ -3,9 +3,25 @@ import React from "react";
 import "./styles.css";
 import BackButton from "../../components/BackButton";
 
-import {KaPdf,KaPrinter,KaExcel,KaGoogle} from "../../assets/icons"
+import {
+    KaPdf,
+    KaPrinter,
+    KaExcel,
+    KaGoogle,
+    KaArrow,
+} from "../../assets/icons";
 
 function Schedule() {
+    function handleBack() {
+        if (!document) return;
+        const tableElement = document.getElementById("main-schedule");
+        if (!tableElement) return;
+        const rowQuantity = +getComputedStyle(tableElement).getPropertyValue(
+            "--quantity-of-columns"
+        );
+        if (!rowQuantity) return;
+    }
+
     return (
         <div className="main-schedule">
             <BackButton to="/home" />
@@ -23,7 +39,7 @@ function Schedule() {
                             <option value="0">Turma</option>
                             <option value="1">Manhã</option>
                             <option value="2">Tarde</option>
-                            <option value="2">Noite</option>
+                            <option value="3">Noite</option>
                         </select>
                     </div>
                     <div id="select3">
@@ -38,11 +54,19 @@ function Schedule() {
                         </select>
                     </div>
                 </div>
-                <div className="schedule-content">
+                <div className="schedule-buttons">
+                    <button onClick={() => handleBack()}>
+                        <KaArrow size={22} />
+                    </button>
+                    <button>
+                        <KaArrow size={22} />
+                    </button>
+                </div>
+                <div className="schedule-content" id="main-schedule">
                     <table>
                         <thead>
                             <tr>
-                                <th>&nbsp;</th>
+                                <th></th>
                                 <th>
                                     <span>Segunda</span>
                                 </th>
@@ -132,9 +156,21 @@ function Schedule() {
                                 <td>
                                     <span></span>
                                 </td>
+                                <td>
+                                    <span></span>
+                                </td>
+                                <td>
+                                    <span></span>
+                                </td>
                             </tr>
                             <tr>
                                 <td>09:00</td>
+                                <td>
+                                    <span></span>
+                                </td>
+                                <td>
+                                    <span></span>
+                                </td>
                                 <td>
                                     <span></span>
                                 </td>
@@ -168,9 +204,21 @@ function Schedule() {
                                 <td>
                                     <span></span>
                                 </td>
+                                <td>
+                                    <span></span>
+                                </td>
+                                <td>
+                                    <span></span>
+                                </td>
                             </tr>
                             <tr>
                                 <td>10:00</td>
+                                <td>
+                                    <span></span>
+                                </td>
+                                <td>
+                                    <span></span>
+                                </td>
                                 <td>
                                     <span></span>
                                 </td>
@@ -204,9 +252,21 @@ function Schedule() {
                                 <td>
                                     <span></span>
                                 </td>
+                                <td>
+                                    <span></span>
+                                </td>
+                                <td>
+                                    <span></span>
+                                </td>
                             </tr>
                             <tr>
                                 <td>11:00</td>
+                                <td>
+                                    <span></span>
+                                </td>
+                                <td>
+                                    <span></span>
+                                </td>
                                 <td>
                                     <span></span>
                                 </td>
@@ -240,24 +300,30 @@ function Schedule() {
                                 <td>
                                     <span></span>
                                 </td>
+                                <td>
+                                    <span></span>
+                                </td>
+                                <td>
+                                    <span></span>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-            <div className="export-container">
-                <div className="circle-icon-container">
-                    <KaExcel size={22}/>
+                <div className="export-container">
+                    <div className="circle-icon-container">
+                        <KaExcel size={22} />
+                    </div>
+                    <div className="circle-icon-container">
+                        <KaPdf size={22} />
+                    </div>
+                    <div className="circle-icon-container">
+                        <KaPrinter size={22} />
+                    </div>
+                    <div className="circle-icon-container">
+                        <KaGoogle size={22} color="var(--color-primary)" />
+                    </div>
                 </div>
-                <div className="circle-icon-container">
-                    <KaPdf size={22}/>
-                </div>
-                <div className="circle-icon-container">
-                    <KaPrinter size={22}/>
-                </div>
-                <div className="circle-icon-container">
-                    <KaGoogle size={22} color="var(--color-primary)"/>
-                </div>
-            </div>
             </div>
         </div>
     );
