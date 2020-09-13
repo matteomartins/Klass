@@ -23,6 +23,7 @@ import Schedule from './pages/Schedule';
 import Courses from './pages/Dashboard/Courses';
 import Modules from './pages/Dashboard/Modules';
 import Dashboard from "./pages/Dashboard/Dashboard";
+import Page404 from "./pages/404";
 
 const RouteWithCalendar: React.FC<RouteProps> = ({ ...props }) => {
     return (
@@ -92,6 +93,7 @@ export default function Routes() {
                 <RouteWithCalendar path="/courses" exact component={Courses} />
                 <RouteWithCalendar path="/modules" exact component={Modules} />
                 <RouteWithCalendar path="/dashboard" exact component={Dashboard} />
+                <Route component={Page404} />
             </Switch>
         </BrowserRouter>
     );

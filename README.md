@@ -81,7 +81,7 @@ Clone o repositório do projeto usando ```git clone https://github.com/stephanto
 Para a instalação do projeto é necessário ter o ambiente Node.js instalado no computador. As instruções de instalação para o rutime estão no site oficial do [node.js](http://nodejs.org).
 
 
-Após a clonagem, instale o ambiente do adonis executando o comando ```npm install adonis-cli --global```.
+Após a clonagem, instale o ambiente do adonis executando o comando ```npm i -g @adonisjs/cli```.
 
 
 Entre na pasta server do projeto, na raiz (aonde se encontra o arquivo package.json ) e execute o comando ```npm install``` em seu terminal. Aguarde a finalização e certifique-se de que, no final, há uma pasta chamada node_modules nesta mesma raiz.
