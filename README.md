@@ -20,8 +20,6 @@ O Klass é uma aplicação capaz de facilitar o trabalho de cordenadores, alunos
 - Vinicius Stephanto
 - Vitor Silva
 
----
-
 ## :page_with_curl: Documentação
 
 - Desenvolvendo a ideia
@@ -49,7 +47,6 @@ O Klass é uma aplicação capaz de facilitar o trabalho de cordenadores, alunos
     - [Wireframe](https://miro.com/welcomeonboard/bN6NRyrdnNDJkCfWyxlhtATPSC5hcBnh0PE2uhhf2AGQqNu1CXEvDA9JguDIMhTT)
     - [Estrutura de Arquivos](wiki/file_structure.MD)
 
-
 ## :clock2: Cronograma
 
 O Cronograma do Projeto Klass está dividido em 4 partes, todas elas no ano de 2020. Cada parte dura em média 60 dias e possui diferentes processos re realização de atividades. Clique [nesse link](wiki/CronogramaKlass.xlsx?raw=true) para baixar o [cronograma](wiki/CronogramaKlass.xlsx?raw=true).
@@ -61,8 +58,6 @@ O Diário de Bordo é uma forma de relatar o que cada participante realizou em c
 ## :scroll: Monografia
 
 Após a finalização do projeto de pesquisa e programação da aplicação foi realizada uma monografia que além de relatar os passos para o desenvolvimento explica a viabilidade e outros pontos. Clique [nesse link](wiki/MonografiaKlass.docx?raw=true) para baixar a [monografia](wiki/MonografiaKlass.docx?raw=true)
-
----
 
 ## 🚀 Tecnologias
 
@@ -76,8 +71,6 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 ## 🔖 Layout
 
 Você pode visualizar o layout do projeto através [desse link](https://www.figma.com/file/mvZjbj9Y5rMXsn3zNf6vBA/TCC?node-id=0%3A1). Lembrando que você  precisa ter uma conta no [Figma](http://figma.com/) para acessá-lo.
-
----
 
 ## :link: Clonar o repositório
 
@@ -101,8 +94,6 @@ Para a execução da aplicação backend entre na pasta server e execute o coman
 
 
 Para a execução da aplicação frontend entre na pasta web e execute o comando ```npm start```.
-
----
 
 ## :memo: Licença
 
