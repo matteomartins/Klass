@@ -43,6 +43,7 @@ class CourseController {
 
         return { course, modules }
     }
+    
     async index({ request, response, auth }) {
         const idSchool = request.params.id_school;
         const oldModuleCourse = await Database.table('courses').innerJoin('modules', 'courses.id', 'modules.course_id').where('school_id', idSchool)

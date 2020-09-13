@@ -27,20 +27,20 @@ O Klass é uma aplicação capaz de facilitar o trabalho de cordenadores, alunos
     - [Canvas Persona](https://docs.google.com/presentation/d/1TYSgnnCtL9Xs7BR-M-I1XIexxjCqAKzifD_OBuCXb3I/edit?usp=sharing)
     - [Regras de Negócio](https://docs.google.com/document/d/16mWHoG_VQl5GhHsM9YRXrkWVrkOpqreCrxhkrhHrAcI/edit?usp=sharing)
     - [Funcionalidades](https://docs.google.com/document/d/13V-64ofHABqmF7rmbw4k1oP7EGWMxI5pSmeWIS7v6IA/edit?usp=sharing)
-    - [Especificações do progeto]()
-    - [Levantamento de Requisitos]()
+    - [Especificações do progeto](https://docs.google.com/document/d/1KaDQ9hHZdX032D18MAkfoZkHckJlgwyMaqdm-Cl1vD0/edit?usp=sharing)
+    - [Levantamento de Requisitos](https://docs.google.com/document/d/1MDRmkzO3xDSZC2Ud06CV34FtFXgcKdSZ_0dmmxfhYT0/edit?usp=sharing)
 
 - Backend
     - [Diagrama de Caso de Uso](https://app.lucidchart.com/documents/edit/1c59bb75-d60a-4fc3-86bf-fd1142f0404e/0_0?shared=true)
-    - [Diagrama de Classes]()
-    - [Diagrama de Atividades]()
-    - [Diagrama de Sequência]()
+    - [Diagrama de Classes](https://app.lucidchart.com/invitations/accept/360dee11-61a2-417f-9a71-3d582a29ac24)
+    - [Diagrama de Atividades](https://app.lucidchart.com/invitations/accept/8cf59ed4-3ccc-409e-8f45-b3f0ba9f7257)
+    - [Diagrama de Sequência](https://app.lucidchart.com/invitations/accept/7eade794-8c7d-4556-84e9-716f54353f90)
     - [Rotas API](wiki/api_routes/menu.md)
     - [Fluxograma de relatório](https://whimsical.com/MMb39pfkDEyY5GAjgJ6Vpq)
     - [Estrutura de Arquivos](wiki/file_structure.MD)
 
 - Banco de Dados
-    - [DER]()
+    - [DER](wiki/der.jpeg?raw=true)
     - [Dicionário de Dados](wiki/DicionarioDeDados.docx?raw=true)
 
 - Frontend
