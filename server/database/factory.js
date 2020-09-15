@@ -14,7 +14,7 @@
 /** @type {import('@adonisjs/lucid/src/Factory')} */
 const Factory = use('Factory')
 
-
+//User
 Factory.blueprint('App/Models/User', (faker) => {
   return {
     name: faker.username(),
@@ -24,3 +24,6 @@ Factory.blueprint('App/Models/User', (faker) => {
     icon: faker.avatar()
   }
 })
+
+//School
+
