@@ -1,7 +1,7 @@
-'use strict'
+"use strict";
 
 /** @type {import('@adonisjs/framework/src/Server')} */
-const Server = use('Server')
+const Server = use("Server");
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +13,10 @@ const Server = use('Server')
 |
 */
 const globalMiddleware = [
-  'Adonis/Middleware/BodyParser',
-  'App/Middleware/ConvertEmptyStringsToNull'
-]
+  "Adonis/Middleware/BodyParser",
+  "App/Middleware/ConvertEmptyStringsToNull",
+  "Adonis/Middleware/AuthInit",
+];
 
 /*
 |--------------------------------------------------------------------------
@@ -35,12 +36,13 @@ const globalMiddleware = [
 |
 */
 const namedMiddleware = {
-  auth: 'Adonis/Middleware/Auth',
-  guest: 'Adonis/Middleware/AllowGuestOnly',
-  VerifyPremiumAndSchool: 'App/Middleware/VerifyPremiumAndSchool',
-  VerifyUserAndSchool: 'App/Middleware/VerifyUserAndSchool',
-  VerifyUserAndProfessor: 'App/Middleware/VerifyUserAndProfessor'
-}
+  auth: "Adonis/Middleware/Auth",
+  guest: "Adonis/Middleware/AllowGuestOnly",
+  VerifyPremiumAndSchool: "App/Middleware/VerifyPremiumAndSchool",
+  VerifyUserAndSchool: "App/Middleware/VerifyUserAndSchool",
+  VerifyUserAndProfessor: "App/Middleware/VerifyUserAndProfessor",
+  VerifyToken: "App/Middleware/VerifyToken",
+};
 
 /*
 |--------------------------------------------------------------------------
@@ -54,12 +56,10 @@ const namedMiddleware = {
 */
 const serverMiddleware = [
   // 'Adonis/Middleware/Static',
-  'Adonis/Middleware/Cors',
-  'Adonis/Middleware/AuthInit'
-]
+  "Adonis/Middleware/Cors",
+  "Adonis/Middleware/AuthInit",
+];
 
-
-Server
-  .registerGlobal(globalMiddleware)
+Server.registerGlobal(globalMiddleware)
   .registerNamed(namedMiddleware)
-  .use(serverMiddleware)
+  .use(serverMiddleware);
