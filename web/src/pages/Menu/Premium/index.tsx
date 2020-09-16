@@ -13,26 +13,65 @@ function Premium() {
             <div className="scroll-view">
                 <div className="plans-container">
                     <div className="plan">
-                        <h1>Alunos</h1>
+                        <h1>Básico</h1>
                         <span>R$ 5,99</span>
-                        <p>Aproveite todas as funcionalidades sem anúncio</p>
-                        <p>Agenda e anotações</p>
-                        <p>Chat com os desenvolvedores</p>
-                        <p>Conta vitalícia</p>
+                        <p>
+                            <KaCheck size={20} />
+                            <span>
+                                Aproveite todas as funcionalidades sem anúncio
+                            </span>
+                        </p>
+                        <p>
+                            <KaCheck size={20} />
+                            <span>
+                                Criação de até três escolas
+                            </span>
+                        </p>
+                        <p>
+                            <KaCheck size={20} />
+                            <span>
+                                Chat com os desenvolvedores
+                            </span>
+                        </p>
+                        <p>
+                            <KaCheck size={20} />
+                            <span>
+                                Conta vitalícia
+                            </span>
+                        </p>
                         <button className="btn">Começar</button>
                     </div>
                     <div className="plan">
-                        <h1>Professores</h1>
-                        <span>R$ 15,99</span>
-                        <p>Aproveite todas as funcionalidades sem anúncio</p>
-                        <p>Agenda e anotações</p>
-                        <p>Criação de até 5 escolas</p>
-                        <p>Chat com os desenvolvedores</p>
-                        <p>Conta vitalícia</p>
+                        <h1>Padrão</h1>
+                        <span>R$ 10,99</span>
+                        <p>
+                            <KaCheck size={20} />
+                            <span>
+                                Aproveite todas as funcionalidades sem anúncio
+                            </span>
+                        </p>
+                        <p>
+                            <KaCheck size={20} />
+                            <span>
+                                Criação de até cinco escolas
+                            </span>
+                        </p>
+                        <p>
+                            <KaCheck size={20} />
+                            <span>
+                                Chat com os desenvolvedores
+                            </span>
+                        </p>
+                        <p>
+                            <KaCheck size={20} />
+                            <span>
+                                Conta vitalícia
+                            </span>
+                        </p>
                         <button className="btn">Começar</button>
                     </div>
                     <div className="plan">
-                        <h1>Escolas</h1>
+                        <h1>Profissional</h1>
                         <span>R$ 50,99</span>
                         <p>
                             <KaCheck size={20} />
@@ -40,11 +79,30 @@ function Premium() {
                                 Aproveite todas as funcionalidades sem anúncio
                             </span>
                         </p>
-                        <p>Agenda e anotações</p>
-                        <p>Criação de até 5 escolas</p>
-                        <p>Chat com os desenvolvedores</p>
-                        <p>Conta vitalícia</p>
-                        <p>Tratamento VIP</p>
+                        <p>
+                            <KaCheck size={20} />
+                            <span>
+                                Criação de escolas ilimitadas
+                            </span>
+                        </p>
+                        <p>
+                            <KaCheck size={20} />
+                            <span>
+                                Chat com os desenvolvedores
+                            </span>
+                        </p>
+                        <p>
+                            <KaCheck size={20} />
+                            <span>
+                                Conta vitalícia
+                            </span>
+                        </p>
+                        <p>
+                            <KaCheck size={20} />
+                            <span>
+                                Tratamento VIP
+                            </span>
+                        </p>
                         <button className="btn">Começar</button>
                     </div>
                 </div>
