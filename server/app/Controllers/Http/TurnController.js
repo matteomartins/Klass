@@ -1,9 +1,9 @@
-'use strict'
+"use strict";
 
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
-const Turn = use('App/Models/Turn')
-const Schedule = use('App/Models/Schedule')
-const Database = use('Database')
+const Turn = use("App/Models/Turn");
+const Schedule = use("App/Models/Schedule");
+const Database = use("Database");
 
 const { Schedules, Intervals } = require('../../Utils/createSchedules.js');
 const {WeekDaysInArray, WeekDaysInBinary} = require('../../Utils/functionsInTurn.js')
@@ -116,6 +116,7 @@ class TurnController {
   async show({ request, response }) {
     //id do turn
     const turn_id = request.params.id;
+
     try{
       //objetos da requisição
       const {rows:[{$attributes:{name, period, flg_sunday, flg_monday, flg_tuesday, flg_wednesday, flg_thursday, flg_friday, flg_saturday}}]} = await Turn.query().where('id', turn_id).fetch();
@@ -159,4 +160,4 @@ class TurnController {
   }
 }
 
-module.exports = TurnController
+module.exports = TurnController;

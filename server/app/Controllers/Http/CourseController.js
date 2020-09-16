@@ -1,9 +1,9 @@
-'use strict'
+"use strict";
 
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
-const Course = use('App/Models/Course');
-const Module = use('App/Models/Module');
-const Database = use('Database')
+const Course = use("App/Models/Course");
+const Module = use("App/Models/Module");
+const Database = use("Database");
 
 class CourseController {
     async store({ request, response, auth }) {
@@ -43,6 +43,7 @@ class CourseController {
 
         return { course, modules }
     }
+    
     async index({ request, response, auth }) {
         const idSchool = request.params.id_school;
         const oldModuleCourse = await Database.table('courses').innerJoin('modules', 'courses.id', 'modules.course_id').where('school_id', idSchool)
@@ -103,4 +104,4 @@ class CourseController {
     }
 }
 
-module.exports = CourseController
+module.exports = CourseController;
