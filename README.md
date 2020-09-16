@@ -80,16 +80,26 @@ Clone o repositório do projeto usando ```git clone https://github.com/stephanto
 
 Para a instalação do projeto é necessário ter o ambiente Node.js instalado no computador. As instruções de instalação para o rutime estão no site oficial do [node.js](http://nodejs.org).
 
-
+### Frontend
 Após a clonagem, instale o ambiente do adonis executando o comando ```npm i -g @adonisjs/cli```.
 
 
 Entre na pasta server do projeto, na raiz (aonde se encontra o arquivo package.json ) e execute o comando ```npm install``` em seu terminal. Aguarde a finalização e certifique-se de que, no final, há uma pasta chamada node_modules nesta mesma raiz.
 
+### Banco de dados
 
+#### Utilizar o MySQL(Padrão)
+Após instalar o mysql na sua maquina, crie um banco chamado ```klass``` com o comando ```CREATE DATABASE klass```.
+
+Abra a pasta serve e execute o comando ```adonis migration:run``` para executar as migrations e criar tabelas, views e procedures.
+
+Se quiser criar dados fakes na mesma pasta execute o comando ```adonis seed```.
+
+### Backend
 Depois faça o mesmo na pasta web, execute o comando ```npm install``` em seu terminal. Aguarde a finalização e certifique-se de que, no final, há uma pasta chamada node_modules nesta mesma raiz.
 
 
+### Inicialização
 Para a execução da aplicação backend entre na pasta server e execute o comando ```adonis serve```.
 
 

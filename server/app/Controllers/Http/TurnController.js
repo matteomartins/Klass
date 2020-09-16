@@ -8,7 +8,7 @@ const Database = use('Database')
 const { Schedules, Intervals } = require('../../Utils/createSchedules.js')
 
 class TurnController {
-  async store({ request, response, auth }) {
+  async store({ request, response }) {
 
     const { name, period, start, end, class_duration, intervals, week_days } = request.all();
     //pegar id da escola
