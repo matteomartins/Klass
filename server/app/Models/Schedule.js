@@ -4,12 +4,6 @@
 const Model = use('Model')
 
 class Schedule extends Model {
-  static get table(){
-    return 'schedules';
-  }
-  static get primaryKey(){
-    return 'id';
-  }
   static get createdAtColumn() {
     return null;
   }
