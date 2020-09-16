@@ -1,5 +1,5 @@
 module.exports={
-  Schedules: function Schedules(s_start, d_end, duration, intervals){
+  Schedules: (s_start, d_end, duration, intervals) => {
     const {convertHourToMinutes, convertMinutesToHour} = require('./convertHourToMinutes.js')
     //horário do término
     const total = convertHourToMinutes(d_end);
@@ -55,7 +55,7 @@ module.exports={
     return schedules;
   },
 
-  Intervals: function Intervals(schedules){
+  Intervals: (schedules) => {
     const {convertHourToMinutes, convertMinutesToHour} = require('./convertHourToMinutes.js')
 
     //array que guarda os intervalos
