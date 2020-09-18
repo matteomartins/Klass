@@ -32,7 +32,7 @@
     align-items: center;
     
 }
-.main-premium .plan{
+.main-premium .plan {
     margin-left:30px;
     margin-top:50px;
     margin-bottom:10px;
@@ -47,18 +47,12 @@
     flex-direction: column;
     
 }
-.main-premium .plans span{
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 30px;
-    text-align: center;
-    color: #333333;
+.main-premium .plan > span{
+    margin: 2rem 0;
 }   
 
 .main-premium .btn{
-    margin-top:50px;
+    margin-top: 1rem;
 }
 
 .main-premium .plan p {
@@ -67,10 +61,17 @@
     font-size: 1rem;
     margin: 0.5rem 0;
     display: flex;
-    align-content: center;
+    align-items: center;
+    width: 100%;
+}
+.main-premium .plan p svg {
+    width: 1.5rem;
 }
 .main-premium .plan p span {
+    display: block;
     margin-left: 0.5rem;
+    width: 100%;
+    flex: 1;
 }
 
 .main-premium .calendar-content {

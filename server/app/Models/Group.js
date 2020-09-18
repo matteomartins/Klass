@@ -1,21 +1,21 @@
-'use strict'
+"use strict";
 
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
-const Model = use('Model')
+const Model = use("Model");
 
 class Group extends Model {
-    static get table() {
-        return 'groups';
-    }
-    static get primaryKey() {
-        return 'id';
-    }
-    static get createdAtColumn() {
-        return null;
-    }
-    static get updatedAtColumn() {
-        return null;
-    }
+  static get table() {
+    return "groups";
+  }
+  static get primaryKey() {
+    return "id";
+  }
+  static get createdAtColumn() {
+    return null;
+  }
+  static get updatedAtColumn() {
+    return null;
+  }
 }
 
-module.exports = Group
+module.exports = Group;

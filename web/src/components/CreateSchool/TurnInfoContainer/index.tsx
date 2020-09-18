@@ -18,6 +18,7 @@ const TurnInfoContainer: React.FC<TurnInfoContainerProps> = ({
     turns,
     removeInterval,
 }) => {
+
     if (selectedTurn === -1) {
         return (
             <div className="creation-content">
@@ -28,7 +29,7 @@ const TurnInfoContainer: React.FC<TurnInfoContainerProps> = ({
 
     return (
         <div className="creation-content">
-            <Input name="" placeholder="Horário" />
+            <Input name="hour" mask="99:99 às 99:99" placeholder="Horário" />
             <Input name="" placeholder="Duração da Aula" />
             <InputCheckboxGroup />
             <InputWithButton

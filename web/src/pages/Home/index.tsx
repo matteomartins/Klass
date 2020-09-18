@@ -118,7 +118,10 @@ function Home() {
                 active={activeEnterSchool}
                 setActive={setActiveEnterSchool}
             />
-            <InitialCreateSchool active={activeInitial} setActive={setActiveInitial} />
+            <InitialCreateSchool 
+                active={activeInitial} 
+                setActive={setActiveInitial} 
+            />
 
         </div>
     );
