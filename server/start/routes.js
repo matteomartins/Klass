@@ -26,88 +26,75 @@ Route.post("/sessions", "SessionController.store");
 Route.resource("/schools", "SchoolController")
   .only(["store", "update"])
   .validator("School")
-  .middleware(["VerifyToken"])
-  .middleware(["VerifyPremiumAndSchool"]);
+  .middleware(["VerifyToken","VerifyPremiumAndSchool"]);
 Route.resource("/schools", "SchoolController")
   .except(["store", "update"])
-  .middleware(["VerifyToken"])
-  .middleware(["VerifyUserAndSchool"]);
+  .middleware(["VerifyToken, VerifyUserAndSchool"]);
 
-
-  //Courses
-
+//Courses
+Route.group(() => {
   Route.resource("/schools/:id_school/courses/", "CourseController")
-    .only(["store", "update"])
-    .validator("Course")
-    .middleware(["VerifyToken"])
-    .middleware(["VerifyUserAndSchool"]);
+  .only(["store", "update"])
+  .validator("Course");
   Route.resource("/schools/:id_school/courses/", "CourseController")
-    .except(["store", "update"])
-    .middleware(["VerifyToken"])
-    .middleware(["VerifyUserAndSchool"]);
+    .except(["store", "update"]);
+}).middleware(["VerifyToken, VerifyUserAndSchool"]);
 
-  //Turns
+//Turns
+Route.group(() => {
   Route.resource("/schools/:id_school/turns/", "TurnController")
     .only(["store", "update"])
-    .validator("Turn")
-    .middleware(["VerifyToken"])
-    .middleware(["VerifyUserAndSchool"]);
+    .validator("Turn");
   Route.resource("/schools/:id_school/turns/", "TurnController")
-    .except(["store", "update"])
-    .middleware(["VerifyToken"])
-    .middleware(["VerifyUserAndSchool"]);
+    .except(["store", "update"]);
+}).middleware(["VerifyToken, VerifyUserAndSchool"]);
 
-  //Groups
+//Groups
+Route.group(() => {
   Route.resource("/schools/:id_school/groups", "GroupController")
     .only(["store", "update"])
-    .validator("Group")
-    .middleware(["VerifyToken"])
-    .middleware(["VerifyUserAndSchool"]);
+    .validator("Group");
   Route.resource("/schools/:id_school/groups", "GroupController")
-    .except(["store", "update"])
-    .middleware(["VerifyToken"])
-    .middleware(["VerifyUserAndSchool"]);
+    .except(["store", "update"]);
+}).middleware(["VerifyToken, VerifyUserAndSchool"]);
 
-  //Subjects
+//Subjects
+Route.group(() => {
   Route.resource("/schools/:id_school/subjects", "SubjectController")
     .only(["store", "update"])
-    .validator("Subject")
-    .middleware(["VerifyToken"])
-    .middleware(["VerifyUserAndSchool"]);
+    .validator("Subject");
   Route.resource("/schools/:id_school/subjects", "SubjectController")
-    .except(["store", "update"])
-    .middleware(["VerifyToken"])
-    .middleware(["VerifyUserAndSchool"]);
+    .except(["store", "update"]);
+}).middleware(["VerifyToken, VerifyUserAndSchool"]);
 
-  //Professors
-  Route.resource("/schools/:id_school/professors/", "ProfessorController")
-    .only(["store", "update"])
-    .validator("Professor")
-    .middleware(["VerifyToken"])
-    .middleware(["VerifyUserAndSchool"]);
-  Route.resource("/schools/:id_school/professors/", "ProfessorController")
-    .except(["store", "update"])
-    .middleware(["VerifyToken"])
-    .middleware(["VerifyUserAndSchool"]);
-
+//Professors
+Route.group(() => {
+  Route.group(() => {
+    Route.resource("/schools/:id_school/professors/", "ProfessorController")
+      .only(["store", "update"])
+      .validator("Professor");
+    Route.resource("/schools/:id_school/professors/", "ProfessorController")
+      .except(["store", "update"]);
+  }).middleware(["VerifyUserAndSchool"]);
   Route.put("/schools/:id_school/professors/user/:id_professor","ProfessorController.userUpdate")
     .validator("UserProfessor")
-    .middleware(["VerifyToken, VerifyUserAndProfessor"]);
+    .middleware(["VerifyUserAndProfessor"]);
+}).middleware(["VerifyToken"]);
 
-  //Invite
-  Route.group(() => {
-    Route.post("professors", "InviteController.createProfessor").validator(
-      "InviteProfessor"
-    );
-    Route.post("students", "InviteController.createGroup").validator(
-      "InviteStudent"
-    );
-  }).prefix("/invites/");
+//Invite
+Route.group(() => {
+  Route.post("professors", "InviteController.createProfessor").validator(
+    "InviteProfessor"
+  );
+  Route.post("students", "InviteController.createGroup").validator(
+    "InviteStudent"
+  );
+}).prefix("/invites/");
 
-  //Home
-  Route.get("/home", "HomeController.index");
+//Home
+Route.get("/home", "HomeController.index");
 
-  //Dashboard
-  Route.get("/schools/:id_school/dashboard", "DashboardController.index")
-    .middleware(["VerifyUserAndSchool","VerifyToken"]);
+//Dashboard
+Route.get("/schools/:id_school/dashboard", "DashboardController.index")
+  .middleware(["VerifyUserAndSchool","VerifyToken"]);
 
