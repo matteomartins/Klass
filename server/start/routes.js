@@ -33,7 +33,7 @@ Route.resource("/schools", "SchoolController")
   .middleware(["VerifyToken"])
   .middleware(["VerifyUserAndSchool"]);
 
-Route.group(() => {
+
   //Courses
 
   Route.resource("/schools/:id_school/courses/", "CourseController")
@@ -90,13 +90,9 @@ Route.group(() => {
     .middleware(["VerifyToken"])
     .middleware(["VerifyUserAndSchool"]);
 
-  Route.put(
-    "/schools/:id_school/professors/user/:id_professor",
-    "ProfessorController.userUpdate"
-  )
+  Route.put("/schools/:id_school/professors/user/:id_professor","ProfessorController.userUpdate")
     .validator("UserProfessor")
-    .middleware(["VerifyToken"])
-    .middleware(["VerifyUserAndProfessor"]);
+    .middleware(["VerifyToken, VerifyUserAndProfessor"]);
 
   //Invite
   Route.group(() => {
@@ -113,6 +109,5 @@ Route.group(() => {
 
   //Dashboard
   Route.get("/schools/:id_school/dashboard", "DashboardController.index")
-    .middleware(["VerifyToken"])
-    .middleware(["VerifyUserAndSchool"]);
-});
+    .middleware(["VerifyUserAndSchool","VerifyToken"]);
+

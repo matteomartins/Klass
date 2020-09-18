@@ -1,9 +1,9 @@
-'use strict'
+'use strict';
 
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
-const Model = use('Model')
+const Model = use('Model');
 
 class Turn extends Model {
 }
 
-module.exports = Turn
+module.exports = Turn;
