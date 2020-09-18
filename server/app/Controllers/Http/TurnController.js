@@ -3,19 +3,17 @@
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Turn = use("App/Models/Turn");
 const Schedule = use("App/Models/Schedule");
-const Database = use("Database");
 
 const { Schedules, Intervals } = require('../../Utils/createSchedules.js');
-const {WeekDaysInArray, WeekDaysInBinary} = require('../../Utils/functionsInTurn.js')
+const {WeekDaysInArray, WeekDaysInBinary} = require('../../Utils/functionsInTurn.js');
 
 class TurnController {
-  async store({ request, response, auth }) {
+  async store({ request, response }) {
     //objetos da requisição
     const { name, period, start, end, class_duration, intervals, week_days } = request.all();
     //pegar id da escola
     const school_id = request.params.id_school;
     try{
-      console.log(week_days)
       //colocar os dias em binário
       const flg_days = WeekDaysInBinary(week_days);
 
