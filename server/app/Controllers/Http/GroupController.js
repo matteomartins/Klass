@@ -16,9 +16,15 @@ class GroupController {
       module_id: module_id,
       name: name,
     };
-
-    await Group.create(groupObject);
-
+    try {
+      await Group.create(groupObject);
+    }
+    catch {
+      return response
+      .status(500)
+      .send({ message: "Impossível inserir no banco" });
+    }
+    
     return response
       .status(200)
       .send({ message: "Classe criada com sucesso", id });
@@ -44,6 +50,7 @@ class GroupController {
 
   async index({ request }) {
     const idSchool = request.params.id_school;
+    
     const oldGroups = await Database.table("turns")
       .innerJoin("groups", "turns.id", "groups.turn_id")
       .where("school_id", idSchool);
