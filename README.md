@@ -13,12 +13,12 @@ O Klass é uma aplicação capaz de facilitar o trabalho de cordenadores, alunos
 
 ## :busts_in_silhouette: Desenvolvedores
 
-- Elmer Campos
-- Raphael Gabia
+- [Elmer Campos](https://github.com/ElmerCampos)
+- [Raphael Gabia](https://github.com/raphael-gabia)
 - Matteo Martins
-- Vinicius Pereira
-- Vinicius Stephanto
-- Vitor Silva
+- [Vinicius Pereira](https://github.com/ViniciusFloriano)
+- [Vinicius Stephanto](https://github.com/stephanto-dev)
+- [Vitor Silva](https://github.com/VitorCavalcante9)
 
 ## :page_with_curl: Documentação
 
@@ -27,7 +27,7 @@ O Klass é uma aplicação capaz de facilitar o trabalho de cordenadores, alunos
     - [Canvas Persona](https://docs.google.com/presentation/d/1TYSgnnCtL9Xs7BR-M-I1XIexxjCqAKzifD_OBuCXb3I/edit?usp=sharing)
     - [Regras de Negócio](https://docs.google.com/document/d/16mWHoG_VQl5GhHsM9YRXrkWVrkOpqreCrxhkrhHrAcI/edit?usp=sharing)
     - [Funcionalidades](https://docs.google.com/document/d/13V-64ofHABqmF7rmbw4k1oP7EGWMxI5pSmeWIS7v6IA/edit?usp=sharing)
-    - [Especificações do progeto](https://docs.google.com/document/d/1KaDQ9hHZdX032D18MAkfoZkHckJlgwyMaqdm-Cl1vD0/edit?usp=sharing)
+    - [Especificações do projeto](https://docs.google.com/document/d/1KaDQ9hHZdX032D18MAkfoZkHckJlgwyMaqdm-Cl1vD0/edit?usp=sharing)
     - [Levantamento de Requisitos](https://docs.google.com/document/d/1MDRmkzO3xDSZC2Ud06CV34FtFXgcKdSZ_0dmmxfhYT0/edit?usp=sharing)
 
 - Backend
