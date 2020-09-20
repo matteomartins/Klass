@@ -3,10 +3,12 @@ import "./styles.css";
 
 import ContentCard from "../../../components/ContentCard";
 import { Link } from "react-router-dom";
+import BackButton from "../../../components/BackButton";
 
 function Classes() {
     return (
         <div className="classes-container">
+            <BackButton to="/dashboard" />
             <div className="scroll-view">
                 <div className="classes-cards-container">
                     <Link to="/school">
@@ -29,13 +31,13 @@ function Classes() {
                             small
                             title="1"
                             text="2° ANO A"
-                            color="#F8237"
+                            color="#F68237"
                         />
                         <ContentCard
                             small
                             title="2"
                             text="2° ANO B"
-                            color="#F8237"
+                            color="#F68237"
                         />
                         <ContentCard
                             small
@@ -66,13 +68,13 @@ function Classes() {
                             small
                             title="1"
                             text="2° ANO A"
-                            color="#F8237"
+                            color="#F68237"
                         />
                         <ContentCard
                             small
                             title="2"
                             text="2° ANO B"
-                            color="#F8237"
+                            color="#F68237"
                         />
                         <ContentCard
                             small
@@ -103,13 +105,13 @@ function Classes() {
                             small
                             title="1"
                             text="2° ANO A"
-                            color="#F8237"
+                            color="#F68237"
                         />
                         <ContentCard
                             small
                             title="2"
                             text="2° ANO B"
-                            color="#F8237"
+                            color="#F68237"
                         />
                         <ContentCard
                             small

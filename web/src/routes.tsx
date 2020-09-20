@@ -26,7 +26,6 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import Page404 from "./pages/404";
 import Turns from "./pages/Dashboard/Turns";
 import Reports from "./pages/Dashboard/Reports";
-import Shift from "./pages/Dashboard/Classes";
 import Classes from "./pages/Dashboard/Classes";
 import Subjects from "./pages/Dashboard/Subjects";
 
