@@ -6,13 +6,13 @@ import { IconType } from "../../assets/icons/lib/esm";
 interface InputPros extends InputHTMLAttributes<HTMLInputElement> {
     label: string;
     Icon: IconType;
-    ref?: any;
+    inputRef?: any;
 }
 
-const Input: React.FC<InputPros> = ({ label, Icon, ref, ...rest }) => {
+const Input: React.FC<InputPros> = ({ label, Icon, inputRef, ...rest }) => {
     return (
         <div className="input">
-            <input placeholder={label} ref={ref} {...rest} />
+            <input placeholder={label} {...rest} ref={inputRef} />
             <Icon size={18} />
         </div>
     );

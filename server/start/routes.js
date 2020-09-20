@@ -17,8 +17,9 @@
 const Route = use("Route");
 
 //Users
-Route.resource("/users", "UserController").only(["show"]);
-Route.resource("/users", "UserController").except(["show"]).validator("User");
+Route.post('/users', 'UserController.store').validator('User')
+Route.resource('/users', 'UserController').only(['show'])
+Route.resource('/users', 'UserController').except(['show', 'store']).validator('User')
 
 Route.post("/sessions", "SessionController.store");
 
