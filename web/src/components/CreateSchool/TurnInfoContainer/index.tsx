@@ -1,6 +1,6 @@
 import React from "react";
 import Input from "../Input";
-import InputCheckboxGroup from "../InputCheckboxGroup";
+import InputCheckboxGroup from "../../InputCheckboxGroup";
 import InputWithButton from "../InputWithButton";
 import { TurnProps } from "../../../utils/CommonInterfaces";
 import InfoCard from "../InfoCard";
