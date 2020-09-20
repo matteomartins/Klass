@@ -4,15 +4,15 @@ import "./styles.css";
 import ContentCard from "../../../components/ContentCard";
 import { Link } from "react-router-dom";
 
-function Shift() {
+function Classes() {
     return (
-        <div className="shift-container6">
-            <div className="scroll-view6">
-                <div className="shift-cards-container6">
+        <div className="classes-container">
+            <div className="scroll-view">
+                <div className="classes-cards-container">
                     <Link to="/school">
                         <h1>Turno: Manhã </h1>
                     </Link>
-                    <div className="classes6">
+                    <div className="classes">
                         <ContentCard
                             small
                             title="8"
@@ -29,13 +29,13 @@ function Shift() {
                             small
                             title="1"
                             text="2° ANO A"
-                            color="#F68237"
+                            color="#F8237"
                         />
                         <ContentCard
                             small
                             title="2"
                             text="2° ANO B"
-                            color="#F68237"
+                            color="#F8237"
                         />
                         <ContentCard
                             small
@@ -45,11 +45,11 @@ function Shift() {
                         />
                     </div>
                 </div>
-                <div className="shift-cards-container6">
+                <div className="classes-cards-container">
                     <Link to="/school">
                         <h1>Turno: Tarde</h1>
                     </Link>
-                    <div className="classes6">
+                    <div className="classes">
                         <ContentCard
                             small
                             title="8"
@@ -66,13 +66,13 @@ function Shift() {
                             small
                             title="1"
                             text="2° ANO A"
-                            color="#F68237"
+                            color="#F8237"
                         />
                         <ContentCard
                             small
                             title="2"
                             text="2° ANO B"
-                            color="#F68237"
+                            color="#F8237"
                         />
                         <ContentCard
                             small
@@ -82,11 +82,11 @@ function Shift() {
                         />
                     </div>
                 </div>
-                <div className="shift-cards-container6">
+                <div className="classes-cards-container">
                     <Link to="/school">
                         <h1>Turno: Noite </h1>
                     </Link>
-                    <div className="classes6">
+                    <div className="classes">
                         <ContentCard
                             small
                             title="8"
@@ -103,13 +103,13 @@ function Shift() {
                             small
                             title="1"
                             text="2° ANO A"
-                            color="#F68237"
+                            color="#F8237"
                         />
                         <ContentCard
                             small
                             title="2"
                             text="2° ANO B"
-                            color="#F68237"
+                            color="#F8237"
                         />
                         <ContentCard
                             small
@@ -124,4 +124,4 @@ function Shift() {
     );
 }
 
-export default Shift;
+export default Classes;

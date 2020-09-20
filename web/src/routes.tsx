@@ -26,7 +26,9 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import Page404 from "./pages/404";
 import Turns from "./pages/Dashboard/Turns";
 import Reports from "./pages/Dashboard/Reports";
-import Shift from "./pages/Dashboard/Shift";
+import Shift from "./pages/Dashboard/Classes";
+import Classes from "./pages/Dashboard/Classes";
+import Subjects from "./pages/Dashboard/Subjects";
 
 const RouteWithCalendar: React.FC<RouteProps> = ({ ...props }) => {
     return (
@@ -101,8 +103,8 @@ export default function Routes() {
                 <RouteWithCalendar path="/dashboard-modules" exact component={Modules} />
                 <RouteWithCalendar path="/dashboard-reports" exact component={Reports} />
                 <RouteWithCalendar path="/dashboard-turns" exact component={Turns} />
-                <RouteWithCalendar path="/dashboard-shift" exact component={Shift} />
-                <RouteWithCalendar path="/dashboard-class" exact component={Class} />
+                <RouteWithCalendar path="/dashboard-subjects" exact component={Subjects} />
+                <RouteWithCalendar path="/dashboard-classes" exact component={Classes} />
                 <RouteWithCalendar path="/dashboard-schedule" exact component={Schedule} />
 
                 <Route component={Page404} />
