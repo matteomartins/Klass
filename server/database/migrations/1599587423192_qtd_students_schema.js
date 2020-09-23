@@ -1,10 +1,11 @@
 'use strict'
-
 /** @type {import('@adonisjs/lucid/src/Schema')} */
+
 const Schema = use('Schema')
 
 class QtdStudentsSchema extends Schema {
   up () {
+    /*
     this.raw(`create function qtd_students (school varchar(25)) returns int
     reads sql data
     begin
@@ -26,11 +27,15 @@ class QtdStudentsSchema extends Schema {
 
         return totalStudents;
     end;`)
+    */
   }
 
   down () {
+    /*
     this.raw('DROP FUNCTION IF EXISTS qtd_students')
+    */
   }
 }
 
 module.exports = QtdStudentsSchema
+

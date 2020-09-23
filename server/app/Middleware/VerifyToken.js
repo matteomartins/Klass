@@ -12,11 +12,12 @@ class VerifyToken {
    * @param {Request} ctx.request
    * @param {Function} next
    */
-  async handle({ request, response }, next, auth) {
+  async handle({ request, response, auth }, next) {
     try {
-      return await auth.getUser();
       await next();
-    } catch (error) {
+      return await auth.getUser();
+    }
+    catch (error) {
       response.status(401).send({ message: "Erro de autenticação" });
     }
   }

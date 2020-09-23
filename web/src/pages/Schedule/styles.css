@@ -38,14 +38,19 @@
 }
 
 .main-schedule #select1 select {
-    height: 45px;
-    width: 300px;
+    height: 4rem;
+    width: 25rem;
+    padding: 0 1rem;
+    -webkit-appearance: none;
 }
 
 .main-schedule #select2 select,
 .main-schedule #select3 select {
-    height: 45px;
-    width: 200px;
+    height: 4rem;
+    width: 15rem;
+    padding: 0 1rem;
+    background-color: var(--color-primary);
+    -webkit-appearance: none;
 }
 
 .main-schedule .schedule-buttons {
@@ -53,6 +58,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
+    z-index: 500;
 }
 
 .main-schedule .schedule-buttons button {
@@ -74,6 +81,9 @@
     height: 65vh;
     max-height: 75vh;
     justify-content: center;
+    position: relative;
+    margin-left: -3rem;
+    margin-top: -1rem;
 }
 
 .main-schedule .schedule-container .schedule-content::-webkit-scrollbar { 
@@ -122,15 +132,28 @@
     align-items: center;
     justify-content: center;
     height: 100%;
-    width: 152px;
+    width: 100%;
     border: 1px solid white;
 }
 
-.main-schedule .schedule-container .schedule-content tr:first-child td:nth-child(2) span {
+.main-schedule .schedule-container .schedule-content td:first-child span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    border: none;
+}
+.main-schedule .schedule-container .schedule-content th:first-child span {
+    max-width: 5rem !important;
+    border: none;
+}
+
+.main-schedule .schedule-container .schedule-content tr:nth-child(2) td:nth-child(2) span {
     border-radius: 1rem 0 0 0;
 }
 
-.main-schedule .schedule-container .schedule-content tr:first-child td:last-child span {
+.main-schedule .schedule-container .schedule-content tr:nth-child(2) td:last-child span {
     border-radius: 0 1rem 0 0;
 }
 
@@ -146,7 +169,7 @@
     height: 50px;
     border-radius: 10px;
     margin-bottom: 1rem;
-    width: 2rem;
+    width: 100%;
 }
 
 .main-schedule .export-container {
@@ -163,34 +186,47 @@
 .main-schedule .export-container .circle-icon-container {
     background-color: var(--color-background);
 }
-
-@media(max-width: 1205px) {
-    #main-schedule {
-        --quantity-of-columns: 6;
+@media(min-width: 1205px) {
+    .main-schedule .schedule-buttons {
+        display: none;
     }
-}
-@media(max-width: 1045px) {
-    #main-schedule {
-        --quantity-of-columns: 5;
-    }
-}
-@media(max-width: 885px) {
-    #main-schedule {
-        --quantity-of-columns: 4;
-    }
-}
-@media(max-width: 725px) {
-    #main-schedule {
-        --quantity-of-columns: 3;
-    }
-}
-@media(max-width: 560px) {
-    #main-schedule {
-        --quantity-of-columns: 2;
+    .main-schedule .schedule-container .schedule-content {
+        margin-top: 2rem;
     }
 }
 @media(max-width: 405px) {
-    #main-schedule {
-        --quantity-of-columns: 1;
+    .main-schedule .schedule-container .schedule-content {
+        width: 85vw;
+        position: relative;
+        margin-top: -3.5rem;
+        margin-left: -1rem;
+    }
+    .main-schedule .schedule-container .schedule-content th:first-child span {
+        width: 2rem;
+    }
+    .main-schedule .schedule-container .schedule-content th span {
+        width: 220px;
+        border-radius: 0 !important;
+        border: none;
+    }
+    .main-schedule .schedule-container .schedule-content td span {
+        border-radius: 0 !important;
+        border-right: none;
+        border-left: none;
+        border-bottom: none;
+    }
+    .main-schedule .schedule-container .schedule-content tr:last-child td:last-child span {
+        border-bottom: 1px solid white;
+    }
+    .main-schedule .export-container {
+        right: 1rem;
+    }
+    .main-schedule #select1 select {
+        width: 14rem;
+    }
+    
+    .main-schedule #select2 select,
+    .main-schedule #select3 select {
+        width: 10rem;
     }
 }

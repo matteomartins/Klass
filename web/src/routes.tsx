@@ -24,6 +24,10 @@ import Courses from './pages/Dashboard/Courses';
 import Modules from './pages/Dashboard/Modules';
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Page404 from "./pages/404";
+import Turns from "./pages/Dashboard/Turns";
+import Reports from "./pages/Dashboard/Reports";
+import Classes from "./pages/Dashboard/Classes";
+import Subjects from "./pages/Dashboard/Subjects";
 
 const RouteWithCalendar: React.FC<RouteProps> = ({ ...props }) => {
     return (
@@ -78,21 +82,30 @@ export default function Routes() {
                 <Route path="/" exact component={Register} />
                 <Route path="/login" exact component={Login} />
                 <Route path="/access" exact component={FirstAccess} />
-                <RouteWithCalendar path="/profile" exact component={Profile} />
+
                 <RouteWithCalendar path="/home" exact component={Home} />
+                <RouteWithCalendar path="/profile" exact component={Profile} />
+                <RouteWithCalendar path="/school" exact component={School} />
+                <RouteWithCalendar path="/class" exact component={Class} />
+                <RouteHeader path="/schedule" exact component={Schedule} />
+                <RouteOnlyInfo path="/create-school" exact component={CreateSchool} />
+
                 <RouteWithInfo path="/help" exact component={Help} />
                 <RouteWithInfo path="/premium" exact component={Premium} />
                 <RouteWithInfo path="/notifications" exact component={Notifications} />
-                <RouteWithCalendar path="/school" exact component={School} />
-                <RouteWithCalendar path="/teachers" exact component={Teachers} />
-                <RouteWithCalendar path="/class" exact component={Class} />
                 <RouteWithInfo path="/feedback" exact component={Feedback} />
                 <RouteWithInfo path="/politics" exact component={Politics} />
-                <RouteOnlyInfo path="/create-school" exact component={CreateSchool} />
-                <RouteHeader path="/schedule" exact component={Schedule} />
-                <RouteWithCalendar path="/courses" exact component={Courses} />
-                <RouteWithCalendar path="/modules" exact component={Modules} />
+
                 <RouteWithCalendar path="/dashboard" exact component={Dashboard} />
+                <RouteWithCalendar path="/dashboard-courses" exact component={Courses} />
+                <RouteWithCalendar path="/dashboard-teachers" exact component={Teachers} />
+                <RouteWithCalendar path="/dashboard-modules" exact component={Modules} />
+                <RouteWithCalendar path="/dashboard-reports" exact component={Reports} />
+                <RouteWithCalendar path="/dashboard-turns" exact component={Turns} />
+                <RouteWithCalendar path="/dashboard-subjects" exact component={Subjects} />
+                <RouteWithCalendar path="/dashboard-classes" exact component={Classes} />
+                <RouteWithCalendar path="/dashboard-schedule" exact component={Schedule} />
+
                 <Route component={Page404} />
             </Switch>
         </BrowserRouter>
