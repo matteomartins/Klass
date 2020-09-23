@@ -33,7 +33,7 @@ const Menu: React.FC<MenuProps> = ({ active, setActive, enterSchool, createSchoo
                         onClick={() => setActive(false)}
                     ></div>
                     <div className="school-menu-content">
-                        <ul className="texts">
+                        <ul>
                             <li>
                                 <a href="#create-school" onClick={()=> createSchool()} className="texts">
                                     Criar uma nova escola

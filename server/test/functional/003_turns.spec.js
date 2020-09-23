@@ -1,4 +1,4 @@
-const { test, trait } = use('Test/Suite')('User Tests')
+const { test, trait } = use('Test/Suite')('Turns Tests')
 trait('Test/ApiClient');
 trait('Auth/Client');
 
@@ -6,24 +6,47 @@ trait('Auth/Client');
 const Factory = use('Factory');
 
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} **/
+const Turn = use('App/Models/Turn');
 const User = use('App/Models/User');
 
 const Chance = use('chance').Chance()
 
-test('validate create user', async ({ assert, client }) => {
-  const user = {
-    "name": Chance.username(),
-    "email": Chance.email(),
-    "password": Chance.string()
+test('validate create turn', async ({ assert, client }) => {
+
+  const user = await User.find(1);
+  const school = {
+      "name": Chance.username(),
+      "description": Chance.string({ length: 20 }),
+      "type": Chance.string(),
+      "icon": Chance.avatar({ protocol: 'https', fileExtension: 'jpg' })
+  }
+
+  const responseSchool = await client.post('/schools').loginVia(user, 'jwt').send(school).end()
+
+  const turn = {
+    "name": "Integral",
+    "start": "07:30",
+    "end": "15:30",
+    "class_duration": 50,
+    "intervals": [
+      {
+        "start": "10:00",
+        "end": "10:20"
+      },
+      {
+        "start": "12:00",
+        "end": "13:00"
+      }
+    ],
+    "week_days": [1,2,3,4,5]
   };
 
-  const response = await client.post('/users').header('accept', 'application/json').send(user).end();
-
+  const response = await client.post(`/schools/${responseSchool.body.id_school}/turns`).loginVia(user, 'jwt').header('accept', 'application/json').send(turn).end();
   response.assertStatus(200);
-  assert.exists(response.body.token);
+  assert.exists(response.body.id_turn);
 });
 
-
+/*
 test('validate create user validator', async ({ assert, client }) => {
   const user = {
     "name": "Vinicius Floriano",
@@ -77,3 +100,4 @@ test('validate session user', async ({ assert, client }) => {
   response.assertStatus(200);
   assert.exists(response.body.token);
 });
+*/
