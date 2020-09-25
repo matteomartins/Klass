@@ -3,11 +3,13 @@ import "./styles.css";
 
 import TeacherProfile from "../../../components/InfoModals/TeacherProfile";
 import ContentCard from "../../../components/ContentCard";
+import BackButton from "../../../components/BackButton";
 
 function Teachers() {
     const [active, setActive] = useState(false);
     return (
         <div className="teachers-container">
+            <BackButton to="/dashboard" />
             <div className="scroll-view">
                 <div className="teachers-cards-container">
                     <h1>Administrativo</h1>

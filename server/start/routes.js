@@ -17,15 +17,17 @@
 const Route = use("Route");
 
 //Users
-Route.post('/users', 'UserController.store').validator('User')
-Route.resource('/users', 'UserController').only(['show'])
-Route.resource('/users', 'UserController').except(['show', 'store']).validator('User')
+Route.post('/users', 'UserController.store').validator('User');
+Route.put('/users', 'UserController.update').validator('User');
+Route.get('/users', 'UserController.show');
 
 Route.post("/sessions", "SessionController.store");
 
 //Schools
-Route.resource("/schools", "SchoolController")
-  .only(["store", "update"])
+Route.post("/schools", "SchoolController.store")
+  .validator("School")
+  .middleware(["VerifyToken","VerifyPremiumAndSchool"]);
+Route.put("/schools", "SchoolController.update")
   .validator("School")
   .middleware(["VerifyToken","VerifyPremiumAndSchool"]);
 Route.resource("/schools", "SchoolController")
@@ -34,12 +36,18 @@ Route.resource("/schools", "SchoolController")
 
 //Courses
 Route.group(() => {
-  Route.resource("/schools/:id_school/courses/", "CourseController")
+
+
+  
+  Route.resource("courses/", "CourseController")
   .only(["store", "update"])
   .validator("Course");
-  Route.resource("/schools/:id_school/courses/", "CourseController")
+  Route.resource("courses/", "CourseController")
     .except(["store", "update"]);
-}).middleware(["VerifyToken, VerifyUserAndSchool"]);
+
+
+
+}).middleware(["VerifyToken, VerifyUserAndSchool"]).prefix("/schools/:id_school/");
 
 //Turns
 Route.group(() => {
@@ -70,13 +78,11 @@ Route.group(() => {
 
 //Professors
 Route.group(() => {
-  Route.group(() => {
-    Route.resource("/schools/:id_school/professors/", "ProfessorController")
-      .only(["store", "update"])
-      .validator("Professor");
-    Route.resource("/schools/:id_school/professors/", "ProfessorController")
-      .except(["store", "update"]);
-  }).middleware(["VerifyUserAndSchool"]);
+  Route.resource("/schools/:id_school/professors/", "ProfessorController")
+    .only(["store", "update"])
+    .validator("Professor").middleware(["VerifyUserAndSchool"]);
+  Route.resource("/schools/:id_school/professors/", "ProfessorController")
+    .except(["store", "update"]).middleware(["VerifyUserAndSchool"]);
   Route.put("/schools/:id_school/professors/user/:id_professor","ProfessorController.userUpdate")
     .validator("UserProfessor")
     .middleware(["VerifyUserAndProfessor"]);

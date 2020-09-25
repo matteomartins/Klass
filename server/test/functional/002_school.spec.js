@@ -24,7 +24,7 @@ test('validate school details', async ({ assert, client }) => {
         "icon": Chance.avatar({ protocol: 'https', fileExtension: 'jpg' })
     }
 
-    const response = await client.post('/schools').send(school).end()
+    const response = await client.post('/schools').header('accept', 'application/json').send(school).end()
 
     response.assertStatus(400);
     assert.equal(JSON.parse(response.text)[0].message, "Você deve inserir um tipo de escola.")

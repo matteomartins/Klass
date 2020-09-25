@@ -20,10 +20,9 @@ function Register() {
         api.post('users', data).then(()=>{
             history.push('home');
         }).catch(error => {
-            alert.error(error.response.data[0].message);
-            return;
+            if(!error.response) alert.error("Impossível conectar ao servidor!");
+            else alert.error(error.response.data[0].message);
         });
-        
     };
     useEffect(()=> {
         if(errors.name) alert.error("Insira um nome")

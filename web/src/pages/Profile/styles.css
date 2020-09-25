@@ -142,6 +142,6 @@
     }
     .profile-container .info-container, .profile-container .data-container {
         margin: 2rem 0 !important;
-        height: 70vh;
+        height: 100%;
     }
 }
