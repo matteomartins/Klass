@@ -194,6 +194,17 @@
         margin-top: 2rem;
     }
 }
+
+@media(max-width: 600px) {
+    .main-schedule #select1 select {
+        width: 14rem;
+    }
+    .main-schedule #select2 select,
+    .main-schedule #select3 select {
+        width: 10rem;
+    }
+}
+
 @media(max-width: 405px) {
     .main-schedule .schedule-container .schedule-content {
         width: 85vw;
@@ -221,12 +232,14 @@
     .main-schedule .export-container {
         right: 1rem;
     }
+}
+
+@media(max-width: 370px) {
     .main-schedule #select1 select {
-        width: 14rem;
+        width: 11rem;
     }
-    
     .main-schedule #select2 select,
     .main-schedule #select3 select {
-        width: 10rem;
+        width: 9rem;
     }
 }

@@ -14,11 +14,11 @@ class VerifyToken {
    */
   async handle({ request, response, auth }, next) {
     try {
+      await auth.check();
       await next();
-      return await auth.getUser();
     }
     catch (error) {
-      response.status(401).send({ message: "Erro de autenticação" });
+      return response.status(401).send({ message: "Erro de autenticação" });
     }
   }
 }

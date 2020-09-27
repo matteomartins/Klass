@@ -36,12 +36,18 @@ Route.resource("/schools", "SchoolController")
 
 //Courses
 Route.group(() => {
-  Route.resource("/schools/:id_school/courses/", "CourseController")
+
+
+  
+  Route.resource("courses/", "CourseController")
   .only(["store", "update"])
   .validator("Course");
-  Route.resource("/schools/:id_school/courses/", "CourseController")
+  Route.resource("courses/", "CourseController")
     .except(["store", "update"]);
-}).middleware(["VerifyToken, VerifyUserAndSchool"]);
+
+
+
+}).middleware(["VerifyToken, VerifyUserAndSchool"]).prefix("/schools/:id_school/");
 
 //Turns
 Route.group(() => {
