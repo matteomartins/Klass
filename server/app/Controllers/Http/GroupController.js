@@ -18,73 +18,96 @@ class GroupController {
     };
     try {
       await Group.create(groupObject);
-    }
-    catch {
+    } catch {
       return response
-      .status(500)
-      .send({ message: "Impossível inserir no banco" });
+        .status(500)
+        .send({ message: "Impossível inserir no banco" });
     }
-    
+
     return response
       .status(200)
       .send({ message: "Classe criada com sucesso", id });
   }
 
   async destroy({ request, response }) {
-    const idGroup = request.params.id;
+    try {
+      const idGroup = request.params.id;
 
-    await Group.query().where("id", idGroup).delete();
+      await Group.query().where("id", idGroup).delete();
 
-    return response
-      .status(201)
-      .send({ message: "Classe excluida com sucesso!" });
+      return response
+        .status(201)
+        .send({ message: "Classe excluida com sucesso!" });
+    } catch (error) {
+      return response
+        .status(404)
+        .send({ message: "Erro ao deletar a classe", error: error.message });
+    }
   }
 
   async show({ request, response }) {
-    const idGroup = request.params.id;
+    try {
+      const idGroup = request.params.id;
 
-    const groupObject = await Group.query().where("id", idGroup).fetch();
+      const groupObject = await Group.query().where("id", idGroup).fetch();
 
-    return { groupObject };
+      return { groupObject };
+    } catch (error) {
+      return response
+        .status(404)
+        .send({ message: "Erro ao exibir a classe", error: error.message });
+    }
   }
 
   async index({ request }) {
-    const idSchool = request.params.id_school;
-    
-    const oldGroups = await Database.table("turns")
-      .innerJoin("groups", "turns.id", "groups.turn_id")
-      .where("school_id", idSchool);
+    try {
+      const idSchool = request.params.id_school;
 
-    var groups = [];
+      const oldGroups = await Database.table("turns")
+        .innerJoin("groups", "turns.id", "groups.turn_id")
+        .where("school_id", idSchool);
 
-    oldGroups.map(({ id, name, school_id, period, turn_id, module_id }) => {
-      const valores = {
-        school_id: school_id,
-        group_id: id,
-        module_id: module_id,
-        name: name,
-        period: period,
-        turn_id: turn_id,
-      };
-      groups.push(valores);
-    });
-    return { groups };
+      var groups = [];
+
+      oldGroups.map(({ id, name, school_id, period, turn_id, module_id }) => {
+        const valores = {
+          school_id: school_id,
+          group_id: id,
+          module_id: module_id,
+          name: name,
+          period: period,
+          turn_id: turn_id,
+        };
+        groups.push(valores);
+      });
+      return { groups };
+    } catch (error) {
+      return response
+        .status(404)
+        .send({ message: "Erro ao exibir as classes", error: error.message });
+    }
   }
 
   async update({ request, response }) {
-    const idGroup = request.params.id;
-    const { name, module_id, turn_id } = request.all();
-    const groupObject = {
-      turn_id: turn_id,
-      module_id: module_id,
-      name: name,
-    };
+    try {
+      const idGroup = request.params.id;
+      const { name, module_id, turn_id } = request.all();
+      const groupObject = {
+        turn_id: turn_id,
+        module_id: module_id,
+        name: name,
+      };
 
-    await Group.query().where("id", idGroup).update(groupObject);
+      await Group.query().where("id", idGroup).update(groupObject);
 
-    return response
-      .status(201)
-      .send({ message: "Classe atualizada com sucesso" });
+      return response
+        .status(201)
+        .send({ message: "Classe atualizada com sucesso" });
+    } catch (error) {
+      return response
+        .status(404)
+        .send({ message: "Erro ao atualizar a classe", error: error.message });
+    }
   }
 }
 
