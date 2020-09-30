@@ -35,14 +35,11 @@ module.exports={
       if(s_end > total)
         s_end = total;
 
-      //objeto que guarda o inicio e final de um horário
-      const teste = {
+     //adiciona o inicio e o final de um horário num array
+      schedules.push({
         "start": convertMinutesToHour(s_start),
         "end": convertMinutesToHour(s_end)
-      }
-
-      //adiciona o objeto numa array
-      schedules.push(teste);
+      });
 
       //verifica qual será o novo inicio de horário
       if(inter)

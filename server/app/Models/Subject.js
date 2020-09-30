@@ -4,13 +4,7 @@
 const Model = use('Model')
 
 class Subject extends Model {
-  static get table() {
-    return 'subjects';
-  }
-  static get primaryKey() {
-      return 'id';
-  }
-  static get createdAtColumn() {
+static get createdAtColumn() {
       return null;
   }
   static get updatedAtColumn() {

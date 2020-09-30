@@ -18,9 +18,9 @@ class TurnController {
       const flg_days = WeekDaysInBinary(week_days);
 
       const {flg_sunday,flg_monday,flg_tuesday,flg_wednesday,flg_thursday,flg_friday,flg_saturday} = flg_days;
-      console.log(flg_friday)
+
       //criar turno e resgatar id
-      const { id: turn_id } = await Turn.create({name, period, school_id,flg_sunday,flg_monday,flg_tuesday,flg_wednesday,flg_thursday,flg_friday,flg_saturday});
+      const turn = await Turn.create({name, period, school_id,flg_sunday,flg_monday,flg_tuesday,flg_wednesday,flg_thursday,flg_friday,flg_saturday});
 
       //loop para criar os horários do turno
       week_days.map((day) => {
@@ -28,11 +28,11 @@ class TurnController {
         const days_of_week = Schedules(start, end, class_duration, intervals);
         //registrando no banco os horários
         days_of_week.map(async ({ start, end }) => {
-          await Schedule.create({turn_id, day, start, end});
+          await turn.schedules().create({day, start, end});
         })
       })
 
-      return response.status(201).send({ id:turn_id, message: "Turno criado com sucesso" });
+      return response.status(201).send({ id:turn.id, message: "Turno criado com sucesso" });
     }
     catch{
       return response.status(500).send({ message: "Falha na criação do turno" });
@@ -40,10 +40,9 @@ class TurnController {
   }
 
   async destroy({ request, response }) {
-    const id = request.params.id;
-
     try{
-      await Turn.query().where({id}).delete();
+      const turn = await Turn.find(request.params.id);
+      await turn.delete();
       return response.status(200).send({ message: "Turno apagado com sucesso" })
     }
     catch{
@@ -52,20 +51,20 @@ class TurnController {
   }
 
   async update({ request, response }) {
-    const turn_id = request.params.id;
+    const turn = await Turn.findOrFail(request.params.id);
 
     const { name, period, start, end, class_duration, intervals, week_days } = request.all();
     try{
       //seleção de todos horários do turno
-      const allSchedules = await Schedule.query().where({ turn_id }).fetch();
+      const allSchedules = await turn.schedules().fetch();
 
       //constante que armaneza todos horários da requisição
       let schedules = [];
       week_days.map((day) => {
         const days_of_week = Schedules(start, end, class_duration, intervals);
         days_of_week.map(({ start, end }) => {
-          const horario = { turn_id, day, start, end };
-          schedules.push(horario);
+          const schedule = { day, start, end };
+          schedules.push(schedule);
         });
       });
 
@@ -78,7 +77,7 @@ class TurnController {
       addedSchedules.map(async (value) => {
         schedules.pop();
         try{
-          await Schedule.create(value);
+          await turn.schedules().create(value);
         }
         catch{
           return response.status(500).send({ message: "Erro inesperado"});
@@ -86,23 +85,26 @@ class TurnController {
       });
 
       //atualização dos dados dos horários
-      schedules.map(async ({ day, start, end }, index) => {
-        const { id } = allSchedules.rows[0];
+      await Promise.all(schedules.map(async ({ day, start, end }, index) => {
+        const {id} = allSchedules.rows[0];
         allSchedules.rows.shift();
-        await Schedule.query().where({ id }).update({ day, start, end});
-      });
+        const schedule = await Schedule.findOrFail(id);
+        schedule.merge({day, start, end})
+        await schedule.save();
+      }));
 
       //apagar horários já não existentes
       allSchedules.rows.map(async ({ $attributes: {id} }) => {
-        await Schedule.query().where({id}).delete();
+        const schedule = await Schedule.findOrFail(id);
+        await schedule.delete();
       });
 
       //colocar os dias em binário
       const flg_days = WeekDaysInBinary(week_days);
-
       const {flg_sunday,flg_monday,flg_tuesday,flg_wednesday,flg_thursday,flg_friday,flg_saturday} = flg_days;
 
-      await Turn.query().where({id: turn_id}).update({name, period, flg_sunday,flg_monday,flg_tuesday,flg_wednesday,flg_thursday,flg_friday,flg_saturday});
+      turn.merge({name, period, flg_sunday,flg_monday,flg_tuesday,flg_wednesday,flg_thursday,flg_friday,flg_saturday});
+      await turn.save();
 
       return response.status(200).send({ message: "Turno atualizado com sucesso" });
     }
@@ -134,10 +136,9 @@ class TurnController {
 
   async index({ request, response }) {
     //id da escola
-    const school_id = request.params.id_school;
     try{
       //todos turnos da escola
-      const listTurns = await Turn.query().where({school_id}).fetch();
+      const listTurns = await Turn.query().where({school_id: request.params.id_school}).fetch();
       //loop para selecionar os horários de cada turno
       const turns = await Promise.all(listTurns.rows.map(async ({ id: turn_id, name, period, flg_sunday, flg_monday, flg_tuesday, flg_wednesday, flg_thursday, flg_friday, flg_saturday }, index) => {
         //array dos dias da semana em numeros
