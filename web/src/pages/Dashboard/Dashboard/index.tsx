@@ -1,10 +1,51 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import { Bar, HorizontalBar, Pie } from 'react-chartjs-2';
 
 import "./styles.css";
 
 function Dashboard(){
     const history = useHistory();
+
+    const data = {
+        labels: ['jan', 'fev', 'mar',
+                 'abr', 'mai'],
+        datasets: [
+          {
+            label: 'Alterações',
+            backgroundColor: '#39729D',
+            data: [65, 59, 80, 81, 56]
+          }
+        ]
+    }
+    
+    const data2 = {
+        labels: ['jan', 'fev', 'mar',
+                 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out'],
+        datasets: [
+          {
+
+              label: 'Acessos',
+              backgroundColor: '#39729D',
+              data: [65, 59, 70, 71, 56, 24, 54, 28, 15, 25]
+          }
+        ]
+    }
+    const dataPie = {
+        labels: ['Manhã(h) ', 'Integral(h) ', 'Noite(h) '],
+        datasets: [
+          {
+            label: 'Turno',
+            backgroundColor: [
+              '#B7B345',
+              '#0792A9',
+              '#F68237'
+            ],
+            data: [65, 59, 80]
+          }
+        ]
+    }
+
     return(
             <div className="main-dashboard">
                 <div className="scroll-view">
@@ -30,12 +71,30 @@ function Dashboard(){
                         <div className="center">
                             <div className="main">
                                 <h1 className="title">Alterações</h1>
+                                <HorizontalBar 
+                                    data={data}
+                                    options={{legend: {
+                                        display: false
+                                    }}}
+                                />
                             </div>
                             <div className="main">
                                 <h1 className="title">Acesos</h1>
+                                <Bar 
+                                    data={data2}
+                                    options={{legend: {
+                                        display: false
+                                    }}}
+                                />
                             </div>
                             <div className="main">
                                 <h1 className="title">Turnos</h1>
+                                <Pie
+                                    data={dataPie}
+                                    options={{legend: {
+                                        display: false
+                                    }}}
+                                />
                             </div>
                         </div>
                         <div className="right">

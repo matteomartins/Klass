@@ -41,17 +41,30 @@ import Picture35 from "../../../assets/school_icons/35.png";
 import Picture36 from "../../../assets/school_icons/36.png";
 import Picture37 from "../../../assets/school_icons/37.png";
 import Picture38 from "../../../assets/school_icons/38.png";
+import Picture39 from "../../../assets/school_icons/39.png";
+import Picture40 from "../../../assets/school_icons/40.png";
+import Picture41 from "../../../assets/school_icons/41.png";
+import Picture42 from "../../../assets/school_icons/42.png";
+import Picture43 from "../../../assets/school_icons/43.png";
+import Picture44 from "../../../assets/school_icons/44.png";
+import Picture45 from "../../../assets/school_icons/45.png";
+import Picture46 from "../../../assets/school_icons/46.png";
+import Picture47 from "../../../assets/school_icons/47.png";
+import Picture48 from "../../../assets/school_icons/48.png";
+import Picture49 from "../../../assets/school_icons/49.png";
+import Picture50 from "../../../assets/school_icons/50.png";
 
 function Create2() {
     const cards = [
-        Picture1, Picture2, Picture3, Picture4, Picture5, Picture6, Picture7, Picture8, Picture9, Picture10, Picture11, Picture12, Picture13, Picture14, Picture15, Picture15, Picture16, Picture17, Picture18, Picture19, Picture20, Picture21, Picture22,
-        Picture23, Picture24, Picture25, Picture26, Picture27, Picture28, Picture29, Picture30, Picture31, Picture32, Picture33, Picture34, Picture35, Picture36, Picture37, Picture38,    
+        Picture1, Picture2, Picture3, Picture4, Picture5, Picture6, Picture7, Picture8, Picture9, Picture10, Picture11, Picture12, Picture13, Picture14, Picture15, Picture16, Picture17, Picture18, Picture19, Picture20, Picture21, Picture22,
+        Picture23, Picture24, Picture25, Picture26, Picture27, Picture28, Picture29, Picture30, Picture31, Picture32, Picture33, Picture34, Picture35, Picture36, Picture37, Picture38, Picture39, Picture40, Picture41, Picture42, Picture43, Picture44, Picture45,
+        Picture46, Picture47, Picture48, Picture49, Picture50,
     ];
 
     return (
         <TruncatedContainer title="Criar" className="create-school-container">
             <div className="create-school-content">
-                <h1>Escolha um icone para a escola</h1>
+                <h1>Escolha um icone</h1>
                 <div className="icons-container">
                     <div className="scroll-view">
                         <div>

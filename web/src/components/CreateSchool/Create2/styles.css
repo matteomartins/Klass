@@ -7,7 +7,7 @@
 .create-school-content .icons-container .scroll-view {
     overflow-y: scroll;
     flex: 3;
-
+    height: 37rem;
 }
 
 .create-school-content .icons-container .icons-content {
@@ -19,7 +19,23 @@
 
 .create-school-content .icons-container .icon-description {
     flex: 1;
+    padding: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+@media(max-width: 480px) {
+    .create-school-content .icons-container {
+        flex-direction: column-reverse;
+    }
+    .create-school-content .icons-container .icon-description {
+        height: 12rem;
+        padding: 0;
+        margin-top: 2.5rem;
+    }
+    .create-school-content .icons-container .content-card-container {
+        height: 100%;
+        width: 100%;
+    }
 }

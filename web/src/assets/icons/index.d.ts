@@ -18,3 +18,4 @@ export declare const KaPdf: IconType;
 export declare const KaCalendar: IconType;
 export declare const KaCheck: IconType;
 export declare const KaBook: IconType;
+export declare const KaNotification: IconType;
