@@ -43,6 +43,12 @@ module.exports.KaClose = function (props) {
   return GenIcon({"tag":"svg","attr":{"viewBox":"0 0 20 20","fill": "none","strokeWidth": "1"},"child":[{"tag":"line","attr":{"x1": "0.353553", "y1":"1.31246", "x2": "18.6872", "y2":"19.6461"}},{"tag":"line","attr":{"x1": "18.6873", "y1":"0.353553", "x2":"0.353689", "y2": "18.6872"}}]})(props);
 };
 module.exports.KaClose.displayName = "KaClose";
+module.exports.KaNotification = function (props) {
+  return GenIcon({"tag":"svg","attr":{"viewBox":"0 0 30 30"},"child":[
+    {"tag":"path","attr":{"d": "M22.5 20V13.75C22.5 9.9125 20.45 6.7 16.875 5.85V5C16.875 3.9625 16.0375 3.125 15 3.125C13.9625 3.125 13.125 3.9625 13.125 5V5.85C9.5375 6.7 7.5 9.9 7.5 13.75V20L5 22.5V23.75H25V22.5L22.5 20ZM16.25 20H13.75V17.5H16.25V20ZM16.25 15H13.75V10H16.25V15ZM15 27.5C16.375 27.5 17.5 26.375 17.5 25H12.5C12.5 26.375 13.6125 27.5 15 27.5Z"}}
+  ]})(props);
+};
+module.exports.KaNotification.displayName = "KaNotification";
 module.exports.KaBook = function (props) {
   return GenIcon({"tag":"svg","attr":{"viewBox":"0 0 22 18","fill": "none","strokeWidth": "2"},
   "child":[
