@@ -55,7 +55,7 @@ test('validate list course', async ({ assert, client }) => {
 });
 
 test('validate list all courses', async ({ assert, client }) => {
-  const user = await User.find(*);
+  const user = await User.find(1);
 
   const response = await client.get('/schools/1/courses/1').loginVia(user, 'jwt').end();
 

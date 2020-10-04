@@ -25,9 +25,10 @@ const tableData = [
 
 interface ScheduleProps {
     sideContainerSize ?: number;
+    to?: string;
 }
 
-const Schedule:React.FC<ScheduleProps> = ({sideContainerSize = 0}) => {
+const Schedule:React.FC<ScheduleProps> = ({sideContainerSize = 0, to = "/home"}) => {
     const [fitRows, setFitRows] = useState(7);
     const [maxRowQuantity, setMaxRowQuatity] = useState(7);
     const [minRowQuantity, setMinRowQuatity] = useState(0);
@@ -76,7 +77,7 @@ const Schedule:React.FC<ScheduleProps> = ({sideContainerSize = 0}) => {
 
     return (
         <div className="main-schedule">
-            <BackButton to="/home" />
+            <BackButton to={to} />
             <div className="schedule-container">
                 <div className="select-container">
                     <div id="select1">

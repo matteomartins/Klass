@@ -16,12 +16,19 @@ const FirstAccessTeacher: React.FC<FirstAccessTeacherProps> = ({ active, setActi
             <div className="first-access-teacher-content">
                 <h1>Você agora é professor da escola Etec de Taboão</h1>
                 <p>O administrador te inseriu nessa escola, agora basta você preencher com seus dados para que ele possa concluir o horário escolar.</p>
-                <div>
-                    <div>
-                        <input type="text"/>
-                        
+                <form className="teacher-form">
+                    <div className="teacher-form-row">
+                        <div className="teacher-form-col">
+                            <input type="text"/>
+                            <input type="text"/>
+                            <input type="text"/>
+                        </div>
+                        <div className="teacher-form-col">
+                            <p>Insira novos horários disponíveis</p>
+                        </div>
                     </div>
-                </div>
+                    <button className="btn-small">Salvar</button>
+                </form>
             </div>
         </div>
     );
