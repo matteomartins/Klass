@@ -41,63 +41,82 @@ test('validate create turn', async ({ assert, client }) => {
     "week_days": [1,2,3,4,5]
   };
 
-  const response = await client.post(`/schools/${responseSchool.body.id_school}/turns`).loginVia(user, 'jwt').header('accept', 'application/json').send(turn).end();
+  const response = await client.post(`/schools/1/turns`).loginVia(user, 'jwt').header('accept', 'application/json').send(turn).end();
   response.assertStatus(200);
   assert.exists(response.body.id_turn);
 });
 
-/*
-test('validate create user validator', async ({ assert, client }) => {
-  const user = {
-    "name": "Vinicius Floriano",
-    "emai": "viniciusfloriano@gmail.com",
-    "password": "123456"
-  }
+test('validate create turn validator', async ({ assert, client }) => {
+  const turn = {
+    "name": "Integral",
+    "stat": "07:30",
+    "end": "15:30",
+    "class_duration": 50,
+    "intervals": [
+        {
+          "start": "10:00",
+          "end": "10:20"
+        },
+        {
+          "start": "12:00",
+          "end": "13:00"
+        }
+      ],
+      "week_days": [1,2,3,4,5]
+}
 
-  const response = await client.post('/users').header('accept', 'application/json').send(user).end();
+  const response = await client.post('/schools/1/turns').header('accept', 'application/json').send(turn).end();
   response.assertStatus(400);
-  assert.equal(JSON.parse(response.text)[0].message, "Você deve inserir um email.");
+  assert.equal(JSON.parse(response.text)[0].message, "Você deve inserir um inicio de horário.");
 });
 
+test('validate list turn', async ({ assert, client }) => {
+  const user = await User.find(1);
 
-test('validate edit user', async ({ assert, client }) => {
-  const newUserData = {
-    name: Chance.username(),
-    email: Chance.email(),
-    password: Chance.string()
+  const response = await client.get('/schools/1/turns').loginVia(user, 'jwt').end();
+
+  response.assertStatus(200);
+  assert.exists(response.body.turn);
+});
+
+test('validate list one turn', async ({ assert, client }) => {
+  const user = await User.find(1);
+
+  const response = await client.get('/schools/1/turns/1').loginVia(user, 'jwt').end();
+
+  response.assertStatus(200);
+  assert.exists(response.body.turn);
+});
+
+test('validate edit turn', async ({ assert, client }) => {
+  const newTurnData = {
+      "name": "Noite",
+      "start": "08:30",
+      "end": "15:30",
+      "class_duration": 50,
+      "intervals": [
+        {
+          "start": "10:00",
+          "end": "10:20"
+        },
+        {
+          "start": "12:00",
+          "end": "13:00"
+        }
+      ],
+      "week_days": [1,2,3,4,5]
   };
 
   const user = await User.find(1);
 
-  const response = await client.put('/users').loginVia(user, 'jwt').send(newUserData).end();
+  const response = await client.put('schools/1/turns/1').loginVia(user, 'jwt').send(newTurnData).end();
   response.assertStatus(204);
 });
 
-
-test('validate list user', async ({ assert, client }) => {
+test('validate delete turn', async ({ assert, client }) => {
   const user = await User.find(1);
 
-  const response = await client.get('/users').loginVia(user, 'jwt').end();
+  const response = await client.delete('/schools/1/turns/1').loginVia(user, 'jwt').end();
 
   response.assertStatus(200);
-  assert.exists(response.body.user);
 });
-
-
-test('validate session user', async ({ assert, client }) => {
-  const user = {
-    name: Chance.username(),
-    email: Chance.email(),
-    password: Chance.string()
-  };
-
-  await client.post('/users').send(user).end();
-
-  const {email, password} = user;
-
-  const response = await client.post('/sessions').send({email,password}).end();
-
-  response.assertStatus(200);
-  assert.exists(response.body.token);
-});
-*/
