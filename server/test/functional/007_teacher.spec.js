@@ -6,7 +6,7 @@ trait('Auth/Client');
 const Factory = use('Factory');
 
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} **/
-const Teacher = use('App/Models/Teacher');
+const Professor = use('App/Models/Professor');
 const User = use('App/Models/User');
 
 const Chance = use('chance').Chance()
@@ -23,14 +23,14 @@ test('validate create teacher', async ({ assert, client }) => {
 
   const responseSchool = await client.post('/schools/1/professors/').loginVia(user, 'jwt').send(school).end()
 
-  const Teacher = {
+  const teacher = {
       "name": "Wallace Andrade",
       "email": "wallace.romantismo@gmail.com",
       "subjects": [1, 2, 5],
       "priority": 0
   };
 
-  const response = await client.post(`/schools/1/professors/`).loginVia(user, 'jwt').header('accept', 'application/json').send(Teacher).end();
+  const response = await client.post(`/schools/1/professors/`).loginVia(user, 'jwt').header('accept', 'application/json').send(teacher).end();
   response.assertStatus(200);
   assert.exists(response.body.teacher);
 });

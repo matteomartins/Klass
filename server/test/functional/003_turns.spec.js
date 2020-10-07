@@ -9,22 +9,28 @@ const Factory = use('Factory');
 const Turn = use('App/Models/Turn');
 const User = use('App/Models/User');
 
-const Chance = use('chance').Chance()
+const Chance = use('chance').Chance();
+
+
+let responseSchool;
 
 test('validate create turn', async ({ assert, client }) => {
+  await Factory.model('App/Models/User').create();
 
   const user = await User.find(1);
-  const school = {
-      "name": Chance.username(),
-      "description": Chance.string({ length: 20 }),
-      "type": Chance.string(),
-      "icon": Chance.avatar({ protocol: 'https', fileExtension: 'jpg' })
-  }
 
-  const responseSchool = await client.post('/schools').loginVia(user, 'jwt').send(school).end()
+  const school = {
+    "name": Chance.username(),
+    "description": Chance.string({ length: 20 }),
+    "type": Chance.string(),
+    "icon": Chance.avatar({ protocol: 'https', fileExtension: 'jpg' })
+  }
+  
+  responseSchool = await client.post('/schools').loginVia(user, 'jwt').send(school).end()
 
   const turn = {
     "name": "Integral",
+    "period": "2020",
     "start": "07:30",
     "end": "15:30",
     "class_duration": 50,
@@ -41,9 +47,10 @@ test('validate create turn', async ({ assert, client }) => {
     "week_days": [1,2,3,4,5]
   };
 
-  const response = await client.post(`/schools/1/turns`).loginVia(user, 'jwt').header('accept', 'application/json').send(turn).end();
-  response.assertStatus(200);
-  assert.exists(response.body.id_turn);
+  const response = await client.post(`/schools/${responseSchool.body.school_id}/turns`).loginVia(user, 'jwt').header('accept', 'application/json').send(turn).end();
+  
+  response.assertStatus(201);
+  assert.exists(response.body.id);
 });
 
 test('validate create turn validator', async ({ assert, client }) => {
@@ -65,7 +72,7 @@ test('validate create turn validator', async ({ assert, client }) => {
       "week_days": [1,2,3,4,5]
 }
 
-  const response = await client.post('/schools/1/turns').header('accept', 'application/json').send(turn).end();
+  const response = await client.post(`/schools/${responseSchool.body.school_id}/turns`).header('accept', 'application/json').send(turn).end();
   response.assertStatus(400);
   assert.equal(JSON.parse(response.text)[0].message, "Você deve inserir um inicio de horário.");
 });

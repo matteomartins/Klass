@@ -6,41 +6,34 @@ trait('Auth/Client');
 const Factory = use('Factory');
 
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} **/
-const Class = use('App/Models/Class');
+const Group = use('App/Models/Group');
 const User = use('App/Models/User');
 
 const Chance = use('chance').Chance()
 
-test('validate create class', async ({ assert, client }) => {
+test('validate create group', async ({ assert, client }) => {
 
   const user = await User.find(1);
-  const school = {
-    "name": Chance.username(),
-    "modules  _id": Chance.string({ length: 20 }),
-    "students_quant": Chance.int()
-  }
 
-  const responseSchool = await client.post('/schools/1/classes').loginVia(user, 'jwt').send(school).end()
-
-  const Class = {
+  const group = {
     "name": "3 ANO A",
     "module_id": 5,
     "students_quant": 50
   };
 
-  const response = await client.post(`/schools/1/classes`).loginVia(user, 'jwt').header('accept', 'application/json').send(Class).end();
+  const response = await client.post(`/schools/1/classes`).loginVia(user, 'jwt').header('accept', 'application/json').send(group).end();
   response.assertStatus(200);
   assert.exists(response.body.class);
 });
 
 test('validate create class validator', async ({ assert, client }) => {
-  const Class = {
+  const group = {
     "nme": "3 ANO A",
     "module_id": 5,
     "students_quant": 50
 }
 
-  const response = await client.post('/schools/1/classes').header('accept', 'application/json').send(Class).end();
+  const response = await client.post('/schools/1/classes').header('accept', 'application/json').send(group).end();
   response.assertStatus(400);
   assert.equal(JSON.parse(response.text)[0].message, "Você deve inserir um nome certo.");
 });

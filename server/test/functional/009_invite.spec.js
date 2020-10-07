@@ -6,7 +6,6 @@ trait('Auth/Client');
 const Factory = use('Factory');
 
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} **/
-const Invite = use('App/Models/Invite');
 const User = use('App/Models/User');
 
 const Chance = use('chance').Chance()
