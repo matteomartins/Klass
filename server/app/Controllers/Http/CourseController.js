@@ -18,7 +18,7 @@ class CourseController {
         name: courseName.name,
       };
 
-      await Course.create(courseData);
+      Course.create(courseData);
 
       const course = await Database.select("id")
         .from("courses")
@@ -56,7 +56,7 @@ class CourseController {
     }
   }
 
-  async show({ request }) {
+  async index({ request, response }) {
     try {
       const idCourse = request.params.id;
 
@@ -71,7 +71,7 @@ class CourseController {
     }
   }
 
-  async index({ request, response, auth }) {
+  async show({ request, response, auth }) {
     try {
       const idSchool = request.params.id_school;
       const oldModuleCourse = await Database.table("courses")

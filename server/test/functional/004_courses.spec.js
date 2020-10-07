@@ -11,75 +11,77 @@ const User = use('App/Models/User');
 
 const Chance = use('chance').Chance()
 
-test('validate create course', async ({ assert, client }) => {
 
-  const user = await User.find(1);
+let responseSchool;
+let user;
+
+test('validate create course', async ({ assert, client }) => {
+  await Factory.model('App/Models/User').create();
+
+  user = await User.find(1);
+
   const school = {
-      "name": Chance.username(),
-      "turn_id": Chance.string({ length: 20 }),
-      "modules": [1,2,3,4,5]
+    "name": Chance.username(),
+    "description": Chance.string({ length: 20 }),
+    "type": Chance.string(),
+    "icon": Chance.avatar({ protocol: 'https', fileExtension: 'jpg' })
   }
 
-  const responseSchool = await client.post('/schools').loginVia(user, 'jwt').send(school).end()
+  responseSchool = await client.post('/schools').loginVia(user, 'jwt').send(school).end()
 
   const course = {
     "name": "Ensino Médio",
-    "course_id": 1,
     "modules": ["1 ANO", "2 ANO"]
   };
 
-  const response = await client.post(`/schools/1/courses`).loginVia(user, 'jwt').header('accept', 'application/json').send(course).end();
+  const response = await client.post(`/schools/${responseSchool.body.school_id}/courses`).loginVia(user, 'jwt').header('accept', 'application/json').send(course).end();
+  
+  console.log(response);
+
   response.assertStatus(200);
-  assert.exists(response.body.id_course);
+  assert.exists(response.body.message);
 });
 
 test('validate create course validator', async ({ assert, client }) => {
   const course = {
-    "name": "Ensino Médio",
-    "turn_id": 1,
+    "nam": "Ensino Médio",
     "modules": ["1 ANO", "2 ANO"]
 }
 
-  const response = await client.post('/schools/1/courses').header('accept', 'application/json').send(course).end();
+  const response = await client.post(`/schools/${responseSchool.body.school_id}/courses`).header('accept', 'application/json').send(course).end();
   response.assertStatus(400);
-  assert.equal(JSON.parse(response.text)[0].message, "Você deve inserir um inicio de horário.");
+  assert.equal(JSON.parse(response.text)[0].message, "Você deve inserir o nome do curso.");
 });
 
-test('validate list course', async ({ assert, client }) => {
-  const user = await User.find(1);
+test('validate list all course', async ({ assert, client }) => {
 
-  const response = await client.get('/schools/1/courses').loginVia(user, 'jwt').end();
-
+  const response = await client.get(`/schools/${responseSchool.body.school_id}/courses`).loginVia(user, 'jwt').end();
   response.assertStatus(200);
-  assert.exists(response.body.course);
-});
+  console.log(response.body);
+  assert.exists(response.body.ModuleCourse);
+}).timeout(6000);
 
-test('validate list all courses', async ({ assert, client }) => {
-  const user = await User.find(1);
+test('validate list courses', async ({ assert, client }) => {
 
-  const response = await client.get('/schools/1/courses/1').loginVia(user, 'jwt').end();
-
+  const response = await client.get(`/schools/${responseSchool.body.school_id}/courses/1`).loginVia(user, 'jwt').end();
+  console.log(response.body);
   response.assertStatus(200);
-  assert.exists(response.body.course);
-});
+  assert.exists(response.body.ModuleCourse);
+}).timeout(6000);
 
 test('validate edit course', async ({ assert, client }) => {
   const newTurnData = {
-    "name": "Ensino Médio",
-    "turn_id": 2,
+    "name": "Ensino Médio 2",
     "modules": ["1 ANO", "2 ANO"]
   };
 
-  const user = await User.find(1);
-
-  const response = await client.put('schools/1/courses/1').loginVia(user, 'jwt').send(newTurnData).end();
+  const response = await client.put(`/schools/${responseSchool.body.school_id}/courses/1`).loginVia(user, 'jwt').send(newTurnData).end();
   response.assertStatus(204);
-});
+}).timeout(6000);
 
 test('validate delete course', async ({ assert, client }) => {
-  const user = await User.find(1);
 
-  const response = await client.delete('/schools/1/courses/1').loginVia(user, 'jwt').end();
+  const response = await client.delete(`/schools/${responseSchool.body.school_id}/courses/1`).loginVia(user, 'jwt').end();
 
   response.assertStatus(200);
-});
+}).timeout(6000);

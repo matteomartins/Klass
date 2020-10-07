@@ -13,11 +13,12 @@ const Chance = use('chance').Chance();
 
 
 let responseSchool;
+let user;
 
 test('validate create turn', async ({ assert, client }) => {
   await Factory.model('App/Models/User').create();
 
-  const user = await User.find(1);
+  user = await User.find(1);
 
   const school = {
     "name": Chance.username(),
@@ -74,26 +75,22 @@ test('validate create turn validator', async ({ assert, client }) => {
 
   const response = await client.post(`/schools/${responseSchool.body.school_id}/turns`).header('accept', 'application/json').send(turn).end();
   response.assertStatus(400);
-  assert.equal(JSON.parse(response.text)[0].message, "Você deve inserir um inicio de horário.");
+  assert.equal(JSON.parse(response.text)[0].message, "Você deve inserir o horário de início.");
 });
 
 test('validate list turn', async ({ assert, client }) => {
-  const user = await User.find(1);
-
-  const response = await client.get('/schools/1/turns').loginVia(user, 'jwt').end();
-
+  const response = await client.get(`/schools/${responseSchool.body.school_id}/turns`).loginVia(user, 'jwt').end();
   response.assertStatus(200);
-  assert.exists(response.body.turn);
-});
+  assert.exists(response.body.turns);
+}).timeout(6000);
 
 test('validate list one turn', async ({ assert, client }) => {
-  const user = await User.find(1);
 
-  const response = await client.get('/schools/1/turns/1').loginVia(user, 'jwt').end();
+  const response = await client.get(`/schools/${responseSchool.body.school_id}/turns/1`).loginVia(user, 'jwt').end();
 
   response.assertStatus(200);
-  assert.exists(response.body.turn);
-});
+  assert.exists(response.body.name);
+}).timeout(6000);
 
 test('validate edit turn', async ({ assert, client }) => {
   const newTurnData = {
@@ -114,16 +111,13 @@ test('validate edit turn', async ({ assert, client }) => {
       "week_days": [1,2,3,4,5]
   };
 
-  const user = await User.find(1);
-
-  const response = await client.put('schools/1/turns/1').loginVia(user, 'jwt').send(newTurnData).end();
-  response.assertStatus(204);
-});
+  const response = await client.put(`/schools/${responseSchool.body.school_id}/turns/1`).loginVia(user, 'jwt').send(newTurnData).end();
+  response.assertStatus(200);
+}).timeout(6000);
 
 test('validate delete turn', async ({ assert, client }) => {
-  const user = await User.find(1);
 
-  const response = await client.delete('/schools/1/turns/1').loginVia(user, 'jwt').end();
+  const response = await client.delete(`/schools/${responseSchool.body.school_id}/turns/1`).loginVia(user, 'jwt').send().end();
 
   response.assertStatus(200);
-});
+}).timeout(6000);
