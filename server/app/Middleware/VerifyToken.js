@@ -14,7 +14,7 @@ class VerifyToken {
    */
   async handle({ request, response, auth }, next) {
     try {
-      await auth.check();
+      await auth.getUser();
       await next();
     }
     catch (error) {
