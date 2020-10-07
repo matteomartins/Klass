@@ -18,7 +18,7 @@ class VerifyToken {
       await next();
     }
     catch (error) {
-      return response.status(401).send({ message: "Erro de autenticação" });
+      return response.status(401).send({ message: "Erro de autenticação", error: error.message });
     }
   }
 }

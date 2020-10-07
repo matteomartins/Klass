@@ -28,6 +28,7 @@ import Turns from "./pages/Dashboard/Turns";
 import Reports from "./pages/Dashboard/Reports";
 import Classes from "./pages/Dashboard/Classes";
 import Subjects from "./pages/Dashboard/Subjects";
+import FirstAccessTeacher from "./components/FirstAccessTeacher";
 
 const RouteWithCalendar: React.FC<RouteProps> = ({ ...props }) => {
     return (
@@ -82,6 +83,7 @@ export default function Routes() {
                 <Route path="/" exact component={Register} />
                 <Route path="/login" exact component={Login} />
                 <Route path="/access" exact component={FirstAccess} />
+                <Route path="/fa-teacher" exact component={FirstAccessTeacher} />
 
                 <RouteWithCalendar path="/home" exact component={Home} />
                 <RouteWithCalendar path="/profile" exact component={Profile} />
@@ -104,7 +106,7 @@ export default function Routes() {
                 <RouteWithCalendar path="/dashboard-turns" exact component={Turns} />
                 <RouteWithCalendar path="/dashboard-subjects" exact component={Subjects} />
                 <RouteWithCalendar path="/dashboard-classes" exact component={Classes} />
-                <RouteWithCalendar path="/dashboard-schedule" exact component={Schedule} />
+                <RouteWithCalendar path="/dashboard-schedule" exact><Schedule to="/dashboard"/></RouteWithCalendar>
 
                 <Route component={Page404} />
             </Switch>

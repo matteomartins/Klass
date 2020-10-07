@@ -9,7 +9,7 @@ function Subjects() {
     const [active, setActive] = useState(false);
     return (
         <div className="subjects-container">
-            <BackButton to="/home" />
+            <BackButton to="/dashboard" />
             <div className="scroll-view">
                 <div className="school-cards-container">
                     <h1>1° ANO A</h1>
