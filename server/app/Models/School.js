@@ -16,6 +16,10 @@ class School extends Model {
   static get updatedAtColumn() {
     return null;
   }
+
+  turns(){
+    return this.hasMany('App/Models/Turn');
+  }
 }
 
 module.exports = School;

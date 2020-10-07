@@ -10,6 +10,10 @@ class Schedule extends Model {
   static get updatedAtColumn() {
       return null;
   }
+
+  turn(){
+    return this.belongsTo('App/Models/Turn');
+  }
 }
 
 module.exports = Schedule;
