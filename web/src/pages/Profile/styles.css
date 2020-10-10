@@ -83,8 +83,8 @@
 .profile-container .info-container .input-container .input-items input {
     border: none;
     background-color: transparent;
-    height: 30px;
-    width: 160px;
+    height: 3rem;
+    width: 18rem;
     margin-top: 1.8rem;
     color: var(--color-text-secondary);
     font-size: 1.6rem;

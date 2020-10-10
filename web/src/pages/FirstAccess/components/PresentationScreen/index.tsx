@@ -1,6 +1,6 @@
 import React from "react";
 
-import TruncatedContainer from "../../TruncatedContainer";
+import TruncatedContainer from "../../../../components/TruncatedContainer";
 import YouTube from "react-youtube";
 
 function PresentationScreen() {

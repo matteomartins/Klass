@@ -35,6 +35,7 @@ const TurnInfoContainer: React.FC<TurnInfoContainerProps> = ({
             <InputWithButton
                 handleNew={addInterval}
                 placeholder="Novo Intervalo"
+                mask="99:99 às 99:99"
             />
             <div className="scroll-view">
                 <div className="creation-cards">

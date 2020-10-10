@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
@@ -9,21 +9,30 @@ import "./styles.css";
 import SocialMedias from "../../components/SocialMedias";
 import Input from "../../components/Input";
 import Checkbox from "../../components/Checkbox";
-import api from "../../services/api";
 import { useAlert } from "react-alert";
+import { Context } from "../../context/AuthContext";
+import api from "../../services/api";
 
 function Register() {
+    const { handleLogin } = useContext(Context);
     const { register, handleSubmit, errors } = useForm();
     const alert = useAlert();
     const history = useHistory();
+    
     const onSubmit = async (data:any) => {
-        api.post('users', data).then(()=>{
-            history.push('home');
-        }).catch(error => {
+        api.post('users', data).then((response)=>{
+            const { data: { token, name } } = response;
+            localStorage.setItem('token', JSON.stringify(token));
+            localStorage.setItem('username', JSON.stringify(name));
+            api.defaults.headers.Authorization = `Bearer ${token}`;
+            handleLogin()
+            history.push('/home');
+          }).catch(error => {
             if(!error.response) alert.error("Impossível conectar ao servidor!");
             else alert.error(error.response.data[0].message);
-        });
+          });
     };
+    
     useEffect(()=> {
         if(errors.name) alert.error("Insira um nome")
         else if(errors.email) alert.error("Insira um email")

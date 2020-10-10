@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
+import InputMask from "react-input-mask";
 
 import './styles.css';
 
 interface InputWithButtonProps {
     handleNew: Function;
     placeholder: string;
+    mask?: string;
 }
 
-const InputWithButton:React.FC<InputWithButtonProps> = ({handleNew, placeholder}) => {
+const InputWithButton:React.FC<InputWithButtonProps> = ({handleNew, placeholder, mask=""}) => {
     
     const [name, setName] = useState('');
 
@@ -20,7 +22,8 @@ const InputWithButton:React.FC<InputWithButtonProps> = ({handleNew, placeholder}
 
     return (
         <div className="creation-input-with-button">
-            <input 
+            <InputMask
+                mask={mask} 
                 type="text" 
                 placeholder={placeholder}
                 value={name} 

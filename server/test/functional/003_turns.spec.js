@@ -19,14 +19,14 @@ test('validate create turn', async ({ assert, client }) => {
   await Factory.model('App/Models/User').create();
 
   user = await User.find(1);
-
+  
   const school = {
     "name": Chance.username(),
     "description": Chance.string({ length: 20 }),
     "type": Chance.string(),
     "icon": Chance.avatar({ protocol: 'https', fileExtension: 'jpg' })
   }
-  
+
   responseSchool = await client.post('/schools').loginVia(user, 'jwt').send(school).end()
 
   const turn = {

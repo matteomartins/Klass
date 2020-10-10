@@ -7,15 +7,16 @@ import ModalContainer from '../../ModalContainer';
 interface SuccessfulCreateSchoolProps {
     active: boolean;
     setActive: Function;
+    handleCreate: Function;
 }
 
-const SuccessfulCreateSchool:React.FC<SuccessfulCreateSchoolProps> = ({active, setActive}) => {
+const SuccessfulCreateSchool:React.FC<SuccessfulCreateSchoolProps> = ({active, setActive, handleCreate}) => {
     const history = useHistory();
     return (
         <ModalContainer active={active} setActive={setActive} title="Escola criada com sucesso!">
             <div className="successful-create-school-buttons">
                 <button className="btn-small" onClick={()=> setActive(false)}>Alterar alguma informação</button>
-                <button className="btn-small" onClick={()=> {setActive(false); history.push('/dashboard')}}>Ir para a Dashboard</button>
+                <button className="btn-small" onClick={()=> {setActive(false); handleCreate()}}>Ir para a Dashboard</button>
             </div>
         </ModalContainer>
     )

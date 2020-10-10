@@ -6,6 +6,7 @@ import ThemeProvider from './context/Theme';
 
 import './assets/styles/global.css';
 import Alert from './components/Alert';
+import { AuthProvider } from './context/AuthContext';
 
 const options = {
   timeout: 5000,
@@ -14,11 +15,13 @@ const options = {
 
 function App() {
   return (
-    <ThemeProvider>
-      <Provider template={Alert} {...options}>
-        <Routes />
-      </Provider>
-    </ThemeProvider>
+    <AuthProvider>
+      <ThemeProvider>
+        <Provider template={Alert} {...options}>
+          <Routes />
+        </Provider>
+      </ThemeProvider>
+    </AuthProvider>
   );
 }
 

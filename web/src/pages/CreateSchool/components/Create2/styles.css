@@ -17,6 +17,18 @@
     margin: 4rem 0;
 }
 
+.create-school-content .icons-container .scroll-view span {
+    width: 100%;
+    text-align: center;
+    color: var(--color-text-secondary);
+    display: block;
+}
+
+.create-school-content .icons-container .scroll-view span a {
+    color: var(--color-text-secondary);
+
+}
+
 .create-school-content .icons-container .icon-description {
     flex: 1;
     padding: 2rem;

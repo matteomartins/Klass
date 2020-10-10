@@ -7,7 +7,7 @@ import "./styles.css";
 import { KaCircleOutline, KaCircleSelected } from "../../assets/icons";
 import BackButton from "../../components/BackButton";
 
-import PresentationScreen from "../../components/FirstAccess/PresentationScreen";
+import PresentationScreen from "./components/PresentationScreen";
 import ThemeScreen from "../../components/FirstAccess/ThemeScreen";
 import TermsScreen from "../../components/FirstAccess/TermsScreen";
 import { useTheme } from "../../context/Theme";

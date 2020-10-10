@@ -1,10 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./styles.css";
 import ContentCard from "../../components/ContentCard";
 import InputOutline from "../../components/InputOutline";
 import BackButton from "../../components/BackButton";
+import api from "../../services/api";
+import { useHistory } from "react-router-dom";
+import { getColor } from "../../utils/colors";
 
 function School() {
+    const history = useHistory();
+    const [school, setSchool] = useState({id: '', name: '', description: '', type: '', icon: ''});
+    const [groups, setGroups] = useState([]);
+
+    useEffect(() => {
+        (async () => {
+            const search = window.location.search;
+            const params = new URLSearchParams(search);
+            const id = params.get('id');
+            if(!id) history.push('/home');
+            const newSchool = await api.get(`/schools/${id}`);
+            setSchool(newSchool.data.school[0]);
+
+            const newGroups = await api.get(`/schools/${id}/groups`);
+            setGroups(newGroups.data.groups);
+        })()
+    }, []);
+
     return (
         <div className="school-container">
             <BackButton to="/home" />
@@ -13,11 +34,11 @@ function School() {
                     <div className="school-header">
                         <div className="card-content">
                             <ContentCard
-                                title="TS"
+                                title={school.name.substr(0,1)+school.name.substr(school.name.lastIndexOf(' ')+1,1)}
                                 text=""
                                 color="#0792A9"
                             />
-                            <h1>Etec de Taboão Da Serra</h1>
+                            <h1>{school.name}</h1>
                         </div>
                         <div className="info-container">
                             <InputOutline
@@ -48,60 +69,26 @@ function School() {
                     </div>
                     <div className="description">
                         <h1>Descrição</h1>
-                        <p>
-                            Lorem Ipsum is simply dummy text of the printing and
-                            typesetting industry. Lorem Ipsum is simply dummy
-                            text of the printing and typesetting industry. Lorem
-                            Ipsum has been the industry's standard dummy text
-                            ever since the 1500s, when an unknown printer took a
-                            galley of type and scrambled it to make a type
-                            specimen book.
-                        </p>
+                        <p>{school.description}</p>
                         <InputOutline
                             text="Tipo de escola:"
-                            name="students"
-                            value="Ensino Médio e Técnico"
+                            name="type"
+                            value={school.type}
                             disabled
                         />
                     </div>
                     <div className="school-cards-container">
-                        <h1>Turno: Manhã </h1>
+                        <h1>Classes</h1>
                         <div className="cards">
-                            <ContentCard
-                                title="1A"
-                                text="1 ANO A"
-                                color="#0792A9"
-                            />
-                            <ContentCard
-                                title="1B"
-                                text="1 ANO B"
-                                color="#0792A9"
-                            />
-                            <ContentCard
-                                title="2A"
-                                text="2 ANO A"
-                                color="#F68237"
-                            />
-                            <ContentCard
-                                title="2B"
-                                text="2 ANO B"
-                                color="#F68237"
-                            />
-                            <ContentCard
-                                title="3A"
-                                text="3 ANO A"
-                                color="#B7B345"
-                            />
-                            <ContentCard
-                                title="3B"
-                                text="3 ANO B"
-                                color="#B7B345"
-                            />
-                            <ContentCard
-                                title="4A"
-                                text="4 ANO A"
-                                color="#DE6E4B"
-                            />
+                            {groups.map(({name = '', module_id}, ind) => (
+                                <ContentCard
+                                    key={ind}
+                                    to={`/class?id=${school.id}&module=${module_id}`}
+                                    title={name.substr(0,1)+name.substr(-1,1)}
+                                    text={name}
+                                    color={getColor(name, ind)}
+                                />
+                            ))}
                         </div>
                     </div>
                 </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import TruncatedContainer from "../../TruncatedContainer";
 
 import "./styles.css";
@@ -54,12 +54,22 @@ import Picture48 from "../../../assets/school_icons/48.png";
 import Picture49 from "../../../assets/school_icons/49.png";
 import Picture50 from "../../../assets/school_icons/50.png";
 
-function Create2() {
+interface Create2Props {
+    setSelectedImg: (img:string)=>void,
+    selectedImg: string;
+}
+
+const Create2:React.FC<Create2Props> = ({setSelectedImg, selectedImg}) => {
     const cards = [
         Picture1, Picture2, Picture3, Picture4, Picture5, Picture6, Picture7, Picture8, Picture9, Picture10, Picture11, Picture12, Picture13, Picture14, Picture15, Picture16, Picture17, Picture18, Picture19, Picture20, Picture21, Picture22,
         Picture23, Picture24, Picture25, Picture26, Picture27, Picture28, Picture29, Picture30, Picture31, Picture32, Picture33, Picture34, Picture35, Picture36, Picture37, Picture38, Picture39, Picture40, Picture41, Picture42, Picture43, Picture44, Picture45,
         Picture46, Picture47, Picture48, Picture49, Picture50,
     ];
+
+
+    function handleSelectPic(img:string) {
+        setSelectedImg(img);
+    }
 
     return (
         <TruncatedContainer title="Criar" className="create-school-container">
@@ -71,11 +81,16 @@ function Create2() {
                             <div className="icons-content">
                                 {cards.map((Card) => (
                                     <img
+                                        style={{cursor: 'pointer'}}
                                         src={Card}
                                         height={100}
+                                        onClick={() => handleSelectPic(Card)}
                                     />
                                 ))}
                             </div>
+                            <span>
+                                Ícones feitos por <a href="https://www.flaticon.com/br/autores/dighital" title="Dighital" target="_blank">Dighital</a> de <a href="https://www.flaticon.com/br/" title="Flaticon" target="_blank"> www.flaticon.com</a>
+                            </span>
                         </div>
                     </div>
                     <div className="icon-description">
@@ -83,6 +98,7 @@ function Create2() {
                             text="Etec de Taboão da Serra"
                             color="#F68237"
                             title=""
+                            img={selectedImg}
                         />
                     </div>
                 </div>
