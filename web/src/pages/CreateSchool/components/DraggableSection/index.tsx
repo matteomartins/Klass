@@ -2,7 +2,7 @@ import React from "react";
 import { Droppable, Draggable } from "react-beautiful-dnd";
 
 import InfoCard from "../InfoCard";
-import { ModuleProps } from "../../../utils/CommonInterfaces";
+import { ModuleProps } from "../../../../utils/CommonInterfaces";
 
 interface DraggableSectionProps {
     cards: Array<ModuleProps>;

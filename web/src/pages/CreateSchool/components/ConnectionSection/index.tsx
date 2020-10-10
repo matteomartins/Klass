@@ -1,8 +1,8 @@
 import React from "react";
 import { Droppable } from "react-beautiful-dnd";
 
-import { KaArrow } from "../../../assets/icons";
-import { CardProps } from "../../../utils/CommonInterfaces";
+import { KaArrow } from "../../../../assets/icons";
+import { CardProps } from "../../../../utils/CommonInterfaces";
 import InfoCard from "../InfoCard";
 
 interface ConnectionSectionProps {

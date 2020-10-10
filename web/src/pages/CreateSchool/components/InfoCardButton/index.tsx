@@ -1,6 +1,6 @@
 import React from "react";
 
-import { KaClose } from "../../../assets/icons";
+import { KaClose } from "../../../../assets/icons";
 import "./styles.css";
 
 interface InfoCardButtonProps {

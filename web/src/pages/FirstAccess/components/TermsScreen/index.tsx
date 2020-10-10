@@ -1,8 +1,8 @@
 import React from "react";
+import Checkbox from "../../../../components/Checkbox";
+import TruncatedContainer from "../../../../components/TruncatedContainer";
 
-import Terms from "../../../utils/Terms";
-import Checkbox from "../../Checkbox";
-import TruncatedContainer from "../../TruncatedContainer";
+import Terms from "../../../../utils/Terms";
 
 import "./styles.css";
 

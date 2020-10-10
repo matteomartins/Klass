@@ -45,7 +45,7 @@ const ContentCard: React.FC<ContentCardProps> = ({
         >
             <ContentOfCard>
                 {(()=>{
-                    if(img) return <img src={img} alt="imagem" />
+                    if(img) return <img src={img} onError={() => <h1 style={{ background: color }}>{title}</h1>} alt="imagem" />
                     else return <h1 style={{ background: color }}>{title}</h1>
                 })()}
                 <span>{text}</span>

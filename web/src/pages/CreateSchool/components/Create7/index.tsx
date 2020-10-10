@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
-import TruncatedContainer from "../../TruncatedContainer";
-import { KaArrow } from "../../../assets/icons";
-import { ClassProps } from "../../../utils/CommonInterfaces";
+import { KaArrow } from "../../../../assets/icons";
+import { ClassProps } from "../../../../utils/CommonInterfaces";
 import CreateCardSection from "../CreateCardSection";
 
 import "./styles.css";
 import ClassInfoContainer from "../ClassInfoContainer";
+import TruncatedContainer from "../../../../components/TruncatedContainer";
 
 interface Create6Props {
     classes: Array<ClassProps>;

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
 import './styles.css';
-import { KaClose } from '../../assets/icons';
+import { KaClose } from '../../../assets/icons';
 
 interface ModalContainerProps {
     active: boolean;

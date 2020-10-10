@@ -1,7 +1,7 @@
 import React from "react";
 import InputWithButton from "../InputWithButton";
 import InfoCardButton from "../InfoCardButton";
-import { CardProps } from "../../../utils/CommonInterfaces";
+import { CardProps } from "../../../../utils/CommonInterfaces";
 import { v4 as uuidv4 } from "uuid";
 
 interface CreateCardSectionProps {

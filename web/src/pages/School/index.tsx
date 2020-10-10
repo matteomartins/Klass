@@ -36,6 +36,7 @@ function School() {
                             <ContentCard
                                 title={school.name.substr(0,1)+school.name.substr(school.name.lastIndexOf(' ')+1,1)}
                                 text=""
+                                img={school.icon}
                                 color="#0792A9"
                             />
                             <h1>{school.name}</h1>

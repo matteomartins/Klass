@@ -3,19 +3,18 @@ import React, { useState } from "react";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
 
 import "./styles.css";
-import Create1 from "../../components/CreateSchool/Create1";
-import Create2 from "../../components/CreateSchool/Create2";
-import Create3 from "../../components/CreateSchool/Create3";
-import Create4 from "../../components/CreateSchool/Create4";
-import Create5 from "../../components/CreateSchool/Create5";
-import Create6 from "../../components/CreateSchool/Create6";
-import Create7 from "../../components/CreateSchool/Create7";
-import ExitCreateSchool from "../../components/CreateSchool/Exit";
-import SuccessfulCreateSchool from "../../components/CreateSchool/Successful";
+import Create1 from "./components/Create1";
+import Create2 from "./components/Create2";
+import Create3 from "./components/Create3";
+import Create4 from "./components/Create4";
+import Create5 from "./components/Create5";
+import Create6 from "./components/Create6";
+import Create7 from "./components/Create7";
+import ExitCreateSchool from "./components/Exit";
+import SuccessfulCreateSchool from "./components/Successful";
 import BackButton from "../../components/BackButton";
 import api from "../../services/api";
 import { useAlert } from "react-alert";
-import { TurnProps } from "../../utils/CommonInterfaces";
 
 function CreateSchool() {
     const [activeExit, setActiveExit] = useState(false);

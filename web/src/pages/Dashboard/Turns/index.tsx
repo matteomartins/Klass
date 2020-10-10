@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
 import BackButton from '../../../components/BackButton';
-import List from '../../../components/CreateSchool/List';
-import TurnInfoContainer from '../../../components/CreateSchool/TurnInfoContainer';
 import TruncatedContainer from '../../../components/TruncatedContainer';
 import { create3Functions } from '../../../utils/create3Functions';
+import List from '../../CreateSchool/components/List';
+import TurnInfoContainer from '../../CreateSchool/components/TurnInfoContainer';
 
 import './styles.css';
 
@@ -42,10 +42,11 @@ const Turns: React.FC = () => {
                                         removeInterval={removeInterval}
                                         selectedTurn={0}
                                         turns={turns}
+                                        setTurns={setTurns}
                                     />
                                 </div>
                                 <div className="creation-container">
-                                    <List />
+                                    <List duration={50} schedule="07:00 às 10:00" intervals={[]} />
                                 </div>
                             </div>
                         </div>
@@ -58,10 +59,11 @@ const Turns: React.FC = () => {
                                         removeInterval={removeInterval}
                                         selectedTurn={0}
                                         turns={turns}
+                                        setTurns={setTurns}
                                     />
                                 </div>
                                 <div className="creation-container">
-                                    <List />
+                                    <List duration={50} schedule="07:00 às 10:00" intervals={[]} />
                                 </div>
                             </div>
                         </div>

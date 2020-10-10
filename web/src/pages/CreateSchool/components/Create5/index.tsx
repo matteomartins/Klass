@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { DragDropContext } from "react-beautiful-dnd";
 
-import TruncatedContainer from "../../TruncatedContainer";
-import { KaArrow } from "../../../assets/icons";
-import DragDrop from "../../../utils/dragFunctions";
+import { KaArrow } from "../../../../assets/icons";
+import DragDrop from "../../../../utils/dragFunctions";
 import {
     SubjectProps,
     CourseProps,
     ModuleProps,
-} from "../../../utils/CommonInterfaces";
-import { create5Functions } from "../../../utils/create5Functions";
+} from "../../../../utils/CommonInterfaces";
+import { create5Functions } from "../../../../utils/create5Functions";
 import ConnectionSection from "../ConnectionSection";
 import CreateDraggableSection from "../CreateDraggableSection";
 
 import "./styles.css";
 import CardSection from "../CardSection";
+import TruncatedContainer from "../../../../components/TruncatedContainer";
 
 interface Create5Props {
     courses: Array<CourseProps>;

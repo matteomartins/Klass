@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { DragDropContext } from "react-beautiful-dnd";
 
-import TruncatedContainer from "../../TruncatedContainer";
-import { KaArrow } from "../../../assets/icons";
-import DragDrop from "../../../utils/dragFunctions";
-import { SubjectProps, TeacherProps } from "../../../utils/CommonInterfaces";
-import { create6Functions } from "../../../utils/create6Functions";
+import { KaArrow } from "../../../../assets/icons";
+import DragDrop from "../../../../utils/dragFunctions";
+import { SubjectProps, TeacherProps } from "../../../../utils/CommonInterfaces";
+import { create6Functions } from "../../../../utils/create6Functions";
 import ConnectionSection from "../ConnectionSection";
 import CreateCardSection from "../CreateCardSection";
 import DraggableSection from "../DraggableSection";
 
 import "./styles.css";
+import TruncatedContainer from "../../../../components/TruncatedContainer";
 
 interface Create6Props {
     teachers: Array<TeacherProps>;

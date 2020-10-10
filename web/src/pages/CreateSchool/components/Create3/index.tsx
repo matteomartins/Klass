@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import TruncatedContainer from "../../TruncatedContainer";
 
 import "./styles.css";
-import { KaArrow } from "../../../assets/icons";
+import { KaArrow } from "../../../../assets/icons";
 import List from "../List";
 import CreateCardSection from "../CreateCardSection";
-import { create3Functions } from "../../../utils/create3Functions";
-import { TurnProps } from "../../../utils/CommonInterfaces";
+import { create3Functions } from "../../../../utils/create3Functions";
+import { TurnProps } from "../../../../utils/CommonInterfaces";
 import TurnInfoContainer from "../TurnInfoContainer";
+import TruncatedContainer from "../../../../components/TruncatedContainer";
 
 interface Create3Props {
     turns: Array<TurnProps>;
@@ -52,6 +52,7 @@ const Create3: React.FC<Create3Props> = ({ turns, setTurns }) => {
                             removeInterval={removeInterval}
                             selectedTurn={selectedTurn}
                             turns={turns}
+                            setTurns={setTurns}
                         />
                     </div>
                     <div className="creation-container">
@@ -60,7 +61,11 @@ const Create3: React.FC<Create3Props> = ({ turns, setTurns }) => {
                             <KaArrow size={18} />
                         </div>
                         <div className="creation-content">
-                            <List />
+                            <List 
+                                duration={turns[selectedTurn]?.content?.classDuration || 0} 
+                                schedule={turns[selectedTurn]?.content?.schedule || ''} 
+                                intervals={turns[selectedTurn]?.content?.intervals || []} 
+                            />
                         </div>
                     </div>
                 </div>

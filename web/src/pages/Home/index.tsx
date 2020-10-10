@@ -6,10 +6,10 @@ import SchoolMenu from "../../components/SchoolMenu";
 import { KaAddButton } from "../../assets/icons";
 import ContentCard from "../../components/ContentCard";
 import { Link } from "react-router-dom";
-import EnterSchool from "../../components/EnterSchool";
-import InitialCreateSchool from "../../components/CreateSchool/InitialCreate";
+import EnterSchool from "../../components/Modals/EnterSchool";
 import api from "../../services/api";
 import { getColor } from "../../utils/colors";
+import InitialCreateSchool from "../../components/Modals/InitialCreate";
 
 function Home() {
     const [activeInitial, setActiveInitial] = useState(false);
@@ -61,7 +61,7 @@ function Home() {
                 active={activeEnterSchool}
                 setActive={setActiveEnterSchool}
             />
-            <InitialCreateSchool 
+            <InitialCreateSchool
                 active={activeInitial} 
                 setActive={setActiveInitial} 
             />

@@ -8,8 +8,8 @@ import { KaCircleOutline, KaCircleSelected } from "../../assets/icons";
 import BackButton from "../../components/BackButton";
 
 import PresentationScreen from "./components/PresentationScreen";
-import ThemeScreen from "../../components/FirstAccess/ThemeScreen";
-import TermsScreen from "../../components/FirstAccess/TermsScreen";
+import ThemeScreen from "./components/ThemeScreen";
+import TermsScreen from "./components/TermsScreen";
 import { useTheme } from "../../context/Theme";
 
 import "./styles.css";

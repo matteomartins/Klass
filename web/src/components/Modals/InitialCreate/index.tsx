@@ -1,8 +1,8 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import ModalContainer from '../ModalContainer';
 
 import './styles.css';
-import ModalContainer from '../../ModalContainer';
 
 interface InitialCreateSchoolProps {
     active: boolean;
