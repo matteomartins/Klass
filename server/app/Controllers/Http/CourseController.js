@@ -18,19 +18,15 @@ class CourseController {
         name: courseName.name,
       };
 
-      Course.create(courseData);
+      const course_data = await Course.create(courseData);
 
-      const course = await Database.select("id")
-        .from("courses")
-        .where({ school_id: school_id })
-        .orderBy("id", "desc");
-      const course_id = course[0].id;
-
+      const course_id = course_data.$attributes.id;
+      
       modules.modules.map((modules) => {
         Module.create({ course_id, level: modules });
       });
 
-      return response.status(200).send({ message: "Curso criado com sucesso" });
+      return response.status(200).send({ message: "Curso criado com sucesso", course_id });
     } catch (error) {
       return response
         .status(404)

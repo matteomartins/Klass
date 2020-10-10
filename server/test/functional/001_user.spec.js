@@ -14,7 +14,8 @@ test('validate create user', async ({ assert, client }) => {
   const user = {
     "name": Chance.username(),
     "email": Chance.email(),
-    "password": Chance.string()
+    "password": Chance.string(),
+    "is_premium": 1
   };
 
   const response = await client.post('/users').header('accept', 'application/json').send(user).end();

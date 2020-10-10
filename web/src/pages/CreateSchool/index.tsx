@@ -52,8 +52,8 @@ function CreateSchool() {
             const end = turn.content.schedule.split(' às ')[1];
             const newIntervals:any = [];
             turn.content.intervals.map(({title}:any)=> {
-                const startInterval = title.content.schedule.split(' às ')[0];
-                const endInterval = title.content.schedule.split(' às ')[1];
+                const startInterval = title.split(' às ')[0];
+                const endInterval = title.split(' às ')[1];
                 newIntervals.push({start:startInterval, end: endInterval});
             })
             const createTurnsRes = await api.post(`/schools/${school_id}/turns`, {
@@ -80,7 +80,7 @@ function CreateSchool() {
         />
     );
 
-    const newCreate2 = () => <Create2 selectedImg={selectedImg} setSelectedImg={setSelectedImg} />;
+    const newCreate2 = () => <Create2 selectedImg={selectedImg} setSelectedImg={setSelectedImg} schoolName={schoolName} />;
 
     const newCreate3 = () => <Create3 turns={turns} setTurns={setTurns} />;
 
