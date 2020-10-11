@@ -2,10 +2,9 @@ import React from "react";
 import { Droppable, Draggable } from "react-beautiful-dnd";
 
 import InfoCard from "../InfoCard";
-import { ModuleProps } from "../../../../utils/CommonInterfaces";
 
 interface DraggableSectionProps {
-    cards: Array<ModuleProps>;
+    cards: any;
 }
 
 const DraggableSection: React.FC<DraggableSectionProps> = ({ cards }) => {
@@ -19,7 +18,7 @@ const DraggableSection: React.FC<DraggableSectionProps> = ({ cards }) => {
                             {...provided.droppableProps}
                             className="creation-cards"
                         >
-                            {cards.map((item, index) => (
+                            {cards.map((item:any, index:any) => (
                                 <Draggable
                                     key={item.id}
                                     draggableId={item.id}

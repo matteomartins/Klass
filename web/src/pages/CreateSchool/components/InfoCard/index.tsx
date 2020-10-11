@@ -9,6 +9,8 @@ interface InfoCardProps extends React.HTMLAttributes<HTMLDivElement> {
     title: string;
     style?: Object;
     isDragging?: any;
+    numContent?: number;
+    setNumContent?: Function
 }
 
 const InfoCard: React.FC<InfoCardProps> = ({
@@ -17,6 +19,8 @@ const InfoCard: React.FC<InfoCardProps> = ({
     title,
     style,
     isDragging,
+    numContent,
+    setNumContent,
     ...rest
 }) => {
     return (
@@ -26,10 +30,28 @@ const InfoCard: React.FC<InfoCardProps> = ({
                     background: isDragging
                         ? "var(--color-background-selected)"
                         : "var(--color-background)",
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between'
                 }}
             >
-                {title}
+                <span>{title}</span>
+                {(()=> {
+                    if(numContent && setNumContent) return (
+                        <input 
+                            style={{display: 'block', width: '30px', background: 'none', border: 'none'}} 
+                            value={numContent}
+                            placeholder="1"
+                            onChange={e => setNumContent(e.target.value, id)}
+                            type="number"
+                            min="1"
+                            max="19"
+                        />
+                    )
+                })()}
+
             </label>
+
             {(() => {
                 if (handleDelete) {
                     return (

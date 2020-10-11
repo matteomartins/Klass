@@ -23,6 +23,7 @@ export interface ModuleProps {
 export interface SubjectProps {
     id: string;
     title: string;
+    content?: number
 }
 
 export interface CourseProps {

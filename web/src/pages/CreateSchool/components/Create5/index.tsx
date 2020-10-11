@@ -31,6 +31,10 @@ const Create5: React.FC<Create5Props> = ({
 }) => {
     const newModules: Array<ModuleProps> = [];
 
+    const [modules, setModules] = useState(newModules);
+
+    const [selectedModule, setSelectedModule] = useState(-1);
+
     useEffect(() => {
         courses.forEach(({ title, content }) => {
             content.forEach((module) => {
@@ -41,11 +45,15 @@ const Create5: React.FC<Create5Props> = ({
                 });
             });
         });
-    });
+        if(selectedModule === -1) return;
+        let newCourses = courses;
+        newCourses[selectedModule].content = newModules;
+        console.log(courses);
+        console.log(newCourses);
+        setCourses([...newCourses]);
+    }, [modules]);
 
-    const [modules, setModules] = useState(newModules);
 
-    const [selectedModule, setSelectedModule] = useState(-1);
     const onDragEnd = DragDrop([subjects], setSubjects, modules, setModules);
     const { addSubject, removeSubject, removeConnection } = create5Functions(
         subjects,
@@ -79,11 +87,13 @@ const Create5: React.FC<Create5Props> = ({
                         <DragDropContext onDragEnd={onDragEnd}>
                             <ConnectionSection
                                 cards={modules}
+                                setCards={setModules}
                                 selectedCard={selectedModule}
                                 removeConnection={removeConnection}
                                 unselectedMessage="Selecione um módulo"
                                 noCardMessage="Insira uma matéria"
                                 title="Matérias"
+                                withNumber
                             />
                             <div className="creation-container">
                                 <div className="creation-header">
@@ -93,8 +103,10 @@ const Create5: React.FC<Create5Props> = ({
                                 <CreateDraggableSection
                                     cards={subjects}
                                     addCard={addSubject}
+                                    setCards={setSubjects}
                                     removeCard={removeSubject}
                                     placeholder="Nova Matéria"
+                                    withNumber
                                 />
                             </div>
                         </DragDropContext>

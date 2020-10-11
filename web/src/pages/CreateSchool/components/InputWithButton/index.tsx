@@ -29,6 +29,7 @@ const InputWithButton:React.FC<InputWithButtonProps> = ({handleNew, placeholder,
                 value={name} 
                 onChange={e => setName(e.target.value)}
                 onKeyDown={handleKeyDown}
+                maxLength={14}
             />
             <button onClick={()=> {handleNew(name); setName('')}}>+</button>
         </div>

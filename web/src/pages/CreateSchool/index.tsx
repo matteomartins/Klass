@@ -35,6 +35,9 @@ function CreateSchool() {
     const [classes, setClasses] = useState([]);
 
     async function handleCreate() {
+
+        console.log(modules);
+
         const createSchoolRes = await api.post('/schools', {
             name: schoolName, 
             description: schoolDescription, 
@@ -47,7 +50,6 @@ function CreateSchool() {
         console.log(school_id);
 
         turns.forEach(async (turn:any) => {
-            console.log(turn);
             const start = turn.content.schedule.split(' às ')[0];
             const end = turn.content.schedule.split(' às ')[1];
             const newIntervals:any = [];
@@ -56,7 +58,7 @@ function CreateSchool() {
                 const endInterval = title.split(' às ')[1];
                 newIntervals.push({start:startInterval, end: endInterval});
             })
-            const createTurnsRes = await api.post(`/schools/${school_id}/turns`, {
+            await api.post(`/schools/${school_id}/turns`, {
                 name: turn.title,
                 start,
                 end, 
@@ -64,8 +66,27 @@ function CreateSchool() {
                 week_days: turn.content.days,
                 intervals: newIntervals,
             });
-            console.log(createTurnsRes.data);
-        })
+        });
+
+        courses.forEach(async (course:any) => {
+            const name = course.title;
+            const modules:any = [];
+
+            course.content.forEach((module: any) => {
+                modules.push(module.title);
+            });
+
+            await api.post(`/schools/${school_id}/courses`, {
+                name,
+                modules
+            })
+        });
+
+
+        subjects.forEach(async (subject:any) => {
+
+        });
+
 
     }
 

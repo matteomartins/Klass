@@ -7,20 +7,24 @@ import InfoCard from "../InfoCard";
 
 interface ConnectionSectionProps {
     cards: Array<CardProps>;
+    setCards?: Function;
     selectedCard: number;
     removeConnection: Function;
     unselectedMessage: string;
     noCardMessage: string;
     title: string;
+    withNumber?: boolean;
 }
 
 const ConnectionSection: React.FC<ConnectionSectionProps> = ({
     cards,
+    setCards,
     selectedCard,
     removeConnection,
     unselectedMessage,
     noCardMessage,
     title,
+    withNumber
 }) => {
     if (selectedCard === -1) {
         return (
@@ -35,6 +39,18 @@ const ConnectionSection: React.FC<ConnectionSectionProps> = ({
             </div>
         );
     }
+
+    function handleChange(value: number, id: string) {
+        if(!setCards) return;
+        console.log(cards);
+        let newCards = cards;
+        const card = newCards[selectedCard].content.find((element:any) => element.id === id);
+        const cardInd = newCards[selectedCard].content.indexOf(card);
+        newCards[selectedCard].content[cardInd].content = value;
+        console.log(newCards);
+        setCards([...newCards]);
+    }
+
     return (
         <div className="creation-container">
             <div className="creation-header">
@@ -63,14 +79,26 @@ const ConnectionSection: React.FC<ConnectionSectionProps> = ({
                                     } else {
                                         return cards[
                                             selectedCard
-                                        ].content.map(({ id, title }: any) => (
-                                            <InfoCard
-                                                key={id}
-                                                handleDelete={removeConnection}
-                                                id={id}
-                                                title={title}
-                                            />
-                                        ));
+                                        ].content.map(({ id, title, content }: any) => {
+                                            if(withNumber) return (
+                                                <InfoCard
+                                                    key={id}
+                                                    handleDelete={removeConnection}
+                                                    id={id}
+                                                    title={title}
+                                                    numContent={content || 1}
+                                                    setNumContent={handleChange}
+                                                />
+                                            )
+                                            else return (
+                                                <InfoCard
+                                                    key={id}
+                                                    handleDelete={removeConnection}
+                                                    id={id}
+                                                    title={title}
+                                                />
+                                            )
+                                        });
                                     }
                                 })()}
                             </div>

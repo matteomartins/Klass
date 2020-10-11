@@ -10,12 +10,6 @@ class School extends Model {
   static get primaryKey() {
     return "id";
   }
-  static get createdAtColumn() {
-    return null;
-  }
-  static get updatedAtColumn() {
-    return null;
-  }
 
   turns(){
     return this.hasMany('App/Models/Turn');
