@@ -1,12 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { KaUser } from "../../assets/icons";
 
 import "./styles.css";
 import TruncatedContainer from "../../components/TruncatedContainer";
 import BackButton from "../../components/BackButton";
+import api from "../../services/api";
 
 function Profile() {
+    const [username, setUsername] = useState('');
+    const [birthDate, setBirthDate] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    useEffect(() => {
+        (async()=> {
+            const {data}: any = await api.get('/users');
+            console.log(data.user.user);
+            setUsername(data.user.name);
+            setBirthDate(data.user.birth_date);
+            setEmail(data.user.email);
+        })()
+    }, [])
     return (
         <div className="main-profile">
             <BackButton to="/home" />
@@ -22,15 +37,15 @@ function Profile() {
                                     />
                                 </div>
                                 <a href="/">Mudar Foto</a>
-                                <h1>Claudio da Silva Peixoto</h1>
+                                <h1>{username}</h1>
                                 <div className="input-container">
                                     <div className="input-items">
                                         <p>Data de nasc.</p>
-                                        <input value="15/05/2002" />
+                                        <input value={birthDate} />
                                     </div>
                                     <div className="input-items">
                                         <p>Email</p>
-                                        <input value="claudio@gmail.com" />
+                                        <input value={email} />
                                     </div>
                                     <div className="input-items">
                                         <p>Senha</p>

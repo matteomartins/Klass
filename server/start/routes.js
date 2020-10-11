@@ -30,10 +30,10 @@ Route.resource("/schools", "SchoolController").except(["store", "update"]).middl
 
 //Courses
 Route.post('/schools/:id_school/courses', 'CourseController.store').validator('Course').middleware(['VerifyUserAndSchool']);
-Route.delete('/schools/:id_school/courses/:id_course', 'CourseController.destroy').middleware(['VerifyUserAndSchool']);
-Route.get('/schools/:id_school/courses/:id_course', 'CourseController.show').middleware(['VerifyUserAndSchool']);
-Route.get('/schools/:id_school/courses', 'CourseController.index').middleware(['VerifyUserAndSchool']);
-Route.put('/schools/:id_school/courses/:id_course', 'CourseController.update').validator('Course').middleware(['VerifyUserAndSchool']);
+Route.delete('/schools/:id_school/courses/:id', 'CourseController.destroy').middleware(['VerifyUserAndSchool']);
+Route.get('/schools/:id_school/courses/:id', 'CourseController.index').middleware(['VerifyUserAndSchool']);
+Route.get('/schools/:id_school/courses', 'CourseController.show').middleware(['VerifyUserAndSchool']);
+Route.put('/schools/:id_school/courses/:id', 'CourseController.update').validator('Course').middleware(['VerifyUserAndSchool']);
 
 //Turns
 Route.post('/schools/:id_school/turns', 'TurnController.store').validator('Turn').middleware(['VerifyUserAndSchool']);

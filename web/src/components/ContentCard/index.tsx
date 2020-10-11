@@ -10,6 +10,7 @@ interface ContentCardProps extends React.HTMLAttributes<HTMLDivElement> {
     to?: string;
     small?: boolean;
     rounded?: boolean;
+    img?: string;
 }
 
 const ContentCard: React.FC<ContentCardProps> = ({
@@ -19,6 +20,7 @@ const ContentCard: React.FC<ContentCardProps> = ({
     small,
     rounded,
     to,
+    img,
     ...rest
 }) => {
     const ContentOfCard = (element:any) => {
@@ -38,13 +40,14 @@ const ContentCard: React.FC<ContentCardProps> = ({
 
     return (
         <div
-            className={`${small ? "small-" : ""}content-card-container ${
-                rounded ? "rounded" : ""
-            }`}
+            className={`${small ? "small-" : ""}content-card-container ${rounded ? "rounded" : ""}`}
             {...rest}
         >
             <ContentOfCard>
-                <h1 style={{ background: color }}>{title}</h1>
+                {(()=>{
+                    if(img) return <img src={img} onError={() => <h1 style={{ background: color }}>{title}</h1>} alt="imagem" />
+                    else return <h1 style={{ background: color }}>{title}</h1>
+                })()}
                 <span>{text}</span>
             </ContentOfCard>
         </div>

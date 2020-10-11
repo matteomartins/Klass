@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 import "./styles.css";
 import { Link } from "react-router-dom";
@@ -6,6 +6,7 @@ import { KaClose } from "../../assets/icons";
 import { useTheme } from "../../context/Theme";
 import { CSSTransition } from "react-transition-group";
 import UserCard from "../UserCard";
+import { Context } from "../../context/AuthContext";
 
 interface MenuProps {
     active: boolean;
@@ -14,6 +15,7 @@ interface MenuProps {
 
 const Menu: React.FC<MenuProps> = ({ active, setActive }) => {
     const { theme, setTheme } = useTheme();
+    const { handleLogout } = useContext(Context);
     const [delayedActive, setDelayedActive] = useState(false);
 
     useEffect(() => {
@@ -89,9 +91,9 @@ const Menu: React.FC<MenuProps> = ({ active, setActive }) => {
                             <br />
                             <br />
                             <li>
-                                <Link to="/">
+                                <a onClick={ handleLogout } href="#" >
                                     <b>Sair</b>
-                                </Link>
+                                </a>
                             </li>
                         </ul>
                         <span>

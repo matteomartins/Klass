@@ -9,7 +9,9 @@ class SessionController {
 
         const { token } = await auth.attempt(email, password);
 
-        return { token }
+        const data = await User.query().where({email}).fetch();
+        
+        return { token, name: data.rows[0].$attributes.name }
     }
 }
 
