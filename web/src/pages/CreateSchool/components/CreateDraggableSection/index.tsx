@@ -29,7 +29,6 @@ const CreateDraggableSection: React.FC<CreateDraggableSectionProps> = ({
         const card = newCards.find((element:any) => element.id === id);
         const cardInd = newCards.indexOf(card);
         newCards[cardInd].content = value;
-        console.log(newCards);
         setCards([...newCards]);
     }
 

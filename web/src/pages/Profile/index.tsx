@@ -16,7 +16,6 @@ function Profile() {
     useEffect(() => {
         (async()=> {
             const {data}: any = await api.get('/users');
-            console.log(data.user.user);
             setUsername(data.user.name);
             setBirthDate(data.user.birth_date);
             setEmail(data.user.email);

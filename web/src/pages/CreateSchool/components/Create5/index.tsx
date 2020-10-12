@@ -31,27 +31,22 @@ const Create5: React.FC<Create5Props> = ({
 }) => {
     const newModules: Array<ModuleProps> = [];
 
-    const [modules, setModules] = useState(newModules);
 
     const [selectedModule, setSelectedModule] = useState(-1);
 
     useEffect(() => {
-        courses.forEach(({ title, content }) => {
-            content.forEach((module) => {
+        courses.forEach(({ title, content }, ind) => {
+            content.forEach((module, contInd) => {
                 newModules.push({
                     id: module.id,
                     title: `${module.title} ${title}`,
-                    content: [],
+                    content: courses[ind].content[contInd]?.content || [],
                 });
             });
         });
-        if(selectedModule === -1) return;
-        let newCourses = courses;
-        newCourses[selectedModule].content = newModules;
-        console.log(courses);
-        console.log(newCourses);
-        setCourses([...newCourses]);
-    }, [modules]);
+    }, []);
+    
+    const [modules, setModules] = useState(newModules);
 
 
     const onDragEnd = DragDrop([subjects], setSubjects, modules, setModules);

@@ -24,7 +24,6 @@ function Grade() {
             if(!newModuleId || newModuleId === null) return history.push('/home');
             const newSubjects = await api.get(`/schools/${id}/subjects`);
             setModuleId(newModuleId);
-            console.log(newSubjects.data);
             setSubjects(newSubjects.data.subjects);
         })()
     }, [])

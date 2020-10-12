@@ -42,12 +42,10 @@ const ConnectionSection: React.FC<ConnectionSectionProps> = ({
 
     function handleChange(value: number, id: string) {
         if(!setCards) return;
-        console.log(cards);
         let newCards = cards;
         const card = newCards[selectedCard].content.find((element:any) => element.id === id);
         const cardInd = newCards[selectedCard].content.indexOf(card);
         newCards[selectedCard].content[cardInd].content = value;
-        console.log(newCards);
         setCards([...newCards]);
     }
 

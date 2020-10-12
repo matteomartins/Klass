@@ -36,8 +36,6 @@ function CreateSchool() {
 
     async function handleCreate() {
 
-        console.log(modules);
-
         const createSchoolRes = await api.post('/schools', {
             name: schoolName, 
             description: schoolDescription, 
@@ -47,7 +45,6 @@ function CreateSchool() {
 
         const school_id = createSchoolRes.data.school_id;
         if(!school_id) alert.error("Impossível criar escola. Tente novamente mais tarde.");
-        console.log(school_id);
 
         turns.forEach(async (turn:any) => {
             const start = turn.content.schedule.split(' às ')[0];
