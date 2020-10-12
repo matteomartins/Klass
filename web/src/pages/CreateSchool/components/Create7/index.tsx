@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
-import { KaArrow } from "../../../../assets/icons";
-import { ClassProps } from "../../../../utils/CommonInterfaces";
+import { ClassProps, ModuleProps, TurnProps } from "../../../../utils/CommonInterfaces";
 import CreateCardSection from "../CreateCardSection";
 
 import "./styles.css";
@@ -11,9 +10,11 @@ import TruncatedContainer from "../../../../components/TruncatedContainer";
 interface Create6Props {
     classes: Array<ClassProps>;
     setClasses: Function;
+    turns: Array<TurnProps>;
+    modules: Array<ModuleProps>;
 }
 
-const Create6: React.FC<Create6Props> = ({ classes, setClasses }) => {
+const Create6: React.FC<Create6Props> = ({ classes, setClasses, turns, modules }) => {
     const [selectedClass, setSelectedClass] = useState(-1);
 
     function removeClass(name: string) {
@@ -46,7 +47,6 @@ const Create6: React.FC<Create6Props> = ({ classes, setClasses }) => {
                         <div className="creation-container">
                             <div className="creation-header">
                                 <h1>Turmas</h1>
-                                <KaArrow size={18} />
                             </div>
                             <CreateCardSection
                                 cards={classes}
@@ -60,9 +60,14 @@ const Create6: React.FC<Create6Props> = ({ classes, setClasses }) => {
                         <div className="creation-container">
                             <div className="creation-header">
                                 <h1>Informações</h1>
-                                <KaArrow size={18} />
                             </div>
-                            <ClassInfoContainer selectedClass={selectedClass} />
+                            <ClassInfoContainer 
+                                turns={turns} 
+                                modules={modules} 
+                                classes={classes}
+                                setClasses={setClasses}
+                                selectedClass={selectedClass} 
+                            />
                         </div>
                     </div>
                 </div>

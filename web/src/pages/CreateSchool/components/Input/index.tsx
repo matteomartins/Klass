@@ -12,7 +12,25 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 const Input: React.FC<InputProps> = ({ name, placeholder, mask="", ...rest }) => {
     return (
         <div className="creation-input">
-            <InputMask mask={mask} type="text" placeholder={placeholder} name={name} {...rest} />
+            {(() => {
+                if (mask === '') return (
+                    <input 
+                        type="text" 
+                        placeholder={placeholder} 
+                        name={name} 
+                        {...rest} 
+                    />
+                )
+                else return (
+                    <InputMask 
+                        mask={mask} 
+                        type="text" 
+                        placeholder={placeholder} 
+                        name={name} 
+                        {...rest} 
+                    />
+                )
+            })()}
         </div>
     );
 };

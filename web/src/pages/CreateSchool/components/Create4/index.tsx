@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { DragDropContext } from "react-beautiful-dnd";
 
-import { KaArrow } from "../../../../assets/icons";
 import DragDrop from "../../../../utils/dragFunctions";
 import { CourseProps, ModuleProps } from "../../../../utils/CommonInterfaces";
 import { create4Functions } from "../../../../utils/create4Functions";
@@ -54,7 +53,6 @@ const Create4: React.FC<Create4Props> = ({
                         <div className="creation-container">
                             <div className="creation-header">
                                 <h1>Cursos</h1>
-                                <KaArrow size={18} />
                             </div>
                             <CreateCardSection
                                 cards={courses}
@@ -77,7 +75,6 @@ const Create4: React.FC<Create4Props> = ({
                             <div className="creation-container">
                                 <div className="creation-header">
                                     <h1>Módulos</h1>
-                                    <KaArrow size={18} />
                                 </div>
                                 <CreateDraggableSection
                                     cards={modules}

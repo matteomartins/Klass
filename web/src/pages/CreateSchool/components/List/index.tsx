@@ -25,7 +25,7 @@ const List:React.FC<ListProps> = ({schedule = '', duration = '', intervals = []}
         if (hours.toString().length === 0) hours = `00`;
         else if (hours.toString().length === 1) hours = `0${hours}`;
         let minutes = (time % 60).toString();
-        if(+minutes == 0) minutes = "00";
+        if(+minutes === 0) minutes = "00";
         return hours + ":" + minutes;
     }
 

@@ -1,7 +1,6 @@
 import React from "react";
 import { Droppable } from "react-beautiful-dnd";
 
-import { KaArrow } from "../../../../assets/icons";
 import { CardProps } from "../../../../utils/CommonInterfaces";
 import InfoCard from "../InfoCard";
 
@@ -31,7 +30,6 @@ const ConnectionSection: React.FC<ConnectionSectionProps> = ({
             <div className="creation-container">
                 <div className="creation-header">
                     <h1>Conecte</h1>
-                    <KaArrow size={18} />
                 </div>
                 <div className="creation-content">
                     <p>{unselectedMessage}</p>
@@ -53,7 +51,6 @@ const ConnectionSection: React.FC<ConnectionSectionProps> = ({
         <div className="creation-container">
             <div className="creation-header">
                 <h1>Conecte</h1>
-                <KaArrow size={18} />
             </div>
             <div className="creation-content">
                 <h2>{cards[selectedCard].title}</h2>

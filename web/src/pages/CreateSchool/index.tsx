@@ -84,6 +84,13 @@ function CreateSchool() {
 
         });
 
+        teachers.forEach(async (teacher:any) => {
+
+        });
+
+        classes.forEach(async (classData:any) => {
+            
+        });
 
     }
 
@@ -130,7 +137,12 @@ function CreateSchool() {
     );
 
     const newCreate7 = () => (
-        <Create7 classes={classes} setClasses={setClasses} />
+        <Create7 
+            classes={classes} 
+            setClasses={setClasses} 
+            turns={turns}
+            modules={modules}
+        />
     );
 
     const screens = [

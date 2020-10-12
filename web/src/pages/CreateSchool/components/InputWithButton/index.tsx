@@ -22,15 +22,29 @@ const InputWithButton:React.FC<InputWithButtonProps> = ({handleNew, placeholder,
 
     return (
         <div className="creation-input-with-button">
-            <InputMask
-                mask={mask} 
-                type="text" 
-                placeholder={placeholder}
-                value={name} 
-                onChange={e => setName(e.target.value)}
-                onKeyDown={handleKeyDown}
-                maxLength={14}
-            />
+            {(() => {
+                if (mask === '') return (
+                    <input
+                        type="text" 
+                        placeholder={placeholder}
+                        value={name} 
+                        onChange={e => setName(e.target.value)}
+                        onKeyDown={handleKeyDown}
+                        maxLength={14}
+                    />
+                )
+                else return (
+                    <InputMask
+                        mask={mask} 
+                        type="text" 
+                        placeholder={placeholder}
+                        value={name} 
+                        onChange={e => setName(e.target.value)}
+                        onKeyDown={handleKeyDown}
+                    />
+                )
+            })()}
+
             <button onClick={()=> {handleNew(name); setName('')}}>+</button>
         </div>
     )

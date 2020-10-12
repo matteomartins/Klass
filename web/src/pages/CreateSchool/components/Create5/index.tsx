@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { DragDropContext } from "react-beautiful-dnd";
 
-import { KaArrow } from "../../../../assets/icons";
 import DragDrop from "../../../../utils/dragFunctions";
 import {
     SubjectProps,
@@ -71,7 +70,6 @@ const Create5: React.FC<Create5Props> = ({
                         <div className="creation-container">
                             <div className="creation-header">
                                 <h1>Módulos</h1>
-                                <KaArrow size={18} />
                             </div>
                             <CardSection
                                 cards={modules}
@@ -93,7 +91,6 @@ const Create5: React.FC<Create5Props> = ({
                             <div className="creation-container">
                                 <div className="creation-header">
                                     <h1>Matérias</h1>
-                                    <KaArrow size={18} />
                                 </div>
                                 <CreateDraggableSection
                                     cards={subjects}

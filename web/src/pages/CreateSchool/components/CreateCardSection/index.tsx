@@ -29,6 +29,7 @@ const CreateCardSection: React.FC<CreateCardSectionProps> = ({
                 <div className="creation-cards">
                     {cards.map(({ id, title }, index) => (
                         <InfoCardButton
+                            key={index}
                             index={index}
                             handleDelete={removeCard}
                             id={id}
