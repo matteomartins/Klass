@@ -79,16 +79,16 @@ class SubjectController {
 
         setOfDisciplines.rows.map(({ module_id, total_classes }) => {
           const module = {
-            module_id: module_id,
-            total_classes: total_classes,
+            module_id,
+            total_classes,
           };
           modules.push(module);
         });
 
         const subject = {
-          name: name,
-          abbreviation: abbreviation,
-          modules: modules,
+          id,
+          name,
+          modules,
         };
         subjects.push(subject);
       })

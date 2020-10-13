@@ -33,6 +33,12 @@ const Create6: React.FC<Create6Props> = ({
         setSelectedTeacher
     );
 
+    function changeEmail(value: string) {
+        let newTeachers = teachers;
+        newTeachers[selectedTeacher].email = value;
+        setTeachers([...newTeachers]);
+    }
+
     return (
         <>
             <TruncatedContainer
@@ -63,6 +69,8 @@ const Create6: React.FC<Create6Props> = ({
                                 unselectedMessage="Selecione um professor"
                                 noCardMessage="Insira uma matéria"
                                 title="Matérias"
+                                email={selectedTeacher !== -1?teachers[selectedTeacher].email:undefined}
+                                setEmail={changeEmail}
                             />
                             <div className="creation-container">
                                 <div className="creation-header">

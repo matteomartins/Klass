@@ -15,6 +15,7 @@ import SuccessfulCreateSchool from "./components/Successful";
 import BackButton from "../../components/BackButton";
 import api from "../../services/api";
 import { useAlert } from "react-alert";
+import { useHistory } from "react-router-dom";
 
 function CreateSchool() {
     const [activeExit, setActiveExit] = useState(false);
@@ -22,17 +23,132 @@ function CreateSchool() {
     const [step, setStep] = useState(0);
     const [mode, setMode] = useState('foward');
     const alert = useAlert();
+    const history = useHistory();
 
     const [schoolName, setSchoolName] = useState('');
     const [schoolDescription, setSchoolDescription] = useState('');
     const [schoolType, setSchoolType] = useState('');
     const [selectedImg, setSelectedImg] = useState('');
-    const [turns, setTurns] = useState([]);
-    const [courses, setCourses] = useState([]);
-    const [modules, setModules] = useState([]);
-    const [subjects, setSubjects] = useState([]);
-    const [teachers, setTeachers] = useState([]);
-    const [classes, setClasses] = useState([]);
+    const arrtype:Array<any> = [];
+    const [turns, setTurns] = useState(arrtype);
+    const [courses, setCourses] = useState(arrtype);
+    const [modules, setModules] = useState(arrtype);
+    const [subjects, setSubjects] = useState(arrtype);
+    const [teachers, setTeachers] = useState(arrtype);
+    const [classes, setClasses] = useState(arrtype);
+
+    async function createTurns(school_id: string) {
+        await Promise.all(turns.map(async (turn:any, ind) => {
+            const start = turn.content.schedule.split(' às ')[0];
+            const end = turn.content.schedule.split(' às ')[1];
+            const newIntervals:any = [];
+            turn.content.intervals.map(({title}:any)=> {
+                const startInterval = title.split(' às ')[0];
+                const endInterval = title.split(' às ')[1];
+                newIntervals.push({start:startInterval, end: endInterval});
+            })
+            const turnRes = await api.post(`/schools/${school_id}/turns`, {
+                name: turn.title,
+                start,
+                end, 
+                class_duration: turn.content.classDuration,
+                week_days: turn.content.days,
+                intervals: newIntervals,
+            });
+
+            let newTurns:any = turns;
+            const newTurn = turn;
+            newTurn.id = turnRes.data.id;
+            newTurns[ind] = newTurn;
+            setTurns([...newTurns]);
+        }));
+    }
+
+    async function createCourses(school_id: string) {
+        await Promise.all(courses.map(async (course:any, ind) => {
+            const name = course.title;
+            const modules:any = [];
+
+            course.content.forEach((module: any) => {
+                modules.push(module.title);
+            });
+
+            const courseRes = await api.post(`/schools/${school_id}/courses`, {
+                name,
+                modules
+            });
+
+            let newCourses:any = courses;
+            const newCourse = course;
+            newCourse.id = courseRes.data.course_id;
+            courseRes.data.modules.forEach(({id}:any, ind:any) => {
+                newCourse.content[ind].id = id;
+            })
+            newCourse[ind] = course;
+            setCourses([...newCourses]);
+            console.log(courses);
+        }));
+    }
+
+    async function createSubjects(school_id: string) {
+        await Promise.all(subjects.map(async (subject:any, ind) => {
+            const name = subject.title;
+            const modulesData = modules.map((moduleData:any) => { 
+                const filtro = moduleData.content.filter((subjectIn:any) => subjectIn.title === subject.title);
+                if(filtro.length > 0) return moduleData.id;
+                else return false;
+            });
+            const modulesIds:any = [];
+            modulesData.forEach((id) => {
+                if(id) modulesIds.push({module_id: id, total_classes: subject.content})
+            })
+            
+            const subjectRes = await api.post(`/schools/${school_id}/subjects`, {
+                name,
+                modules: modulesIds
+            });
+            
+            let newSubjects:any = subjects;
+            newSubjects[ind].id = subjectRes.data.id;
+            setSubjects([...newSubjects]);
+            console.log(subjects);
+        }));
+    }
+
+    async function createTeachers(school_id: string) {
+        await Promise.all(teachers.map(async (teacher:any, ind) => {
+            const name = teacher.title;
+            const email = teacher.email;
+            const priority = ind;
+            const subjects = teacher.content.map((subject:any) => subject.id);
+
+            await api.post(`/schools/${school_id}/professors`, {
+                name,
+                email,
+                priority,
+                subjects
+            });
+        }));
+    }
+
+    async function createClass(school_id: string) {
+        await Promise.all(classes.map(async (classData:any) => {
+            const name = classData.title;
+            const filteredModules:any = modules.find((moduleData:any) => moduleData.title === classData.content.module);
+            const classModuleId = filteredModules.id;
+            const filteredTurns:any = turns.find((turnData:any) => turnData.title === classData.content.turn);
+            const classTurnId = filteredTurns.id;
+
+            console.log(classModuleId);
+            console.log(classTurnId);
+
+            await api.post(`/schools/${school_id}/groups`, {
+                name,
+                module_id: classModuleId,
+                turn_id: classTurnId
+            });
+        }));
+    }
 
     async function handleCreate() {
 
@@ -46,51 +162,17 @@ function CreateSchool() {
         const school_id = createSchoolRes.data.school_id;
         if(!school_id) alert.error("Impossível criar escola. Tente novamente mais tarde.");
 
-        turns.forEach(async (turn:any) => {
-            const start = turn.content.schedule.split(' às ')[0];
-            const end = turn.content.schedule.split(' às ')[1];
-            const newIntervals:any = [];
-            turn.content.intervals.map(({title}:any)=> {
-                const startInterval = title.split(' às ')[0];
-                const endInterval = title.split(' às ')[1];
-                newIntervals.push({start:startInterval, end: endInterval});
-            })
-            await api.post(`/schools/${school_id}/turns`, {
-                name: turn.title,
-                start,
-                end, 
-                class_duration: turn.content.classDuration,
-                week_days: turn.content.days,
-                intervals: newIntervals,
+        createTurns(school_id).then(() => {
+            createCourses(school_id).then(() => {
+                createSubjects(school_id).then(() => {
+                    createTeachers(school_id).then(() => {
+                        createClass(school_id);
+                    });
+                });
             });
         });
 
-        courses.forEach(async (course:any) => {
-            const name = course.title;
-            const modules:any = [];
-
-            course.content.forEach((module: any) => {
-                modules.push(module.title);
-            });
-
-            await api.post(`/schools/${school_id}/courses`, {
-                name,
-                modules
-            })
-        });
-
-
-        subjects.forEach(async (subject:any) => {
-
-        });
-
-        teachers.forEach(async (teacher:any) => {
-
-        });
-
-        classes.forEach(async (classData:any) => {
-            
-        });
+        history.push(`/dashboard?id=${school_id}`);
 
     }
 

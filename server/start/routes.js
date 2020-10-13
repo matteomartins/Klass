@@ -73,14 +73,8 @@ Route.group(() => {
 }).middleware(["VerifyToken"]);
 
 //Invite
-Route.group(() => {
-  Route.post("professors", "InviteController.createProfessor").validator(
-    "InviteProfessor"
-  );
-  Route.post("students", "InviteController.createGroup").validator(
-    "InviteStudent"
-  );
-}).prefix("/invites/");
+Route.post("/invites/professors", "InviteController.createProfessor").validator("InviteProfessor");
+Route.post("/invites/students", "InviteController.createGroup").validator("InviteStudent");
 
 //Home
 Route.get("/home", "HomeController.index");

@@ -15,7 +15,7 @@ export function create6Functions(
                 )
             ) {
                 const newTeachers = teachers;
-                newTeachers.push({ id: name, title: name, content: [] });
+                newTeachers.push({ id: name, title: name, content: [], email: '' });
                 setTeachers([...newTeachers]);
             }
         },

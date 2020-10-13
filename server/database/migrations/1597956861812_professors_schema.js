@@ -13,7 +13,7 @@ class ProfessorsSchema extends Schema {
       table.string('name', 45).notNullable()
       table.string('email', 70).notNullable()
       table.string('titulation', 30)
-      table.integer('prority')
+      table.integer('priority')
       table.timestamps()
     })
   }

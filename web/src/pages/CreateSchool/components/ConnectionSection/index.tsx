@@ -1,5 +1,6 @@
 import React from "react";
 import { Droppable } from "react-beautiful-dnd";
+import Input from "../Input";
 
 import { CardProps } from "../../../../utils/CommonInterfaces";
 import InfoCard from "../InfoCard";
@@ -13,6 +14,8 @@ interface ConnectionSectionProps {
     noCardMessage: string;
     title: string;
     withNumber?: boolean;
+    email?: string;
+    setEmail?: Function;
 }
 
 const ConnectionSection: React.FC<ConnectionSectionProps> = ({
@@ -23,7 +26,9 @@ const ConnectionSection: React.FC<ConnectionSectionProps> = ({
     unselectedMessage,
     noCardMessage,
     title,
-    withNumber
+    withNumber,
+    email,
+    setEmail
 }) => {
     if (selectedCard === -1) {
         return (
@@ -53,6 +58,18 @@ const ConnectionSection: React.FC<ConnectionSectionProps> = ({
                 <h1>Conecte</h1>
             </div>
             <div className="creation-content">
+                {(() => {
+                    if(email !== undefined && setEmail !== undefined) return (
+                        <Input
+                            name="teacherEmail"
+                            type="email"
+                            placeholder="Email"
+                            value={email}
+                            onChange={e => setEmail(e.target.value)}
+                        />
+                    )
+                })()}
+
                 <h2>{cards[selectedCard].title}</h2>
                 <div className="scroll-view">
                     <Droppable
