@@ -86,7 +86,6 @@ function CreateSchool() {
             })
             newCourse[ind] = course;
             setCourses([...newCourses]);
-            console.log(courses);
         }));
     }
 
@@ -111,7 +110,6 @@ function CreateSchool() {
             let newSubjects:any = subjects;
             newSubjects[ind].id = subjectRes.data.id;
             setSubjects([...newSubjects]);
-            console.log(subjects);
         }));
     }
 
@@ -138,9 +136,6 @@ function CreateSchool() {
             const classModuleId = filteredModules.id;
             const filteredTurns:any = turns.find((turnData:any) => turnData.title === classData.content.turn);
             const classTurnId = filteredTurns.id;
-
-            console.log(classModuleId);
-            console.log(classTurnId);
 
             await api.post(`/schools/${school_id}/groups`, {
                 name,

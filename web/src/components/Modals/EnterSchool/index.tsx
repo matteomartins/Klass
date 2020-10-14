@@ -15,9 +15,7 @@ const EnterSchool:React.FC<EnterSchoolProps> = ({active, setActive}) => {
 
     async function handleEnter() {
         const response = await api.post('/invites/students', {group_id: code});
-        console.log(response);
-
-
+        setCode('');
         setActive(false)
     }
 
