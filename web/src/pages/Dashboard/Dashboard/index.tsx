@@ -1,11 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Bar, HorizontalBar, Pie } from 'react-chartjs-2';
 
 import "./styles.css";
+import api from "../../../services/api";
+
 
 function Dashboard(){
     const history = useHistory();
+    const dashboardBlank:any = {};
+    const [dashboardData, setDashboardData] = useState(dashboardBlank);
+
+    useEffect(() => {
+        (async () => {
+            const search = window.location.search;
+            const params = new URLSearchParams(search);
+            const id = params.get('id');
+            if(!id) history.push('/home');
+            try {
+                const dashboard =  await api.get(`/schools/${id}/dashboard`);
+                setDashboardData(dashboard.data.dashboard);
+            }
+            catch {
+                history.push('/home');
+            }
+        })()
+    }, []);
 
     const data = {
         labels: ['jan', 'fev', 'mar',
@@ -31,6 +51,7 @@ function Dashboard(){
           }
         ]
     }
+
     const dataPie = {
         labels: ['Manhã(h) ', 'Integral(h) ', 'Noite(h) '],
         datasets: [
@@ -53,19 +74,19 @@ function Dashboard(){
                         <div className="left">
                             <div className="section" onClick={() => history.push("/dashboard-schedule")}>
                                 <h1 className="title">Horas Semanais</h1>
-                                <p className="dados">40h</p>
+                                <p className="dados">{dashboardData.semanal_hours}h</p>
                             </div>
                             <div className="section" onClick={() => history.push("/dashboard-turns")}>
                                 <h1 className="title">Turnos</h1>
-                                <p className="dados">2</p>
+                                <p className="dados">{dashboardData.turns_number}</p>
                             </div>
                             <div className="section" onClick={() => history.push("/dashboard-courses")}>
                                 <h1 className="title">Cursos</h1>
-                                <p className="dados">2</p>
+                                <p className="dados">{dashboardData.courses_number}</p>
                             </div>
                             <div className="section" onClick={() => history.push("/dashboard-modules")}>
                                 <h1 className="title">Módulos</h1>
-                                <p className="dados">6</p>
+                                <p className="dados">{dashboardData.modules_number}</p>
                             </div>    
                         </div>
                         <div className="center">
@@ -100,19 +121,19 @@ function Dashboard(){
                         <div className="right">
                             <div className="section" onClick={() => history.push("/dashboard-classes")}>
                                 <h1 className="title">Turmas</h1>
-                                <p className="dados">12</p>
+                                <p className="dados">{dashboardData.classes_number}</p>
                             </div>
                             <div className="section" onClick={() => history.push("/dashboard-subjects")}>
                                 <h1 className="title">Discplinas</h1>
-                                <p className="dados">36</p>
+                                <p className="dados">{dashboardData.subjects_number}</p>
                             </div>
                             <div className="section" onClick={() => history.push("/dashboard-teachers")}>
                                 <h1 className="title">Docentes</h1>
-                                <p className="dados">54</p>
+                                <p className="dados">{dashboardData.professors_number}</p>
                             </div>
                             <div className="section" onClick={() => history.push("/dashboard-reports")}>
                                 <h1 className="title">Relatórios</h1>
-                                <p className="dados">45</p>
+                                <p className="dados">{dashboardData.reports_number}</p>
                             </div>
                         </div>
                     </div>

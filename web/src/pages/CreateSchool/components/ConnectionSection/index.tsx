@@ -1,7 +1,7 @@
 import React from "react";
 import { Droppable } from "react-beautiful-dnd";
+import Input from "../Input";
 
-import { KaArrow } from "../../../../assets/icons";
 import { CardProps } from "../../../../utils/CommonInterfaces";
 import InfoCard from "../InfoCard";
 
@@ -14,6 +14,8 @@ interface ConnectionSectionProps {
     noCardMessage: string;
     title: string;
     withNumber?: boolean;
+    email?: string;
+    setEmail?: Function;
 }
 
 const ConnectionSection: React.FC<ConnectionSectionProps> = ({
@@ -24,14 +26,15 @@ const ConnectionSection: React.FC<ConnectionSectionProps> = ({
     unselectedMessage,
     noCardMessage,
     title,
-    withNumber
+    withNumber,
+    email,
+    setEmail
 }) => {
     if (selectedCard === -1) {
         return (
             <div className="creation-container">
                 <div className="creation-header">
                     <h1>Conecte</h1>
-                    <KaArrow size={18} />
                 </div>
                 <div className="creation-content">
                     <p>{unselectedMessage}</p>
@@ -42,12 +45,10 @@ const ConnectionSection: React.FC<ConnectionSectionProps> = ({
 
     function handleChange(value: number, id: string) {
         if(!setCards) return;
-        console.log(cards);
         let newCards = cards;
         const card = newCards[selectedCard].content.find((element:any) => element.id === id);
         const cardInd = newCards[selectedCard].content.indexOf(card);
         newCards[selectedCard].content[cardInd].content = value;
-        console.log(newCards);
         setCards([...newCards]);
     }
 
@@ -55,9 +56,20 @@ const ConnectionSection: React.FC<ConnectionSectionProps> = ({
         <div className="creation-container">
             <div className="creation-header">
                 <h1>Conecte</h1>
-                <KaArrow size={18} />
             </div>
             <div className="creation-content">
+                {(() => {
+                    if(email !== undefined && setEmail !== undefined) return (
+                        <Input
+                            name="teacherEmail"
+                            type="email"
+                            placeholder="Email"
+                            value={email}
+                            onChange={e => setEmail(e.target.value)}
+                        />
+                    )
+                })()}
+
                 <h2>{cards[selectedCard].title}</h2>
                 <div className="scroll-view">
                     <Droppable

@@ -1,4 +1,4 @@
-import React, { FormEvent, useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 import "./styles.css";
@@ -27,7 +27,6 @@ function Login() {
             handleLogin()
             history.push('/home');
           }).catch(error => {
-            console.log(error);
             if(!error.response) alert.error("Impossível conectar ao servidor!");
             else if (!error.response.data[0]) alert.error("Preencha os campos!");
             else alert.error(error.response.data[0].message);

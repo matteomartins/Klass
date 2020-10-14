@@ -36,6 +36,7 @@ export interface TeacherProps {
     id: string;
     title: string;
     content: Array<SubjectProps>;
+    email: string;
 }
 
 export interface ClassProps {

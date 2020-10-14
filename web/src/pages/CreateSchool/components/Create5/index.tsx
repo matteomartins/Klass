@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { DragDropContext } from "react-beautiful-dnd";
 
-import { KaArrow } from "../../../../assets/icons";
 import DragDrop from "../../../../utils/dragFunctions";
 import {
     SubjectProps,
@@ -31,27 +30,22 @@ const Create5: React.FC<Create5Props> = ({
 }) => {
     const newModules: Array<ModuleProps> = [];
 
-    const [modules, setModules] = useState(newModules);
 
     const [selectedModule, setSelectedModule] = useState(-1);
 
     useEffect(() => {
-        courses.forEach(({ title, content }) => {
-            content.forEach((module) => {
+        courses.forEach(({ title, content }, ind) => {
+            content.forEach((module, contInd) => {
                 newModules.push({
                     id: module.id,
                     title: `${module.title} ${title}`,
-                    content: [],
+                    content: courses[ind].content[contInd]?.content || [],
                 });
             });
         });
-        if(selectedModule === -1) return;
-        let newCourses = courses;
-        newCourses[selectedModule].content = newModules;
-        console.log(courses);
-        console.log(newCourses);
-        setCourses([...newCourses]);
-    }, [modules]);
+    }, []);
+    
+    const [modules, setModules] = useState(newModules);
 
 
     const onDragEnd = DragDrop([subjects], setSubjects, modules, setModules);
@@ -76,7 +70,6 @@ const Create5: React.FC<Create5Props> = ({
                         <div className="creation-container">
                             <div className="creation-header">
                                 <h1>Módulos</h1>
-                                <KaArrow size={18} />
                             </div>
                             <CardSection
                                 cards={modules}
@@ -98,7 +91,6 @@ const Create5: React.FC<Create5Props> = ({
                             <div className="creation-container">
                                 <div className="creation-header">
                                     <h1>Matérias</h1>
-                                    <KaArrow size={18} />
                                 </div>
                                 <CreateDraggableSection
                                     cards={subjects}

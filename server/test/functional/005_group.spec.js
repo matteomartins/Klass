@@ -11,29 +11,44 @@ const User = use('App/Models/User');
 
 const Chance = use('chance').Chance()
 
+
+let responseSchool;
+let user;
+
 test('validate create group', async ({ assert, client }) => {
+  await Factory.model('App/Models/User').create();
 
   const user = await User.find(1);
 
+  const school = {
+    "name": Chance.username(),
+    "description": Chance.string({ length: 20 }),
+    "type": Chance.string(),
+    "icon": Chance.avatar({ protocol: 'https', fileExtension: 'jpg' })
+  }
+
+  responseSchool = await client.post('/schools').loginVia(user, 'jwt').send(school).end();
+
   const group = {
-    "name": "3 ANO A",
-    "module_id": 5,
-    "students_quant": 50
+    "name":"9 Ano C",
+    "module_id": 1,
+    "turn_id": 1
   };
 
-  const response = await client.post(`/schools/1/classes`).loginVia(user, 'jwt').header('accept', 'application/json').send(group).end();
+  const response = await client.post(`/schools/${responseSchool.body.school_id}/groups`).loginVia(user, 'jwt').header('accept', 'application/json').send(group).end();
+  
   response.assertStatus(200);
-  assert.exists(response.body.class);
+  assert.exists(response.body.id);
 });
 
-test('validate create class validator', async ({ assert, client }) => {
+test('validate create group validator', async ({ assert, client }) => {
   const group = {
     "nme": "3 ANO A",
     "module_id": 5,
     "students_quant": 50
 }
 
-  const response = await client.post('/schools/1/classes').header('accept', 'application/json').send(group).end();
+  const response = await client.post(`/schools/${responseSchool.body.school_id}/groups`).loginVia(user, 'jwt').header('accept', 'application/json').send(group).end();
   response.assertStatus(400);
   assert.equal(JSON.parse(response.text)[0].message, "Você deve inserir um nome certo.");
 });
@@ -41,7 +56,7 @@ test('validate create class validator', async ({ assert, client }) => {
 test('validate list class', async ({ assert, client }) => {
   const user = await User.find(1);
 
-  const response = await client.get('/schools/1/classes').loginVia(user, 'jwt').end();
+  const response = await client.get(`/schools/${responseSchool.body.school_id}/groups`).loginVia(user, 'jwt').end();
 
   response.assertStatus(200);
   assert.exists(response.body.class);
@@ -50,7 +65,7 @@ test('validate list class', async ({ assert, client }) => {
 test('validate list one class', async ({ assert, client }) => {
   const user = await User.find(1);
 
-  const response = await client.get('/schools/1/classes/1').loginVia(user, 'jwt').end();
+  const response = await client.get(`/schools/${responseSchool.body.school_id}/groups/1`).loginVia(user, 'jwt').end();
 
   response.assertStatus(200);
   assert.exists(response.body.turn);
@@ -65,14 +80,14 @@ test('validate edit class', async ({ assert, client }) => {
 
   const user = await User.find(1);
 
-  const response = await client.put('schools/1/classes/1').loginVia(user, 'jwt').send(newTurnData).end();
+  const response = await client.put(`schools/${responseSchool.body.school_id}/groups/1`).loginVia(user, 'jwt').send(newTurnData).end();
   response.assertStatus(204);
 });
 
 test('validate delete class', async ({ assert, client }) => {
   const user = await User.find(1);
 
-  const response = await client.delete('/schools/1/classes/1').loginVia(user, 'jwt').end();
+  const response = await client.delete(`/schools/${responseSchool.body.school_id}/groups/1`).loginVia(user, 'jwt').end();
 
   response.assertStatus(200);
 });

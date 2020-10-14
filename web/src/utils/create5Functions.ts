@@ -18,7 +18,7 @@ export function create5Functions(
             ) {
                 setSubjects([
                     ...subjects,
-                    { id: name, title: name, content: [] },
+                    { id: name, title: name, content: 1 },
                 ]);
             }
         },

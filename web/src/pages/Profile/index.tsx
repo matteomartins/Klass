@@ -11,12 +11,11 @@ function Profile() {
     const [username, setUsername] = useState('');
     const [birthDate, setBirthDate] = useState('');
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [password, setPassword] = useState('***********');
 
     useEffect(() => {
         (async()=> {
             const {data}: any = await api.get('/users');
-            console.log(data.user.user);
             setUsername(data.user.name);
             setBirthDate(data.user.birth_date);
             setEmail(data.user.email);
@@ -49,7 +48,7 @@ function Profile() {
                                     </div>
                                     <div className="input-items">
                                         <p>Senha</p>
-                                        <input value="*************" />
+                                        <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
                                     </div>
                                 </div>
                             </div>

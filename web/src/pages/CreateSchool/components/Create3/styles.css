@@ -18,14 +18,14 @@
 .creation-group .creation-container .creation-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     color: var(--color-text-secondary-opacity);
     width: 20rem;
     margin: 1.5rem 1rem;
 }
 
 .creation-group .creation-container .creation-header h1 {
-    text-align: left;
+    text-align: center;
     font-size: 2.2rem;
     line-height: 2.2rem;
     margin: 0;

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 import "./styles.css";
-import { KaArrow } from "../../../../assets/icons";
 import List from "../List";
 import CreateCardSection from "../CreateCardSection";
 import { create3Functions } from "../../../../utils/create3Functions";
@@ -31,7 +30,6 @@ const Create3: React.FC<Create3Props> = ({ turns, setTurns }) => {
                     <div className="creation-container">
                         <div className="creation-header">
                             <h1>Turno</h1>
-                            <KaArrow size={18} />
                         </div>
                         <CreateCardSection
                             cards={turns}
@@ -45,7 +43,6 @@ const Create3: React.FC<Create3Props> = ({ turns, setTurns }) => {
                     <div className="creation-container">
                         <div className="creation-header">
                             <h1>Horários</h1>
-                            <KaArrow size={18} />
                         </div>
                         <TurnInfoContainer
                             addInterval={addInterval}
@@ -58,7 +55,6 @@ const Create3: React.FC<Create3Props> = ({ turns, setTurns }) => {
                     <div className="creation-container">
                         <div className="creation-header">
                             <h1>Visualização</h1>
-                            <KaArrow size={18} />
                         </div>
                         <div className="creation-content">
                             <List 

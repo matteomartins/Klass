@@ -26,7 +26,7 @@ function Register() {
             localStorage.setItem('username', JSON.stringify(name));
             api.defaults.headers.Authorization = `Bearer ${token}`;
             handleLogin()
-            history.push('/home');
+            history.push('/access');
           }).catch(error => {
             if(!error.response) alert.error("Impossível conectar ao servidor!");
             else alert.error(error.response.data[0].message);

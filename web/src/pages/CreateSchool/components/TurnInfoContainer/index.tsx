@@ -53,6 +53,8 @@ const TurnInfoContainer: React.FC<TurnInfoContainerProps> = ({
             <Input 
                 name="duration"
                 type="number"
+                min={10}
+                max={360}
                 placeholder="Duração da Aula" 
                 value={turns[selectedTurn].content.classDuration || ''} 
                 onChange={e => handleChangeClassDuration(e.target.value)}  

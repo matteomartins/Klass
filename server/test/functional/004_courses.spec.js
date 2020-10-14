@@ -26,7 +26,7 @@ test('validate create course', async ({ assert, client }) => {
     "icon": Chance.avatar({ protocol: 'https', fileExtension: 'jpg' })
   }
 
-  responseSchool = await client.post('/schools').loginVia(user, 'jwt').send(school).end()
+  responseSchool = await client.post('/schools').loginVia(user, 'jwt').send(school).end();
 
   const course = {
     "name": "Ensino Médio",

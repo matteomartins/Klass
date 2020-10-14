@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { DragDropContext } from "react-beautiful-dnd";
 
-import { KaArrow } from "../../../../assets/icons";
 import DragDrop from "../../../../utils/dragFunctions";
 import { SubjectProps, TeacherProps } from "../../../../utils/CommonInterfaces";
 import { create6Functions } from "../../../../utils/create6Functions";
@@ -34,6 +33,12 @@ const Create6: React.FC<Create6Props> = ({
         setSelectedTeacher
     );
 
+    function changeEmail(value: string) {
+        let newTeachers = teachers;
+        newTeachers[selectedTeacher].email = value;
+        setTeachers([...newTeachers]);
+    }
+
     return (
         <>
             <TruncatedContainer
@@ -46,7 +51,6 @@ const Create6: React.FC<Create6Props> = ({
                         <div className="creation-container">
                             <div className="creation-header">
                                 <h1>Professores</h1>
-                                <KaArrow size={18} />
                             </div>
                             <CreateCardSection
                                 cards={teachers}
@@ -65,11 +69,12 @@ const Create6: React.FC<Create6Props> = ({
                                 unselectedMessage="Selecione um professor"
                                 noCardMessage="Insira uma matéria"
                                 title="Matérias"
+                                email={selectedTeacher !== -1?teachers[selectedTeacher].email:undefined}
+                                setEmail={changeEmail}
                             />
                             <div className="creation-container">
                                 <div className="creation-header">
                                     <h1>Matérias</h1>
-                                    <KaArrow size={18} />
                                 </div>
                                 <DraggableSection cards={subjects} />
                             </div>

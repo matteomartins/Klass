@@ -11,10 +11,6 @@ class Turn extends Model {
   school(){
     return this.belongsTo('App/Models/School');
   }
-
-  tchola(){
-    console.log('gay')
-  }
 }
 
 module.exports = Turn;
