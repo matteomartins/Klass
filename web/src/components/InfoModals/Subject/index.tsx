@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { CSSTransition } from "react-transition-group";
 import api from "../../../services/api";
+import { colors } from "../../../utils/colors";
 import ContentCard from "../../ContentCard";
 import InputOutline from "../../InputOutline";
 import "./styles.css";
@@ -45,7 +46,7 @@ const Menu: React.FC<MenuProps> = ({ active, setActive, subjectId }) => {
                                 <ContentCard
                                     title={subject.name.substr(0,3).toUpperCase()}
                                     text={subject.name}
-                                    color="#0792A9"
+                                    color={colors[12]}
                                 />
                             </div>
                             <div className="info-container">

@@ -19,7 +19,7 @@ function Dashboard(){
             if(!id) history.push('/home');
             try {
                 const dashboard =  await api.get(`/schools/${id}/dashboard`);
-                setDashboardData(dashboard.data.dashboard);
+                setDashboardData({...dashboard.data.dashboard, id});
             }
             catch {
                 history.push('/home');
@@ -72,19 +72,19 @@ function Dashboard(){
                 <div className="scroll-view">
                     <div className="dashboard-content">
                         <div className="left">
-                            <div className="section" onClick={() => history.push("/dashboard-schedule")}>
+                            <div className="section" onClick={() => history.push(`/dashboard-schedule?id=${dashboardData.id}`)}>
                                 <h1 className="title">Horas Semanais</h1>
                                 <p className="dados">{dashboardData.semanal_hours}h</p>
                             </div>
-                            <div className="section" onClick={() => history.push("/dashboard-turns")}>
+                            <div className="section" onClick={() => history.push(`/dashboard-turns?id=${dashboardData.id}`)}>
                                 <h1 className="title">Turnos</h1>
                                 <p className="dados">{dashboardData.turns_number}</p>
                             </div>
-                            <div className="section" onClick={() => history.push("/dashboard-courses")}>
+                            <div className="section" onClick={() => history.push(`/dashboard-courses?id=${dashboardData.id}`)}>
                                 <h1 className="title">Cursos</h1>
                                 <p className="dados">{dashboardData.courses_number}</p>
                             </div>
-                            <div className="section" onClick={() => history.push("/dashboard-modules")}>
+                            <div className="section" onClick={() => history.push(`/dashboard-modules?id=${dashboardData.id}`)}>
                                 <h1 className="title">Módulos</h1>
                                 <p className="dados">{dashboardData.modules_number}</p>
                             </div>    
@@ -119,19 +119,19 @@ function Dashboard(){
                             </div>
                         </div>
                         <div className="right">
-                            <div className="section" onClick={() => history.push("/dashboard-classes")}>
+                            <div className="section" onClick={() => history.push(`/dashboard-classes?id=${dashboardData.id}`)}>
                                 <h1 className="title">Turmas</h1>
                                 <p className="dados">{dashboardData.classes_number}</p>
                             </div>
-                            <div className="section" onClick={() => history.push("/dashboard-subjects")}>
+                            <div className="section" onClick={() => history.push(`/dashboard-subjects?id=${dashboardData.id}`)}>
                                 <h1 className="title">Discplinas</h1>
                                 <p className="dados">{dashboardData.subjects_number}</p>
                             </div>
-                            <div className="section" onClick={() => history.push("/dashboard-teachers")}>
+                            <div className="section" onClick={() => history.push(`/dashboard-teachers?id=${dashboardData.id}`)}>
                                 <h1 className="title">Docentes</h1>
                                 <p className="dados">{dashboardData.professors_number}</p>
                             </div>
-                            <div className="section" onClick={() => history.push("/dashboard-reports")}>
+                            <div className="section" onClick={() => history.push(`/dashboard-reports?id=${dashboardData.id}`)}>
                                 <h1 className="title">Relatórios</h1>
                                 <p className="dados">{dashboardData.reports_number}</p>
                             </div>

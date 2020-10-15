@@ -36,14 +36,14 @@
     width: 100%;
 }
 
-.classes-container .classes-cards-container a {
+.classes-container .classes-cards-container > h1 {
     color: #39729d;
     align-self: flex-start;
 }
 
 .classes-container .classes-cards-container .classes {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
     width: 100%;
     grid-gap: 1rem;
     margin: 4rem 0;
@@ -63,6 +63,6 @@
 
 @media (max-width: 360px) {
     .classes-container .classes-cards-container .classes {
-        grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
     }
 }
