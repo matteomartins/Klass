@@ -38,7 +38,7 @@ function Home() {
                             <h1>{name}</h1>
                         </Link>
                         {(() => {
-                            if(isAdm) return <Link to={`/dashboard?id=${school_id}`}><span>Ir para dashboard</span></Link>
+                            if(isAdm) return <Link to={`/dashboard?id=${school_id}`}><span style={{fontSize: 15, marginTop: 15}}>Ir para dashboard</span></Link>
                         })()}
                         <div className="classes">
                             {groups.map(({name = "", id}, ind) => (

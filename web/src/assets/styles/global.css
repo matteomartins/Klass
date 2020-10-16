@@ -175,6 +175,11 @@ textarea {
     cursor: pointer;
 }
 
+.circle-icon-container img {
+    height: 4.2rem;
+    width: 4.2rem;
+}
+
 .video {
     margin-top: 3rem;
     border-radius: 2rem;

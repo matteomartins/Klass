@@ -6,8 +6,11 @@ import "./styles.css";
 import TruncatedContainer from "../../components/TruncatedContainer";
 import BackButton from "../../components/BackButton";
 import api from "../../services/api";
+import ChangeImage from "../../components/ChangeImage";
 
 function Profile() {
+    const [active, setActive] = useState(false);
+    const [icon, setIcon] = useState('');
     const [username, setUsername] = useState('');
     const [birthDate, setBirthDate] = useState('');
     const [email, setEmail] = useState('');
@@ -19,8 +22,10 @@ function Profile() {
             setUsername(data.user.name);
             setBirthDate(data.user.birth_date);
             setEmail(data.user.email);
+            setIcon(data.user.icon);
+            localStorage.setItem('icon', data.user.icon);
         })()
-    }, [])
+    }, [active])
     return (
         <div className="main-profile">
             <BackButton to="/home" />
@@ -30,12 +35,15 @@ function Profile() {
                         <div className="profile-container">
                             <div className="info-container">
                                 <div className="user-icon">
+                                    {(() => {
+                                        if(icon !== "") return <img src={icon} alt="Imagem de Perfil" />
+                                    })()}
                                     <KaUser
                                         size={70}
                                         color="var(--color-text-primary)"
                                     />
                                 </div>
-                                <a href="/">Mudar Foto</a>
+                                <a href="#" onClick={() => setActive(true)}>Mudar Foto</a>
                                 <h1>{username}</h1>
                                 <div className="input-container">
                                     <div className="input-items">
@@ -78,6 +86,7 @@ function Profile() {
                     </div>
                 </div>
             </TruncatedContainer>
+            <ChangeImage active={active} setActive={setActive} />
         </div>
     );
 }

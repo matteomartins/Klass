@@ -1,0 +1,29 @@
+.global-change-image-modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.global-change-image-modal .change-image-content {
+    max-width: 70rem;
+    width: 90%;
+    height: 48rem;
+    border-radius: 3.4rem;
+    background-color: var(--color-background);
+    z-index: 6;
+    padding: 2rem;
+
+}
+
+.global-change-image-modal .scroll-view {
+    overflow-y: scroll;
+}
+
+.global-change-image-modal .scroll-view  img {
+    margin: 1rem;
+}

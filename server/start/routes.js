@@ -18,7 +18,7 @@ const Route = use("Route");
 
 //Users
 Route.post('/users', 'UserController.store').validator('User');
-Route.put('/users', 'UserController.update').validator('User');
+Route.put('/users', 'UserController.update');
 Route.get('/users', 'UserController.show');
 
 Route.post("/sessions", "SessionController.store");

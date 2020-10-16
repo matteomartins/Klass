@@ -32,6 +32,11 @@
     background-color: var(--color-secondary);
 }
 
+.profile-container .info-container .user-icon img {
+    height: 14rem;
+    width: 14rem;
+}
+
 .main-profile .profile-container {
     display: flex;
     align-items: center;
