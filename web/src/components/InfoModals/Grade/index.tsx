@@ -6,26 +6,30 @@ import ContentCard from "../../ContentCard";
 import InputOutline from "../../InputOutline";
 import "./styles.css";
 
-interface SubjectModalProps {
+interface GradeModalProps {
     active: boolean;
     setActive: Function;
-    subjectId?: number;
+    id?: number;
 }
 
-const SubjectModal: React.FC<SubjectModalProps> = ({ active, setActive, subjectId }) => {
+const GradeModal: React.FC<GradeModalProps> = ({ active, setActive, id }) => {
     const [delayedActive, setDelayedActive] = useState(false);
     const emptySubject:any = {name: ''};
     const [subject, setSubject] = useState(emptySubject);
 
     useEffect(() => {
         setTimeout(() => setDelayedActive(active), 300);
-        if(subjectId===0) return;
+        if(id===0) return;
         (async () => {
             const search = window.location.search;
             const params = new URLSearchParams(search);
-            const id = params.get('id');
-            const newSubject = await api.get(`/schools/${id}/subjects/${subjectId}`);
-            setSubject(newSubject.data.subject)
+            const idSchool = params.get('id');
+            const newSubject = await api.get(`/schools/${idSchool}/groups/${id}`);
+            if(!newSubject.data.groupObject[0]) {
+                setActive(false);
+                return;
+            }
+            setSubject(newSubject.data.groupObject[0]);
         })()
     }, [active]);
 
@@ -44,14 +48,14 @@ const SubjectModal: React.FC<SubjectModalProps> = ({ active, setActive, subjectI
                         <div className="subject-header">
                             <div className="card-content">
                                 <ContentCard
-                                    title={subject.name.substr(0,3).toUpperCase()}
+                                    title={subject.name.substr(0,1)+subject.name.substr(-1,1)}
                                     text={subject.name}
                                     color={colors[12]}
                                 />
                             </div>
                             <div className="info-container">
                                 <InputOutline
-                                    text="Professores:"
+                                    text="Nome:"
                                     name="prof"
                                     value="Wallace C. Andrade"
                                     disabled
@@ -82,4 +86,4 @@ const SubjectModal: React.FC<SubjectModalProps> = ({ active, setActive, subjectI
     );
 };
 
-export default SubjectModal;
+export default GradeModal;

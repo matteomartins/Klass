@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./styles.css";
 
-import Subject from "../../../components/InfoModals/Subject";
+import GradeModal from "../../../components/InfoModals/Grade";
 import ContentCard from "../../../components/ContentCard";
 import { useHistory } from "react-router-dom";
 import BackButton from "../../../components/BackButton";
@@ -10,7 +10,7 @@ import { colors, getColor } from "../../../utils/colors";
 
 function Classes() {
     const [active, setActive] = useState(false);
-    const [subjectId, setSubjectId] = useState(0);
+    const [gradeId, setGradeId] = useState(0);
     const [schoolId, setSchoolId] = useState('');
     const [turns, setTurns] = useState([]);
     const [groups, setGroups] = useState([]);
@@ -33,7 +33,7 @@ function Classes() {
 
     
     function handleClick(id:number) {
-        setSubjectId(id);
+        setGradeId(id);
         setActive(true);
     }
     
@@ -45,13 +45,13 @@ function Classes() {
                     <div className="classes-cards-container">
                         <h1>{name}</h1>
                         <div className="classes">
-                            {groups.map(({name, module_id}:any, ind)=> (
+                            {groups.map(({name, group_id}:any, ind)=> (
                                 <ContentCard
                                     key={ind}
                                     title={name.substr(0,1)+name.substr(-1,1)}
                                     text={name}
                                     color={getColor(name, ind)}
-                                    onClick={() => handleClick(module_id)}
+                                    onClick={() => handleClick(group_id)}
                                     style={{cursor: 'pointer'}}
                                     small
                                 />
@@ -68,7 +68,7 @@ function Classes() {
                     </div>
                 ))}
             </div>
-            <Subject active={active} setActive={setActive} subjectId={subjectId} />
+            <GradeModal active={active} setActive={setActive} id={gradeId} />
         </div>
     );
 }

@@ -4,6 +4,7 @@ import { Bar, HorizontalBar, Pie } from 'react-chartjs-2';
 
 import "./styles.css";
 import api from "../../../services/api";
+import BackButton from "../../../components/BackButton";
 
 
 function Dashboard(){
@@ -69,8 +70,11 @@ function Dashboard(){
 
     return(
             <div className="main-dashboard">
+                <BackButton to="/home" />
+                <h1 style={{textAlign: 'center'}}>{dashboardData.school_name}</h1>
                 <div className="scroll-view">
                     <div className="dashboard-content">
+
                         <div className="left">
                             <div className="section" onClick={() => history.push(`/dashboard-schedule?id=${dashboardData.id}`)}>
                                 <h1 className="title">Horas Semanais</h1>
