@@ -32,11 +32,14 @@ function Home() {
                 </div>
             </div>
             <div className="scroll-view">
-                {schools.map(({name, school_id, groups = []}, ind) => (
+                {schools.map(({name, isAdm, school_id, groups = []}, ind) => (
                     <div key={ind} className="school-cards-container">
                         <Link to={`/school?id=${school_id}`}>
                             <h1>{name}</h1>
                         </Link>
+                        {(() => {
+                            if(isAdm) return <Link to={`/dashboard?id=${school_id}`}><span>Ir para dashboard</span></Link>
+                        })()}
                         <div className="classes">
                             {groups.map(({name = "", id}, ind) => (
                                 <ContentCard

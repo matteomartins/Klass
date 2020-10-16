@@ -24,12 +24,12 @@ import Schedule from './pages/Schedule';
 import Courses from './pages/Dashboard/Courses';
 import Modules from './pages/Dashboard/Modules';
 import Dashboard from "./pages/Dashboard/Dashboard";
-import Page404 from "./pages/404";
 import Turns from "./pages/Dashboard/Turns";
 import Reports from "./pages/Dashboard/Reports";
 import Classes from "./pages/Dashboard/Classes";
 import Subjects from "./pages/Dashboard/Subjects";
 import FirstAccessTeacher from "./components/FirstAccessTeacher";
+import Page404 from "./pages/404";
 
 const RouteWithCalendar: React.FC<RouteProps> = ({ ...props }) => {
     return (
