@@ -16,6 +16,16 @@ class AvailableDay extends Model {
   static get updatedAtColumn() {
       return null;
   }
+
+  professor(){
+    return this.belongsTo('App/Models/Professor')
+  }
+
+  schedules(){
+    return this.hasMany('App/Models/AvailableSchedule', 'id', 'available_days_id')
+  }
+
+
 }
 
 module.exports = AvailableDay

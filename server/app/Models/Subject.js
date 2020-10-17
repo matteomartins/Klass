@@ -10,6 +10,15 @@ static get createdAtColumn() {
   static get updatedAtColumn() {
       return null;
   }
+
+  professors(){
+    return this.belongsToMany('App/Models/Professor','subject_id', 'professor_id', null, null)
+    .pivotTable('subject_professors');
+  }
+
+  classes(){
+    return this.hasMany('App/Models/Class');
+  }
 }
 
 module.exports = Subject
