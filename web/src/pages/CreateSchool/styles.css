@@ -57,6 +57,10 @@
 @media (max-width: 700px) {
     .create-school-container {
         width: 85vw;
+        justify-content: space-around;
+    }
+    .create-school-container .create-school-container {
+        height: 70vh !important;
     }
     .foward,
     .backward {
@@ -66,7 +70,7 @@
     }
     .create-school-container .progress-container {
         align-self: center;
-        margin-top: 1rem;
+        margin-top: 0rem;
     }
     .create-school-container .creation-group {
         justify-content: flex-start;

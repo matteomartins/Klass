@@ -50,6 +50,7 @@
     margin-top: 10px;
     display: flex;
     align-items: flex-start;
+    cursor: pointer;
 }
 
 .dashboard-content .section h1 {
@@ -73,12 +74,17 @@
     height: 17rem;
     background: var(--color-background);
     border-radius: 2.5rem;
-    padding: 3rem 4rem; 
+    padding: 1rem 2rem; 
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
     margin: 1rem 0;
+}
+
+.dashboard-content .main canvas {
+    width: auto !important;
+    height: 85% !important;
 }
 
 @media(max-width: 850px) {

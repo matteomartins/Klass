@@ -18,19 +18,26 @@ class CourseController {
         name: courseName.name,
       };
 
-      await Course.create(courseData);
+      const course_data = await Course.create(courseData);
 
-      const course = await Database.select("id")
-        .from("courses")
-        .where({ school_id: school_id })
-        .orderBy("id", "desc");
-      const course_id = course[0].id;
+      const course_id = course_data.$attributes.id;
 
-      modules.modules.map((modules) => {
-        Module.create({ course_id, level: modules });
+      const modules_data = [];
+      
+      for (let module of modules.modules) {
+        const module_data = await Module.create({ course_id, level: module });
+        modules_data.push({
+          name: module_data.$attributes.level, 
+          id: module_data.$attributes.id
+        });
+      };
+
+      return response.status(200).send({ 
+        message: "Curso criado com sucesso", 
+        course_id, 
+        modules: modules_data
       });
 
-      return response.status(200).send({ message: "Curso criado com sucesso" });
     } catch (error) {
       return response
         .status(404)
@@ -56,7 +63,7 @@ class CourseController {
     }
   }
 
-  async show({ request }) {
+  async index({ request, response }) {
     try {
       const idCourse = request.params.id;
 
@@ -71,7 +78,7 @@ class CourseController {
     }
   }
 
-  async index({ request, response, auth }) {
+  async show({ request, response, auth }) {
     try {
       const idSchool = request.params.id_school;
       const oldModuleCourse = await Database.table("courses")

@@ -25,12 +25,14 @@ const tableData = [
 
 interface ScheduleProps {
     sideContainerSize ?: number;
+    to?: string;
 }
 
-const Schedule:React.FC<ScheduleProps> = ({sideContainerSize = 0}) => {
+const Schedule:React.FC<ScheduleProps> = ({sideContainerSize = 0, to = "/home"}) => {
     const [fitRows, setFitRows] = useState(7);
     const [maxRowQuantity, setMaxRowQuatity] = useState(7);
     const [minRowQuantity, setMinRowQuatity] = useState(0);
+    const [sendTo, setSendTo] = useState(to);
 
     React.useEffect(() => {
         function handleResize() {
@@ -46,8 +48,14 @@ const Schedule:React.FC<ScheduleProps> = ({sideContainerSize = 0}) => {
             setFitRows(maxQuantity);
         }
         handleResize();
-        window.addEventListener('resize', handleResize)
-    })
+        window.addEventListener('resize', handleResize);
+        if(to !== '/home') {
+            const search = window.location.search;
+            const params = new URLSearchParams(search);
+            const id = params.get('id');
+            setSendTo(sendTo+'?id='+id)
+        }
+    }, [])
 
     function handleBack() {
         if(minRowQuantity < fitRows) {
@@ -76,7 +84,7 @@ const Schedule:React.FC<ScheduleProps> = ({sideContainerSize = 0}) => {
 
     return (
         <div className="main-schedule">
-            <BackButton to="/home" />
+            <BackButton to={sendTo} />
             <div className="schedule-container">
                 <div className="select-container">
                     <div id="select1">

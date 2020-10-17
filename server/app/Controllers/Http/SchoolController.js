@@ -73,6 +73,7 @@ class SchoolController {
         .send({ message: "Erro ao exibir a escola", error: error.message });
     }
   }
+  
   async update({ request, response }) {
     try {
       const idSchool = request.params.id_school;

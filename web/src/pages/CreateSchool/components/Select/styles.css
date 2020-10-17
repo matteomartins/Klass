@@ -1,0 +1,34 @@
+
+.creation-input {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    margin-bottom: 1rem;
+}
+
+.creation-input select {
+    height: 4.2rem;
+    width: 100%;
+    border-radius: 2rem;
+    padding: 1rem;
+    border: none;
+    background: var(--color-background);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    -webkit-appearance: none;
+}
+
+.creation-input select::after {
+    background: var(--color-primary);
+}
+
+.creation-input select::after option {
+    height: 4.2rem;
+    width: 100%;
+    border-radius: 2rem;
+    padding: 1rem;
+    border: none;
+    background: var(--color-background);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    -webkit-appearance: none;
+}

@@ -28,20 +28,40 @@ Criando um turno com determinadas propriedades.
 rote: schools/1/turns
 json: {
 	"name": "Integral",
-	"start": "07:30",
-	"end": "15:30",
-	"class_duration": 50,
-	"intervals": [
+	"days": [
 		{
-			"start": "10:00",
-			"end": "10:20"
+			"start": "07:30",
+			"end": "15:30",
+			"class_duration": 50,
+			"intervals": [
+				{
+					"start": "10:00",
+					"end": "10:20"
+				},
+				{
+					"start": "12:00",
+					"end": "13:00"
+				}
+			],
+			"day": 1
 		},
 		{
-			"start": "12:00",
-			"end": "13:00"
-		}
-	],
-	"week_days": [1,2,3,4,5]
+			"start": "07:30",
+			"end": "15:30",
+			"class_duration": 50,
+			"intervals": [
+				{
+					"start": "10:00",
+					"end": "10:20"
+				},
+				{
+					"start": "12:00",
+					"end": "13:00"
+				}
+			],
+			"day": 2
+		},
+	]
 }
 ```
 

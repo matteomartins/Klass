@@ -118,7 +118,7 @@ class DashboardController {
       reports_number: reports,
     };
 
-    return response.status(302).send({ dashboard });
+    return response.status(200).send({ dashboard });
   }
 }
 

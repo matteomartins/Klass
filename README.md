@@ -15,7 +15,7 @@ O Klass é uma aplicação capaz de facilitar o trabalho de cordenadores, alunos
 
 - [Elmer Campos](https://github.com/ElmerCampos)
 - [Raphael Gabia](https://github.com/raphael-gabia)
-- Matteo Martins
+- [Matteo Martins](https://github.com/matteomartins)
 - [Vinicius Pereira](https://github.com/ViniciusFloriano)
 - [Vinicius Stephanto](https://github.com/stephanto-dev)
 - [Vitor Silva](https://github.com/VitorCavalcante9)

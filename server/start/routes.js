@@ -24,39 +24,23 @@ Route.get('/users', 'UserController.show');
 Route.post("/sessions", "SessionController.store");
 
 //Schools
-Route.post("/schools", "SchoolController.store")
-  .validator("School")
-  .middleware(["VerifyToken","VerifyPremiumAndSchool"]);
-Route.put("/schools", "SchoolController.update")
-  .validator("School")
-  .middleware(["VerifyToken","VerifyPremiumAndSchool"]);
-Route.resource("/schools", "SchoolController")
-  .except(["store", "update"])
-  .middleware(["VerifyToken, VerifyUserAndSchool"]);
+Route.post("/schools", "SchoolController.store").validator("School").middleware(["VerifyToken","VerifyPremiumAndSchool"]);
+Route.put("/schools", "SchoolController.update").validator("School").middleware(["VerifyToken","VerifyPremiumAndSchool"]);
+Route.resource("/schools", "SchoolController").except(["store", "update"]).middleware(["VerifyToken, VerifyUserAndSchool"]);
 
 //Courses
-Route.group(() => {
-
-
-
-  Route.resource("courses/", "CourseController")
-  .only(["store", "update"])
-  .validator("Course");
-  Route.resource("courses/", "CourseController")
-    .except(["store", "update"]);
-
-
-
-}).middleware(["VerifyToken, VerifyUserAndSchool"]).prefix("/schools/:id_school/");
+Route.post('/schools/:id_school/courses', 'CourseController.store').validator('Course').middleware(['VerifyUserAndSchool']);
+Route.delete('/schools/:id_school/courses/:id', 'CourseController.destroy').middleware(['VerifyUserAndSchool']);
+Route.get('/schools/:id_school/courses/:id', 'CourseController.index').middleware(['VerifyUserAndSchool']);
+Route.get('/schools/:id_school/courses', 'CourseController.show').middleware(['VerifyUserAndSchool']);
+Route.put('/schools/:id_school/courses/:id', 'CourseController.update').validator('Course').middleware(['VerifyUserAndSchool']);
 
 //Turns
-Route.group(() => {
-  Route.resource("/schools/:id_school/turns/", "TurnController")
-    .only(["store", "update"])
-    .validator("Turn");
-  Route.resource("/schools/:id_school/turns/", "TurnController")
-    .except(["store", "update"]);
-}).middleware(["VerifyUserAndSchool"]);
+Route.post('/schools/:id_school/turns', 'TurnController.store').validator('Turn').middleware(['VerifyUserAndSchool']);
+Route.delete('/schools/:id_school/turns/:id', 'TurnController.destroy').middleware(['VerifyUserAndSchool']);
+Route.get('/schools/:id_school/turns', 'TurnController.index').middleware(['VerifyUserAndSchool']);
+Route.get('/schools/:id_school/turns/:id', 'TurnController.show').middleware(['VerifyUserAndSchool']);
+Route.put('/schools/:id_school/turns/:id', 'TurnController.update').validator('Turn').middleware(['VerifyUserAndSchool']);
 
 //Groups
 Route.group(() => {
@@ -89,14 +73,8 @@ Route.group(() => {
 }).middleware(["VerifyToken"]);
 
 //Invite
-Route.group(() => {
-  Route.post("professors", "InviteController.createProfessor").validator(
-    "InviteProfessor"
-  );
-  Route.post("students", "InviteController.createGroup").validator(
-    "InviteStudent"
-  );
-}).prefix("/invites/");
+Route.post("/invites/professors", "InviteController.createProfessor").validator("InviteProfessor");
+Route.post("/invites/students", "InviteController.createGroup").validator("InviteStudent");
 
 //Home
 Route.get("/home", "HomeController.index");

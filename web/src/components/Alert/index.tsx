@@ -5,7 +5,6 @@ import './styles.css';
 import { AlertComponentPropsWithStyle } from 'react-alert';
 
 const Alert: React.FC<AlertComponentPropsWithStyle> = ({ message, options, style, close }) => {
-    console.log(options.type)
     return (
         <div className="alerts-container" style={{ ...style }}>
             <div className={`alert ${options.type}`}>

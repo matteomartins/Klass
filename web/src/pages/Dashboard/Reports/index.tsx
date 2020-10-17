@@ -22,7 +22,7 @@ const Reports: React.FC = () => {
           </li>
         </ul>
       </div>
-      <Schedule sideContainerSize={400} />
+      <Schedule sideContainerSize={400} to="/dashboard" />
     </div>
   );
 }

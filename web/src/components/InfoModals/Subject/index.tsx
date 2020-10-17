@@ -1,19 +1,32 @@
 import React, { useState, useEffect } from "react";
 import { CSSTransition } from "react-transition-group";
+import api from "../../../services/api";
+import { colors } from "../../../utils/colors";
 import ContentCard from "../../ContentCard";
 import InputOutline from "../../InputOutline";
 import "./styles.css";
 
-interface MenuProps {
+interface SubjectModalProps {
     active: boolean;
     setActive: Function;
+    subjectId?: number;
 }
 
-const Menu: React.FC<MenuProps> = ({ active, setActive }) => {
+const SubjectModal: React.FC<SubjectModalProps> = ({ active, setActive, subjectId }) => {
     const [delayedActive, setDelayedActive] = useState(false);
+    const emptySubject:any = {name: ''};
+    const [subject, setSubject] = useState(emptySubject);
 
     useEffect(() => {
         setTimeout(() => setDelayedActive(active), 300);
+        if(subjectId===0) return;
+        (async () => {
+            const search = window.location.search;
+            const params = new URLSearchParams(search);
+            const id = params.get('id');
+            const newSubject = await api.get(`/schools/${id}/subjects/${subjectId}`);
+            setSubject(newSubject.data.subject)
+        })()
     }, [active]);
 
     return (
@@ -31,9 +44,9 @@ const Menu: React.FC<MenuProps> = ({ active, setActive }) => {
                         <div className="subject-header">
                             <div className="card-content">
                                 <ContentCard
-                                    title="P"
-                                    text="PORTUGUÊS"
-                                    color="#0792A9"
+                                    title={subject.name.substr(0,3).toUpperCase()}
+                                    text={subject.name}
+                                    color={colors[12]}
                                 />
                             </div>
                             <div className="info-container">
@@ -69,4 +82,4 @@ const Menu: React.FC<MenuProps> = ({ active, setActive }) => {
     );
 };
 
-export default Menu;
+export default SubjectModal;
