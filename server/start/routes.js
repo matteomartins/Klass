@@ -83,3 +83,5 @@ Route.get("/home", "HomeController.index");
 Route.get("/schools/:id_school/dashboard", "DashboardController.index")
   .middleware(["VerifyUserAndSchool","VerifyToken"]);
 
+//Report
+Route.resource("/schools/:id_school/reports", "ReportController").middleware(['VerifyUserAndSchool']);
