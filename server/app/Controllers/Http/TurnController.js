@@ -23,14 +23,14 @@ class TurnController {
       const turn = await Turn.create({name, period, school_id,flg_sunday,flg_monday,flg_tuesday,flg_wednesday,flg_thursday,flg_friday,flg_saturday});
 
       //loop para criar os horários do turno
-      week_days.map((day) => {
+      for(const day of week_days){
         //array com todos os horários
         const days_of_week = Schedules(start, end, class_duration, intervals);
         //registrando no banco os horários
-        days_of_week.map(async ({ start, end }) => {
-          await turn.schedules().create({day, start, end});
-        })
-      })
+        for(const one_day of days_of_week){
+          await turn.schedules().create({day, start: one_day.start, end: one_day.end});
+        }
+      }
 
       return response.status(201).send({ id:turn.id, message: "Turno criado com sucesso" });
     }
@@ -74,7 +74,7 @@ class TurnController {
       });
 
       //registro desses novos horários
-      addedSchedules.map(async (value) => {
+      for(const value of addedSchedules){
         schedules.pop();
         try{
           await turn.schedules().create(value);
@@ -82,7 +82,7 @@ class TurnController {
         catch{
           return response.status(500).send({ message: "Erro inesperado"});
         }
-      });
+      }
 
       //atualização dos dados dos horários
       await Promise.all(schedules.map(async ({ day, start, end }, index) => {
