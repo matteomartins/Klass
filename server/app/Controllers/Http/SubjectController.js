@@ -15,7 +15,7 @@ class SubjectController {
       abbreviation: abbreviation,
     };
 
-    const { id } = await Subject.create(subject);
+   const { id } = await Subject.create(subject);
 
     modules.map(async ({ module_id, total_classes }) => {
       const setOfDisciplines = {
