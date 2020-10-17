@@ -25,12 +25,12 @@ class HomeController {
       .where("administrators.user_id", user_id);
 
     oldAllInnerJoin.map(({ name, id, school_id }) => {
-      const valores = {
+      const values = {
         id: id,
         name: name,
         school_id: school_id,
       };
-      allInnerJoin.push(valores);
+      allInnerJoin.push(values);
     });
 
     oldUserSchools.map(({ school_id, name }) => {
@@ -38,12 +38,13 @@ class HomeController {
         return school.school_id == school_id;
       });
 
-      const valores = {
+      const values = {
         school_id: school_id,
         name: name,
         groups: filtrado,
+        isAdm: true
       };
-      user_schools.push(valores);
+      user_schools.push(values);
     });
 
     return response.status(200).send({ home: user_schools });

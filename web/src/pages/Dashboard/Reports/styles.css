@@ -1,0 +1,29 @@
+.main-reports {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.main-reports .reports-bar {
+    width: 220px;
+    margin-right: 5px;
+    border: 1px solid white;
+    height: 70vh;
+    border-radius: 1.5rem;
+    padding: 2rem;
+}
+.main-reports .reports-bar ul {
+    list-style: none;
+}
+
+.main-reports .schedule-container {
+    margin-left: 20px;
+}
+
+@media(min-width: 1205px) {
+    .main-reports .main-schedule .schedule-buttons {
+        display: flex !important;
+    }
+    .main-reports .main-schedule .schedule-container .schedule-content {
+        margin-top: -2rem;
+    }
+}

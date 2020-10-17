@@ -43,7 +43,6 @@ export function create3Functions(
                     id: name,
                     title: name,
                 });
-                console.log(newTurns);
                 setTurns([...newTurns]);
             }
         },

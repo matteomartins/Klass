@@ -13,6 +13,11 @@
     border-radius: 50%;
 }
 
+.content-card-container img {
+    width: 13rem;
+    height: 13rem;
+}
+
 .content-card-container h1 {
     width: 13rem;
     height: 13rem;

@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import { Link, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 import iconLight from "../../assets/images/icon-light.svg";
@@ -9,14 +9,35 @@ import "./styles.css";
 import SocialMedias from "../../components/SocialMedias";
 import Input from "../../components/Input";
 import Checkbox from "../../components/Checkbox";
+import { useAlert } from "react-alert";
+import { Context } from "../../context/AuthContext";
+import api from "../../services/api";
 
 function Register() {
-    const { register, handleSubmit, watch, errors } = useForm();
-    const onSubmit = (data:any) => {
-        console.log(data);
-        console.log(errors);
-        console.log(watch);
+    const { handleLogin } = useContext(Context);
+    const { register, handleSubmit, errors } = useForm();
+    const alert = useAlert();
+    const history = useHistory();
+    
+    const onSubmit = async (data:any) => {
+        api.post('users', data).then((response)=>{
+            const { data: { token, name } } = response;
+            localStorage.setItem('token', JSON.stringify(token));
+            localStorage.setItem('username', JSON.stringify(name));
+            api.defaults.headers.Authorization = `Bearer ${token}`;
+            handleLogin()
+            history.push('/access');
+          }).catch(error => {
+            if(!error.response) alert.error("Impossível conectar ao servidor!");
+            else alert.error(error.response.data[0].message);
+          });
     };
+    
+    useEffect(()=> {
+        if(errors.name) alert.error("Insira um nome")
+        else if(errors.email) alert.error("Insira um email")
+        else if(errors.password) alert.error("Insira uma senha")
+    }, [errors, alert])
 
     return (
         <div className="scroll-view">
@@ -33,7 +54,7 @@ function Register() {
                             Entrar
                         </Link>
                         <a href="#register" id="register-link">
-                            Cadastre-se &nbsp; &#9662;{" "}
+                            Cadastre-se &nbsp; &#9662;
                         </a>
                     </div>
                     <form className="form-container" id="register" onSubmit={handleSubmit(onSubmit)}>
@@ -51,16 +72,15 @@ function Register() {
                             type="text"
                             Icon={KaUserOutline}
                             maxLength={35}
-                            ref={register({ required: true })}
+                            inputRef={register({ required: true })}
                         />
-                        {errors.exampleRequired && <span>This field is required</span>}
                         <Input
                             name="email"
                             label="Email"
                             type="email"
                             Icon={KaMail}
                             maxLength={50}
-                            ref={register}
+                            inputRef={register({ required: true })}
                         />
                         <Input
                             name="password"
@@ -68,7 +88,7 @@ function Register() {
                             type="password"
                             Icon={KaPassword}
                             maxLength={100}
-                            ref={register}
+                            inputRef={register({ required: true })}
                         />
                         <Checkbox label="Lembre de mim" name="rememberme" />
                         <input type="submit" value="Cadastre-se" className="btn btn-bg-dark" />

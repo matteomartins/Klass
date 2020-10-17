@@ -1,23 +1,48 @@
-.main-container{
+.main-dashboard {
+    height: 90%;
+    max-width: 900px;
+    width: 90%;
+}
+
+.main-dashboard .scroll-view {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.dashboard-content {
+    display: grid;
+    grid-template-areas: "side1 main side2";
+    height: 100%;
+    width: 100%;
+}
+
+.dashboard-content > div {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
-.main-dashboard{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+.dashboard-content .left {
+    grid-area: side1;
+}
+.dashboard-content .right {
+    grid-area: side2;
 }
 
-.section{
+.dashboard-content .center {
+    grid-area: main;
+}
+
+.dashboard-content .section {
     color: var(--color-text-secondary);;   
-    width: 190px;
-    height: 120px;
+    width: 19rem;
+    height: 12rem;
     background: var(--color-background);
     border-radius: 2.5rem;
-    padding: 3rem 4rem; 
+    padding: 1.5rem 2rem; 
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -25,28 +50,61 @@
     margin-top: 10px;
     display: flex;
     align-items: flex-start;
-}
-.section h1{
-    font-size: 10px;
-}
-.section p{
-    display: flex;
-    margin-left: 40px;
-    font-size: 30px;
+    cursor: pointer;
 }
 
-.main{
-    color: black;   
-    width: 350px;
-    height:170px;
+.dashboard-content .section h1 {
+    font-size: 1.3rem;
+}
+
+.dashboard-content .section p {
+    width: 100%;
+    height: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5rem;
+    font-weight: 200;
+}
+
+.dashboard-content .main {
+    color: var(--color-text-secondary);   
+    width: 35rem;
+    height: 17rem;
     background: var(--color-background);
     border-radius: 2.5rem;
-    padding: 3rem 4rem; 
+    padding: 1rem 2rem; 
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
-    margin-top: 10px;
-    margin-left: 100px;
-    margin-right:100px; 
+    margin: 1rem 0;
+}
+
+.dashboard-content .main canvas {
+    width: auto !important;
+    height: 85% !important;
+}
+
+@media(max-width: 850px) {
+    .dashboard-content {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+        "main main"
+        "side1 side2";
+        width: 90%;
+    }
+    .dashboard-content > div {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .dashboard-content .main {
+        width: 90%;
+    }
+    .dashboard-content .section {
+        width: 90%;
+    }
 }

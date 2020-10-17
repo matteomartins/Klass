@@ -9,13 +9,13 @@ class UserController {
   async store({ request, auth }) {
     const userData = request.all();
 
-    const { id } = await User.create(userData);
+    const { id, name } = await User.create(userData);
 
     let user = await User.find(id);
 
     const { token } = await auth.generate(user);
 
-    return { token };
+    return { token, name };
   }
 
   async update({ request, response, auth }) {

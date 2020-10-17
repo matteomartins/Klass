@@ -14,10 +14,11 @@ test('validate create user', async ({ assert, client }) => {
   const user = {
     "name": Chance.username(),
     "email": Chance.email(),
-    "password": Chance.string()
+    "password": Chance.string(),
+    "is_premium": 1
   };
 
-  const response = await client.post('/users').send(user).end();
+  const response = await client.post('/users').header('accept', 'application/json').send(user).end();
 
   response.assertStatus(200);
   assert.exists(response.body.token);
@@ -31,8 +32,7 @@ test('validate create user validator', async ({ assert, client }) => {
     "password": "123456"
   }
 
-  const response = await client.post('/users').send(user).end();
-
+  const response = await client.post('/users').header('accept', 'application/json').send(user).end();
   response.assertStatus(400);
   assert.equal(JSON.parse(response.text)[0].message, "Você deve inserir um email.");
 });
@@ -48,7 +48,6 @@ test('validate edit user', async ({ assert, client }) => {
   const user = await User.find(1);
 
   const response = await client.put('/users').loginVia(user, 'jwt').send(newUserData).end();
-
   response.assertStatus(204);
 });
 

@@ -4,12 +4,12 @@ import ContentCard from "../../ContentCard";
 import InputOutline from "../../InputOutline";
 import "./styles.css";
 
-interface MenuProps {
+interface TeacherProfileModalProps {
     active: boolean;
     setActive: Function;
 }
 
-const Menu: React.FC<MenuProps> = ({ active, setActive }) => {
+const TeacherProfileModal: React.FC<TeacherProfileModalProps> = ({ active, setActive }) => {
     const [delayedActive, setDelayedActive] = useState(false);
 
     useEffect(() => {
@@ -87,4 +87,4 @@ const Menu: React.FC<MenuProps> = ({ active, setActive }) => {
     );
 };
 
-export default Menu;
+export default TeacherProfileModal;

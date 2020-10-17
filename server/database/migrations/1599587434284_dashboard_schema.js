@@ -5,7 +5,7 @@ const Schema = use('Schema')
 
 class DashboardSchema extends Schema {
   up () {
-    this.raw(`CREATE  OR REPLACE VIEW dashboard AS
+    this.raw(`CREATE VIEW dashboard AS
       select t.school_id as school_id, count(t.id) as turns, (select count(id) from subjects where school_id = t.school_id) as subjects,
       (select count(id) from professors where school_id = t.school_id) as professors,
       (select count(group_id) from school_groups where school_id = t.school_id) as groups,
@@ -16,7 +16,7 @@ class DashboardSchema extends Schema {
   }
 
   down () {
-    this.drop('DROP VIEW IF EXISTS dashboard')
+    this.raw('DROP VIEW IF EXISTS dashboard')
   }
 }
 

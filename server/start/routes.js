@@ -17,37 +17,30 @@
 const Route = use("Route");
 
 //Users
-Route.resource("/users", "UserController").only(["show"]);
-Route.resource("/users", "UserController").except(["show"]).validator("User");
+Route.post('/users', 'UserController.store').validator('User');
+Route.put('/users', 'UserController.update').validator('User');
+Route.get('/users', 'UserController.show');
 
 Route.post("/sessions", "SessionController.store");
 
 //Schools
-Route.resource("/schools", "SchoolController")
-  .only(["store", "update"])
-  .validator("School")
-  .middleware(["VerifyToken","VerifyPremiumAndSchool"]);
-Route.resource("/schools", "SchoolController")
-  .except(["store", "update"])
-  .middleware(["VerifyToken, VerifyUserAndSchool"]);
+Route.post("/schools", "SchoolController.store").validator("School").middleware(["VerifyToken","VerifyPremiumAndSchool"]);
+Route.put("/schools", "SchoolController.update").validator("School").middleware(["VerifyToken","VerifyPremiumAndSchool"]);
+Route.resource("/schools", "SchoolController").except(["store", "update"]).middleware(["VerifyToken, VerifyUserAndSchool"]);
 
 //Courses
-Route.group(() => {
-  Route.resource("/schools/:id_school/courses/", "CourseController")
-  .only(["store", "update"])
-  .validator("Course");
-  Route.resource("/schools/:id_school/courses/", "CourseController")
-    .except(["store", "update"]);
-}).middleware(["VerifyToken, VerifyUserAndSchool"]);
+Route.post('/schools/:id_school/courses', 'CourseController.store').validator('Course').middleware(['VerifyUserAndSchool']);
+Route.delete('/schools/:id_school/courses/:id', 'CourseController.destroy').middleware(['VerifyUserAndSchool']);
+Route.get('/schools/:id_school/courses/:id', 'CourseController.index').middleware(['VerifyUserAndSchool']);
+Route.get('/schools/:id_school/courses', 'CourseController.show').middleware(['VerifyUserAndSchool']);
+Route.put('/schools/:id_school/courses/:id', 'CourseController.update').validator('Course').middleware(['VerifyUserAndSchool']);
 
 //Turns
-Route.group(() => {
-  Route.resource("/schools/:id_school/turns/", "TurnController")
-    .only(["store", "update"])
-    .validator("Turn");
-  Route.resource("/schools/:id_school/turns/", "TurnController")
-    .except(["store", "update"]);
-}).middleware(["VerifyToken, VerifyUserAndSchool"]);
+Route.post('/schools/:id_school/turns', 'TurnController.store').validator('Turn').middleware(['VerifyUserAndSchool']);
+Route.delete('/schools/:id_school/turns/:id', 'TurnController.destroy').middleware(['VerifyUserAndSchool']);
+Route.get('/schools/:id_school/turns', 'TurnController.index').middleware(['VerifyUserAndSchool']);
+Route.get('/schools/:id_school/turns/:id', 'TurnController.show').middleware(['VerifyUserAndSchool']);
+Route.put('/schools/:id_school/turns/:id', 'TurnController.update').validator('Turn').middleware(['VerifyUserAndSchool']);
 
 //Groups
 Route.group(() => {
@@ -69,27 +62,19 @@ Route.group(() => {
 
 //Professors
 Route.group(() => {
-  Route.group(() => {
-    Route.resource("/schools/:id_school/professors/", "ProfessorController")
-      .only(["store", "update"])
-      .validator("Professor");
-    Route.resource("/schools/:id_school/professors/", "ProfessorController")
-      .except(["store", "update"]);
-  }).middleware(["VerifyUserAndSchool"]);
+  Route.resource("/schools/:id_school/professors/", "ProfessorController")
+    .only(["store", "update"])
+    .validator("Professor").middleware(["VerifyUserAndSchool"]);
+  Route.resource("/schools/:id_school/professors/", "ProfessorController")
+    .except(["store", "update"]).middleware(["VerifyUserAndSchool"]);
   Route.put("/schools/:id_school/professors/user/:id_professor","ProfessorController.userUpdate")
     .validator("UserProfessor")
     .middleware(["VerifyUserAndProfessor"]);
 }).middleware(["VerifyToken"]);
 
 //Invite
-Route.group(() => {
-  Route.post("professors", "InviteController.createProfessor").validator(
-    "InviteProfessor"
-  );
-  Route.post("students", "InviteController.createGroup").validator(
-    "InviteStudent"
-  );
-}).prefix("/invites/");
+Route.post("/invites/professors", "InviteController.createProfessor").validator("InviteProfessor");
+Route.post("/invites/students", "InviteController.createGroup").validator("InviteStudent");
 
 //Home
 Route.get("/home", "HomeController.index");
