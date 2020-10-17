@@ -36,7 +36,7 @@ class SubjectController {
     const subject_id = request.params.id;
 
     const subjects = await Subject.query().where("id", subject_id).fetch();
-    const { name, abbreviation } = subjects.rows[0];
+    const { name, abbreviation,id } = subjects.rows[0];
     const setOfDisciplines = await SetOfDiscipline.query()
       .where({ subject_id })
       .fetch();
@@ -52,6 +52,7 @@ class SubjectController {
     });
 
     const subject = {
+      id:id,
       name: name,
       abbreviation: abbreviation,
       modules: modules,

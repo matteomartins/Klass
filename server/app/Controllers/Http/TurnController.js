@@ -119,15 +119,15 @@ class TurnController {
 
     try{
       //objetos da requisição
-      const {rows:[{$attributes:{name, period, flg_sunday, flg_monday, flg_tuesday, flg_wednesday, flg_thursday, flg_friday, flg_saturday}}]} = await Turn.query().where('id', turn_id).fetch();
+      const {rows:[{$attributes:{id,name, period, flg_sunday, flg_monday, flg_tuesday, flg_wednesday, flg_thursday, flg_friday, flg_saturday}}]} = await Turn.query().where('id', turn_id).fetch();
       //array dos dias da semana em numeros
       const week_days = WeekDaysInArray(flg_sunday, flg_monday, flg_tuesday, flg_wednesday, flg_thursday, flg_friday, flg_saturday);
       //seleção todos horários de um dia
       const schedules = await Schedule.query().where({ turn_id, day: week_days[0]}).fetch();
       //definir os intervalos, inicio e fim do dia e duração da aula
       const { intervals, d_start, d_end, class_duration } = Intervals(schedules.rows);
-
-      return response.status(200).send({name, period, start: d_start, end: d_end, class_duration, intervals, week_days});
+      
+      return response.status(200).send({id,name, period, start: d_start, end: d_end, class_duration, intervals, week_days});
     }
     catch{
       return response.status(404).send({message: "Turno não encontrado"})
@@ -148,7 +148,7 @@ class TurnController {
         //definir os intervalos, inicio e fim do dia e duração da aula
         const { intervals, d_start, d_end, class_duration } = Intervals(schedules.rows);
 
-        return {name, period, start: d_start, end: d_end, class_duration, intervals, week_days};
+        return {turn_id,name, period, start: d_start, end: d_end, class_duration, intervals, week_days};
       }))
 
       return response.status(200).send({turns});
