@@ -119,7 +119,7 @@ class ProfessorController {
 
   async update({ request, response }) {
     const professor_id = request.params.id;
-    const { name, email, subjects, priority } = request.all();
+    const { name, email, subjects, prority } = request.all();
 
     //mudar as matérias
     const oldSubjects = await SubjectProfessor.query()
@@ -150,7 +150,7 @@ class ProfessorController {
 
     await Professor.query()
       .where("id", professor_id)
-      .update({ name, email, priority });
+      .update({ name, email, prority });
 
     return response
       .status(200)

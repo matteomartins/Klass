@@ -42,6 +42,7 @@ const namedMiddleware = {
   VerifyUserAndSchool: "App/Middleware/VerifyUserAndSchool",
   VerifyUserAndProfessor: "App/Middleware/VerifyUserAndProfessor",
   VerifyToken: "App/Middleware/VerifyToken",
+  VerifyModuleSchool: "App/Middleware/VerifyModuleSchool"
 };
 
 /*

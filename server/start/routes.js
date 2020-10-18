@@ -52,10 +52,17 @@ Route.group(() => {
 }).middleware(["VerifyToken, VerifyUserAndSchool"]);
 
 //Subjects
+// Route.post('/schools/:id_school/subjects', 'SubjectController.store').validator('Subject').middleware(["VerifyToken, VerifyUserAndSchool","VerifyModuleSchool"]);
+// Route.delete('/schools/:id_school/subjects/:id', 'SubjectController.destroy').middleware(['VerifyUserAndSchool', 'VerifyToken']);
+// Route.get('/schools/:id_school/subjects', 'SubjectController.index').middleware(['VerifyUserAndSchool', 'VerifyToken']);
+// Route.get('/schools/:id_school/subjects/:id', 'SubjectController.show').middleware(['VerifyUserAndSchool', 'VerifyToken']);
+// Route.put('/schools/:id_school/subjects/:id', 'SubjectController.update').validator('Subject').middleware(["VerifyToken, VerifyUserAndSchool","VerifyModuleSchool"]);
+
 Route.group(() => {
   Route.resource("/schools/:id_school/subjects", "SubjectController")
     .only(["store", "update"])
-    .validator("Subject");
+    .validator("Subject")
+    .middleware(['VerifyModuleSchool'])
   Route.resource("/schools/:id_school/subjects", "SubjectController")
     .except(["store", "update"]);
 }).middleware(["VerifyToken, VerifyUserAndSchool"]);
@@ -83,3 +90,5 @@ Route.get("/home", "HomeController.index");
 Route.get("/schools/:id_school/dashboard", "DashboardController.index")
   .middleware(["VerifyUserAndSchool","VerifyToken"]);
 
+//Report
+Route.resource("/schools/:id_school/reports", "ReportController").middleware(['VerifyUserAndSchool']);
