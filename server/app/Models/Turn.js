@@ -11,6 +11,10 @@ class Turn extends Model {
   school(){
     return this.belongsTo('App/Models/School');
   }
+
+  groups(){
+    return this.hasMany('App/Models/Group');
+  }
 }
 
 module.exports = Turn;

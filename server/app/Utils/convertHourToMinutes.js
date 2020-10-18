@@ -1,5 +1,5 @@
 module.exports ={
-  convertHourToMinutes: function convertHourToMinutes(time){
+  convertHourToMinutes: (time) => {
     try{
       const [hour, minutes] = time.split(':').map(Number);
       const timeInMinutes = (hour * 60) + minutes;

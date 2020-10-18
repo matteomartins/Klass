@@ -14,6 +14,14 @@ class Schedule extends Model {
   turn(){
     return this.belongsTo('App/Models/Turn');
   }
+
+  classes(){
+    return this.belongsTo('App/Models/Class').pivotTable('class_schedules');
+  }
+
+  class_schedule(){
+    return this.hasMany('App/Models/ClassSchedule');
+  }
 }
 
 module.exports = Schedule;

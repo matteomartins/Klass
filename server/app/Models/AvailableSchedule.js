@@ -16,6 +16,10 @@ class AvailableSchedule extends Model {
   static get updatedAtColumn() {
       return null;
   }
+
+  days(){
+    return this.belongsTo('App/Models/AvailableDay')
+  }
 }
 
 module.exports = AvailableSchedule

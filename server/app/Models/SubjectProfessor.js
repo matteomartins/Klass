@@ -16,6 +16,14 @@ class SubjectProfessor extends Model {
   static get updatedAtColumn() {
       return null;
   }
+
+  subjects(){
+    return this.hasMany('App/Models/Subject')
+  }
+
+  professors(){
+    return this.hasMany('App/Models/Professor')
+  }
 }
 
 module.exports = SubjectProfessor
